@@ -1,0 +1,872 @@
+<?php
+/**
+ * Template Name: Für wen
+ *
+ * @package FechPuls
+ */
+
+get_header();
+?>
+
+<style>
+  /* ══════════════════════════════
+     ANIMATIONS
+  ══════════════════════════════ */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate  { animation: fadeUp .7s ease both; }
+  .delay-1  { animation-delay: .1s; }
+  .delay-2  { animation-delay: .25s; }
+  .delay-3  { animation-delay: .4s; }
+  .delay-4  { animation-delay: .55s; }
+  .delay-5  { animation-delay: .7s; }
+
+  /* ══════════════════════════════
+     HERO
+  ══════════════════════════════ */
+  .fuerwen-hero {
+    padding-top: 62px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 82vh;
+  }
+
+  .fuerwen-hero-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 60px;
+    background: var(--warm-white);
+  }
+
+  .fuerwen-hero-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .fuerwen-hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .fuerwen-hero-left h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4.5vw, 68px);
+    font-weight: 300;
+    line-height: 1.08;
+    color: var(--dark);
+    letter-spacing: -.01em;
+    margin-bottom: 28px;
+  }
+
+  .fuerwen-hero-left h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .fuerwen-hero-sub {
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--text-muted);
+    max-width: 460px;
+    font-weight: 300;
+    margin-bottom: 44px;
+  }
+
+  .fuerwen-hero-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .fuerwen-pill {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid var(--border);
+    padding: 9px 16px;
+    border-radius: 2px;
+    font-size: 12px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    background: white;
+    transition: border-color .2s, color .2s;
+  }
+
+  .fuerwen-pill-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  /* Hero right — visual */
+  .fuerwen-hero-right {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0a2540 0%, #0d3a6e 50%, #0496ff 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 52px 48px;
+  }
+
+  .fuerwen-hero-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 24px, rgba(4,150,255,.05) 24px, rgba(4,150,255,.05) 25px);
+  }
+
+  .fuerwen-hero-bg-text {
+    position: absolute;
+    top: 40px;
+    right: -10px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(80px, 12vw, 160px);
+    font-weight: 300;
+    color: rgba(255,255,255,.05);
+    line-height: 1;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  .fuerwen-hero-list {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 36px;
+  }
+
+  .fuerwen-hero-list-item {
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(144,202,249,.15);
+    padding: 18px 20px;
+    transition: background .2s;
+  }
+
+  .fuerwen-hero-list-item:hover {
+    background: rgba(255,255,255,.08);
+  }
+
+  .fuerwen-hero-list-item-label {
+    font-size: 10px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    margin-bottom: 8px;
+  }
+
+  .fuerwen-hero-list-item p {
+    font-size: 13px;
+    color: rgba(227,242,253,.6);
+    line-height: 1.5;
+    font-weight: 300;
+  }
+
+  .fuerwen-hero-note {
+    position: relative;
+    z-index: 2;
+    font-size: 13px;
+    color: rgba(227,242,253,.4);
+    line-height: 1.65;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,.08);
+    font-style: italic;
+  }
+
+  /* ══════════════════════════════
+     TRUST BAR
+  ══════════════════════════════ */
+  .trust-bar {
+    background: var(--dark);
+    padding: 18px 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .trust-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--accent-light);
+    font-size: 12px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  .trust-sep {
+    width: 1px;
+    height: 20px;
+    background: rgba(255,255,255,.12);
+  }
+
+  /* ══════════════════════════════
+     CONTRAINDICATIONS GRID
+  ══════════════════════════════ */
+  .fuerwen-contra {
+    padding: 100px 60px;
+    background: var(--warm-white);
+  }
+
+  .fuerwen-contra-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: end;
+    margin-bottom: 64px;
+  }
+
+  .section-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px;
+    height: 1px;
+    background: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 300;
+    line-height: 1.12;
+    color: var(--dark);
+  }
+
+  .section-title em {
+    font-style: italic;
+    color: var(--brown-mid);
+  }
+
+  .fuerwen-contra-desc {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--text-muted);
+    font-weight: 300;
+    align-self: end;
+  }
+
+  .fuerwen-contra-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .fuerwen-contra-card {
+    background: white;
+    padding: 40px 36px;
+    position: relative;
+    overflow: hidden;
+    transition: background .25s;
+  }
+
+  .fuerwen-contra-card:hover { background: #fff8f8; }
+
+  .fuerwen-contra-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px;
+    font-weight: 300;
+    line-height: 1;
+    color: rgba(214,64,69,.1);
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    pointer-events: none;
+    transition: color .25s;
+  }
+
+  .fuerwen-contra-card:hover .fuerwen-contra-num { color: rgba(214,64,69,.18); }
+
+  .fuerwen-contra-icon {
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(214,64,69,.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    margin-bottom: 24px;
+    color: var(--red);
+    transition: background .25s, border-color .25s;
+  }
+
+  .fuerwen-contra-card:hover .fuerwen-contra-icon {
+    background: var(--red-light);
+    border-color: var(--red);
+  }
+
+  .fuerwen-contra-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 21px;
+    font-weight: 400;
+    color: var(--dark);
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+
+  .fuerwen-contra-text {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text-muted);
+    font-weight: 300;
+  }
+
+  .fuerwen-contra-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--red);
+    transition: width .35s ease;
+  }
+
+  .fuerwen-contra-card:hover .fuerwen-contra-bar { width: 100%; }
+
+  /* ══════════════════════════════
+     ALTERNATIVE
+  ══════════════════════════════ */
+  .fuerwen-alternative {
+    background: var(--cream);
+    padding: 100px 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .fuerwen-alternative-left .section-title { margin-bottom: 28px; }
+
+  .fuerwen-alternative-left p {
+    font-size: 16px;
+    line-height: 1.85;
+    color: var(--text-muted);
+    font-weight: 300;
+    margin-bottom: 18px;
+  }
+
+  .fuerwen-alternative-left p strong {
+    color: var(--text-body);
+    font-weight: 500;
+  }
+
+  .fuerwen-alt-card {
+    background: var(--dark);
+    border: 1px solid rgba(4,150,255,.15);
+    padding: 48px 44px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .fuerwen-alt-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  }
+
+  .fuerwen-alt-label {
+    font-size: 10px;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .fuerwen-alt-label::before {
+    content: '';
+    width: 16px;
+    height: 1px;
+    background: var(--accent-light);
+  }
+
+  .fuerwen-alt-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.2;
+    margin-bottom: 28px;
+  }
+
+  .fuerwen-alt-title em {
+    font-style: italic;
+    color: var(--accent-light);
+  }
+
+  .fuerwen-alt-benefits {
+    list-style: none;
+    margin-bottom: 36px;
+  }
+
+  .fuerwen-alt-benefits li {
+    font-size: 14px;
+    color: rgba(227,242,253,.65);
+    padding: 11px 0;
+    border-bottom: 1px solid rgba(255,255,255,.06);
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-weight: 300;
+    line-height: 1.5;
+  }
+
+  .fuerwen-alt-benefits li:last-child { border-bottom: none; }
+
+  .fuerwen-alt-benefits li::before {
+    content: '✦';
+    color: var(--accent-light);
+    font-size: 9px;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  .fuerwen-alt-cta {
+    display: block;
+    width: 100%;
+    text-align: center;
+    background: var(--accent);
+    color: white;
+    padding: 16px;
+    font-size: 13px;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background .2s, transform .15s;
+  }
+
+  .fuerwen-alt-cta:hover {
+    background: #0380d8;
+    transform: translateY(-1px);
+  }
+
+  /* ══════════════════════════════
+     DARK CALLOUT
+  ══════════════════════════════ */
+  .fuerwen-callout {
+    background: var(--dark);
+    padding: 100px 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .fuerwen-callout::before {
+    content: 'Fragen?';
+    position: absolute;
+    bottom: -20px; right: -10px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(80px, 12vw, 200px);
+    font-weight: 300;
+    color: rgba(4,150,255,.05);
+    line-height: 1;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  .fuerwen-callout-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .fuerwen-callout-eyebrow::before {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--accent-light);
+  }
+
+  .fuerwen-callout-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 300;
+    color: var(--cream);
+    line-height: 1.1;
+    margin-bottom: 28px;
+  }
+
+  .fuerwen-callout-title em {
+    font-style: italic;
+    color: var(--accent-light);
+  }
+
+  .fuerwen-callout-text {
+    font-size: 16px;
+    line-height: 1.85;
+    color: rgba(227,242,253,.55);
+    font-weight: 300;
+  }
+
+  .fuerwen-callout-right {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .fuerwen-contact-item {
+    border: 1px solid rgba(144,202,249,.15);
+    padding: 28px 32px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: rgba(255,255,255,.03);
+    transition: border-color .2s, background .2s;
+    text-decoration: none;
+  }
+
+  .fuerwen-contact-item:hover {
+    border-color: rgba(144,202,249,.4);
+    background: rgba(4,150,255,.06);
+  }
+
+  .fuerwen-contact-icon {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    border: 1px solid rgba(144,202,249,.25);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: var(--accent-light);
+  }
+
+  .fuerwen-contact-label {
+    font-size: 10px;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: rgba(227,242,253,.35);
+    margin-bottom: 4px;
+  }
+
+  .fuerwen-contact-value {
+    font-size: 16px;
+    color: var(--cream);
+    font-weight: 300;
+    line-height: 1.3;
+  }
+
+  .fuerwen-contact-note {
+    font-size: 13px;
+    color: rgba(227,242,253,.35);
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255,255,255,.06);
+    line-height: 1.65;
+    font-style: italic;
+    text-align: center;
+  }
+
+  /* ══════════════════════════════
+     RESPONSIVE
+  ══════════════════════════════ */
+  @media (max-width: 1024px) {
+    .fuerwen-hero { grid-template-columns: 1fr; min-height: auto; }
+    .fuerwen-hero-left { padding: 64px 40px 48px; }
+    .fuerwen-hero-right { min-height: 360px; padding: 36px 32px; }
+    .fuerwen-hero-list { grid-template-columns: 1fr 1fr; }
+    .fuerwen-contra { padding: 72px 40px; }
+    .fuerwen-contra-header { grid-template-columns: 1fr; }
+    .fuerwen-contra-grid { grid-template-columns: 1fr 1fr; }
+    .fuerwen-alternative { grid-template-columns: 1fr; gap: 48px; padding: 72px 40px; }
+    .fuerwen-callout { grid-template-columns: 1fr; gap: 48px; padding: 72px 40px; }
+    .trust-bar { padding: 14px 40px; }
+  }
+
+  @media (max-width: 768px) {
+    .fuerwen-hero-left { padding: 52px 24px 40px; }
+    .fuerwen-hero-right { min-height: 300px; padding: 28px 24px; }
+    .fuerwen-hero-list { grid-template-columns: 1fr; gap: 8px; }
+    .fuerwen-contra { padding: 64px 24px; }
+    .fuerwen-contra-grid { grid-template-columns: 1fr; }
+    .fuerwen-alternative { padding: 64px 24px; }
+    .fuerwen-alt-card { padding: 36px 28px; }
+    .fuerwen-callout { padding: 64px 24px; }
+    .trust-bar {
+      padding: 14px 20px;
+      overflow-x: auto;
+      flex-wrap: nowrap;
+      justify-content: flex-start;
+      gap: 16px;
+    }
+    .trust-sep { display: none; }
+  }
+
+  @media (max-width: 480px) {
+    .fuerwen-hero-left h1 { font-size: 34px; }
+    .section-title { font-size: 28px; }
+  }
+</style>
+
+<!-- HERO -->
+<section class="fuerwen-hero">
+  <div class="fuerwen-hero-left">
+    <p class="fuerwen-hero-eyebrow animate">Wichtige Hinweise · Fech Puls</p>
+    <h1 class="animate delay-1">
+      Für wen ist die<br>
+      Tiefengewebe&shy;behandlung<br>
+      <em>nicht geeignet?</em>
+    </h1>
+    <p class="fuerwen-hero-sub animate delay-2">
+      Die Tiefengewebsarbeit ist eine kraftvolle, manuelle Methode zur gezielten Lösung von Spannungen, Verklebungen
+      und Blockaden. Doch sie ist nicht für jede Person sinnvoll oder empfehlenswert.
+    </p>
+    <div class="fuerwen-hero-pills animate delay-3">
+      <div class="fuerwen-pill"><span class="fuerwen-pill-dot"></span> 8 Kontraindikationen</div>
+      <div class="fuerwen-pill"><span class="fuerwen-pill-dot"></span> Ehrliche Beratung</div>
+      <div class="fuerwen-pill"><span class="fuerwen-pill-dot"></span> Alternative vorhanden</div>
+    </div>
+  </div>
+
+  <div class="fuerwen-hero-right">
+    <div class="fuerwen-hero-pattern"></div>
+    <div class="fuerwen-hero-bg-text">Sicherheit</div>
+    <div class="fuerwen-hero-list animate delay-2">
+      <div class="fuerwen-hero-list-item">
+        <div class="fuerwen-hero-list-item-label">Geeignet für</div>
+        <p>Muskuläre Verspannungen, Triggerpunkte, Bewegungseinschränkungen, chronische Schmerzen</p>
+      </div>
+      <div class="fuerwen-hero-list-item">
+        <div class="fuerwen-hero-list-item-label">Nicht geeignet bei</div>
+        <p>Krebserkrankungen, akuten Entzündungen, Gerinnungsstörungen, frischen OPs</p>
+      </div>
+      <div class="fuerwen-hero-list-item">
+        <div class="fuerwen-hero-list-item-label">Alternative</div>
+        <p>Sanfte Wellnessmassage bei Kontraindikationen — beruhigend, ohne Tiefenreiz</p>
+      </div>
+      <div class="fuerwen-hero-list-item">
+        <div class="fuerwen-hero-list-item-label">Im Zweifel</div>
+        <p>Einfach ansprechen — gemeinsam finden wir die passende Behandlung</p>
+      </div>
+    </div>
+    <p class="fuerwen-hero-note animate delay-3">
+      Unsicher ob die Behandlung für Sie geeignet ist? Sprechen Sie mich vor dem Termin offen an.
+    </p>
+  </div>
+</section>
+
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item"><span>✦</span> Ehrliche Aufklärung</div>
+  <div class="trust-sep"></div>
+  <div class="trust-item"><span>✦</span> Keine Behandlung auf Teufel komm raus</div>
+  <div class="trust-sep"></div>
+  <div class="trust-item"><span>✦</span> Alternative Behandlung verfügbar</div>
+  <div class="trust-sep"></div>
+  <div class="trust-item"><span>✦</span> Individuelle Beratung</div>
+</div>
+
+
+<!-- KONTRAINDIKATIONEN -->
+<section class="fuerwen-contra">
+  <div class="fuerwen-contra-header">
+    <div>
+      <p class="section-eyebrow animate">Kontraindikationen</p>
+      <h2 class="section-title animate delay-1" style="color:var(--dark)">
+        Keine Tiefengewebe&shy;behandlung <em style="color:#d64045">bei diesen Fällen</em>
+      </h2>
+    </div>
+    <p class="fuerwen-contra-desc animate delay-2">
+      Die folgende Liste gibt Ihnen einen klaren Überblick — bei welchen Beschwerden und Zuständen von einer
+      Tiefengewebsbehandlung abgeraten wird, und warum.
+    </p>
+  </div>
+
+  <?php
+  $contraindications = [
+    [
+      'num'   => '01',
+      'title' => 'Krebserkrankungen',
+      'text'  => 'Bei bestehenden oder kürzlich behandelten Krebserkrankungen ist von intensiver manueller Arbeit abzuraten. Eine sanfte Wellnessmassage kann zur Entspannung sinnvoller sein — nicht zur Tieflockerung.',
+      'delay' => 'delay-1',
+    ],
+    [
+      'num'   => '02',
+      'title' => 'Akute Entzündungen oder Fieber',
+      'text'  => 'Bei grippalen Infekten, Entzündungen oder erhöhter Temperatur sollte der Körper nicht zusätzlich belastet werden. Der Körper braucht in diesem Zustand Ruhe, keine intensive Reize.',
+      'delay' => 'delay-2',
+    ],
+    [
+      'num'   => '03',
+      'title' => 'Nierenerkrankungen oder Organleiden',
+      'text'  => 'Bei Problemen mit inneren Organen — besonders Niere, Leber oder Herz — sollte keine tiefe Druckarbeit erfolgen. Bitte im Zweifel vorher ärztlich abklären.',
+      'delay' => 'delay-3',
+    ],
+    [
+      'num'   => '04',
+      'title' => 'Blutgerinnungsstörungen / Blutverdünner',
+      'text'  => 'Menschen mit eingeschränkter Blutgerinnung (z. B. Marcumar) haben ein erhöhtes Risiko für innere Blutungen bei intensiver Druckarbeit. Hier ist eine sanfte Berührung deutlich sicherer.',
+      'delay' => 'delay-1',
+    ],
+    [
+      'num'   => '05',
+      'title' => 'Frische Operationen oder Verletzungen',
+      'text'  => 'Direkt nach OPs oder bei noch nicht vollständig verheilten Narben und Wunden sollte nicht tief in das Gewebe gearbeitet werden. Warten bis zur vollständigen Heilung ist wichtig.',
+      'delay' => 'delay-2',
+    ],
+    [
+      'num'   => '06',
+      'title' => 'Instabile psychische Zustände',
+      'text'  => 'Bei akuten psychischen Krisen oder sehr sensibler Verfassung kann tiefe Körperarbeit emotional überfordernd wirken. Auch hier ist eine beruhigende, oberflächliche Massage oft die bessere Wahl.',
+      'delay' => 'delay-3',
+    ],
+    [
+      'num'   => '07',
+      'title' => 'Rheuma',
+      'text'  => 'Bei rheumatischen Erkrankungen sollte in akuten Schubphasen auf intensive Tiefengewebebehandlung verzichtet werden. Starker Druck auf entzündete Gelenke oder gereizte Strukturen kann die Beschwerden verschlimmern — eine sanfte Behandlung ist hier die sicherere Wahl.',
+      'delay' => 'delay-1',
+    ],
+  ];
+  ?>
+
+  <div class="fuerwen-contra-grid">
+    <?php foreach ( $contraindications as $item ) : ?>
+      <div class="fuerwen-contra-card animate <?php echo esc_attr( $item['delay'] ); ?>">
+        <span class="fuerwen-contra-num"><?php echo esc_html( $item['num'] ); ?></span>
+        <div class="fuerwen-contra-icon">✕</div>
+        <h3 class="fuerwen-contra-title"><?php echo esc_html( $item['title'] ); ?></h3>
+        <p class="fuerwen-contra-text"><?php echo esc_html( $item['text'] ); ?></p>
+        <span class="fuerwen-contra-bar"></span>
+      </div>
+    <?php endforeach; ?>
+  </div>
+</section>
+
+
+<!-- ALTERNATIVE -->
+<section class="fuerwen-alternative">
+  <div class="fuerwen-alternative-left">
+    <p class="section-eyebrow animate">Die Alternative</p>
+    <h2 class="section-title animate delay-1">
+      Was ist sinnvoller<br>in diesen <em>Fällen?</em>
+    </h2>
+    <p class="animate delay-2">
+      In allen oben genannten Situationen ist eine <strong>sanfte, entspannende Wellnessmassage</strong> oft die
+      deutlich hilfreicher und sicherere Wahl.
+    </p>
+    <p class="animate delay-2">
+      Sie wirkt beruhigend auf das Nervensystem und unterstützt den Energiefluss — ohne die Tiefe des Gewebes zu
+      reizen oder den Körper zusätzlich zu belasten.
+    </p>
+    <p class="animate delay-3">
+      Wenn Sie sich unsicher sind, sprechen Sie mich gerne offen an. <strong>Gemeinsam finden wir die passende
+      Behandlung für Ihren Körper.</strong>
+    </p>
+  </div>
+
+  <div class="animate delay-2">
+    <div class="fuerwen-alt-card">
+      <div class="fuerwen-alt-label">Sanfte Alternative</div>
+      <h3 class="fuerwen-alt-title">
+        Entspannende<br><em>Wellnessmassage</em>
+      </h3>
+      <ul class="fuerwen-alt-benefits">
+        <li>Beruhigende Wirkung auf das Nervensystem</li>
+        <li>Unterstützung des natürlichen Energieflusses</li>
+        <li>Kein intensiver Tiefenreiz — sanft und schonend</li>
+        <li>Geeignet bei den meisten Kontraindikationen</li>
+        <li>Fördert Entspannung und Wohlbefinden</li>
+        <li>Individuelle Abstimmung auf Ihren Zustand</li>
+      </ul>
+      <a href="https://book.timify.com/?accountId=652fe85cbd51d3ad47200466&hideCloseButton=true"
+         class="fuerwen-alt-cta">Termin anfragen</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- CALLOUT — KONTAKT -->
+<section class="fuerwen-callout">
+  <div class="fuerwen-callout-left">
+    <p class="fuerwen-callout-eyebrow animate">Nicht sicher?</p>
+    <h2 class="fuerwen-callout-title animate delay-1">
+      Sprechen Sie mich<br>einfach <em>offen an</em>
+    </h2>
+    <p class="fuerwen-callout-text animate delay-2">
+      Wenn Sie sich unsicher sind, ob eine Tiefengewebsbehandlung für Sie geeignet ist, melden Sie sich gerne vorab.
+      Gemeinsam klären wir, welche Behandlung am besten zu Ihrer Situation passt — ohne Druck, ohne Verpflichtung.
+    </p>
+  </div>
+
+  <div class="fuerwen-callout-right animate delay-2">
+    <a href="tel:+4974249606099" class="fuerwen-contact-item">
+      <div class="fuerwen-contact-icon">☎</div>
+      <div>
+        <div class="fuerwen-contact-label">Telefon</div>
+        <div class="fuerwen-contact-value">07424 960 609 9</div>
+      </div>
+    </a>
+    <a href="mailto:mein-therapeut@web.de" class="fuerwen-contact-item">
+      <div class="fuerwen-contact-icon">✉</div>
+      <div>
+        <div class="fuerwen-contact-label">E-Mail</div>
+        <div class="fuerwen-contact-value">mein-therapeut@web.de</div>
+      </div>
+    </a>
+    <a href="https://book.timify.com/?accountId=652fe85cbd51d3ad47200466&hideCloseButton=true"
+       class="fuerwen-contact-item">
+      <div class="fuerwen-contact-icon">◈</div>
+      <div>
+        <div class="fuerwen-contact-label">Online</div>
+        <div class="fuerwen-contact-value">Termin buchen</div>
+      </div>
+    </a>
+    <p class="fuerwen-contact-note">Mo &amp; Di 8–11 · 15–18 Uhr &nbsp;·&nbsp; Mi 9–13 Uhr &nbsp;·&nbsp; Do 15–19 Uhr &nbsp;·&nbsp; Fr 9–13 Uhr</p>
+  </div>
+</section>
+
+<?php get_footer(); ?>

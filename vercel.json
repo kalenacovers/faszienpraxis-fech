@@ -1,0 +1,23 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/kurs", "destination": "/kurs-page" },
+    { "source": "/ueber-mich", "destination": "/ueber-mich" },
+    { "source": "/fuer-wen", "destination": "/fuer-wen" },
+    { "source": "/gutschein", "destination": "/gutschein" },
+    { "source": "/zertifikate", "destination": "/zertifikate" },
+    { "source": "/impressum", "destination": "/impressum" },
+    { "source": "/datenschutz", "destination": "/datenschutz" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    }
+  ]
+}

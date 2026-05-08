@@ -230,8 +230,8 @@
       }
     }
 
-    /* ── NAV ── */
-    nav {
+    /* ── NAV (transparent, durchgehend) ── */
+    body > nav {
       position: fixed;
       top: 0;
       left: 0;
@@ -240,10 +240,34 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 18px 60px;
-      background: rgba(245, 250, 255, 0.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
+      padding: 22px 60px;
+      background: transparent;
+      transition: padding .25s ease, background .25s ease;
+    }
+
+    /* dezenter Lesbarkeits-Verlauf von oben nach transparent
+       — verhindert Weiß-auf-Weiß ohne den Header sichtbar einzufärben */
+    body > nav::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(10, 37, 64, .55) 0%, rgba(10, 37, 64, .15) 70%, rgba(10, 37, 64, 0) 100%);
+      z-index: -1;
+      transition: opacity .3s ease;
+    }
+
+    /* nach Scroll: Verlauf sanft ausblenden, Glas-Schimmer rein */
+    body > nav.is-scrolled {
+      padding: 14px 60px;
+      background: rgba(10, 37, 64, .42);
+      backdrop-filter: blur(18px) saturate(140%);
+      -webkit-backdrop-filter: blur(18px) saturate(140%);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, .06), 0 8px 30px rgba(10, 37, 64, .18);
+    }
+
+    body > nav.is-scrolled::before {
+      opacity: 0;
     }
 
     .nav-logo {
@@ -252,47 +276,74 @@
       flex-shrink: 0;
       text-decoration: none;
       line-height: 0;
+      position: relative;
+      z-index: 1;
     }
 
     .nav-logo svg,
     .nav-logo img {
       display: block;
+      filter: brightness(0) invert(1);
     }
 
     .nav-links {
       display: flex;
-      gap: 32px;
+      gap: 36px;
       list-style: none;
       align-items: center;
+      position: relative;
+      z-index: 1;
     }
 
     .nav-links a {
       font-size: 13px;
       font-weight: 400;
-      letter-spacing: .08em;
+      letter-spacing: .12em;
       text-transform: uppercase;
       text-decoration: none;
-      color: var(--text-muted);
-      transition: color .2s;
+      color: rgba(255, 255, 255, .9);
+      position: relative;
+      transition: color .2s ease;
     }
 
-    .nav-links a:hover {
-      color: var(--dark);
+    /* feiner Underline-Hover */
+    .nav-links a:not(.nav-cta)::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: -6px;
+      height: 1px;
+      background: rgba(255, 255, 255, .85);
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform .25s ease;
+    }
+
+    .nav-links a:not(.nav-cta):hover {
+      color: #ffffff;
+    }
+
+    .nav-links a:not(.nav-cta):hover::after {
+      transform: scaleX(1);
     }
 
     .nav-cta {
-      background: var(--dark);
-      color: var(--cream) !important;
-      padding: 10px 22px;
+      color: #ffffff !important;
+      padding: 9px 22px;
+      border: 1px solid rgba(255, 255, 255, .55);
       border-radius: 2px;
       font-size: 12px !important;
-      letter-spacing: .12em !important;
+      letter-spacing: .14em !important;
       text-transform: uppercase !important;
-      transition: background .2s !important;
+      background: transparent;
+      transition: background .2s ease, border-color .2s ease, color .2s ease !important;
     }
 
     .nav-cta:hover {
-      background: var(--accent) !important;
+      background: #ffffff;
+      color: var(--dark) !important;
+      border-color: #ffffff;
     }
 
     /* Hamburger */
@@ -304,14 +355,16 @@
       padding: 4px;
       background: none;
       border: none;
+      position: relative;
+      z-index: 1;
     }
 
     .nav-hamburger span {
       display: block;
       width: 24px;
       height: 2px;
-      background: var(--dark);
-      transition: all .3s;
+      background: #ffffff;
+      transition: transform .3s ease, opacity .3s ease;
     }
 
     .nav-hamburger.open span:nth-child(1) {
@@ -404,7 +457,7 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center;
+      object-position: center 70%;
     }
 
     .hero-overlay {
@@ -2845,7 +2898,7 @@
 
     /* Tablet ≤ 1024px */
     @media (max-width: 1024px) {
-      nav {
+      body > nav {
         padding: 16px 32px;
       }
 
@@ -2923,7 +2976,7 @@
 
     /* Mobile ≤ 768px */
     @media (max-width: 768px) {
-      nav {
+      body > nav {
         padding: 14px 20px;
       }
 
@@ -4474,6 +4527,27 @@
         // Behalte das "+" oder andere Zusätze, ersetze nur die Zahl
         el.textContent = template.replace(/\d+/, REVIEW_COUNT);
       });
+
+      // ── Nav-Style-Wechsel beim Scrollen über Hero hinaus ─────
+      var navEl = document.querySelector('body > nav');
+      var heroEl = document.querySelector('.hero');
+      if (navEl && heroEl && 'IntersectionObserver' in window) {
+        var heroObserver = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            // Wenn Hero-Sentinel sichtbar (= Hero ist im Viewport): transparent
+            // Wenn nicht mehr sichtbar (= weiter gescrollt): is-scrolled
+            navEl.classList.toggle('is-scrolled', !entry.isIntersecting);
+          });
+        }, { rootMargin: '-80px 0px 0px 0px', threshold: 0 });
+        heroObserver.observe(heroEl);
+      } else if (navEl) {
+        // Fallback ohne IntersectionObserver
+        var onScroll = function () {
+          navEl.classList.toggle('is-scrolled', window.scrollY > 80);
+        };
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll();
+      }
 
       // ── Hamburger / mobile menu ──────────────────────────────
       var hamburger = document.getElementById('hamburger');

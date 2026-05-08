@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(kill %1)",
+      "Bash(awk '/<style>/,/<\\\\/style>/' index.html)",
+      "Bash(command -v node)",
+      "Bash(command -v python)",
+      "Bash(node -e ' *)"
+    ]
+  }
+}

@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(python3 -c ' *)",
-      "Bash(python3)"
+      "Bash(python3)",
+      "Bash(awk '/^\\\\s*\\\\.\\(hero|trust-bar|hours-strip|conditions-section|how-section|about-grid|about-content|logo-slider|pricing-section|schroepfen-section|kurs-banner|testimonials-section|faq-section|cta-section|cta-bg\\)\\\\s*\\\\{/{name=$0; getline; while\\($0 !~ /^\\\\s*\\\\}/\\){if\\($0 ~ /background/\\){gsub\\(/^[ \\\\t]+/,\"\",name\\); gsub\\(/^[ \\\\t]+/,\"\",$0\\); print name \" => \" $0; break}; getline}}' index.html)",
+      "Read(//tmp/**)"
     ]
   }
 }

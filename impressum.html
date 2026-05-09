@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Impressum | Fech Puls Faszienpraxis Spaichingen</title>
   <meta name="description" content="Impressum der Faszienpraxis Fech in Spaichingen – Wadim Fech, Faszientherapeut & Gesundheitspraktiker.">
   <meta name="robots" content="index, follow">
@@ -56,7 +56,7 @@
      PAGE BANNER
   ══════════════════════════════ */
     .legal-banner {
-      padding-top: 62px;
+      padding-top: calc(62px + env(safe-area-inset-top, 0px));
       background: var(--dark);
       position: relative;
       overflow: hidden;

@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Faszientherapie-Gutschein verschenken | Fech Puls Spaichingen</title>
   <meta name="description" content="Faszientherapie als Gutschein verschenken: Tiefengewebsbehandlung in Spaichingen. Persönlich gestaltet, schnell ausgestellt, ohne Verfallsdatum.">
   <link rel="canonical" href="https://faszienpraxis-fech.de/gutschein.html">
@@ -97,7 +97,7 @@
      PAGE HERO
   ══════════════════════════════ */
     .gutschein-hero {
-      padding-top: 62px;
+      padding-top: calc(62px + env(safe-area-inset-top, 0px));
       display: grid;
       grid-template-columns: 1fr 1fr;
       min-height: 72vh;

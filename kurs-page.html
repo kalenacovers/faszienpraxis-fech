@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Online-Fachausbildung Faszien-Praktiker | Fech Puls</title>
   <meta name="description" content="Zertifizierte Online-Fachausbildung zum Faszien- und Triggerpunktpraktiker. Modular, flexibel, mit IPHM- und CPD-Zertifizierung. Geleitet von Wadim Fech.">
   <link rel="canonical" href="https://faszienpraxis-fech.de/kurs-page.html">
@@ -112,7 +112,7 @@
      PAGE HERO
   ══════════════════════════════ */
     .kurs-hero {
-      padding-top: 62px;
+      padding-top: calc(62px + env(safe-area-inset-top, 0px));
       display: grid;
       grid-template-columns: 1fr 1fr;
       min-height: 92vh;

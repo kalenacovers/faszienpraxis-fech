@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Faszientherapie Spaichingen | Fech Puls – Faszien & Triggerpunkte</title>
   <meta name="description" content="Faszientherapie & Triggerpunktarbeit in Spaichingen, Tuttlingen, Trossingen, Aldingen und Umgebung. Wadim Fech – zertifizierter Faszientherapeut. Über 166 5★-Bewertungen. Termin online buchen.">
   <meta name="keywords" content="Faszientherapie Spaichingen, Triggerpunkttherapie, Faszientherapeut, Tuttlingen, Trossingen, Aldingen, Wadim Fech">
@@ -251,7 +251,7 @@
       min-height: 100dvh;
       display: flex;
       align-items: center;
-      padding-top: 62px;
+      padding-top: calc(62px + env(safe-area-inset-top, 0px));
       overflow: hidden;
       isolation: isolate;
     }
@@ -370,15 +370,64 @@
     }
 
     .hero-trust-stars {
-      color: #ffd166;
-      letter-spacing: .15em;
-      font-size: 14px;
+      color: rgba(255, 255, 255, .95);
+      letter-spacing: .12em;
+      font-size: 13px;
+      line-height: 1;
+    }
+
+    .hero-trust-avatars {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .hero-trust-avatar {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255, 255, 255, .55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 9px;
+      font-weight: 600;
+      color: #ffffff;
+      letter-spacing: 0;
+      flex-shrink: 0;
+    }
+
+    .hero-trust-avatar:nth-child(1) { background: #0496ff; }
+    .hero-trust-avatar:nth-child(2) { background: #0d6efd; }
+    .hero-trust-avatar:nth-child(3) { background: #0a4fa8; }
+
+    .hero-trust-avatar + .hero-trust-avatar {
+      margin-left: -7px;
+    }
+
+    .hero-trust-review-info {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .hero-trust-review-text {
+      font-size: 12px;
+      color: rgba(255, 255, 255, .58);
+      letter-spacing: .03em;
+    }
+
+    .hero-trust-check {
+      width: 15px;
+      height: 15px;
+      color: rgba(255, 255, 255, .5);
+      flex-shrink: 0;
     }
 
     .hero-trust-divider {
       width: 1px;
-      height: 18px;
-      background: rgba(255, 255, 255, .22);
+      height: 22px;
+      background: rgba(255, 255, 255, .16);
     }
 
     .hero-trust strong {
@@ -3571,13 +3620,23 @@
         </div>
         <div class="hero-trust animate delay-4">
           <div class="hero-trust-item">
-            <span class="hero-trust-stars" aria-hidden="true">★★★★★</span>
-            <span><strong>5,0</strong> auf Google</span>
+            <div class="hero-trust-avatars" aria-hidden="true">
+              <span class="hero-trust-avatar">W</span>
+              <span class="hero-trust-avatar">M</span>
+              <span class="hero-trust-avatar">S</span>
+            </div>
+            <div class="hero-trust-review-info">
+              <span class="hero-trust-stars" aria-label="5 Sterne">★★★★★</span>
+              <span class="hero-trust-review-text"><strong>5,0</strong> auf Google</span>
+            </div>
           </div>
           <span class="hero-trust-divider" aria-hidden="true"></span>
           <div class="hero-trust-item"><strong data-review-replace>185+</strong>&nbsp;Bewertungen</div>
           <span class="hero-trust-divider" aria-hidden="true"></span>
-          <div class="hero-trust-item">Zertifizierter Faszientherapeut</div>
+          <div class="hero-trust-item">
+            <svg class="hero-trust-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+            Zertifizierter Faszientherapeut
+          </div>
         </div>
       </div>
     </div>

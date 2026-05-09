@@ -47,12 +47,17 @@
     <!-- Praxis-Spalte (Adresse + Karte) -->
     <div class="footer-praxis">
       <h3 class="footer-col-title">Praxis</h3>
-      <a class="footer-praxis-map" href="https://maps.google.com/?q=Danzigerstr.+19,+78549+Spaichingen"
-        rel="noopener" target="_blank"
-        aria-label="Adresse Danzigerstr. 19, 78549 Spaichingen in Google Maps öffnen">
-        <img src="https://staticmap.openstreetmap.de/staticmap.php?center=48.0744,8.7384&zoom=15&size=600x340&maptype=mapnik&markers=48.0744,8.7384,red-pushpin"
-          alt="Karte: Danzigerstr. 19, 78549 Spaichingen" loading="lazy" decoding="async">
-        <div class="footer-praxis-map-overlay">
+      <div class="footer-praxis-map">
+        <iframe
+          src="https://www.openstreetmap.org/export/embed.html?bbox=8.7284%2C48.0694%2C8.7484%2C48.0794&layer=mapnik&marker=48.0744%2C8.7384"
+          title="Karte: Faszienpraxis Fech, Danzigerstr. 19, 78549 Spaichingen"
+          loading="lazy"
+          tabindex="-1"
+          aria-hidden="true"></iframe>
+        <a class="footer-praxis-map-overlay"
+          href="https://maps.google.com/?q=Danzigerstr.+19,+78549+Spaichingen"
+          rel="noopener" target="_blank"
+          aria-label="Adresse Danzigerstr. 19, 78549 Spaichingen in Google Maps öffnen">
           <span class="footer-praxis-map-pin">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
@@ -60,8 +65,8 @@
             </svg>
             In Maps öffnen
           </span>
-        </div>
-      </a>
+        </a>
+      </div>
       <div class="footer-praxis-info">
         <div class="footer-praxis-info-line">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">

@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Über Wadim Fech – Faszientherapeut in Spaichingen | Fech Puls</title>
   <meta name="description" content="Wadim Fech – zertifizierter Faszien- und Triggerpunkttherapeut in Spaichingen. Manuelle Tiefengewebearbeit, Sport- und Gesundheitstherapie. Über 166 5★-Bewertungen.">
   <link rel="canonical" href="https://faszienpraxis-fech.de/ueber-mich.html">
@@ -140,7 +140,7 @@
      HERO
   ══════════════════════════════ */
     .ueber-hero {
-      padding-top: 62px;
+      padding-top: calc(62px + env(safe-area-inset-top, 0px));
       min-height: 88vh;
       display: grid;
       grid-template-columns: 1fr 1fr;

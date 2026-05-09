@@ -1049,13 +1049,14 @@ nav {
 
 .kurs-disclaimer {
   margin-top: 36px;
-  padding: 20px 24px;
-  background: rgba(4, 150, 255, .06);
-  border-left: 3px solid var(--accent);
-  font-size: 13px;
+  padding: 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 16px;
+  font-weight: 300;
+  font-style: italic;
   color: var(--text-muted);
   line-height: 1.7;
-  font-style: italic;
+  letter-spacing: -.005em;
 }
 
 /* ══════════════════════════════
@@ -1263,16 +1264,18 @@ nav {
 }
 
 .kurs-price-notice {
-  padding: 24px 28px;
-  background: rgba(4, 150, 255, .06);
-  border-left: 3px solid var(--accent);
+  padding: 0;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
   font-size: 13px;
   color: var(--text-muted);
   line-height: 1.75;
+  font-weight: 300;
 }
 
 .kurs-price-notice strong {
   color: var(--dark);
+  font-weight: 500;
 }
 
 /* ══════════════════════════════

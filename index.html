@@ -11,7 +11,7 @@
   <meta property="og:type" content="website">
   <meta property="og:locale" content="de_DE">
   <meta property="og:title" content="Faszientherapie Spaichingen | Fech Puls">
-  <meta property="og:description" content="Faszien- & Triggerpunktarbeit in Spaichingen. Zertifizierter Faszientherapeut Wadim Fech. Über 166 5★-Bewertungen.">
+  <meta property="og:description" content="Faszien- & Triggerpunktarbeit in Spaichingen. Zertifizierter Faszientherapeut Wadim Fech. Über 185 5★-Bewertungen.">
   <meta property="og:url" content="https://faszienpraxis-fech.de/">
   <meta property="og:image" content="https://faszienpraxis-fech.de/wp-content/uploads/2026/03/logo_final-scaled.png">
   <meta name="twitter:card" content="summary_large_image">
@@ -21,6 +21,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap"
     rel="stylesheet">
+  <link rel="stylesheet" href="accessibility.css">
 
   <!-- Schema.org: LocalBusiness -->
   <script type="application/ld+json">
@@ -71,7 +72,7 @@
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5",
-      "reviewCount": "166",
+      "reviewCount": "185",
       "bestRating": "5",
       "worstRating": "1"
     }
@@ -188,6 +189,18 @@
       overflow-x: hidden;
     }
 
+    /* Subtle grain overlay — breaks flat digital sterility */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9998;
+      opacity: .028;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      background-size: 256px 256px;
+    }
+
     /* ── Accessibility: focus + skip link ── */
     a:focus-visible,
     button:focus-visible,
@@ -230,216 +243,12 @@
       }
     }
 
-    /* ── NAV (transparent, durchgehend) ── */
-    body > nav {
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 200;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 22px 60px;
-      background: transparent;
-      transition: padding .25s ease, background .25s ease;
-    }
-
-    /* dezenter Lesbarkeits-Verlauf von oben nach transparent
-       — verhindert Weiß-auf-Weiß ohne den Header sichtbar einzufärben */
-    body > nav::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      background: linear-gradient(180deg, rgba(10, 37, 64, .55) 0%, rgba(10, 37, 64, .15) 70%, rgba(10, 37, 64, 0) 100%);
-      z-index: -1;
-      transition: opacity .3s ease;
-    }
-
-    /* nach Scroll: Verlauf sanft ausblenden, Glas-Schimmer rein */
-    body > nav.is-scrolled {
-      padding: 14px 60px;
-      background: rgba(10, 37, 64, .42);
-      backdrop-filter: blur(18px) saturate(140%);
-      -webkit-backdrop-filter: blur(18px) saturate(140%);
-      box-shadow: 0 1px 0 rgba(255, 255, 255, .06), 0 8px 30px rgba(10, 37, 64, .18);
-    }
-
-    body > nav.is-scrolled::before {
-      opacity: 0;
-    }
-
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      flex-shrink: 0;
-      text-decoration: none;
-      line-height: 0;
-      position: relative;
-      z-index: 1;
-    }
-
-    .nav-logo svg,
-    .nav-logo img {
-      display: block;
-      filter: brightness(0) invert(1);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 36px;
-      list-style: none;
-      align-items: center;
-      position: relative;
-      z-index: 1;
-    }
-
-    .nav-links a {
-      font-size: 13px;
-      font-weight: 400;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: rgba(255, 255, 255, .9);
-      position: relative;
-      transition: color .2s ease;
-    }
-
-    /* feiner Underline-Hover */
-    .nav-links a:not(.nav-cta)::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: -6px;
-      height: 1px;
-      background: rgba(255, 255, 255, .85);
-      transform: scaleX(0);
-      transform-origin: left center;
-      transition: transform .25s ease;
-    }
-
-    .nav-links a:not(.nav-cta):hover {
-      color: #ffffff;
-    }
-
-    .nav-links a:not(.nav-cta):hover::after {
-      transform: scaleX(1);
-    }
-
-    .nav-cta {
-      color: #ffffff !important;
-      padding: 9px 22px;
-      border: 1px solid rgba(255, 255, 255, .55);
-      border-radius: 2px;
-      font-size: 12px !important;
-      letter-spacing: .14em !important;
-      text-transform: uppercase !important;
-      background: transparent;
-      transition: background .2s ease, border-color .2s ease, color .2s ease !important;
-    }
-
-    .nav-cta:hover {
-      background: #ffffff;
-      color: var(--dark) !important;
-      border-color: #ffffff;
-    }
-
-    /* Hamburger */
-    .nav-hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 4px;
-      background: none;
-      border: none;
-      position: relative;
-      z-index: 1;
-    }
-
-    .nav-hamburger span {
-      display: block;
-      width: 24px;
-      height: 2px;
-      background: #ffffff;
-      transition: transform .3s ease, opacity .3s ease;
-    }
-
-    .nav-hamburger.open span:nth-child(1) {
-      transform: translateY(7px) rotate(45deg);
-    }
-
-    .nav-hamburger.open span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .nav-hamburger.open span:nth-child(3) {
-      transform: translateY(-7px) rotate(-45deg);
-    }
-
-    /* Mobile menu */
-    .nav-mobile {
-      display: none;
-      position: fixed;
-      inset: 0;
-      top: 58px;
-      z-index: 190;
-      background: rgba(245, 250, 255, 0.98);
-      backdrop-filter: blur(16px);
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 0;
-    }
-
-    .nav-mobile.open {
-      display: flex;
-    }
-
-    .nav-mobile li {
-      list-style: none;
-      width: 100%;
-      text-align: center;
-    }
-
-    .nav-mobile a {
-      display: block;
-      padding: 20px;
-      font-size: 22px;
-      font-family: 'Cormorant Garamond', serif;
-      font-weight: 300;
-      color: var(--dark);
-      text-decoration: none;
-      border-bottom: 1px solid var(--border);
-      transition: color .2s, background .2s;
-    }
-
-    .nav-mobile a:hover {
-      color: var(--accent);
-      background: var(--cream);
-    }
-
-    .nav-mobile .nav-cta-mob {
-      margin: 28px auto 0;
-      display: inline-block;
-      font-family: 'DM Sans', sans-serif !important;
-      background: var(--dark);
-      color: var(--cream);
-      padding: 14px 44px;
-      border-radius: 2px;
-      font-size: 13px;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      text-decoration: none;
-      font-weight: 500;
-    }
+    /* NAV — styles live in accessibility.css */
 
     /* ── HERO ── */
     .hero {
       position: relative;
-      min-height: 100vh;
+      min-height: 100dvh;
       display: flex;
       align-items: center;
       padding-top: 62px;
@@ -511,9 +320,10 @@
       font-weight: 300;
       line-height: 1.05;
       color: #ffffff;
-      letter-spacing: -.01em;
+      letter-spacing: -.02em;
       margin-bottom: 28px;
       text-shadow: 0 2px 24px rgba(0, 0, 0, .25);
+      text-wrap: balance;
     }
 
     .hero h1 em {
@@ -537,57 +347,7 @@
       flex-wrap: wrap;
     }
 
-    .btn-primary {
-      background: var(--accent);
-      color: #ffffff;
-      padding: 18px 38px;
-      border-radius: 2px;
-      font-size: 13px;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      text-decoration: none;
-      font-weight: 500;
-      transition: background .2s, transform .15s, box-shadow .2s;
-      display: inline-block;
-      box-shadow: 0 6px 20px rgba(4, 150, 255, .35);
-    }
-
-    .btn-primary:hover {
-      background: #1ba3ff;
-      transform: translateY(-1px);
-      box-shadow: 0 10px 28px rgba(4, 150, 255, .5);
-    }
-
-    .btn-ghost {
-      color: #ffffff;
-      font-size: 13px;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 18px 24px;
-      border: 1px solid rgba(255, 255, 255, .35);
-      border-radius: 2px;
-      transition: background .2s, border-color .2s;
-      font-weight: 500;
-    }
-
-    .btn-ghost:hover {
-      background: rgba(255, 255, 255, .08);
-      border-color: rgba(255, 255, 255, .7);
-    }
-
-    .btn-ghost::after {
-      content: '→';
-      font-size: 16px;
-      transition: transform .2s;
-    }
-
-    .btn-ghost:hover::after {
-      transform: translateX(4px);
-    }
+    /* .btn-primary / .btn-ghost — styles live in accessibility.css */
 
     .hero-trust {
       display: flex;
@@ -796,28 +556,7 @@
       flex-shrink: 0;
     }
 
-    /* ── SECTIONS ── */
-    .section-eyebrow {
-      font-size: 11px;
-      font-weight: 500;
-      letter-spacing: .2em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 16px;
-    }
-
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(32px, 4vw, 56px);
-      font-weight: 300;
-      line-height: 1.12;
-      color: var(--dark);
-    }
-
-    .section-title em {
-      font-style: italic;
-      color: var(--accent);
-    }
+    /* .section-eyebrow / .section-title — styles live in accessibility.css */
 
     /* ── ABOUT ── */
     .about-grid {
@@ -1100,17 +839,7 @@
     }
 
     .how-grid::before {
-      content: '';
-      position: absolute;
-      top: 56px;
-      left: 16.66%;
-      right: 16.66%;
-      height: 1px;
-      background: linear-gradient(90deg,
-        rgba(4, 150, 255, .4) 0%,
-        rgba(4, 150, 255, .2) 50%,
-        rgba(4, 150, 255, .4) 100%);
-      pointer-events: none;
+      display: none;
     }
 
     .how-card {
@@ -1195,11 +924,16 @@
 
     .cond-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 5fr 4fr 5fr;
       gap: 2px;
       background: var(--border);
       margin-top: 48px;
     }
+
+    /* Row 2: reverse the proportions for visual rhythm */
+    .cond-item:nth-child(4) { order: 4; }
+    .cond-item:nth-child(5) { order: 5; }
+    .cond-item:nth-child(6) { order: 6; }
 
     .cond-item {
       background: var(--warm-white);
@@ -1226,6 +960,7 @@
       font-weight: 400;
       color: var(--dark);
       margin-bottom: 8px;
+      text-wrap: balance;
     }
 
     .cond-item p {
@@ -1327,6 +1062,7 @@
       line-height: 1;
       color: var(--dark);
       margin-bottom: 4px;
+      font-variant-numeric: tabular-nums;
     }
 
     .price-amount sup {
@@ -1410,6 +1146,11 @@
       color: var(--cream);
     }
 
+    .btn-price:active {
+      transform: scale(0.98);
+      transition-duration: 0.08s;
+    }
+
     .price-card.featured .btn-price {
       background: var(--accent);
       color: #ffffff;
@@ -1425,75 +1166,133 @@
 
     .price-notice {
       margin-top: 48px;
-      padding: 22px 28px;
-      background: rgba(4, 150, 255, .06);
-      border-left: 3px solid var(--accent);
-      border-radius: 2px;
+      padding: 0;
       font-size: 14px;
       color: var(--text-muted);
-      line-height: 1.7;
+      line-height: 1.75;
+      font-weight: 300;
+      max-width: 720px;
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
     }
 
     .price-notice strong {
       color: var(--dark);
+      font-weight: 500;
     }
 
     /* ── SCHRÖPFEN ── */
     .schroepfen-section {
-      padding: 100px 60px;
-      background: var(--warm-white);
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: start;
+      background: var(--dark);
+      background-image:
+        radial-gradient(ellipse at bottom right, rgba(4, 150, 255, .08) 0%, transparent 55%);
+      position: relative;
+      overflow: hidden;
+      min-height: 640px;
     }
 
-    .schroepfen-text p {
+    .schroepfen-media {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .schroepfen-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+      transition: transform .8s cubic-bezier(.25,.46,.45,.94);
+    }
+
+    .schroepfen-section:hover .schroepfen-media img {
+      transform: scale(1.04);
+    }
+
+    .schroepfen-media-overlay {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(to right, transparent 50%, rgba(2, 8, 23, .55) 100%),
+        linear-gradient(to top, rgba(2, 8, 23, .6) 0%, transparent 45%);
+      pointer-events: none;
+    }
+
+    .schroepfen-avail {
+      position: absolute;
+      bottom: 28px;
+      left: 28px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      background: rgba(2, 8, 23, .7);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(4, 150, 255, .35);
+      border-radius: 100px;
+      padding: 9px 16px;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: rgba(227, 242, 253, .88);
+    }
+
+    .schroepfen-avail svg {
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .schroepfen-content {
+      padding: 80px 64px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+    }
+
+    .schroepfen-content::before {
+      content: '';
+      position: absolute;
+      top: 60px;
+      bottom: 60px;
+      left: 0;
+      width: 1px;
+      background: linear-gradient(180deg, transparent, rgba(4, 150, 255, .2) 25%, rgba(4, 150, 255, .2) 75%, transparent);
+      pointer-events: none;
+    }
+
+    .schroepfen-content p {
       font-size: 16px;
       line-height: 1.85;
-      color: var(--text-muted);
+      color: rgba(227, 242, 253, .68);
       font-weight: 300;
       margin: 0 0 18px;
     }
 
-    .schroepfen-text p:last-of-type {
+    .schroepfen-content p:last-of-type {
       margin-bottom: 32px;
     }
 
     .schroepfen-title {
+      color: var(--cream);
       margin: 0 0 28px;
     }
 
-    .schroepfen-notice {
-      background: rgba(4, 150, 255, .06);
-      border-left: 3px solid var(--accent);
-      padding: 18px 24px;
-      font-size: 14px;
-      color: var(--text-muted);
-      line-height: 1.75;
-      border-radius: 2px;
-    }
-
-    .schroepfen-notice strong {
-      color: var(--text-body);
-      font-weight: 500;
-    }
-
-    .schroepfen-img {
-      width: 100%;
-      margin-top: 28px;
-      display: block;
-      object-fit: cover;
-      border-radius: 4px;
+    .schroepfen-title em {
+      color: var(--accent);
     }
 
     .schroepfen-effects {
-      background: var(--dark);
-      border: 1px solid rgba(4, 150, 255, .15);
-      padding: 52px 44px;
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(4, 150, 255, .14);
+      padding: 36px 40px;
       position: relative;
       overflow: hidden;
       border-radius: 4px;
+      margin-bottom: 32px;
     }
 
     .schroepfen-effects::before {
@@ -1502,16 +1301,16 @@
       top: 0;
       left: 0;
       right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
     }
 
     .schroepfen-effects-label {
       font-size: 10px;
       letter-spacing: .2em;
       text-transform: uppercase;
-      color: var(--accent-light);
-      margin-bottom: 24px;
+      color: rgba(4, 150, 255, .9);
+      margin-bottom: 20px;
       display: flex;
       align-items: center;
       gap: 12px;
@@ -1522,7 +1321,7 @@
       content: '';
       width: 16px;
       height: 1px;
-      background: var(--accent-light);
+      background: rgba(4, 150, 255, .9);
       flex-shrink: 0;
     }
 
@@ -1535,8 +1334,8 @@
     .schroepfen-effects-list li {
       font-size: 14px;
       color: rgba(227, 242, 253, .82);
-      padding: 14px 0;
-      border-bottom: 1px solid rgba(255, 255, 255, .07);
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .06);
       display: flex;
       gap: 14px;
       align-items: flex-start;
@@ -1557,6 +1356,24 @@
       margin-top: 1px;
       border-radius: 50%;
       background: rgba(4, 150, 255, .18) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'><path d='M3 6.5L5 8.5L9 4' fill='none' stroke='%2390caf9' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/></svg>") center/10px no-repeat;
+    }
+
+    .schroepfen-notice {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px;
+      font-style: italic;
+      font-weight: 300;
+      color: rgba(227, 242, 253, .55);
+      line-height: 1.65;
+      letter-spacing: -.005em;
+      padding-left: 16px;
+      border-left: 2px solid rgba(4, 150, 255, .35);
+    }
+
+    .schroepfen-notice strong {
+      font-style: normal;
+      font-weight: 400;
+      color: rgba(227, 242, 253, .85);
     }
 
     /* ── KURS-BANNER ── */
@@ -1733,6 +1550,7 @@
       line-height: 1.08;
       margin: 0 0 20px;
       letter-spacing: -.01em;
+      text-wrap: balance;
     }
 
     .kurs-banner-title em {
@@ -1918,6 +1736,12 @@
       box-shadow: 0 10px 24px rgba(4, 150, 255, .5);
     }
 
+    .btn-kurs:active {
+      transform: translateY(1px) scale(0.98);
+      box-shadow: 0 3px 10px rgba(4, 150, 255, .3);
+      transition-duration: 0.08s;
+    }
+
     .btn-kurs-ghost {
       display: inline-flex;
       align-items: center;
@@ -1967,7 +1791,7 @@
     }
 
     .stars {
-      color: var(--accent);
+      color: #ffd166;
       font-size: 18px;
       letter-spacing: 2px;
     }
@@ -2004,8 +1828,64 @@
       transform: translateY(-2px);
     }
 
+    /* Featured review spans two columns, larger type, no box */
+    .testi-card.featured {
+      grid-column: span 2;
+      background: var(--dark);
+      border-color: transparent;
+      padding: 48px 52px;
+      border-radius: 4px;
+    }
+
+    .testi-card.featured:hover {
+      border-color: rgba(4, 150, 255, .3);
+      box-shadow: 0 18px 48px rgba(10, 37, 64, .22);
+      transform: translateY(-2px);
+    }
+
+    .testi-card.featured .testi-stars {
+      color: #ffd166;
+      font-size: 16px;
+    }
+
+    .testi-card.featured .testi-text {
+      font-size: 26px;
+      line-height: 1.48;
+      color: var(--cream);
+      margin-bottom: 32px;
+    }
+
+    .testi-card.featured .testi-text::before {
+      color: var(--accent-light);
+      font-size: 38px;
+    }
+
+    .testi-card.featured .testi-author {
+      border-top-color: rgba(255, 255, 255, .12);
+    }
+
+    .testi-card.featured .testi-avatar {
+      background: rgba(4, 150, 255, .22);
+      color: var(--accent-light);
+      font-size: 17px;
+      width: 40px;
+      height: 40px;
+    }
+
+    .testi-card.featured .testi-name {
+      color: var(--cream);
+    }
+
+    .testi-card.featured .testi-time {
+      color: rgba(227, 242, 253, .55);
+    }
+
+    .testi-card.featured .testi-google-mark {
+      color: rgba(227, 242, 253, .4);
+    }
+
     .testi-stars {
-      color: #f5b400;
+      color: #ffd166;
       letter-spacing: 2px;
       font-size: 14px;
       margin-bottom: 16px;
@@ -2135,6 +2015,21 @@
       color: var(--text-muted);
       text-align: center;
       margin-bottom: 28px;
+      font-weight: 500;
+    }
+
+    .live-reviews-fallback {
+      display: none;
+      text-align: center;
+      padding: 32px 0;
+      font-size: 14px;
+      color: var(--text-muted);
+      font-weight: 300;
+    }
+
+    .live-reviews-fallback a {
+      color: var(--accent);
+      text-decoration: none;
       font-weight: 500;
     }
 
@@ -2343,6 +2238,7 @@
       color: var(--cream);
       margin-bottom: 24px;
       font-size: clamp(36px, 5vw, 68px);
+      text-wrap: balance;
     }
 
     .cta-section p {
@@ -2954,8 +2850,12 @@
 
       .schroepfen-section {
         grid-template-columns: 1fr;
-        gap: 40px;
-        padding: 72px 40px;
+        grid-template-rows: 400px auto;
+        min-height: unset;
+      }
+
+      .schroepfen-content {
+        padding: 64px 40px;
       }
 
       .kurs-banner {
@@ -3165,6 +3065,15 @@
         padding: 26px 24px;
       }
 
+      .testi-card.featured {
+        grid-column: span 1;
+        padding: 32px 28px;
+      }
+
+      .testi-card.featured .testi-text {
+        font-size: 21px;
+      }
+
       .testi-text {
         font-size: 17px;
       }
@@ -3208,12 +3117,16 @@
 
       .schroepfen-section {
         grid-template-columns: 1fr;
-        gap: 32px;
-        padding: 56px 20px;
+        grid-template-rows: 320px auto;
+        min-height: unset;
+      }
+
+      .schroepfen-content {
+        padding: 48px 20px;
       }
 
       .schroepfen-effects {
-        padding: 36px 28px;
+        padding: 28px 24px;
       }
 
       .kurs-banner {
@@ -3631,40 +3544,12 @@
   </style>
 </head>
 
-<body>
+<body data-page="home">
 
   <a class="skip-link" href="#leistungen">Zum Hauptinhalt springen</a>
 
   <!-- NAV -->
-  <nav>
-    <a href="index.html" class="nav-logo" aria-label="Fech Puls – Startseite Faszientherapie Spaichingen">
-      <img src="assets/fech-logo-v2-white-rgb.svg" alt="Fech Puls – Faszienpraxis Spaichingen"
-        height="40">
-    </a>
-    <ul class="nav-links">
-      <li><a href="index.html#leistungen">Leistungen</a></li>
-      <li><a href="index.html#ablauf">Ablauf</a></li>
-      <li><a href="kurs-page.html">Online-Kurs</a></li>
-      <li><a href="gutschein.html">Gutschein</a></li>
-      <li><a href="ueber-mich.html">Über mich</a></li>
-      <li><a href="https://book.timify.com/?accountId=652fe85cbd51d3ad47200466&hideCloseButton=true"
-          class="nav-cta">Termin buchen</a></li>
-    </ul>
-    <button class="nav-hamburger" id="hamburger" aria-label="Menü öffnen">
-      <span></span><span></span><span></span>
-    </button>
-  </nav>
-
-  <!-- MOBILE MENU -->
-  <!-- MOBILE MENU -->
-  <ul class="nav-mobile" id="nav-mobile">
-    <li><a href="index.html#leistungen">Leistungen</a></li>
-    <li><a href="kurs-page.html">Online-Kurs</a></li>
-    <li><a href="gutschein.html">Gutschein</a></li>
-    <li><a href="ueber-mich.html">Über mich</a></li>
-    <li><a href="https://book.timify.com/?accountId=652fe85cbd51d3ad47200466&hideCloseButton=true"
-        class="nav-cta-mob">Termin buchen</a></li>
-  </ul>
+  <div id="site-nav"></div>
 
   <!-- HERO -->
   <section class="hero" aria-labelledby="hero-heading">
@@ -3690,7 +3575,7 @@
             <span><strong>5,0</strong> auf Google</span>
           </div>
           <span class="hero-trust-divider" aria-hidden="true"></span>
-          <div class="hero-trust-item"><strong data-review-replace>166+</strong>&nbsp;Bewertungen</div>
+          <div class="hero-trust-item"><strong data-review-replace>185+</strong>&nbsp;Bewertungen</div>
           <span class="hero-trust-divider" aria-hidden="true"></span>
           <div class="hero-trust-item">Zertifizierter Faszientherapeut</div>
         </div>
@@ -3715,7 +3600,7 @@
           <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
         </svg>
       </span>
-      <span><strong data-review-replace>166+</strong>&nbsp;Bewertungen</span>
+      <span><strong data-review-replace>185+</strong>&nbsp;Bewertungen</span>
     </div>
     <div class="trust-sep" aria-hidden="true"></div>
     <div class="trust-item" role="listitem">
@@ -3997,26 +3882,36 @@
 
   <!-- ZUSATZLEISTUNG: GLAS-SCHRÖPFEN -->
   <section class="schroepfen-section" aria-labelledby="schroepfen-heading">
-    <div class="schroepfen-text">
+    <div class="schroepfen-media">
+      <img src="https://faszienpraxis-fech.de/wp-content/uploads/2026/03/glas-schroepfen-scaled.png"
+        alt="Glas-Schröpfen als Zusatzbehandlung in der Faszienpraxis Spaichingen" loading="lazy" decoding="async">
+      <div class="schroepfen-media-overlay" aria-hidden="true"></div>
+      <div class="schroepfen-avail" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="14" height="14" focusable="false">
+          <circle cx="12" cy="12" r="10"/>
+          <polyline points="12 6 12 12 16 14"/>
+        </svg>
+        <span>Vor Ort buchbar</span>
+      </div>
+    </div>
+
+    <div class="schroepfen-content">
       <div class="section-eyebrow">Zusatzleistung</div>
       <h2 id="schroepfen-heading" class="section-title schroepfen-title">Glas-<em>Schröpfen</em></h2>
       <p>Durch den entstehenden Unterdruck wird das Gewebe intensiv aktiviert. Die Hautporen öffnen sich, die Durchblutung wird angeregt und das Areal besser mit Sauerstoff und Nährstoffen versorgt.</p>
       <p>Spannungen können sich lösen und die Regeneration wird gezielt unterstützt — eine kraftvolle Ergänzung zur Tiefengewebsarbeit.</p>
+      <div class="schroepfen-effects">
+        <div class="schroepfen-effects-label">Wirkung</div>
+        <ul class="schroepfen-effects-list">
+          <li>Intensivierung der Durchblutung durch Unterdruck</li>
+          <li>Bessere Versorgung mit Sauerstoff &amp; Nährstoffen</li>
+          <li>Lösung oberflächlicher Gewebespannungen</li>
+          <li>Unterstützung der körperlichen Regeneration</li>
+        </ul>
+      </div>
       <div class="schroepfen-notice">
         <strong>Als Zusatzleistung vor Ort buchbar</strong> — frag einfach beim Termin nach.
       </div>
-      <img class="schroepfen-img" src="https://faszienpraxis-fech.de/wp-content/uploads/2026/03/glas-schroepfen-scaled.png"
-        alt="Glas-Schröpfen als Zusatzbehandlung in der Faszienpraxis Spaichingen" loading="lazy" decoding="async">
-    </div>
-
-    <div class="schroepfen-effects">
-      <div class="schroepfen-effects-label">Wirkung</div>
-      <ul class="schroepfen-effects-list">
-        <li>Intensivierung der Durchblutung durch Unterdruck</li>
-        <li>Bessere Versorgung mit Sauerstoff &amp; Nährstoffen</li>
-        <li>Lösung oberflächlicher Gewebespannungen</li>
-        <li>Unterstützung der körperlichen Regeneration</li>
-      </ul>
     </div>
   </section>
 
@@ -4140,12 +4035,12 @@
     <h2 id="testi-heading" class="section-title testi-title">Was Klienten <em>erlebt haben</em></h2>
     <div class="rating-line">
       <span class="stars" aria-hidden="true">★★★★★</span>
-      <span class="rating-text"><strong>5,0 von 5</strong> · Basierend auf <strong data-review-replace>166+</strong> echten Google-Bewertungen</span>
+      <span class="rating-text"><strong>5,0 von 5</strong> · Basierend auf <strong data-review-replace>185+</strong> echten Google-Bewertungen</span>
     </div>
 
     <!-- TODO: Diese Platzhalter durch 3 echte, von Klienten freigegebene Google-Zitate ersetzen. -->
     <div class="testimonials-grid">
-      <article class="testi-card">
+      <article class="testi-card featured">
         <div class="testi-stars" aria-label="5 von 5 Sternen">★★★★★</div>
         <p class="testi-text">Nach Jahren mit Nackenschmerzen war ich skeptisch — aber nach der ersten Behandlung bei Wadim hat sich mein Bewegungsspielraum so verändert wie seit Jahren nicht. Endlich jemand, der präzise arbeitet und versteht, wo der Schmerz herkommt.</p>
         <footer class="testi-author">
@@ -4186,7 +4081,7 @@
     </div>
 
     <div class="testi-cta">
-      <span class="testi-cta-text">Über <span data-review-replace>166</span> Bewertungen — alle einsehen:</span>
+      <span class="testi-cta-text">Über <span data-review-replace>185</span> Bewertungen — alle einsehen:</span>
       <a class="testi-cta-link" href="https://www.google.com/maps/search/?api=1&query=Faszienpraxis+Fech+Spaichingen" rel="noopener" target="_blank" aria-label="Alle Google-Bewertungen für Faszienpraxis Fech Spaichingen ansehen">
         Auf Google ansehen
         <span aria-hidden="true">→</span>
@@ -4194,11 +4089,26 @@
     </div>
 
     <!-- LIVE REVIEWS WIDGET (Elfsight) -->
-    <div class="live-reviews-container">
+    <div class="live-reviews-container" id="live-reviews">
       <div class="live-reviews-label">Live aus Google</div>
       <script src="https://elfsightcdn.com/platform.js" async></script>
       <div class="elfsight-app-90cf7d31-5865-472d-9eef-46f8905d317c" data-elfsight-app-lazy></div>
+      <div class="live-reviews-fallback" id="live-reviews-fallback">
+        Bewertungen konnten nicht geladen werden.
+        <a href="https://www.google.com/maps/search/?api=1&query=Faszienpraxis+Fech+Spaichingen" rel="noopener" target="_blank">Alle Bewertungen auf Google ansehen →</a>
+      </div>
     </div>
+    <script>
+      (function() {
+        var t = setTimeout(function() {
+          var widget = document.querySelector('.elfsight-app-90cf7d31-5865-472d-9eef-46f8905d317c');
+          var fallback = document.getElementById('live-reviews-fallback');
+          if (fallback && widget && widget.children.length === 0) {
+            fallback.style.display = 'block';
+          }
+        }, 6000);
+      })();
+    </script>
   </section>
 
   <!-- FAQ -->
@@ -4355,337 +4265,10 @@
     </div>
   </section>
 
-  <!-- FOOTER -->
-  <footer class="site-footer" aria-labelledby="footer-cta-heading">
+  <!-- FOOTER (injected by components.js) -->
+  <div id="site-footer"></div>
 
-    <!-- Footer-CTA-Block -->
-    <div class="footer-cta">
-      <div class="footer-cta-text">
-        <div class="footer-cta-eyebrow">Kontakt aufnehmen</div>
-        <h2 id="footer-cta-heading" class="footer-cta-title">Termin online buchen <em>oder kurz anrufen.</em></h2>
-      </div>
-      <div class="footer-cta-actions">
-        <a href="https://book.timify.com/?accountId=652fe85cbd51d3ad47200466&hideCloseButton=true" class="footer-cta-btn">Termin buchen</a>
-        <a href="tel:+4974249606099" class="footer-cta-phone" aria-label="Praxis anrufen">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-          </svg>
-          07424 960 609 9
-        </a>
-      </div>
-    </div>
-
-    <!-- 4-Spalten-Grid -->
-    <div class="footer-grid">
-
-      <!-- Brand-Spalte -->
-      <div class="footer-brand">
-        <img class="footer-logo" src="assets/fech-logo-v2-white-rgb.svg"
-          alt="Fech Puls – Faszienpraxis Spaichingen" height="40">
-        <p class="footer-tagline">Praxis für Faszien &amp; Triggerpunkte in Spaichingen — bei Druck, Ziehen, Stechen und verhärteten Strukturen im Gewebe.</p>
-        <div class="footer-trust-mini">
-          <span class="footer-trust-mini-stars" aria-hidden="true">★★★★★</span>
-          <span><strong>5,0</strong> · <strong data-review-replace>166+</strong>&nbsp;Google-Bewertungen</span>
-        </div>
-        <div class="footer-social" aria-label="Social Media">
-          <a href="https://www.instagram.com/fech_puls/" aria-label="Fech Puls auf Instagram folgen" rel="noopener" target="_blank">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
-              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
-            </svg>
-          </a>
-          <a href="https://www.facebook.com/people/Wadim-Fech/61573695177542/" aria-label="Wadim Fech auf Facebook folgen" rel="noopener" target="_blank">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-              <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
-            </svg>
-          </a>
-        </div>
-      </div>
-
-      <!-- Praxis-Spalte (Adresse + Karte) -->
-      <div class="footer-praxis">
-        <h3 class="footer-col-title">Praxis</h3>
-        <a class="footer-praxis-map" href="https://maps.google.com/?q=Danzigerstr.+19,+78549+Spaichingen"
-          rel="noopener" target="_blank"
-          aria-label="Adresse Danzigerstr. 19, 78549 Spaichingen in Google Maps öffnen">
-          <img src="https://staticmap.openstreetmap.de/staticmap.php?center=48.0744,8.7384&zoom=15&size=600x340&maptype=mapnik&markers=48.0744,8.7384,red-pushpin"
-            alt="Karte: Danzigerstr. 19, 78549 Spaichingen" loading="lazy" decoding="async">
-          <div class="footer-praxis-map-overlay">
-            <span class="footer-praxis-map-pin">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                <circle cx="12" cy="10" r="3"/>
-              </svg>
-              In Maps öffnen
-            </span>
-          </div>
-        </a>
-        <div class="footer-praxis-info">
-          <div class="footer-praxis-info-line">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-              <circle cx="12" cy="10" r="3"/>
-            </svg>
-            <span><strong>Faszienpraxis Fech</strong><br>Danzigerstr. 19, 78549 Spaichingen</span>
-          </div>
-          <div class="footer-praxis-info-line">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-              <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-              <polyline points="22,6 12,13 2,6"/>
-            </svg>
-            <a href="mailto:mein-therapeut@web.de">mein-therapeut@web.de</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Navigation-Spalte -->
-      <nav class="footer-col" aria-label="Footer Navigation">
-        <h3 class="footer-col-title">Navigation</h3>
-        <ul>
-          <li><a href="index.html#leistungen">Leistungen</a></li>
-          <li><a href="index.html#ablauf">Ablauf</a></li>
-          <li><a href="index.html#preise">Preise</a></li>
-          <li><a href="index.html#faq">FAQ</a></li>
-          <li><a href="ueber-mich.html">Über mich</a></li>
-          <li><a href="zertifikate.html">Zertifikate</a></li>
-          <li><a href="kurs-page.html">Online-Kurs</a></li>
-          <li><a href="gutschein.html">Gutschein</a></li>
-        </ul>
-      </nav>
-
-      <!-- Öffnungszeiten -->
-      <div class="footer-col">
-        <h3 class="footer-col-title">Öffnungszeiten</h3>
-        <ul class="footer-hours">
-          <li><span class="footer-hours-day">Mo &amp; Di</span><span>8–11 · 15–18 Uhr</span></li>
-          <li><span class="footer-hours-day">Mi</span><span>9–13 Uhr</span></li>
-          <li><span class="footer-hours-day">Do</span><span>15–19 Uhr</span></li>
-          <li><span class="footer-hours-day">Fr</span><span>9–13 Uhr</span></li>
-          <li><span class="footer-hours-day">Sa &amp; So</span><span>Geschlossen</span></li>
-        </ul>
-      </div>
-
-    </div>
-
-    <!-- Footer-Bottom -->
-    <div class="footer-bottom">
-      <p>© 2026 Faszienpraxis Fech &middot; Wadim Fech, Spaichingen. Alle Rechte vorbehalten.</p>
-      <div class="footer-links">
-        <a href="datenschutz.html">Datenschutz</a>
-        <a href="impressum.html">Impressum</a>
-      </div>
-    </div>
-
-  </footer>
-
-  <!-- Sticky Mobile CTA Bar -->
-  <div class="mobile-cta-bar" role="navigation" aria-label="Schnellkontakt">
-    <a href="tel:+4974249606099" class="mcta-call" aria-label="Praxis anrufen unter 07424 960 609 9">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-      </svg>
-      Anrufen
-    </a>
-    <a href="https://book.timify.com/?accountId=652fe85cbd51d3ad47200466&hideCloseButton=true" class="mcta-book" aria-label="Termin online buchen">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
-        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-        <line x1="16" y1="2" x2="16" y2="6"/>
-        <line x1="8" y1="2" x2="8" y2="6"/>
-        <line x1="3" y1="10" x2="21" y2="10"/>
-      </svg>
-      Termin buchen
-    </a>
-  </div>
-
-  <!-- WhatsApp Floating Button -->
-  <a class="whatsapp-fab" href="https://wa.me/4974249606099" aria-label="Per WhatsApp Kontakt aufnehmen" rel="noopener" target="_blank">
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" focusable="false">
-      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
-    </svg>
-  </a>
-
-  <script>
-    // ════════════════════════════════════════════════════════
-    //  ZENTRALE KONSTANTEN — beim Update einmal hier ändern
-    // ════════════════════════════════════════════════════════
-    //
-    //  Wenn sich die Anzahl der Google-Bewertungen ändert:
-    //    1. REVIEW_COUNT unten anpassen (DOM-Stellen werden automatisch gepatcht)
-    //    2. <meta name="description"> + <meta property="og:description"> oben im Head aktualisieren
-    //    3. Schema.org "reviewCount" oben im Head aktualisieren
-    //    4. Falls auch ueber-mich.html: dort die meta description ebenfalls
-    //
-    var REVIEW_COUNT = 166;
-
-    document.addEventListener('DOMContentLoaded', function () {
-
-      // ── Patch DOM-Stellen mit zentraler Bewertungszahl ───────
-      var reviewSlots = document.querySelectorAll('[data-review-replace]');
-      reviewSlots.forEach(function (el) {
-        var template = el.textContent;
-        // Behalte das "+" oder andere Zusätze, ersetze nur die Zahl
-        el.textContent = template.replace(/\d+/, REVIEW_COUNT);
-      });
-
-      // ── Nav-Style-Wechsel beim Scrollen über Hero hinaus ─────
-      var navEl = document.querySelector('body > nav');
-      var heroEl = document.querySelector('.hero');
-      if (navEl && heroEl && 'IntersectionObserver' in window) {
-        var heroObserver = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            // Wenn Hero-Sentinel sichtbar (= Hero ist im Viewport): transparent
-            // Wenn nicht mehr sichtbar (= weiter gescrollt): is-scrolled
-            navEl.classList.toggle('is-scrolled', !entry.isIntersecting);
-          });
-        }, { rootMargin: '-80px 0px 0px 0px', threshold: 0 });
-        heroObserver.observe(heroEl);
-      } else if (navEl) {
-        // Fallback ohne IntersectionObserver
-        var onScroll = function () {
-          navEl.classList.toggle('is-scrolled', window.scrollY > 80);
-        };
-        window.addEventListener('scroll', onScroll, { passive: true });
-        onScroll();
-      }
-
-      // ── Hamburger / mobile menu ──────────────────────────────
-      var hamburger = document.getElementById('hamburger');
-      var mobileMenu = document.getElementById('nav-mobile');
-
-      if (hamburger && mobileMenu) {
-        hamburger.addEventListener('click', function () {
-          var isOpen = mobileMenu.classList.toggle('open');
-          hamburger.classList.toggle('open', isOpen);
-          hamburger.setAttribute('aria-expanded', String(isOpen));
-        });
-
-        mobileMenu.querySelectorAll('a').forEach(function (link) {
-          link.addEventListener('click', function () {
-            mobileMenu.classList.remove('open');
-            hamburger.classList.remove('open');
-            hamburger.setAttribute('aria-expanded', 'false');
-          });
-        });
-      }
-
-      // ── FAQ accordion ─────────────────────────────────────────
-      var faqItems = document.querySelectorAll('.faq-item');
-
-      function openFaqItem(item) {
-        faqItems.forEach(function (el) {
-          el.classList.remove('open');
-          var b = el.querySelector('.faq-q');
-          if (b) b.setAttribute('aria-expanded', 'false');
-        });
-        item.classList.add('open');
-        var btn = item.querySelector('.faq-q');
-        if (btn) btn.setAttribute('aria-expanded', 'true');
-      }
-
-      faqItems.forEach(function (item) {
-        var btn = item.querySelector('.faq-q');
-        if (!btn) return;
-
-        btn.addEventListener('click', function () {
-          if (item.classList.contains('open')) {
-            item.classList.remove('open');
-            btn.setAttribute('aria-expanded', 'false');
-          } else {
-            openFaqItem(item);
-          }
-        });
-      });
-
-      // Open FAQ item if URL hash matches
-      function openFaqFromHash() {
-        var hash = window.location.hash;
-        if (!hash) return;
-        var target = document.querySelector(hash);
-        if (target && target.classList.contains('faq-item')) {
-          openFaqItem(target);
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }
-      openFaqFromHash();
-      window.addEventListener('hashchange', openFaqFromHash);
-
-      // ── Hours strip live status ───────────────────────────────
-      // dayOfWeek: 0=Sun, 1=Mon, 2=Tue, 3=Wed, 4=Thu, 5=Fri, 6=Sat
-      var schedule = {
-        1: [[8, 0, 11, 0], [15, 0, 18, 0]],   // Mo
-        2: [[8, 0, 11, 0], [15, 0, 18, 0]],   // Di
-        3: [[9, 0, 13, 0]],                    // Mi
-        4: [[15, 0, 19, 0]],                   // Do
-        5: [[9, 0, 13, 0]]                     // Fr
-      };
-      var dayLabels = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
-
-      function fmt(h, m) {
-        return h + ':' + (m < 10 ? '0' + m : m);
-      }
-
-      function nextOpening(now) {
-        for (var i = 0; i < 7; i++) {
-          var d = new Date(now);
-          d.setDate(d.getDate() + i);
-          var slots = schedule[d.getDay()];
-          if (!slots) continue;
-          for (var j = 0; j < slots.length; j++) {
-            var s = slots[j];
-            var openTime = new Date(d);
-            openTime.setHours(s[0], s[1], 0, 0);
-            if (openTime > now) {
-              return { date: openTime, day: d.getDay(), hh: s[0], mm: s[1], today: i === 0 };
-            }
-          }
-        }
-        return null;
-      }
-
-      function updateHoursStatus() {
-        var el = document.getElementById('hours-status');
-        if (!el) return;
-        var textEl = el.querySelector('.hours-status-text');
-        var now = new Date();
-        var slots = schedule[now.getDay()];
-        var isOpen = false;
-        var closesAt = null;
-
-        if (slots) {
-          for (var i = 0; i < slots.length; i++) {
-            var s = slots[i];
-            var open = new Date(now); open.setHours(s[0], s[1], 0, 0);
-            var close = new Date(now); close.setHours(s[2], s[3], 0, 0);
-            if (now >= open && now < close) {
-              isOpen = true;
-              closesAt = { hh: s[2], mm: s[3] };
-              break;
-            }
-          }
-        }
-
-        if (isOpen) {
-          el.setAttribute('data-open', 'true');
-          textEl.innerHTML = 'Jetzt geöffnet <strong>bis ' + fmt(closesAt.hh, closesAt.mm) + ' Uhr</strong>';
-        } else {
-          el.setAttribute('data-open', 'false');
-          var next = nextOpening(now);
-          if (next) {
-            var when = next.today ? 'heute' : (next.date.getDate() - now.getDate() === 1 ? 'morgen' : dayLabels[next.day]);
-            textEl.innerHTML = 'Geschlossen — öffnet ' + when + ' um <strong>' + fmt(next.hh, next.mm) + ' Uhr</strong>';
-          } else {
-            textEl.textContent = 'Öffnungszeiten';
-          }
-        }
-      }
-
-      updateHoursStatus();
-      // Re-check every minute
-      setInterval(updateHoursStatus, 60000);
-
-    });
-  </script>
+  <script src="components.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-09T00:00:00Z",
+  "title": "Design System: Fech Puls",
+  "extensions": {
+    "colorMeta": {
+      "deep-navy":    { "role": "primary-dark",  "displayName": "Deep Navy",    "canonical": "oklch(18% 0.04 240)", "tonalRamp": ["oklch(10% 0.03 240)", "oklch(15% 0.04 240)", "oklch(20% 0.05 240)", "oklch(28% 0.06 240)", "oklch(36% 0.07 240)", "oklch(50% 0.08 240)", "oklch(68% 0.06 240)", "oklch(84% 0.03 240)"] },
+      "charcoal-ink": { "role": "primary-dark",  "displayName": "Charcoal Ink", "canonical": "oklch(20% 0.05 248)", "tonalRamp": ["oklch(10% 0.03 248)", "oklch(16% 0.04 248)", "oklch(22% 0.06 248)", "oklch(30% 0.07 248)", "oklch(40% 0.08 248)", "oklch(54% 0.08 248)", "oklch(70% 0.06 248)", "oklch(86% 0.03 248)"] },
+      "signal-blue":  { "role": "accent",        "displayName": "Signal Blue",  "canonical": "oklch(60% 0.19 247)", "tonalRamp": ["oklch(25% 0.10 247)", "oklch(35% 0.14 247)", "oklch(45% 0.17 247)", "oklch(55% 0.19 247)", "oklch(62% 0.19 247)", "oklch(70% 0.17 247)", "oklch(80% 0.12 247)", "oklch(92% 0.05 247)"] },
+      "sky-trace":    { "role": "accent-subtle",  "displayName": "Sky Trace",   "canonical": "oklch(78% 0.09 240)", "tonalRamp": ["oklch(40% 0.06 240)", "oklch(52% 0.08 240)", "oklch(62% 0.09 240)", "oklch(70% 0.09 240)", "oklch(78% 0.09 240)", "oklch(85% 0.07 240)", "oklch(90% 0.05 240)", "oklch(96% 0.02 240)"] },
+      "body-ink":     { "role": "on-light",       "displayName": "Body Ink",    "canonical": "oklch(24% 0.05 240)", "tonalRamp": ["oklch(12% 0.03 240)", "oklch(18% 0.04 240)", "oklch(24% 0.05 240)", "oklch(32% 0.06 240)", "oklch(42% 0.06 240)", "oklch(56% 0.06 240)", "oklch(72% 0.05 240)", "oklch(88% 0.02 240)"] },
+      "steel-mist":   { "role": "secondary-text", "displayName": "Steel Mist",  "canonical": "oklch(52% 0.07 237)", "tonalRamp": ["oklch(22% 0.05 237)", "oklch(32% 0.06 237)", "oklch(42% 0.07 237)", "oklch(52% 0.07 237)", "oklch(62% 0.07 237)", "oklch(72% 0.06 237)", "oklch(82% 0.04 237)", "oklch(93% 0.02 237)"] },
+      "paper-white":  { "role": "surface-light",  "displayName": "Paper White", "canonical": "oklch(97% 0.006 240)", "tonalRamp": ["oklch(75% 0.005 240)", "oklch(80% 0.005 240)", "oklch(85% 0.006 240)", "oklch(89% 0.006 240)", "oklch(92% 0.006 240)", "oklch(95% 0.006 240)", "oklch(97% 0.006 240)", "oklch(99% 0.003 240)"] },
+      "cold-tint":    { "role": "surface-alt",    "displayName": "Cold Tint",   "canonical": "oklch(93% 0.015 237)", "tonalRamp": ["oklch(65% 0.01 237)", "oklch(73% 0.012 237)", "oklch(80% 0.013 237)", "oklch(86% 0.014 237)", "oklch(90% 0.015 237)", "oklch(93% 0.015 237)", "oklch(96% 0.01 237)", "oklch(99% 0.005 237)"] },
+      "star-gold":    { "role": "semantic-stars",  "displayName": "Star Gold",  "canonical": "oklch(86% 0.12 82)",  "tonalRamp": ["oklch(40% 0.09 82)", "oklch(54% 0.10 82)", "oklch(66% 0.11 82)", "oklch(74% 0.12 82)", "oklch(80% 0.12 82)", "oklch(86% 0.12 82)", "oklch(91% 0.09 82)", "oklch(96% 0.05 82)"] },
+      "open-green":   { "role": "semantic-status", "displayName": "Open Green", "canonical": "oklch(72% 0.18 145)", "tonalRamp": ["oklch(32% 0.12 145)", "oklch(44% 0.15 145)", "oklch(54% 0.17 145)", "oklch(62% 0.18 145)", "oklch(70% 0.18 145)", "oklch(78% 0.16 145)", "oklch(86% 0.12 145)", "oklch(94% 0.06 145)"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero headline only — one per page. Cormorant Garamond 300, tight leading." },
+      "headline": { "displayName": "Headline", "purpose": "Section titles. May carry italic em spans for the Signal Blue emphasis moment." },
+      "title":    { "displayName": "Title",    "purpose": "Card headings, pull-quote size reference. Never bold." },
+      "body":     { "displayName": "Body",     "purpose": "Long-form content. Max 65–75ch. Weight 300, strong at 400/500." },
+      "label":    { "displayName": "Label",    "purpose": "Eyebrows, cert tags, nav links, badges. Uppercase, wide tracking." }
+    },
+    "shadows": [
+      { "name": "accent-glow",      "value": "0 6px 20px rgba(4, 150, 255, 0.35)",  "purpose": "Primary button at rest. Scales to 0 10px 28px on hover." },
+      { "name": "card-lift",        "value": "0 14px 38px rgba(10, 37, 64, 0.12)",  "purpose": "Price card hover state." },
+      { "name": "featured-elev",    "value": "0 18px 50px rgba(10, 37, 64, 0.22)",  "purpose": "Featured price card at rest — the sole persistent shadow." },
+      { "name": "nav-glass",        "value": "0 1px 0 rgba(255,255,255,0.06), 0 8px 30px rgba(10, 37, 64, 0.18)", "purpose": "Scrolled nav bar." }
+    ],
+    "motion": [
+      { "name": "ease-out-standard", "value": "cubic-bezier(0.25, 0, 0, 1)",  "purpose": "Default state transition easing." },
+      { "name": "hover-lift",        "value": "translateY(-2px)",              "purpose": "Standard hover lift for interactive cards." },
+      { "name": "underline-reveal",  "value": "scaleX(0) → scaleX(1)",        "purpose": "Nav link underline on hover, origin: left center." }
+    ],
+    "breakpoints": [
+      { "name": "mobile", "value": "768px", "purpose": "Single-column layout, mobile CTA bar visible, hamburger replaces nav." },
+      { "name": "tablet", "value": "1024px", "purpose": "Grid columns reduce — three-column grids become two." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The main booking CTA. Signal Blue at rest, lightens and lifts on hover.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Termin buchen</a>",
+      "css": ".ds-btn-primary { display: inline-block; background: #0496ff; color: #ffffff; padding: 18px 38px; border-radius: 2px; font-family: 'DM Sans', system-ui, sans-serif; font-size: 13px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; font-weight: 500; box-shadow: 0 6px 20px rgba(4, 150, 255, 0.35); transition: background 0.2s ease, transform 0.15s ease, box-shadow 0.2s ease; } .ds-btn-primary:hover { background: #1ba3ff; transform: translateY(-1px); box-shadow: 0 10px 28px rgba(4, 150, 255, 0.5); } .ds-btn-primary:focus-visible { outline: 2px solid #0496ff; outline-offset: 3px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary CTA on dark backgrounds. White outline, arrow indicator.",
+      "html": "<a class=\"ds-btn-ghost\" href=\"#\">Leistungen ansehen</a>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; gap: 8px; color: #ffffff; font-family: 'DM Sans', system-ui, sans-serif; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; padding: 18px 24px; border: 1px solid rgba(255,255,255,0.35); border-radius: 2px; font-weight: 500; transition: background 0.2s ease, border-color 0.2s ease; } .ds-btn-ghost::after { content: '→'; font-size: 16px; transition: transform 0.2s ease; } .ds-btn-ghost:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.7); } .ds-btn-ghost:hover::after { transform: translateX(4px); } .ds-btn-ghost:focus-visible { outline: 2px solid #0496ff; outline-offset: 3px; }"
+    },
+    {
+      "name": "Nav CTA",
+      "kind": "nav",
+      "refersTo": "nav-cta",
+      "description": "Inline ghost CTA in the navigation bar. Inverts on hover.",
+      "html": "<a class=\"ds-nav-cta\" href=\"#\">Termin buchen</a>",
+      "css": ".ds-nav-cta { color: #ffffff; padding: 9px 22px; border: 1px solid rgba(255,255,255,0.55); border-radius: 2px; font-family: 'DM Sans', system-ui, sans-serif; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; background: transparent; text-decoration: none; font-weight: 400; transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease; display: inline-block; } .ds-nav-cta:hover { background: #ffffff; color: #0a2540; border-color: #ffffff; }"
+    },
+    {
+      "name": "Cert Tag",
+      "kind": "chip",
+      "refersTo": null,
+      "description": "Certification badge chip. Full-pill, subtle blue border, leading checkmark.",
+      "html": "<span class=\"ds-cert-tag\">IPHM Zertifiziert</span>",
+      "css": ".ds-cert-tag { display: inline-flex; align-items: center; background: #ffffff; border: 1px solid rgba(4,150,255,0.15); padding: 8px 14px 8px 32px; border-radius: 999px; font-family: 'DM Sans', system-ui, sans-serif; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: #5a7a99; font-weight: 500; position: relative; transition: border-color 0.2s ease, color 0.2s ease; cursor: default; } .ds-cert-tag::before { content: ''; position: absolute; left: 12px; top: 50%; width: 12px; height: 12px; transform: translateY(-50%); border-radius: 50%; background-color: rgba(4,150,255,0.15); background-image: url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'><path d='M3 6.5L5 8.5L9 4' fill='none' stroke='%230496ff' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'/></svg>\"); background-size: 8px; background-repeat: no-repeat; background-position: center; } .ds-cert-tag:hover { border-color: rgba(4,150,255,0.4); color: #1a2e45; }"
+    },
+    {
+      "name": "How-Section Card",
+      "kind": "card",
+      "refersTo": null,
+      "description": "Dark-surface step card with ghost number, icon, heading, and body copy.",
+      "html": "<div class=\"ds-how-card\"><span class=\"ds-how-num\">01</span><div class=\"ds-how-icon\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#90caf9\" stroke-width=\"2\"><circle cx=\"12\" cy=\"12\" r=\"10\"/></svg></div><h3>Anamnese</h3><p>Wir klären, wo der Druck sitzt und was dahintersteckt.</p></div>",
+      "css": ".ds-how-card { padding: 36px 32px; border: 1px solid rgba(255,255,255,0.08); border-radius: 4px; background: rgba(255,255,255,0.03); transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease; position: relative; } .ds-how-card:hover { background: rgba(4,150,255,0.06); border-color: rgba(4,150,255,0.35); transform: translateY(-2px); } .ds-how-num { position: absolute; top: 28px; right: 32px; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 56px; font-weight: 300; color: rgba(144,202,249,0.14); line-height: 1; letter-spacing: -0.02em; pointer-events: none; } .ds-how-icon { width: 56px; height: 56px; margin-bottom: 24px; border-radius: 50%; background: rgba(4,150,255,0.14); border: 1px solid rgba(4,150,255,0.35); display: flex; align-items: center; justify-content: center; } .ds-how-card h3 { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 28px; font-weight: 300; color: #e3f2fd; margin: 0 0 14px; line-height: 1.2; } .ds-how-card p { font-size: 14px; color: rgba(227,242,253,0.7); line-height: 1.75; font-weight: 300; margin: 0; }"
+    },
+    {
+      "name": "Price Card",
+      "kind": "card",
+      "refersTo": null,
+      "description": "Light-surface pricing card. Flat at rest, lifts and accents on hover.",
+      "html": "<div class=\"ds-price-card\"><p class=\"ds-price-name\">Standard</p><div class=\"ds-price-amount\">75 <sup>€</sup></div><ul class=\"ds-price-features\"><li>45 Minuten Behandlung</li></ul><a class=\"ds-btn-primary\" href=\"#\">Jetzt buchen</a></div>",
+      "css": ".ds-price-card { border: 1px solid rgba(4,150,255,0.15); padding: 48px 40px; position: relative; transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease; background: #ffffff; display: flex; flex-direction: column; } .ds-price-card:hover { border-color: #0496ff; box-shadow: 0 14px 38px rgba(10,37,64,0.12); transform: translateY(-2px); } .ds-price-name { font-family: 'DM Sans', system-ui, sans-serif; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: #5a7a99; margin: 0 0 20px; font-weight: 500; } .ds-price-amount { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 56px; font-weight: 300; line-height: 1; color: #0a2540; margin-bottom: 24px; }"
+    },
+    {
+      "name": "Quote Blockquote",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Italic Cormorant pull quote with the sole permitted left-border stripe.",
+      "html": "<blockquote class=\"ds-quote\">Ich arbeite dort, wo Verhärtungen entstehen — nicht dort, wo sie sich bemerkbar machen.</blockquote>",
+      "css": ".ds-quote { font-family: 'Cormorant Garamond', Georgia, serif; font-size: 24px; font-weight: 300; font-style: italic; color: #0a2540; line-height: 1.45; margin: 0; padding-left: 18px; border-left: 2px solid #0496ff; letter-spacing: -0.005em; }"
+    },
+    {
+      "name": "Trust Bar Item",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Dark-bar social proof item — icon badge + label on deep navy.",
+      "html": "<div class=\"ds-trust-item\"><span class=\"ds-trust-icon\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"#90caf9\"><path d=\"M12 2l2.39 7.36H22l-6.18 4.49L18.21 22 12 17.27 5.79 22l2.39-8.15L2 9.36h7.61z\"/></svg></span><span><strong>5,0</strong> auf Google</span></div>",
+      "css": ".ds-trust-item { display: flex; align-items: center; gap: 12px; color: rgba(255,255,255,0.92); font-family: 'DM Sans', system-ui, sans-serif; font-size: 13px; font-weight: 400; letter-spacing: 0.02em; } .ds-trust-item strong { color: #ffffff; font-weight: 500; } .ds-trust-icon { width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: rgba(4,150,255,0.14); flex-shrink: 0; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Practitioner's Dispatch",
+    "overview": "This is the visual language of a craftsperson who doesn't need to sell themselves — only to be found and trusted. Every surface operates like a careful publication: spare, considered, unhurried. The typography carries the authority; the color is kept on a tight leash. When the accent fires, it fires with purpose.\n\nThe palette is built around a deep navy world — not dark as mood, but dark as precision instrument. The hero is drenched in it; sections breathe into a cool paper-white ground; dark-surfaced modules snap back in. The signal-blue accent appears where the eye needs a direction: calls to action, certification marks, live-status indicators. It is never decorative.\n\nThis system explicitly rejects: stock-photo wellness softness, sterile hospital whites, SaaS hero-metric templates, and nightclub-dark luxury.",
+    "keyCharacteristics": [
+      "Serifed display type (Cormorant Garamond, weight 300) anchors every section as an editorial moment",
+      "Accent blue used with restraint — on CTAs, live indicators, and certification chips only",
+      "Section rhythm alternates between paper-white and deep-navy for tonal contrast",
+      "Motion is minimal: translateY(-2px) lifts, underline reveals, scroll fade-ins — no choreography",
+      "Shapes are nearly sharp: 2px radius on interactive elements, 4px on containers, full-pill on badges only"
+    ],
+    "rules": [
+      { "name": "The One Voice Rule", "body": "Signal Blue and Sky Trace together are the only chromatic elements. Every other surface is a navy or tinted neutral. If a new element needs color, the answer is always a shade of blue — not a new hue.", "section": "colors" },
+      { "name": "The Semantic Exclusivity Rule", "body": "Star Gold is reserved for star ratings only. Open Green is reserved for the live-open status dot only. Both appear in exactly one place per page.", "section": "colors" },
+      { "name": "The Weight Ceiling Rule", "body": "Weight 600 (semibold) is not in this system. The highest weight is 500 (medium) on DM Sans. Display and headline stay at 300 always. Heaviness here reads as shouting.", "section": "typography" },
+      { "name": "The Italic Signal Rule", "body": "Italic in Cormorant Garamond is the only typographic accent on dark surfaces. On light surfaces it appears in pull quotes only. It is never used in DM Sans.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "At rest, cards have no shadow. Shadows only emerge on hover or for the one intentionally elevated featured element. A card with a shadow at rest and no hover change reads as frozen mid-interaction.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do use Cormorant Garamond at weight 300 for all display and headline text",
+      "Do reserve Signal Blue for primary CTAs, eyebrow labels, cert checkmarks, and the quote rule",
+      "Do alternate section backgrounds between Paper White and Deep Navy for tonal rhythm",
+      "Do keep body line length at 65–75ch",
+      "Do use uppercase DM Sans (11–13px, letter-spacing 0.12–0.2em) for all labels and nav links",
+      "Do write copy that is direct and specific — numbers, place names, credentials are design elements"
+    ],
+    "donts": [
+      "Don't add new hues — the palette is Signal Blue + navy world only",
+      "Don't use gradient text (background-clip: text) anywhere",
+      "Don't build identical card grids — every section grid should find its own structure",
+      "Don't use generic wellness/spa imagery — this practice is medical-grade, not spa-grade",
+      "Don't use #ffffff or neutral grays as backgrounds — every light surface is Paper White (#f5faff)",
+      "Don't replicate SaaS landing page patterns (hero metric boxes, feature card grids, bullet benefit lists)",
+      "Don't use border-left > 2px as a colored accent stripe on cards or list items (quote blockquote is the sole exception)",
+      "Don't animate layout properties — only opacity, transform, color, background-color, border-color, box-shadow"
+    ]
+  }
+}

@@ -5,7 +5,13 @@
       "Bash(awk '/<style>/,/<\\\\/style>/' index.html)",
       "Bash(command -v node)",
       "Bash(command -v python)",
-      "Bash(node -e ' *)"
+      "Bash(node -e ' *)",
+      "Bash(node .agents/skills/impeccable/scripts/load-context.mjs)",
+      "Read(//c/Users/macho/.claude/skills/impeccable/reference/**)",
+      "Read(//c/Users/macho/.agents/skills/impeccable/reference/**)",
+      "Bash(Select-String -Path \"C:\\\\Users\\\\macho\\\\Documents\\\\GitHub\\\\faszienpraxis-fech\\\\index.html\" -Pattern \"border-left: 3px|border-right: 3px|color: var\\\\\\(--accent\\\\\\).*stars|stars.*color: var\\\\\\(--accent\\\\\\)|100vh[^d]\")",
+      "Bash(Select-Object -First 20)",
+      "Bash(python3 -c ' *)"
     ]
   }
 }

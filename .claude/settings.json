@@ -13,7 +13,8 @@
       "Bash(Select-Object -First 20)",
       "Bash(python3 -c ' *)",
       "Bash(ls \"e:/Clients/Fech Puls/Redesign/\" 2>&1 | head -30)",
-      "Read(//e/Clients/Fech Puls/**)"
+      "Read(//e/Clients/Fech Puls/**)",
+      "Bash(node \"C:\\\\Users\\\\macho\\\\.claude\\\\skills\\\\impeccable\\\\scripts\\\\load-context.mjs\")"
     ]
   }
 }

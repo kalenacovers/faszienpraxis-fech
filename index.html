@@ -1036,17 +1036,17 @@
 
     .pricing-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr 1.18fr 1fr;
       gap: 24px;
-      align-items: stretch;
+      align-items: start;
     }
 
     .price-card {
       border: 1px solid var(--border);
-      padding: 48px 40px;
+      padding: 52px 44px 48px;
       position: relative;
       transition: border-color .25s, box-shadow .25s, transform .25s;
-      background: #ffffff;
+      background: var(--warm-white);
       display: flex;
       flex-direction: column;
     }
@@ -1063,8 +1063,9 @@
       color: var(--cream);
       box-shadow: 0 18px 50px rgba(10, 37, 64, .22);
       transform: translateY(-12px);
-      padding-top: 60px;
+      padding-top: 80px;
       padding-bottom: 60px;
+      overflow: hidden;
     }
 
     .price-card.featured:hover {
@@ -1076,32 +1077,33 @@
     .price-feat-badge {
       position: absolute;
       top: 0;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      left: 0;
+      right: 0;
       background: var(--accent);
       color: #ffffff;
+      font-family: 'DM Sans', sans-serif;
       font-size: 10px;
-      letter-spacing: .18em;
+      letter-spacing: .2em;
       text-transform: uppercase;
-      padding: 8px 18px;
+      padding: 13px 16px;
       font-weight: 500;
-      border-radius: 999px;
-      box-shadow: 0 6px 18px rgba(4, 150, 255, .35);
-      white-space: nowrap;
+      text-align: center;
     }
 
     .price-name {
-      font-family: 'DM Sans', sans-serif;
-      font-size: 11px;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      margin: 0 0 20px;
-      font-weight: 500;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 300;
+      letter-spacing: -0.01em;
+      text-transform: none;
+      color: var(--dark);
+      margin: 0 0 28px;
+      line-height: 1.2;
     }
 
     .price-card.featured .price-name {
-      color: var(--accent-light);
+      color: var(--cream);
+      font-style: italic;
     }
 
     .price-amount {
@@ -1123,28 +1125,22 @@
     }
 
     .price-duration {
-      font-size: 13px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: .16em;
+      text-transform: uppercase;
       color: var(--text-muted);
-      margin-bottom: 32px;
+      margin-bottom: 8px;
     }
 
     .price-card.featured .price-duration {
-      color: rgba(227, 242, 253, .5);
-    }
-
-    .price-divider {
-      height: 1px;
-      background: var(--border);
-      margin-bottom: 28px;
-    }
-
-    .price-card.featured .price-divider {
-      background: rgba(255, 255, 255, .1);
+      color: var(--accent-light);
     }
 
     .price-features {
       list-style: none;
-      margin-bottom: 36px;
+      margin: 28px 0 40px;
       flex: 1;
     }
 
@@ -1179,20 +1175,21 @@
       display: block;
       width: 100%;
       text-align: center;
-      padding: 14px;
+      padding: 15px;
       border: 1px solid var(--dark);
-      font-size: 12px;
-      letter-spacing: .12em;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 11px;
+      letter-spacing: .14em;
       text-transform: uppercase;
       text-decoration: none;
       color: var(--dark);
-      transition: background .2s, color .2s;
+      transition: background .2s, color .2s, border-color .2s;
       font-weight: 500;
     }
 
     .btn-price:hover {
       background: var(--dark);
-      color: var(--cream);
+      color: var(--warm-white);
     }
 
     .btn-price:active {
@@ -2997,7 +2994,7 @@
 
       .price-card.featured,
       .price-card.featured:hover {
-        padding: 56px 28px;
+        padding: 68px 28px 52px;
         transform: none;
       }
 
@@ -3755,9 +3752,8 @@
     <div class="pricing-grid">
       <div class="price-card">
         <h3 class="price-name">Schulter · Nacken · Rücken</h3>
-        <div class="price-amount"><sup>€</sup>80</div>
         <div class="price-duration">30 Minuten gezielte Arbeit</div>
-        <div class="price-divider"></div>
+        <div class="price-amount"><sup>€</sup>80</div>
         <ul class="price-features">
           <li>Gezielte Triggerpunktarbeit</li>
           <li>Schmerzlinderung im Fokusbereich</li>
@@ -3770,9 +3766,8 @@
       <div class="price-card featured">
         <div class="price-feat-badge" aria-hidden="true">Beliebteste Wahl</div>
         <h3 class="price-name">Ganzkörperbehandlung</h3>
-        <div class="price-amount"><sup>€</sup>100</div>
         <div class="price-duration">30–45 Min. · je nach Körperbau</div>
-        <div class="price-divider"></div>
+        <div class="price-amount"><sup>€</sup>100</div>
         <ul class="price-features">
           <li>Vollständige Tiefengewebsarbeit</li>
           <li>Triggerpunkte am ganzen Körper</li>
@@ -3786,9 +3781,8 @@
       </div>
       <div class="price-card">
         <h3 class="price-name">Beinlösung</h3>
-        <div class="price-amount"><sup>€</sup>65</div>
         <div class="price-duration">30 Minuten gezielte Arbeit</div>
-        <div class="price-divider"></div>
+        <div class="price-amount"><sup>€</sup>65</div>
         <ul class="price-features">
           <li>Waden & Oberschenkel</li>
           <li>Fußsohlenschmerzen</li>

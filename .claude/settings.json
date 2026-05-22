@@ -21,7 +21,8 @@
       "PowerShell(Copy-Item \"E:\\\\Clients\\\\Fech Puls\\\\Bilder\\\\Zertifikate\\\\Watermarked\\\\Abschlusszertifikat.png\" \"c:\\\\Users\\\\macho\\\\Documents\\\\GitHub\\\\faszienpraxis-fech\\\\assets\\\\Abschlusszertifikat.png\" -Force)",
       "Skill(browse)",
       "Skill(browse:*)",
-      "Read(//c/Users/macho/AppData/Local/Temp/**)"
+      "Read(//c/Users/macho/AppData/Local/Temp/**)",
+      "Bash(xargs sed -i 's/calc\\(100vh-62px\\)/calc\\(100vh-76px\\)/g')"
     ],
     "additionalDirectories": [
       "E:\\Clients\\Fech Puls\\Bilder",

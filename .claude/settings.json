@@ -20,7 +20,8 @@
       "Bash(findstr \"IPHM\")",
       "PowerShell(Copy-Item \"E:\\\\Clients\\\\Fech Puls\\\\Bilder\\\\Zertifikate\\\\Watermarked\\\\Abschlusszertifikat.png\" \"c:\\\\Users\\\\macho\\\\Documents\\\\GitHub\\\\faszienpraxis-fech\\\\assets\\\\Abschlusszertifikat.png\" -Force)",
       "Skill(browse)",
-      "Skill(browse:*)"
+      "Skill(browse:*)",
+      "Read(//c/Users/macho/AppData/Local/Temp/**)"
     ],
     "additionalDirectories": [
       "E:\\Clients\\Fech Puls\\Bilder",

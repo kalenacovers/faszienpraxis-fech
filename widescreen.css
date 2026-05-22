@@ -1,0 +1,70 @@
+/* ══════════════════════════════════════════════════
+   WIDESCREEN CONSTRAINT — cap content to 1440 px
+   Load this AFTER all inline <style> blocks so it
+   overrides them via source-order cascade.
+   At ≥ 1561 px: padding grows to keep content ≤ 1440 px wide.
+   Formula: calc((100vw − 1440px) / 2)
+   ══════════════════════════════════════════════════ */
+
+@media (min-width: 1561px) {
+
+  /* ── Navigation (accessibility.css) ── */
+  body > nav,
+  body > nav.is-scrolled {
+    padding-left: calc((100vw - 1440px) / 2);
+    padding-right: calc((100vw - 1440px) / 2);
+  }
+
+  /* ── index.html ── */
+  .trust-bar,
+  .hours-strip,
+  .about-content,
+  .how-section,
+  .conditions-section,
+  .pricing-section,
+  .kurs-banner,
+  .testimonials-section,
+  .faq-section,
+  .cta-section,
+  .footer-bottom {
+    padding-left: calc((100vw - 1440px) / 2);
+    padding-right: calc((100vw - 1440px) / 2);
+  }
+
+  /* ── kurs-page.html ── */
+  .kurs-hero-left,
+  .kurs-intro,
+  .kurs-pillars,
+  .kurs-perspektive,
+  .kurs-lernbereich,
+  .kurs-pricing,
+  .kurs-cta,
+  body[data-page="kurs"] footer {
+    padding-left: calc((100vw - 1440px) / 2);
+    padding-right: calc((100vw - 1440px) / 2);
+  }
+
+  /* ── ueber-mich.html ── */
+  .ueber-positioning,
+  .ueber-ziel,
+  .ueber-values,
+  .ueber-cta,
+  .mg-header {
+    padding-left: calc((100vw - 1440px) / 2);
+    padding-right: calc((100vw - 1440px) / 2);
+  }
+
+  /* ── gutschein.html ── */
+  .gutschein-main {
+    padding-left: calc((100vw - 1440px) / 2);
+    padding-right: calc((100vw - 1440px) / 2);
+  }
+
+  /* ── fuer-wen.html ── */
+  .fuerwen-contra,
+  .fuerwen-alternative,
+  .fuerwen-callout {
+    padding-left: calc((100vw - 1440px) / 2);
+    padding-right: calc((100vw - 1440px) / 2);
+  }
+}

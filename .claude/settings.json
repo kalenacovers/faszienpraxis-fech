@@ -24,7 +24,10 @@
       "Read(//c/Users/macho/AppData/Local/Temp/**)",
       "Bash(xargs sed -i 's/calc\\(100vh-62px\\)/calc\\(100vh-76px\\)/g')",
       "Bash(grep -n \"^    \\\\.[a-z].*{$\" \"/c/Users/macho/Documents/GitHub/faszienpraxis-fech/index.html\")",
-      "Bash(grep -n \"^    \\\\.[a-z].*{$\" \"/c/Users/macho/Documents/GitHub/faszienpraxis-fech/kurs-page.html\")"
+      "Bash(grep -n \"^    \\\\.[a-z].*{$\" \"/c/Users/macho/Documents/GitHub/faszienpraxis-fech/kurs-page.html\")",
+      "Bash(grep -v \"Binary\\\\|assets/\\\\|//.*logo\\\\|logo-slider\\\\|logo-track\\\\|logo-item\\\\|logo-mark\\\\|logo-marquee\\\\|cpd-logo\\\\|iaoth-logo\\\\|iphm-logo\\\\|ita-logo\\\\|pantharia-logo\")",
+      "Bash(grep -v \"Binary\\\\|//.*og:image\")",
+      "Bash(grep -v \"Binary\\\\|node_modules\\\\|\\\\.next\\\\|//.*logo\")"
     ],
     "additionalDirectories": [
       "E:\\Clients\\Fech Puls\\Bilder",

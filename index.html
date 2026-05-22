@@ -13,7 +13,7 @@
   <meta property="og:title" content="Faszientherapie Spaichingen | Fech Puls">
   <meta property="og:description" content="Faszien- & Triggerpunktarbeit in Spaichingen. Zertifizierter Faszientherapeut & Sporttherapeut Wadim Fech. Über 185 5★-Bewertungen.">
   <meta property="og:url" content="https://faszienpraxis-fech.de/">
-  <meta property="og:image" content="https://faszienpraxis-fech.de/wp-content/uploads/2026/03/logo_final-scaled.png">
+  <meta property="og:image" content="https://faszienpraxis-fech.de/assets/fech-logo-v2-full-color-rgb.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#0a2540">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -35,7 +35,7 @@
     "url": "https://faszienpraxis-fech.de/",
     "telephone": "+4974249606099",
     "email": "mein-therapeut@web.de",
-    "image": "https://faszienpraxis-fech.de/wp-content/uploads/2026/03/logo_final-scaled.png",
+    "image": "https://faszienpraxis-fech.de/assets/fech-logo-v2-full-color-rgb.png",
     "priceRange": "€€",
     "address": {
       "@type": "PostalAddress",
@@ -89,7 +89,7 @@
     "jobTitle": "Faszientherapeut & Sporttherapeut & Gesundheitspraktiker",
     "worksFor": { "@id": "https://faszienpraxis-fech.de/#business" },
     "url": "https://faszienpraxis-fech.de/ueber-mich.html",
-    "image": "https://faszienpraxis-fech.de/wp-content/uploads/2026/03/2026-03-13-13-36-21-618_034-scaled.jpg",
+    "image": "https://faszienpraxis-fech.de/assets/wadim-fech-portrait.jpg",
     "knowsAbout": ["Faszientherapie", "Triggerpunkttherapie", "Manuelle Tiefengewebearbeit", "Sporttherapie"],
     "sameAs": [
       "https://www.instagram.com/fech_puls/",
@@ -765,8 +765,7 @@
     /* ── LOGO SLIDER ── */
     .logo-slider {
       background: var(--warm-white);
-      padding: 48px 0;
-      overflow: hidden;
+      padding: 48px 60px;
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
@@ -781,28 +780,12 @@
       font-weight: 500;
     }
 
-    .logo-track-wrap {
-      overflow: hidden;
-      position: relative;
-      mask-image: linear-gradient(90deg, transparent 0, #000 80px, #000 calc(100% - 80px), transparent 100%);
-      -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 80px, #000 calc(100% - 80px), transparent 100%);
-    }
-
     .logo-track {
       display: flex;
-      gap: 80px;
+      gap: 64px;
       align-items: center;
-      width: max-content;
-      animation: logo-marquee 32s linear infinite;
-    }
-
-    .logo-track-wrap:hover .logo-track {
-      animation-play-state: paused;
-    }
-
-    @keyframes logo-marquee {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
+      justify-content: center;
+      flex-wrap: wrap;
     }
 
     .logo-item {
@@ -810,8 +793,8 @@
       align-items: center;
       justify-content: center;
       height: 68px;
-      opacity: .65;
-      transition: opacity .25s;
+      opacity: .5;
+      transition: opacity .3s;
       flex-shrink: 0;
     }
 
@@ -825,26 +808,11 @@
       width: auto;
       object-fit: contain;
       filter: grayscale(1);
-      transition: filter .25s;
+      transition: filter .3s;
     }
 
     .logo-item:hover img {
-      filter: grayscale(0);
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .logo-track {
-        animation: none;
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 0 40px;
-        width: 100%;
-      }
-
-      .logo-track-wrap {
-        mask-image: none;
-        -webkit-mask-image: none;
-      }
+      filter: grayscale(1) sepia(1) hue-rotate(180deg) saturate(6) brightness(0.5);
     }
 
     /* ── HOW ── */
@@ -1038,7 +1006,7 @@
       display: grid;
       grid-template-columns: 1fr 1.18fr 1fr;
       gap: 24px;
-      align-items: start;
+      align-items: stretch;
     }
 
     .price-card {
@@ -1176,6 +1144,7 @@
       width: 100%;
       text-align: center;
       padding: 15px;
+      margin-top: auto;
       border: 1px solid var(--dark);
       font-family: 'DM Sans', sans-serif;
       font-size: 11px;
@@ -3004,7 +2973,7 @@
       }
 
       .logo-slider {
-        padding: 32px 0;
+        padding: 32px 40px;
       }
 
       .logo-slider-label {
@@ -3012,8 +2981,7 @@
       }
 
       .logo-track {
-        gap: 48px;
-        animation-duration: 28s;
+        gap: 40px;
       }
 
       .logo-item {
@@ -3023,11 +2991,6 @@
       .logo-item img {
         max-height: 40px;
         max-width: 120px;
-      }
-
-      .logo-track-wrap {
-        mask-image: linear-gradient(90deg, transparent 0, #000 40px, #000 calc(100% - 40px), transparent 100%);
-        -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 40px, #000 calc(100% - 40px), transparent 100%);
       }
 
       .schroepfen-section {
@@ -3721,7 +3684,6 @@
     <div class="logo-slider-label" data-i18n="logos.label">Ausbildung &amp; Zertifizierungen</div>
     <div class="logo-track-wrap">
       <div class="logo-track">
-        <!-- Set 1 (sichtbar) -->
         <div class="logo-item"><img loading="lazy" decoding="async"
             src="assets/cpd-logo.png" alt="CPD – Continuing Professional Development zertifiziert"></div>
         <div class="logo-item"><img loading="lazy" decoding="async" src="assets/iphm-logo.jpg"
@@ -3732,13 +3694,6 @@
             alt="IAOTH – International Association of Therapists"></div>
         <div class="logo-item"><img loading="lazy" decoding="async" src="assets/ita-logo.png"
             alt="ITA – International Therapy Association"></div>
-        <!-- Set 2 (Duplikat für nahtlosen Loop, vor Screenreadern versteckt) -->
-        <div class="logo-item" aria-hidden="true"><img loading="lazy" decoding="async"
-            src="assets/cpd-logo.png" alt=""></div>
-        <div class="logo-item" aria-hidden="true"><img loading="lazy" decoding="async" src="assets/iphm-logo.jpg" alt=""></div>
-        <div class="logo-item" aria-hidden="true"><img loading="lazy" decoding="async" src="assets/pantharia-logo.png" alt=""></div>
-        <div class="logo-item" aria-hidden="true"><img loading="lazy" decoding="async" src="assets/iaoth-logo.png" alt=""></div>
-        <div class="logo-item" aria-hidden="true"><img loading="lazy" decoding="async" src="assets/ita-logo.png" alt=""></div>
       </div>
     </div>
   </section>

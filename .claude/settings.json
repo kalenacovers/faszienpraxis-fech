@@ -16,6 +16,9 @@
       "Read(//e/Clients/Fech Puls/**)",
       "Bash(node \"C:\\\\Users\\\\macho\\\\.claude\\\\skills\\\\impeccable\\\\scripts\\\\load-context.mjs\")",
       "Bash(node -e \"require\\('fs'\\).readFileSync\\('c:/Users/macho/Documents/GitHub/faszienpraxis-fech/lang.js', 'utf8'\\); console.log\\('lang.js parses OK'\\)\")"
+    ],
+    "additionalDirectories": [
+      "E:\\Clients\\Fech Puls\\Bilder"
     ]
   }
 }

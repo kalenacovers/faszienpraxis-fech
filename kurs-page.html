@@ -207,6 +207,9 @@
       position: relative;
       overflow: hidden;
       background: linear-gradient(135deg, #0a2540 0%, #0d3a6e 45%, #0496ff 100%);
+      display: flex;
+      flex-direction: column;
+      padding: 52px 40px 40px;
     }
 
     .kurs-hero-overlay {
@@ -265,10 +268,8 @@
     }
 
     .kurs-hero-card {
-      position: absolute;
-      bottom: 52px;
-      left: 40px;
-      right: 40px;
+      position: relative;
+      margin-top: auto;
       background: linear-gradient(135deg, rgba(4, 150, 255, .55) 0%, rgba(13, 58, 110, .75) 100%);
       border: 1px solid rgba(144, 202, 249, .45);
       backdrop-filter: blur(12px);
@@ -1301,7 +1302,8 @@
       }
 
       .kurs-hero-right {
-        min-height: 380px;
+        min-height: 480px;
+        padding: 52px 32px 32px;
       }
 
       .kurs-intro,
@@ -1377,7 +1379,8 @@
       }
 
       .kurs-hero-right {
-        min-height: 300px;
+        min-height: 520px;
+        padding: 40px 24px 24px;
       }
 
       .kurs-hero-badge {
@@ -1393,9 +1396,6 @@
       }
 
       .kurs-hero-card {
-        left: 20px;
-        right: 20px;
-        bottom: 24px;
         padding: 24px;
       }
 
@@ -1562,7 +1562,7 @@
     <div class="kurs-hero-right">
       <img src="assets/Abschlusszertifikat.png"
         alt="Zertifikat Online-Fachausbildung"
-        style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:55%; height:auto; object-fit:contain; z-index:1;">
+        style="flex:1; min-height:0; display:block; width:65%; max-width:65%; object-fit:contain; margin:0 auto; position:relative; z-index:1;">
       <div class="kurs-hero-overlay"></div>
       <div class="kurs-hero-pattern"></div>
       <div class="kurs-hero-bg-text">Faszien</div>

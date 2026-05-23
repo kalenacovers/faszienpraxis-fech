@@ -27,7 +27,9 @@
       "Bash(grep -n \"^    \\\\.[a-z].*{$\" \"/c/Users/macho/Documents/GitHub/faszienpraxis-fech/kurs-page.html\")",
       "Bash(grep -v \"Binary\\\\|assets/\\\\|//.*logo\\\\|logo-slider\\\\|logo-track\\\\|logo-item\\\\|logo-mark\\\\|logo-marquee\\\\|cpd-logo\\\\|iaoth-logo\\\\|iphm-logo\\\\|ita-logo\\\\|pantharia-logo\")",
       "Bash(grep -v \"Binary\\\\|//.*og:image\")",
-      "Bash(grep -v \"Binary\\\\|node_modules\\\\|\\\\.next\\\\|//.*logo\")"
+      "Bash(grep -v \"Binary\\\\|node_modules\\\\|\\\\.next\\\\|//.*logo\")",
+      "Bash(Get-ChildItem -Path \"E:\\\\Clients\\\\Fech Puls\\\\Website\\\\lms\" -Directory)",
+      "Bash(Select-Object Name)"
     ],
     "additionalDirectories": [
       "E:\\Clients\\Fech Puls\\Bilder",

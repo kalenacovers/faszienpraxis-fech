@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Zertifikat Vorschau – Faszienpraxis Fech</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #e8ecf0; display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 40px; font-family: 'Cormorant Garamond', serif; }
+
+  .cert-wrap {
+    position: relative;
+    width: 595px;
+    height: 842px;
+    background: #fff;
+    box-shadow: 0 20px 80px rgba(0,0,0,0.22);
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+
+  /* ── Hexagon decoration ── */
+  .cert-deco { position: absolute; inset: 0; pointer-events: none; }
+
+  /* ── Dark header ── */
+  .cert-header {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 85px;
+    background: #0a2540;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cert-header img {
+    height: 52px;
+    width: auto;
+    display: block;
+  }
+
+  /* ── Content ── */
+  .cert-content {
+    position: absolute;
+    inset: 0;
+    padding: 108px 54px 36px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .org-name {
+    font-size: 15px;
+    color: #1E2D3D;
+    font-weight: 600;
+    margin-bottom: 3px;
+    text-align: center;
+  }
+  .org-sub {
+    font-size: 10px;
+    color: #6B7A8D;
+    margin-bottom: 18px;
+    text-align: center;
+  }
+
+  /* divider */
+  .divider {
+    width: 240px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #B8D4EE, transparent);
+    margin-bottom: 18px;
+  }
+
+  .main-title {
+    font-size: 48px;
+    color: #4A90D8;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    text-align: center;
+    line-height: 1;
+  }
+  .title-sub {
+    font-size: 14px;
+    color: #2C3E50;
+    letter-spacing: 0.5px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .hiermit {
+    font-size: 13px;
+    color: #2C3E50;
+    font-style: italic;
+    text-align: center;
+    margin-bottom: 3px;
+  }
+  .recipient {
+    font-size: 42px;
+    color: #1E2D3D;
+    font-family: 'Great Vibes', cursive;
+    text-align: center;
+    margin-bottom: 6px;
+    line-height: 1.1;
+  }
+  .erfolgreich {
+    font-size: 12.5px;
+    color: #2C3E50;
+    text-align: center;
+    margin-bottom: 4px;
+  }
+  .course-name {
+    font-size: 24px;
+    color: #1E2D3D;
+    text-align: center;
+    margin-bottom: 4px;
+    letter-spacing: 0.3px;
+  }
+  .abgeschlossen {
+    font-size: 12.5px;
+    color: #2C3E50;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .list-header {
+    font-size: 11.5px;
+    color: #2C3E50;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+  .bullets {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-self: stretch;
+    padding: 0 20px;
+  }
+  .bullet-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .bullet-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #4A90D8;
+    flex-shrink: 0;
+  }
+  .bullet-text {
+    font-size: 11px;
+    color: #2C3E50;
+  }
+
+  .cert-number {
+    font-size: 8.5px;
+    color: #6B7A8D;
+    letter-spacing: 0.5px;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  /* ── Footer ── */
+  .cert-footer {
+    position: absolute;
+    bottom: 36px;
+    left: 54px;
+    right: 54px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .footer-left {}
+  .footer-location {
+    font-size: 11px;
+    color: #2C3E50;
+  }
+  .footer-date {
+    font-size: 13px;
+    color: #1E2D3D;
+    font-weight: 600;
+    margin-top: 3px;
+  }
+  .footer-right { text-align: right; }
+  .signature-img {
+    height: 45px;
+    width: auto;
+    display: block;
+    margin-bottom: 4px;
+    margin-left: auto;
+  }
+  .sig-name {
+    font-size: 12px;
+    color: #1E2D3D;
+  }
+  .sig-role {
+    font-size: 11px;
+    color: #6B7A8D;
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+
+<div class="cert-wrap">
+
+  <!-- Hexagon SVG decoration -->
+  <svg class="cert-deco" viewBox="0 0 595 842" xmlns="http://www.w3.org/2000/svg">
+    <polygon points="105.5,297.5 105.5,502.5 -72,605 -249.5,502.5 -249.5,297.5 -72,195" fill="#D6E8F5" opacity="0.7"/>
+    <polygon points="45.3,294 45.3,456 -95,537 -235.3,456 -235.3,294 -95,213"  fill="#B8D4EE" opacity="0.55"/>
+  </svg>
+
+  <!-- Dark header with logo -->
+  <div class="cert-header">
+    <img src="assets/fech-logo-v2-white-rgb.svg" alt="Faszienpraxis Fech">
+  </div>
+
+  <!-- Main content -->
+  <div class="cert-content">
+
+    <p class="org-name">Faszienpraxis Fech</p>
+    <p class="org-sub">Praxis für Faszien &amp; Triggerpunkte in Spaichingen</p>
+
+    <div class="divider"></div>
+
+    <p class="main-title">Abschlusszertifikat</p>
+    <p class="title-sub">Fachausbildung zum Faszienpraktiker</p>
+
+    <p class="hiermit">Hiermit wird bestätigt, dass</p>
+    <p class="recipient">John Doe</p>
+    <p class="erfolgreich">erfolgreich die private Fachausbildung zum</p>
+    <p class="course-name">"Faszienpraktiker"</p>
+    <p class="abgeschlossen">abgeschlossen hat</p>
+
+    <p class="list-header">Die Ausbildungsinhalte umfassten unter anderem:</p>
+    <div class="bullets">
+      <div class="bullet-row"><div class="bullet-dot"></div><span class="bullet-text">Grundlagen der Faszien- und Muskelanatomie</span></div>
+      <div class="bullet-row"><div class="bullet-dot"></div><span class="bullet-text">Analyse und Lokalisierung funktioneller Spannungszonen</span></div>
+      <div class="bullet-row"><div class="bullet-dot"></div><span class="bullet-text">Manuelle Techniken zur Bearbeitung von Gewebespannungen</span></div>
+      <div class="bullet-row"><div class="bullet-dot"></div><span class="bullet-text">Druckregulationen, Körpermechanik und Kontraindikatoren</span></div>
+    </div>
+
+    <p class="cert-number">Zertifikat Nr. FP-2026-A3B7KX</p>
+  </div>
+
+  <!-- Footer -->
+  <div class="cert-footer">
+    <div class="footer-left">
+      <p class="footer-location">Spaichingen, den</p>
+      <p class="footer-date">23. Mai 2026</p>
+    </div>
+    <div class="footer-right">
+      <img class="signature-img" src="assets/signature-wadim-fech.png" alt="Unterschrift">
+      <p class="sig-name">Wadim Fech</p>
+      <p class="sig-role">Kursleitung</p>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

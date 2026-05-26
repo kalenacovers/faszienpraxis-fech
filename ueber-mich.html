@@ -225,7 +225,10 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      object-position: center top;
+      /* Bias the visible window toward Wadim's face/torso (centre of the portrait,
+         which is in the upper-middle of the original image). "center top" was
+         showing only the screen + anatomy charts on wide screens. */
+      object-position: center 28%;
       display: block;
     }
 
@@ -233,8 +236,9 @@
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(to top, rgba(10, 37, 64, .95) 0%, rgba(10, 37, 64, .35) 45%, transparent 72%),
-        linear-gradient(to left, transparent 55%, rgba(10, 37, 64, .28) 100%);
+        /* lighter bottom mask so Wadim's face isn't washed out */
+        linear-gradient(to top, rgba(10, 37, 64, .80) 0%, rgba(10, 37, 64, .15) 50%, transparent 75%),
+        linear-gradient(to left, transparent 60%, rgba(10, 37, 64, .22) 100%);
     }
 
     .ueber-hero-bg-text {
@@ -278,29 +282,56 @@
       top: 48px;
       right: 40px;
       z-index: 2;
-      width: 110px;
-      height: 110px;
-      border: 1px solid rgba(144, 202, 249, .35);
-      border-radius: 50%;
+      width: 200px;
+      background: #ffffff;
+      border-radius: 2px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       text-align: center;
-      color: var(--accent-light);
-      font-size: 10px;
-      letter-spacing: .1em;
+      padding: 24px 22px 22px;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: .12em;
       text-transform: uppercase;
-      line-height: 1.5;
+      color: var(--text-muted);
+      line-height: 1.6;
+      box-shadow:
+        0 14px 44px rgba(10, 37, 64, 0.28),
+        inset 0 0 0 1px rgba(4, 150, 255, 0.12);
+    }
+
+    .ueber-hero-badge::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+    }
+
+    .ueber-hero-badge-seal {
+      display: block;
+      font-size: 16px;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 10px;
     }
 
     .ueber-hero-badge strong {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 14px;
-      font-weight: 300;
       display: block;
-      letter-spacing: .06em;
-      margin-bottom: 4px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--dark);
+      letter-spacing: .01em;
+      text-transform: none;
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid rgba(10, 37, 64, 0.10);
     }
 
     /* ══════════════════════════════
@@ -1033,6 +1064,26 @@
         min-height: 300px;
       }
 
+      .ueber-hero-badge {
+        width: 160px;
+        top: 24px;
+        right: 24px;
+        padding: 18px 16px 16px;
+        font-size: 8px;
+        letter-spacing: .1em;
+      }
+
+      .ueber-hero-badge-seal {
+        font-size: 13px;
+        margin-bottom: 8px;
+      }
+
+      .ueber-hero-badge strong {
+        font-size: 16px;
+        margin-bottom: 9px;
+        padding-bottom: 7px;
+      }
+
       .ueber-hero-name-tag {
         left: 24px;
         bottom: 32px;
@@ -1436,49 +1487,13 @@
       <div class="ueber-hero-img-overlay"></div>
       <div class="ueber-hero-bg-text">Wadim</div>
       <div class="ueber-hero-badge animate delay-2">
+        <span class="ueber-hero-badge-seal" aria-hidden="true">◈</span>
         <strong>Zertifiziert</strong>
         Faszientherapeut & Sporttherapeut<br>& Faszienpraktiker
       </div>
       <div class="ueber-hero-name-tag animate delay-3">
         <div class="ueber-hero-name">Wadim Fech</div>
         <div class="ueber-hero-role">Faszientherapeut & Sporttherapeut · Spaichingen</div>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ══════ INTRO ══════ -->
-  <section class="ueber-intro">
-    <div class="ueber-intro-img">
-      <img class="ueber-intro-photo"
-        src="assets/wadim-fech-portrait.jpg"
-        alt="Wadim Fech bei der manuellen Tiefengewebearbeit" loading="lazy" decoding="async">
-      <div class="ueber-intro-img-overlay" aria-hidden="true"></div>
-      <div class="ueber-intro-img-pattern"></div>
-      <div class="ueber-intro-img-label">
-        Faszien &<br>Tiefengewebe
-        <small>Spaichingen · seit 2024</small>
-      </div>
-    </div>
-
-    <div class="ueber-intro-content">
-      <p class="section-eyebrow animate">Mein Ansatz</p>
-      <h2 class="section-title animate delay-1">
-        Tiefgehend.<br><em>Gezielt. Ehrlich.</em>
-      </h2>
-      <p class="animate delay-2">
-        Ob Beschwerden durch <strong>Sport, Arbeit oder Stress</strong> entstanden — oft sind es die tiefen
-        Muskelschichten, die überlastet sind und Schmerzen verursachen. Diese Muskeln liegen unter der Oberfläche und
-        lassen sich durch herkömmliche Massagen nicht ausreichend behandeln.
-      </p>
-      <p class="animate delay-2">
-        Mit meiner speziellen <strong>Tiefengewebsarbeit</strong> löse ich genau diese tiefen Blockaden und
-        <strong>Triggerpunkte</strong>, die für die Beschwerden verantwortlich sind. Die Technik erreicht die tiefen
-        Muskel- und Gewebeschichten für eine nachhaltige Linderung.
-      </p>
-      <div class="ueber-statement animate delay-3">
-        Keine Streicheleinheiten — ich arbeite gezielt an tieferliegenden Muskeln und Faszien, nicht im Bereich Wellness
-        oder Entspannung.
       </div>
     </div>
   </section>

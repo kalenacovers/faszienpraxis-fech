@@ -45,6 +45,7 @@
   }
 
   /* ── ueber-mich.html ── */
+  .ueber-hero,
   .ueber-positioning,
   .ueber-ziel,
   .ueber-values,
@@ -53,11 +54,21 @@
     padding-left: calc((100vw - 1440px) / 2);
     padding-right: calc((100vw - 1440px) / 2);
   }
+  /* Hero needs to keep its grid intact + ensure the right (visually left)
+     image column still bleeds to the page edge feel via overflow hidden. */
+  .ueber-hero {
+    padding-top: calc(76px + env(safe-area-inset-top, 0px));
+  }
 
   /* ── gutschein.html ── */
+  .gutschein-hero,
   .gutschein-main {
     padding-left: calc((100vw - 1440px) / 2);
     padding-right: calc((100vw - 1440px) / 2);
+  }
+  /* Hero keeps its own padding-top intact */
+  .gutschein-hero {
+    padding-top: calc(62px + env(safe-area-inset-top, 0px));
   }
 
   /* ── fuer-wen.html ── */

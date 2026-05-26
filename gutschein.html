@@ -915,15 +915,52 @@
       }
 
       .gutschein-hero-left {
-        padding: 52px 24px 40px;
+        padding: 52px 20px 40px;
+      }
+
+      .gutschein-hero-left h1 {
+        font-size: clamp(32px, 7vw, 44px);
+      }
+
+      .gutschein-hero-sub {
+        font-size: 16px;
+        line-height: 1.6;
+      }
+
+      .gutschein-hero-pills {
+        gap: 8px;
+      }
+
+      .gutschein-pill {
+        font-size: 11px;
+        padding: 8px 12px;
       }
 
       .gutschein-hero-right {
-        min-height: 280px;
+        min-height: 320px;
+        padding: 40px 16px;
+      }
+
+      .gutschein-card-visual {
+        width: 100%;
+        max-width: 360px;
+      }
+
+      .gutschein-card-top,
+      .gutschein-card-body {
+        padding-left: 24px;
+        padding-right: 24px;
       }
 
       .gutschein-main {
-        padding: 64px 24px;
+        padding: 56px 20px;
+        gap: 40px;
+      }
+
+      .gutschein-form-intro {
+        font-size: 15px;
+        line-height: 1.7;
+        margin-bottom: 32px;
       }
 
       .form-grid {
@@ -944,8 +981,72 @@
         flex-direction: column;
       }
 
+      .duration-label {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 20px;
+        text-align: left;
+      }
+
+      .duration-price {
+        font-size: 28px;
+      }
+
+      .duration-time {
+        margin-top: 0;
+      }
+
       .form-delivery-options {
         flex-direction: column;
+      }
+
+      .delivery-label {
+        padding: 14px 18px;
+      }
+
+      .quantity-wrapper {
+        width: 100%;
+        max-width: 200px;
+      }
+
+      .form-submit-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 16px;
+      }
+
+      .btn-submit {
+        width: 100%;
+      }
+
+      .form-note {
+        font-size: 13px;
+      }
+
+      /* Inputs need a touchable size & a font ≥16px so iOS does not zoom */
+      .form-input,
+      .form-select,
+      .form-textarea {
+        font-size: 16px;
+        padding: 14px 16px;
+      }
+
+      .qty-btn {
+        width: 48px;
+        height: 48px;
+        font-size: 22px;
+      }
+
+      .qty-input {
+        width: 64px;
+        height: 48px;
+        font-size: 18px;
+      }
+
+      .info-card,
+      .info-card-dark {
+        padding: 28px 24px;
       }
 
       .trust-bar {
@@ -954,6 +1055,11 @@
         flex-wrap: nowrap;
         justify-content: flex-start;
         gap: 16px;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      .trust-item {
+        flex-shrink: 0;
       }
 
       .trust-sep {
@@ -979,12 +1085,32 @@
     }
 
     @media (max-width: 480px) {
+      .gutschein-hero-left {
+        padding: 40px 16px 32px;
+      }
+
       .gutschein-hero-left h1 {
-        font-size: 34px;
+        font-size: 30px;
       }
 
       .gutschein-hero-sub {
         font-size: 15px;
+        margin-bottom: 28px;
+      }
+
+      .gutschein-hero-right {
+        min-height: 280px;
+        padding: 32px 12px;
+      }
+
+      .gutschein-main {
+        padding: 48px 16px;
+        gap: 32px;
+      }
+
+      .info-card,
+      .info-card-dark {
+        padding: 24px 20px;
       }
 
       footer {
@@ -998,7 +1124,31 @@
       }
 
       .gutschein-card-visual {
-        width: 90%;
+        width: 100%;
+      }
+
+      .gutschein-card-top {
+        padding: 24px 20px 20px;
+      }
+
+      .gutschein-card-body {
+        padding: 20px;
+      }
+
+      .gutschein-card-title {
+        font-size: 22px;
+      }
+
+      .gutschein-price-row {
+        gap: 12px;
+      }
+
+      .gutschein-price-item {
+        padding: 12px 8px;
+      }
+
+      .gutschein-price-item .price {
+        font-size: 26px;
       }
     }
   </style>
@@ -1093,7 +1243,14 @@
         zur Abholung bereit oder senden ihn per Post zu.
       </p>
 
-      <form id="gutschein-form" novalidate>
+      <form id="gutschein-form" action="https://formsubmit.co/mein-therapeut@web.de" method="POST" novalidate>
+        <!-- FormSubmit config -->
+        <input type="hidden" name="_subject" value="Neue Gutschein-Anfrage — Fech Puls">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_autoresponse" value="Vielen Dank für Ihre Gutschein-Anfrage. Wir melden uns in Kürze mit den Zahlungsdetails. — Fech Puls, Spaichingen">
+        <input type="hidden" name="_honey" value="">
+
         <div class="form-grid">
 
           <div class="form-group">
@@ -1225,6 +1382,99 @@
   <div id="site-footer"></div>
 
   <script src="components.js"></script>
+  <script>
+    (function () {
+      'use strict';
+
+      // ── Quantity +/- buttons ─────────────────────────────
+      var qtyInput = document.getElementById('quantity');
+      var qtyMinus = document.getElementById('qty-minus');
+      var qtyPlus  = document.getElementById('qty-plus');
+
+      function clampQty(v) {
+        var n = parseInt(v, 10);
+        if (isNaN(n) || n < 1) n = 1;
+        if (n > 20) n = 20;
+        return n;
+      }
+      if (qtyMinus && qtyPlus && qtyInput) {
+        qtyMinus.addEventListener('click', function () {
+          qtyInput.value = clampQty(parseInt(qtyInput.value, 10) - 1);
+        });
+        qtyPlus.addEventListener('click', function () {
+          qtyInput.value = clampQty(parseInt(qtyInput.value, 10) + 1);
+        });
+        qtyInput.addEventListener('change', function () {
+          qtyInput.value = clampQty(qtyInput.value);
+        });
+      }
+
+      // ── Form submit via AJAX to FormSubmit ───────────────
+      var form     = document.getElementById('gutschein-form');
+      var success  = document.getElementById('form-success');
+      if (!form) return;
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        // Basic validation
+        var name  = form.querySelector('#name');
+        var email = form.querySelector('#email');
+        if (!name.value.trim() || !email.value.trim()) {
+          name.focus();
+          name.reportValidity();
+          email.reportValidity();
+          return;
+        }
+
+        var submitBtn = form.querySelector('button[type="submit"]');
+        var origLabel = submitBtn ? submitBtn.textContent : '';
+        if (submitBtn) {
+          submitBtn.disabled = true;
+          submitBtn.textContent = 'Wird gesendet…';
+        }
+
+        // Set reply-to so therapist can reply directly to the customer
+        var replyto = form.querySelector('input[name="_replyto"]');
+        if (!replyto) {
+          replyto = document.createElement('input');
+          replyto.type = 'hidden';
+          replyto.name = '_replyto';
+          form.appendChild(replyto);
+        }
+        replyto.value = email.value.trim();
+
+        var data = new FormData(form);
+
+        fetch('https://formsubmit.co/ajax/mein-therapeut@web.de', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: data
+        })
+          .then(function (res) { return res.json().catch(function () { return {}; }); })
+          .then(function (json) {
+            if (json && (json.success === 'true' || json.success === true)) {
+              form.style.display = 'none';
+              if (success) success.style.display = 'block';
+              if (success) success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            } else {
+              alert('Etwas ist schiefgelaufen. Bitte schreiben Sie uns direkt an mein-therapeut@web.de oder rufen Sie an: 07424 960 609 9');
+              if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.textContent = origLabel;
+              }
+            }
+          })
+          .catch(function () {
+            alert('Netzwerkfehler. Bitte schreiben Sie uns direkt an mein-therapeut@web.de oder rufen Sie an: 07424 960 609 9');
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.textContent = origLabel;
+            }
+          });
+      });
+    })();
+  </script>
 </body>
 
 </html>

@@ -1243,13 +1243,10 @@
         zur Abholung bereit oder senden ihn per Post zu.
       </p>
 
-      <form id="gutschein-form" action="https://formsubmit.co/mein-therapeut@web.de" method="POST" novalidate>
-        <!-- FormSubmit config -->
-        <input type="hidden" name="_subject" value="Neue Gutschein-Anfrage — Fech Puls">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_autoresponse" value="Vielen Dank für Ihre Gutschein-Anfrage. Wir melden uns in Kürze mit den Zahlungsdetails. — Fech Puls, Spaichingen">
-        <input type="hidden" name="_honey" value="">
+      <form id="gutschein-form" action="/api/gutschein" method="POST" novalidate>
+        <!-- Honeypot for bots -->
+        <input type="text" name="_honey" tabindex="-1" autocomplete="off"
+               style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" aria-hidden="true">
 
         <div class="form-grid">
 
@@ -1409,60 +1406,61 @@
         });
       }
 
-      // ── Form submit via AJAX to FormSubmit ───────────────
-      var form     = document.getElementById('gutschein-form');
-      var success  = document.getElementById('form-success');
+      // ── Form submit → POST JSON to /api/gutschein (Resend) ─────────
+      var form    = document.getElementById('gutschein-form');
+      var success = document.getElementById('form-success');
       if (!form) return;
+
+      var submitBtn = form.querySelector('button[type="submit"]');
+      var origLabel = submitBtn ? submitBtn.textContent : '';
 
       form.addEventListener('submit', function (e) {
         e.preventDefault();
 
-        // Basic validation
+        // Basic required-field check (let the browser show its own UI)
         var name  = form.querySelector('#name');
         var email = form.querySelector('#email');
         if (!name.value.trim() || !email.value.trim()) {
-          name.focus();
           name.reportValidity();
           email.reportValidity();
           return;
         }
 
-        var submitBtn = form.querySelector('button[type="submit"]');
-        var origLabel = submitBtn ? submitBtn.textContent : '';
         if (submitBtn) {
           submitBtn.disabled = true;
           submitBtn.textContent = 'Wird gesendet…';
         }
 
-        // Set reply-to so therapist can reply directly to the customer
-        var replyto = form.querySelector('input[name="_replyto"]');
-        if (!replyto) {
-          replyto = document.createElement('input');
-          replyto.type = 'hidden';
-          replyto.name = '_replyto';
-          form.appendChild(replyto);
-        }
-        replyto.value = email.value.trim();
+        // Collect form data as a plain object
+        var fd = new FormData(form);
+        var payload = {};
+        fd.forEach(function (v, k) { payload[k] = v; });
 
-        var data = new FormData(form);
-
-        fetch('https://formsubmit.co/ajax/mein-therapeut@web.de', {
+        fetch('/api/gutschein', {
           method: 'POST',
-          headers: { 'Accept': 'application/json' },
-          body: data
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(payload)
         })
-          .then(function (res) { return res.json().catch(function () { return {}; }); })
-          .then(function (json) {
-            if (json && (json.success === 'true' || json.success === true)) {
+          .then(function (r) {
+            return r.json().catch(function () { return {}; })
+              .then(function (j) { return { ok: r.ok, body: j }; });
+          })
+          .then(function (res) {
+            if (res.ok && res.body && res.body.success) {
               form.style.display = 'none';
-              if (success) success.style.display = 'block';
-              if (success) success.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            } else {
-              alert('Etwas ist schiefgelaufen. Bitte schreiben Sie uns direkt an mein-therapeut@web.de oder rufen Sie an: 07424 960 609 9');
-              if (submitBtn) {
-                submitBtn.disabled = false;
-                submitBtn.textContent = origLabel;
+              if (success) {
+                success.style.display = 'block';
+                success.scrollIntoView({ behavior: 'smooth', block: 'center' });
               }
+              return;
+            }
+            var msg = (res.body && res.body.error)
+              ? res.body.error
+              : 'Die Anfrage konnte nicht gesendet werden.';
+            alert(msg + ' Bitte schreiben Sie uns direkt an mein-therapeut@web.de oder rufen Sie an: 07424 960 609 9');
+            if (submitBtn) {
+              submitBtn.disabled = false;
+              submitBtn.textContent = origLabel;
             }
           })
           .catch(function () {

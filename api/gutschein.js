@@ -8,6 +8,10 @@
 // "Reply-To" is set to the customer so replying in the mail client
 // answers the customer directly.
 
+export const config = {
+  runtime: "nodejs",
+};
+
 export default async function handler(req, res) {
   // CORS — same-origin in production, but allows easier local testing
   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -52,36 +56,51 @@ export default async function handler(req, res) {
   const html = buildHtmlEmail(data);
   const text = buildTextEmail(data);
 
+  const requestBody = {
+    from: "Fech Puls Gutschein <noreply@onlinekurs.faszienpraxis-fech.de>",
+    to: ["mein-therapeut@web.de"],
+    reply_to: email,
+    subject,
+    html,
+    text,
+  };
+
   try {
+    if (typeof fetch !== "function") {
+      throw new Error(
+        "fetch ist nicht verfügbar. Vercel-Projekt braucht Node.js 18+ (Settings → General → Node.js Version)."
+      );
+    }
+
     const r = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${apiKey}`,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        from: "Fech Puls Gutschein <noreply@onlinekurs.faszienpraxis-fech.de>",
-        to: ["mein-therapeut@web.de"],
-        reply_to: email,
-        subject,
-        html,
-        text,
-      }),
+      body: JSON.stringify(requestBody),
     });
 
+    const responseText = await r.text();
+    console.log("[gutschein] Resend status:", r.status, "body:", responseText.slice(0, 500));
+
     if (!r.ok) {
-      const detail = await r.text();
+      let detail = responseText;
+      try {
+        const parsed = JSON.parse(responseText);
+        detail = parsed.message || parsed.error || responseText;
+      } catch { /* keep raw text */ }
       return res.status(502).json({
-        error: "Mail-Versand fehlgeschlagen.",
-        detail: detail.slice(0, 300),
+        error: `Resend ${r.status}: ${String(detail).slice(0, 300)}`,
       });
     }
 
     return res.status(200).json({ success: true });
   } catch (err) {
+    const msg = err instanceof Error ? err.message : String(err);
+    console.error("[gutschein] fetch threw:", msg);
     return res.status(500).json({
-      error: "Netzwerkfehler beim Mail-Versand.",
-      detail: err instanceof Error ? err.message : String(err),
+      error: `Mail-Versand fehlgeschlagen: ${msg}`,
     });
   }
 }

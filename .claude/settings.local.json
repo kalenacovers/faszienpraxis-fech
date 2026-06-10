@@ -9,7 +9,40 @@
       "Bash(python -m http.server 8765)",
       "Bash(curl -s \"http://localhost:8765/index.html\" -o /dev/null -w \"%{http_code}\\\\n\")",
       "Bash(curl -s \"http://localhost:8765/index.html\")",
-      "Bash(curl -sf \"http://localhost:8765/index.html\" -o /tmp/served.html)"
+      "Bash(curl -sf \"http://localhost:8765/index.html\" -o /tmp/served.html)",
+      "Bash(grep -oE \"#[0-9a-fA-F]{3,6}\\\\b\" footer.html nav.html)",
+      "Bash(echo \"exit: $?\")",
+      "Bash(grep -oE \"class=\\\\\"[a-z- ]+\\\\\"\" footer.html | sed 's/class=\"//;s/\"//' | tr ' ' '\\\\n' | sort -u > /tmp/footer_classes.txt; cat /tmp/footer_classes.txt; echo \"=== styled in ueber-mich ===\"; grep -oE \"\\\\.\\(footer|mcta|mobile-cta|whatsapp\\)[a-z-]*\" ueber-mich.html | sort -u)",
+      "Bash(grep -n \"site-footer\\\\b\" accessibility.css | head -3; sed -n '/^\\\\.site-footer {/,/}/p' accessibility.css; head -20 accessibility.css)",
+      "Bash(grep -nB8 \"padding: [0-9]*px 60px\" zertifikate.html)",
+      "Bash(sed -n '384,396p' index.html)",
+      "Bash(sed -n '1838,1846p' index.html)",
+      "Bash(sed -n '1855,1880p' index.html)",
+      "Bash(sed -n '1888,1915p' index.html)",
+      "Bash(sed -n '1430,1436p' index.html)",
+      "Bash(sed -n '63,70p' impressum.html)",
+      "Bash(sed -n '64,71p' datenschutz.html)",
+      "Bash(sed -n '163,172p' impressum.html)",
+      "Bash(sed -n '167,176p' datenschutz.html)",
+      "Bash(sed -n '3420,3426p' index.html)",
+      "Bash(sed -n '895,902p' zertifikate.html)",
+      "Bash(sed -n '698,704p' impressum.html)",
+      "Bash(sed -n '577,583p' datenschutz.html)",
+      "Bash(grep -nB8 \"padding: 110px 60px\" index.html)",
+      "Bash(sed -n '/\\\\.zert-hero {/,/}/p' zertifikate.html)",
+      "Bash(sed -n '/\\\\.zert-featured {/,/}/p' zertifikate.html)",
+      "Bash(sed -n '/\\\\.zert-index {/,/}/p' zertifikate.html)",
+      "Bash(sed -n '/\\\\.zert-cta {/,/}/p' zertifikate.html)",
+      "Bash(python -m http.server 8741 --bind 127.0.0.1)",
+      "Bash('C:\\\\Users\\\\macho/.claude/skills/gstack/browse/dist/browse' viewport *)",
+      "Bash('C:\\\\Users\\\\macho/.claude/skills/gstack/browse/dist/browse' goto *)",
+      "Bash('C:\\\\Users\\\\macho/.claude/skills/gstack/browse/dist/browse' wait *)",
+      "Bash('C:\\\\Users\\\\macho/.claude/skills/gstack/browse/dist/browse' screenshot *)",
+      "Bash('C:\\\\Users\\\\macho/.claude/skills/gstack/browse/dist/browse' scroll *)",
+      "Bash('C:\\\\Users\\\\macho/.claude/skills/gstack/browse/dist/browse' js *)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\macho\\Documents\\GitHub\\faszienpraxis-fech"
     ]
   }
 }

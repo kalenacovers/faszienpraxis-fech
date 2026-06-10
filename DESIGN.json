@@ -13,7 +13,8 @@
       "paper-white":  { "role": "surface-light",  "displayName": "Paper White", "canonical": "oklch(97% 0.006 240)", "tonalRamp": ["oklch(75% 0.005 240)", "oklch(80% 0.005 240)", "oklch(85% 0.006 240)", "oklch(89% 0.006 240)", "oklch(92% 0.006 240)", "oklch(95% 0.006 240)", "oklch(97% 0.006 240)", "oklch(99% 0.003 240)"] },
       "cold-tint":    { "role": "surface-alt",    "displayName": "Cold Tint",   "canonical": "oklch(93% 0.015 237)", "tonalRamp": ["oklch(65% 0.01 237)", "oklch(73% 0.012 237)", "oklch(80% 0.013 237)", "oklch(86% 0.014 237)", "oklch(90% 0.015 237)", "oklch(93% 0.015 237)", "oklch(96% 0.01 237)", "oklch(99% 0.005 237)"] },
       "star-gold":    { "role": "semantic-stars",  "displayName": "Star Gold",  "canonical": "oklch(86% 0.12 82)",  "tonalRamp": ["oklch(40% 0.09 82)", "oklch(54% 0.10 82)", "oklch(66% 0.11 82)", "oklch(74% 0.12 82)", "oklch(80% 0.12 82)", "oklch(86% 0.12 82)", "oklch(91% 0.09 82)", "oklch(96% 0.05 82)"] },
-      "open-green":   { "role": "semantic-status", "displayName": "Open Green", "canonical": "oklch(72% 0.18 145)", "tonalRamp": ["oklch(32% 0.12 145)", "oklch(44% 0.15 145)", "oklch(54% 0.17 145)", "oklch(62% 0.18 145)", "oklch(70% 0.18 145)", "oklch(78% 0.16 145)", "oklch(86% 0.12 145)", "oklch(94% 0.06 145)"] }
+      "open-green":   { "role": "semantic-status", "displayName": "Open Green", "canonical": "oklch(72% 0.18 145)", "tonalRamp": ["oklch(32% 0.12 145)", "oklch(44% 0.15 145)", "oklch(54% 0.17 145)", "oklch(62% 0.18 145)", "oklch(70% 0.18 145)", "oklch(78% 0.16 145)", "oklch(86% 0.12 145)", "oklch(94% 0.06 145)"] },
+      "contra-red":   { "role": "semantic-warning", "displayName": "Contra Red", "canonical": "oklch(60% 0.18 23)", "tonalRamp": ["oklch(30% 0.11 23)", "oklch(40% 0.14 23)", "oklch(50% 0.16 23)", "oklch(60% 0.18 23)", "oklch(68% 0.16 23)", "oklch(76% 0.12 23)", "oklch(86% 0.07 23)", "oklch(94% 0.03 23)"] }
     },
     "typographyMeta": {
       "display": { "displayName": "Display", "purpose": "Hero headline only — one per page. Cormorant Garamond 300, tight leading." },
@@ -116,7 +117,7 @@
     ],
     "rules": [
       { "name": "The One Voice Rule", "body": "Signal Blue and Sky Trace together are the only chromatic elements. Every other surface is a navy or tinted neutral. If a new element needs color, the answer is always a shade of blue — not a new hue.", "section": "colors" },
-      { "name": "The Semantic Exclusivity Rule", "body": "Star Gold is reserved for star ratings only. Open Green is reserved for the live-open status dot only. Both appear in exactly one place per page.", "section": "colors" },
+      { "name": "The Semantic Exclusivity Rule", "body": "Star Gold is reserved for star ratings only. Open Green is reserved for the live-open status dot only. Contra Red is reserved for medical contraindication warnings only. Each appears in exactly one context per page.", "section": "colors" },
       { "name": "The Weight Ceiling Rule", "body": "Weight 600 (semibold) is not in this system. The highest weight is 500 (medium) on DM Sans. Display and headline stay at 300 always. Heaviness here reads as shouting.", "section": "typography" },
       { "name": "The Italic Signal Rule", "body": "Italic in Cormorant Garamond is the only typographic accent on dark surfaces. On light surfaces it appears in pull quotes only. It is never used in DM Sans.", "section": "typography" },
       { "name": "The Flat-By-Default Rule", "body": "At rest, cards have no shadow. Shadows only emerge on hover or for the one intentionally elevated featured element. A card with a shadow at rest and no hover change reads as frozen mid-interaction.", "section": "elevation" }

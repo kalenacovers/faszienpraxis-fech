@@ -78,4 +78,24 @@
     padding-left: calc((100vw - 1440px) / 2);
     padding-right: calc((100vw - 1440px) / 2);
   }
+
+  /* ── zertifikate.html ──
+     .zert-featured and .zert-cta cap themselves via max-width +
+     margin auto and must not receive the frame padding. */
+  .zert-hero,
+  .zert-index {
+    padding-left: calc((100vw - 1440px) / 2);
+    padding-right: calc((100vw - 1440px) / 2);
+  }
+
+  /* ── impressum.html / datenschutz.html ──
+     The 60px side padding lives on .legal-banner-inner (max-width
+     900px, border-box), so the frame offset is added as margin to
+     keep the content width intact. The -60px keeps the total left
+     offset continuous across the breakpoint. .legal-layout caps
+     itself via max-width + margin auto and needs no rule. */
+  .legal-banner-inner {
+    margin-left: calc((100vw - 1440px) / 2 - 60px);
+    margin-right: calc((100vw - 1440px) / 2 - 60px);
+  }
 }

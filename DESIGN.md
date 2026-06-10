@@ -12,6 +12,7 @@ colors:
   cold-tint: "#e3f2fd"
   star-gold: "#ffd166"
   open-green: "#22c55e"
+  contra-red: "#d64045"
 typography:
   display:
     fontFamily: "Cormorant Garamond, Georgia, serif"
@@ -112,11 +113,12 @@ A monochromatic navy world, punctuated by one precision accent.
 ### Accent (Functional Only)
 - **Star Gold** (`#ffd166`): Stars only. Never buttons, never borders, never backgrounds.
 - **Open Green** (`#22c55e`): Live-hours "open" indicator only. One semantic dot, full stop.
+- **Contra Red** (`#d64045`, tint `rgba(214, 64, 69, 0.08)`): Medical contraindication warnings only (fuer-wen.html). Never CTAs, never decorative accents, never error styling outside the contraindication context.
 
 ### Named Rules
 **The One Voice Rule.** Signal Blue and Sky Trace together are the only chromatic elements in the interface. Every other surface is a navy or a tinted neutral. If a new element needs color, the answer is always a shade of blue or a tonal navy — not a new hue.
 
-**The Semantic Exclusivity Rule.** Star Gold is reserved for star ratings and nothing else. Open Green is reserved for the live-open status dot and nothing else. Both appear in exactly one place per page.
+**The Semantic Exclusivity Rule.** Star Gold is reserved for star ratings and nothing else. Open Green is reserved for the live-open status dot and nothing else. Contra Red is reserved for medical contraindication warnings and nothing else. Each appears in exactly one context per page.
 
 ## 3. Typography
 

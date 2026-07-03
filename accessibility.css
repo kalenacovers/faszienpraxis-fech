@@ -1009,6 +1009,85 @@ body > .nav-mobile .nav-cta-mob {
   flex-shrink: 0;
 }
 
+/* ════════════════════════════════════════════════════
+   GLOBAL EYEBROW UPGRADE — "Chip" pill treatment
+   Ersetzt die Linien-Eyebrow durch einen weichen, abgerundeten
+   Chip mit leuchtendem Punkt. color-mix leitet Tint, Rand und
+   Punkt-Glow automatisch aus der jeweiligen Akzentfarbe ab
+   (funktioniert auf hellen UND dunklen Flächen). !important
+   überschreibt die pro-Seite definierten Inline-Eyebrow-Styles.
+   ════════════════════════════════════════════════════ */
+.section-eyebrow,
+.hero-eyebrow,
+.footer-cta-eyebrow,
+.kurs-hero-eyebrow,
+.kurs-card-main-eyebrow,
+.kurs-banner-eyebrow,
+.legal-banner-eyebrow,
+.fuerwen-hero-eyebrow,
+.fuerwen-callout-eyebrow,
+.gutschein-hero-eyebrow,
+.info-card-eyebrow,
+.ueber-hero-eyebrow,
+.zert-index-eyebrow,
+.zert-featured-eyebrow,
+.zert-cta-eyebrow,
+.mg-eyebrow {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  padding: 6px 14px 6px 12px !important;
+  border-radius: 100px !important;
+  font-weight: 600 !important;
+  letter-spacing: .14em !important;
+  background: color-mix(in srgb, currentColor 10%, transparent) !important;
+  border: 1px solid color-mix(in srgb, currentColor 26%, transparent) !important;
+}
+
+.section-eyebrow::before,
+.hero-eyebrow::before,
+.footer-cta-eyebrow::before,
+.kurs-hero-eyebrow::before,
+.kurs-card-main-eyebrow::before,
+.kurs-banner-eyebrow::before,
+.legal-banner-eyebrow::before,
+.fuerwen-hero-eyebrow::before,
+.fuerwen-callout-eyebrow::before,
+.gutschein-hero-eyebrow::before,
+.info-card-eyebrow::before,
+.ueber-hero-eyebrow::before,
+.zert-index-eyebrow::before,
+.zert-featured-eyebrow::before,
+.zert-cta-eyebrow::before,
+.mg-eyebrow::before {
+  content: '' !important;
+  display: block !important;
+  width: 5px !important;
+  height: 5px !important;
+  border-radius: 50% !important;
+  background: currentColor !important;
+  box-shadow: 0 0 0 3px color-mix(in srgb, currentColor 22%, transparent) !important;
+  flex-shrink: 0 !important;
+  margin: 0 !important;
+}
+
+/* Redundante Innen-Linie der mg-eyebrow ausblenden (Punkt ersetzt sie) */
+.mg-eyebrow-line { display: none !important; }
+
+/* Zentrierte CTA-Eyebrows: die Pille mittig ausrichten */
+.cta-section,
+.kurs-cta,
+.ueber-cta {
+  text-align: center;
+}
+
+/* Dunkle Sektionen, deren Eyebrow noch das kraeftige Blau nutzt:
+   auf helleres Blau heben (besserer Kontrast auf Navy) */
+.how-section .section-eyebrow,
+.schroepfen-section .section-eyebrow {
+  color: #90caf9 !important;
+}
+
 .section-title {
   font-family: 'Cormorant Garamond', Georgia, serif;
   font-size: clamp(32px, 4vw, 56px);

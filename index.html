@@ -605,6 +605,32 @@
       flex-shrink: 0;
     }
 
+    /* ── HINWEIS-LEISTE (Termin-Infos) ── */
+    .info-strip {
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+      padding: 12px clamp(20px, 5vw, 60px);
+      display: flex;
+      align-items: center;
+      gap: 10px 32px;
+      flex-wrap: wrap;
+    }
+
+    .info-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 13px;
+      color: var(--text-body);
+    }
+
+    .info-item svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      color: var(--accent);
+    }
+
     /* .section-eyebrow / .section-title — styles live in accessibility.css */
 
     /* ── ABOUT ── */
@@ -3553,6 +3579,24 @@
     </a>
   </div>
 
+  <!-- HINWEISE FÜR DEN TERMIN -->
+  <div class="info-strip" aria-label="Hinweise für deinen Termin">
+    <div class="info-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+        <path d="M9 11l3 3L22 4"/>
+        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+      </svg>
+      <span data-i18n="notice.towel">Bitte ein Handtuch mitbringen</span>
+    </div>
+    <div class="info-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+        <rect x="2" y="5" width="20" height="14" rx="2"/>
+        <line x1="2" y1="10" x2="22" y2="10"/>
+      </svg>
+      <span data-i18n="notice.pay">Zahlung per Girocard oder Barzahlung möglich · keine Kreditkartenzahlung</span>
+    </div>
+  </div>
+
   <!-- CONDITIONS — Womit ich helfen kann -->
   <section class="conditions-section" id="leistungen">
     <div class="section-eyebrow" data-i18n="cond.eyebrow">Behandlungsbereiche</div>
@@ -3662,7 +3706,7 @@
       <p data-i18n="about.p2">Viele Menschen spüren über längere Zeit Druck im Gewebe, harte Muskelstrukturen oder tief sitzende Verhärtungen, die sich im Laufe der Jahre im Körper aufbauen. Solche Strukturen entstehen häufig durch dauerhafte körperliche Belastung, einseitige Bewegungsmuster oder anhaltenden Druck im Bewegungsapparat.</p>
       <ul class="certs" aria-label="Qualifikationen">
         <li class="cert-tag" data-i18n="cert.1">Faszientherapeut &amp; Sporttherapeut</li>
-        <li class="cert-tag" data-i18n="cert.2">Faszienpraktiker</li>
+        <li class="cert-tag" data-i18n="cert.2">Faszienpraktiker/Sportmasseur</li>
         <li class="cert-tag" data-i18n="cert.3">Gesundheitspraktiker</li>
         <li class="cert-tag" data-i18n="cert.4">Triggerpunkttherapeut</li>
         <li class="cert-tag" data-i18n="cert.5">Sporttherapeut</li>

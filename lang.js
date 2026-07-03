@@ -81,9 +81,13 @@
 
     // Cert tags
     'cert.1': { de: 'Faszientherapeut &amp; Sporttherapeut', en: 'Fascia &amp; Sports Therapist', es: 'Terapeuta de fascia y deportivo', it: 'Terapista della fascia e sportivo', ru: 'Фасциальный и спортивный терапевт', fr: 'Thérapeute des fascias et sportif' },
-    'cert.2': { de: 'Faszienpraktiker',   en: 'Fascia Practitioner',   es: 'Practicante de fascia',   it: 'Praticante della fascia',   ru: 'Фасциальный практик',             fr: 'Praticien des fascias' },
+    'cert.2': { de: 'Faszienpraktiker/Sportmasseur', en: 'Fascia Practitioner / Sports Masseur', es: 'Practicante de fascia / Masajista deportivo', it: 'Praticante della fascia / Massaggiatore sportivo', ru: 'Фасциальный практик / Спортивный массажист', fr: 'Praticien des fascias / Masseur sportif' },
     'cert.3': { de: 'Gesundheitspraktiker', en: 'Health Practitioner', es: 'Profesional de salud',    it: 'Operatore sanitario',       ru: 'Оздоровительный практик',         fr: 'Praticien de santé' },
     'cert.4': { de: 'Triggerpunkttherapeut', en: 'Trigger Point Therapist', es: 'Terapeuta de puntos gatillo', it: 'Terapista dei punti trigger', ru: 'Триггерный терапевт',          fr: 'Thérapeute des points gâchette' },
+
+    // Hinweise für den Termin
+    'notice.towel': { de: 'Bitte ein Handtuch mitbringen', en: 'Please bring a towel', es: 'Por favor, trae una toalla', it: 'Si prega di portare un asciugamano', ru: 'Пожалуйста, возьмите с собой полотенце', fr: 'Merci d’apporter une serviette' },
+    'notice.pay': { de: 'Zahlung per Girocard oder Barzahlung möglich · keine Kreditkartenzahlung', en: 'Payment by Girocard (debit) or cash · no credit cards', es: 'Pago con Girocard (débito) o en efectivo · sin tarjetas de crédito', it: 'Pagamento con Girocard (debito) o in contanti · nessuna carta di credito', ru: 'Оплата картой Girocard (дебет) или наличными · кредитные карты не принимаются', fr: 'Paiement par Girocard (débit) ou espèces · pas de carte de crédit' },
     'cert.5': { de: 'Sporttherapeut',     en: 'Sports Therapist',      es: 'Terapeuta deportivo',     it: 'Terapista sportivo',        ru: 'Спортивный терапевт',             fr: 'Thérapeute sportif' },
     'cert.6': { de: 'Manuelle Techniken', en: 'Manual Techniques',     es: 'Técnicas manuales',       it: 'Tecniche manuali',          ru: 'Мануальные техники',              fr: 'Techniques manuelles' },
 

@@ -882,9 +882,11 @@
     .kurs-price-card {
       background: var(--dark);
       border: 1px solid rgba(4, 150, 255, .2);
-      padding: 56px 52px;
+      padding: 48px 40px;
       position: relative;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
 
     .kurs-price-card::before {
@@ -1069,6 +1071,74 @@
     .kurs-price-notice strong {
       color: var(--dark);
       font-weight: 500;
+    }
+
+    /* ── Drei-Paket-Raster ── */
+    .kurs-pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.08fr 1fr;
+      gap: 24px;
+      align-items: stretch;
+      margin-bottom: 40px;
+    }
+
+    .kurs-price-card .kurs-price-features {
+      flex: 1 0 auto;
+    }
+
+    .kurs-price-card .kurs-btn-enroll {
+      margin-top: auto;
+    }
+
+    .kurs-price-card.featured {
+      background: linear-gradient(160deg, #0e3f75 0%, #0a2540 65%);
+      border-color: rgba(4, 150, 255, .55);
+      box-shadow: 0 30px 70px -28px rgba(4, 150, 255, .55);
+    }
+
+    .kurs-price-card.featured::before {
+      height: 4px;
+    }
+
+    .kurs-price-badge.is-best {
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+      color: var(--dark);
+    }
+
+    .kurs-price-original {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 300;
+      color: rgba(227, 242, 253, .4);
+      text-decoration: line-through;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .kurs-price-save {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 28px;
+      padding: 8px 16px;
+      border: 1px solid rgba(144, 202, 249, .4);
+      border-radius: 2px;
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--accent-light);
+    }
+
+    .kurs-price-save strong {
+      color: white;
+      font-weight: 500;
+    }
+
+    .kurs-pricing-extras {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 28px;
     }
 
     /* ══════════════════════════════
@@ -1286,9 +1356,12 @@
         padding: 72px 40px;
       }
 
-      .kurs-pricing-layout {
+      .kurs-pricing-grid,
+      .kurs-pricing-extras {
         grid-template-columns: 1fr;
-        max-width: 600px;
+        max-width: 560px;
+        margin-left: auto;
+        margin-right: auto;
       }
 
       .kurs-hero {
@@ -1821,12 +1894,12 @@
         lebenslangem Zugang und offiziellem Abschlusszertifikat.</p>
     </div>
 
-    <div class="kurs-pricing-layout">
+    <div class="kurs-pricing-grid">
 
-      <!-- Main price card -->
+      <!-- Paket 1 — Faszienpraktiker -->
       <div class="kurs-price-card animate delay-1">
         <div class="kurs-price-badge">Verfügbar</div>
-        <div class="kurs-price-name">Online-Ausbildung zum Faszienpraktiker</div>
+        <div class="kurs-price-name">Faszienpraktiker Ausbildung</div>
         <h3 class="kurs-price-title">Verstehe, woher Druck und Spannungen im Körper kommen</h3>
         <div class="kurs-price-amount-row">
           <div class="kurs-price-amount"><sup>€</sup>600</div>
@@ -1834,41 +1907,85 @@
         </div>
         <ul class="kurs-price-features">
           <li>Vollständige Online-Ausbildung zum Faszienpraktiker</li>
+          <li>Ganzheitliche Faszien- & Gewebearbeit</li>
           <li>Ausführliche digitale Lernunterlagen</li>
-          <li>Praxisorientierte Theorie- & Praxisinhalte</li>
           <li>Offizielles Abschlusszertifikat</li>
           <li>Zeitlich unbegrenzter Zugang</li>
-          <li>Ortsunabhängig — auf allen Geräten</li>
         </ul>
         <a href="https://onlinekurs.faszienpraxis-fech.de/login"
           class="kurs-btn-enroll">Jetzt anmelden</a>
       </div>
 
-      <!-- Info blocks -->
-      <div class="kurs-price-info animate delay-2">
-        <div class="kurs-info-block">
-          <div class="kurs-info-block-label">Zugang</div>
-          <div class="kurs-info-block-title">Lebenslanger Kurszugang</div>
-          <p>Nach der Anmeldung erhältst du dauerhaften Zugang zu allen Lernmaterialien — ohne Ablaufdatum und ohne zusätzliche Kosten.</p>
+      <!-- Paket 2 — Premium (hervorgehoben) -->
+      <div class="kurs-price-card featured animate delay-2">
+        <div class="kurs-price-badge is-best">Bestes Angebot</div>
+        <div class="kurs-price-name">Ganzheitlicher Körperpraktiker · Premium</div>
+        <h3 class="kurs-price-title">Beide Ausbildungen — ein kompletter Weg</h3>
+        <div class="kurs-price-amount-row">
+          <div>
+            <div class="kurs-price-original">statt 1.090 €</div>
+            <div class="kurs-price-amount"><sup>€</sup>850</div>
+          </div>
+          <div class="kurs-price-amount-note">Einmalige Zahlung<br>inkl. MwSt.</div>
         </div>
-        <div class="kurs-info-block">
-          <div class="kurs-info-block-label">Zertifikat</div>
-          <div class="kurs-info-block-title">Offizielles Abschlusszertifikat</div>
-          <p>Nach erfolgreichem Abschluss erhältst du dein Zertifikat als qualifizierter Nachweis deiner Spezialisierung
-            — zeitlich unbegrenzt gültig.</p>
-        </div>
-        <div class="kurs-info-block">
-          <div class="kurs-info-block-label">Flexibilität</div>
-          <div class="kurs-info-block-title">Lernen in deinem Tempo</div>
-          <p>Kein Stundenplan, keine Präsenzpflicht. Du bestimmst wann, wo und wie schnell du die Inhalte
-            durcharbeitest.</p>
-        </div>
-        <div class="kurs-price-notice">
-          <strong>Fragen zur Ausbildung?</strong> Kontaktiere uns gerne — wir beraten dich persönlich, welche Inhalte
-          für deinen beruflichen Hintergrund am besten passen.
-        </div>
+        <div class="kurs-price-save"><strong>Spare 240 €</strong> ggü. Einzelbuchung</div>
+        <ul class="kurs-price-features">
+          <li>Faszienpraktiker Ausbildung <span style="opacity:.55">(Wert 600 €)</span></li>
+          <li>Triggerpunkt Praktiker Ausbildung <span style="opacity:.55">(Wert 490 €)</span></li>
+          <li>Beide offiziellen Abschlusszertifikate</li>
+          <li>Kompletter Zugang zu allen Lernmodulen</li>
+          <li>Zeitlich unbegrenzter Zugang</li>
+        </ul>
+        <a href="https://onlinekurs.faszienpraxis-fech.de/login"
+          class="kurs-btn-enroll">Premium sichern</a>
       </div>
 
+      <!-- Paket 3 — Triggerpunkt-Praktiker -->
+      <div class="kurs-price-card animate delay-3">
+        <div class="kurs-price-badge">Verfügbar</div>
+        <div class="kurs-price-name">Triggerpunkt Praktiker Ausbildung</div>
+        <h3 class="kurs-price-title">Löse gezielt muskuläre Triggerpunkte & Verspannungen</h3>
+        <div class="kurs-price-amount-row">
+          <div class="kurs-price-amount"><sup>€</sup>490</div>
+          <div class="kurs-price-amount-note">Einmalige Zahlung<br>inkl. MwSt.</div>
+        </div>
+        <ul class="kurs-price-features">
+          <li>Vollständige Online-Ausbildung zum Triggerpunkt-Praktiker</li>
+          <li>Gezielte Behandlung muskulärer Triggerpunkte</li>
+          <li>Ausführliche digitale Lernunterlagen</li>
+          <li>Offizielles Abschlusszertifikat</li>
+          <li>Zeitlich unbegrenzter Zugang</li>
+        </ul>
+        <a href="https://onlinekurs.faszienpraxis-fech.de/login"
+          class="kurs-btn-enroll">Jetzt anmelden</a>
+      </div>
+
+    </div>
+
+    <!-- Info blocks — gelten für alle Pakete -->
+    <div class="kurs-pricing-extras animate delay-2">
+      <div class="kurs-info-block">
+        <div class="kurs-info-block-label">Zugang</div>
+        <div class="kurs-info-block-title">Lebenslanger Kurszugang</div>
+        <p>Nach der Anmeldung erhältst du dauerhaften Zugang zu allen Lernmaterialien — ohne Ablaufdatum und ohne zusätzliche Kosten.</p>
+      </div>
+      <div class="kurs-info-block">
+        <div class="kurs-info-block-label">Zertifikat</div>
+        <div class="kurs-info-block-title">Offizielles Abschlusszertifikat</div>
+        <p>Nach erfolgreichem Abschluss erhältst du dein Zertifikat als qualifizierter Nachweis deiner Spezialisierung
+          — zeitlich unbegrenzt gültig.</p>
+      </div>
+      <div class="kurs-info-block">
+        <div class="kurs-info-block-label">Flexibilität</div>
+        <div class="kurs-info-block-title">Lernen in deinem Tempo</div>
+        <p>Kein Stundenplan, keine Präsenzpflicht. Du bestimmst wann, wo und wie schnell du die Inhalte
+          durcharbeitest.</p>
+      </div>
+    </div>
+
+    <div class="kurs-price-notice">
+      <strong>Fragen zur Ausbildung?</strong> Kontaktiere uns gerne — wir beraten dich persönlich, welches Paket
+      für deinen beruflichen Hintergrund am besten passt.
     </div>
   </section>
 

@@ -1105,6 +1105,25 @@
       color: var(--dark);
     }
 
+    .kurs-price-badge.is-soon {
+      background: rgba(144, 202, 249, .18);
+      color: var(--accent-light);
+      border: 1px solid rgba(144, 202, 249, .4);
+    }
+
+    .kurs-btn-enroll.is-disabled {
+      background: rgba(255, 255, 255, .07);
+      color: rgba(227, 242, 253, .45);
+      border: 1px solid rgba(255, 255, 255, .12);
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
+    .kurs-btn-enroll.is-disabled:hover {
+      background: rgba(255, 255, 255, .07);
+      transform: none;
+    }
+
     .kurs-price-original {
       font-family: 'Cormorant Garamond', serif;
       font-size: 22px;
@@ -1918,7 +1937,7 @@
 
       <!-- Paket 2 — Premium (hervorgehoben) -->
       <div class="kurs-price-card featured animate delay-2">
-        <div class="kurs-price-badge is-best">Bestes Angebot</div>
+        <div class="kurs-price-badge is-soon">Bald verfügbar</div>
         <div class="kurs-price-name">Ganzheitlicher Körperpraktiker · Premium</div>
         <h3 class="kurs-price-title">Beide Ausbildungen — ein kompletter Weg</h3>
         <div class="kurs-price-amount-row">
@@ -1936,13 +1955,12 @@
           <li>Kompletter Zugang zu allen Lernmodulen</li>
           <li>Zeitlich unbegrenzter Zugang</li>
         </ul>
-        <a href="https://onlinekurs.faszienpraxis-fech.de/login"
-          class="kurs-btn-enroll">Premium sichern</a>
+        <span class="kurs-btn-enroll is-disabled" aria-disabled="true" role="link" tabindex="-1">Bald verfügbar</span>
       </div>
 
       <!-- Paket 3 — Triggerpunkt-Praktiker -->
       <div class="kurs-price-card animate delay-3">
-        <div class="kurs-price-badge">Verfügbar</div>
+        <div class="kurs-price-badge is-soon">Bald verfügbar</div>
         <div class="kurs-price-name">Triggerpunkt Praktiker Ausbildung</div>
         <h3 class="kurs-price-title">Löse gezielt muskuläre Triggerpunkte & Verspannungen</h3>
         <div class="kurs-price-amount-row">
@@ -1956,8 +1974,7 @@
           <li>Offizielles Abschlusszertifikat</li>
           <li>Zeitlich unbegrenzter Zugang</li>
         </ul>
-        <a href="https://onlinekurs.faszienpraxis-fech.de/login"
-          class="kurs-btn-enroll">Jetzt anmelden</a>
+        <span class="kurs-btn-enroll is-disabled" aria-disabled="true" role="link" tabindex="-1">Bald verfügbar</span>
       </div>
 
     </div>

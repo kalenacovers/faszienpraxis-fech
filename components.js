@@ -49,17 +49,40 @@ function initNav(container, activePage) {
   var mobileMenu = container.querySelector('#nav-mobile');
 
   if (hamburger && mobileMenu) {
+    var closeMobileMenu = function (returnFocus) {
+      mobileMenu.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      if (returnFocus) hamburger.focus();
+    };
+
     hamburger.addEventListener('click', function () {
       var isOpen = mobileMenu.classList.toggle('open');
       hamburger.classList.toggle('open', isOpen);
       hamburger.setAttribute('aria-expanded', String(isOpen));
+      // Body-Scroll sperren, solange das Menü offen ist
+      document.body.style.overflow = isOpen ? 'hidden' : '';
     });
+
     mobileMenu.querySelectorAll('a').forEach(function (link) {
       link.addEventListener('click', function () {
-        mobileMenu.classList.remove('open');
-        hamburger.classList.remove('open');
-        hamburger.setAttribute('aria-expanded', 'false');
+        closeMobileMenu(false);
       });
+    });
+
+    // Escape schließt das Menü und gibt den Fokus an den Hamburger zurück
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+        closeMobileMenu(true);
+      }
+    });
+
+    // Klick außerhalb von #nav-mobile und #hamburger schließt das Menü
+    document.addEventListener('click', function (e) {
+      if (!mobileMenu.classList.contains('open')) return;
+      if (mobileMenu.contains(e.target) || hamburger.contains(e.target)) return;
+      closeMobileMenu(false);
     });
   }
 }
@@ -69,6 +92,11 @@ function initFooter(container) {
   // Patch review count placeholders injected by footer fragment
   container.querySelectorAll('[data-review-replace]').forEach(function (el) {
     el.textContent = el.textContent.replace(/\d+/, REVIEW_COUNT);
+  });
+
+  // Aktuelles Jahr in [data-year]-Platzhalter schreiben (footer.html nutzt <span data-year>)
+  document.querySelectorAll('[data-year]').forEach(function (el) {
+    el.textContent = new Date().getFullYear();
   });
 
   // Hours strip live status
@@ -93,7 +121,7 @@ function initFooter(container) {
         var s = slots[j];
         var t = new Date(d);
         t.setHours(s[0], s[1], 0, 0);
-        if (t > now) return { date: t, day: d.getDay(), hh: s[0], mm: s[1], today: i === 0 };
+        if (t > now) return { date: t, day: d.getDay(), hh: s[0], mm: s[1], today: i === 0, tomorrow: i === 1 };
       }
     }
     return null;
@@ -103,7 +131,8 @@ function initFooter(container) {
     var el = document.getElementById('hours-status');
     if (!el) return;
     var textEl = el.querySelector('.hours-status-text');
-    var now = new Date();
+    // In Praxiszeit (Europe/Berlin) rechnen, nicht in Besucher-Zeitzone
+    var now = new Date(new Date().toLocaleString('en-US', { timeZone: 'Europe/Berlin' }));
     var slots = schedule[now.getDay()];
     var isOpen = false;
     var closesAt = null;
@@ -125,7 +154,7 @@ function initFooter(container) {
       var next = nextOpening(now);
       if (next) {
         var when = next.today ? 'heute'
-          : (next.date.getDate() - now.getDate() === 1 ? 'morgen' : dayLabels[next.day]);
+          : (next.tomorrow ? 'morgen' : dayLabels[next.day]);
         textEl.innerHTML = 'Geschlossen — öffnet ' + when + ' um <strong>' + fmt(next.hh, next.mm) + ' Uhr</strong>';
       } else {
         textEl.textContent = 'Öffnungszeiten';
@@ -133,8 +162,15 @@ function initFooter(container) {
     }
   }
 
-  updateHoursStatus();
-  setInterval(updateHoursStatus, 60000);
+  // Öffnungsstatus: falls lang.js geladen ist, komplett an dessen
+  // (übersetzte, Europe/Berlin-basierte) updateHours delegieren, um doppelte
+  // Timer und widersprüchliche Texte zu vermeiden. Sonst eigene Logik nutzen.
+  if (window.fpLang && typeof window.fpLang.updateHours === 'function') {
+    window.fpLang.updateHours();
+  } else {
+    updateHoursStatus();
+    setInterval(updateHoursStatus, 60000);
+  }
 }
 
 // ── Patch all data-review-replace on the base document ───
@@ -170,6 +206,15 @@ document.addEventListener('DOMContentLoaded', function () {
         navPlaceholder.outerHTML = html;
         // Re-query after DOM replacement
         initNav(document, activePage);
+      }).catch(function () {
+        // Fallback: Pflichtseiten müssen erreichbar bleiben, auch wenn das Fragment fehlt
+        navPlaceholder.innerHTML =
+          '<nav class="nav is-scrolled"><div class="nav-inner">' +
+          '<a href="/" class="nav-logo" aria-label="Startseite">Fech Puls</a>' +
+          '<div class="nav-links">' +
+          '<a href="/impressum">Impressum</a>' +
+          '<a href="/datenschutz">Datenschutz</a>' +
+          '</div></div></nav>';
       })
     );
   }
@@ -179,6 +224,15 @@ document.addEventListener('DOMContentLoaded', function () {
       fetchFragment('footer.html').then(function (html) {
         footerPlaceholder.outerHTML = html;
         initFooter(document);
+      }).catch(function () {
+        // Fallback: minimaler Footer mit erreichbaren Pflichtseiten
+        footerPlaceholder.innerHTML =
+          '<footer class="footer"><div class="footer-inner">' +
+          '<a href="/" class="footer-logo" aria-label="Startseite">Fech Puls</a>' +
+          '<nav class="footer-links" aria-label="Rechtliches">' +
+          '<a href="/impressum">Impressum</a>' +
+          '<a href="/datenschutz">Datenschutz</a>' +
+          '</nav></div></footer>';
       })
     );
   }

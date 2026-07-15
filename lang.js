@@ -178,7 +178,8 @@
     var textEl = statusEl.querySelector('.hours-status-text');
     if (!textEl) return;
 
-    var now = new Date();
+    // In Praxiszeit (Europe/Berlin) rechnen, nicht in Besucher-Zeitzone
+    var now = new Date(new Date().toLocaleString('en-US', { timeZone: 'Europe/Berlin' }));
     var slots = SCHEDULE[now.getDay()];
     var isOpen = false;
     var closesAt = null;
@@ -243,23 +244,23 @@
     var s = document.createElement('style');
     s.textContent = [
       '.lang-sw{position:fixed;bottom:24px;right:24px;z-index:950;font-family:"DM Sans",system-ui,sans-serif}',
-      '.lang-sw-trigger{display:flex;align-items:center;gap:8px;background:#fff;color:#0a2540;border:1px solid #e5e7eb;padding:9px 16px;border-radius:9999px;cursor:pointer;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;transition:border-color .2s,box-shadow .2s;line-height:1;box-shadow:0 4px 20px rgba(10,37,64,.10)}',
+      '.lang-sw-trigger{display:flex;align-items:center;gap:8px;background:#fff;color:#0a2540;border:1px solid rgba(4,150,255,.15);padding:9px 16px;border-radius:999px;cursor:pointer;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;transition:border-color .2s,box-shadow .2s;line-height:1;box-shadow:0 4px 20px rgba(10,37,64,.10)}',
       '.lang-sw-trigger:hover{border-color:#0496ff;box-shadow:0 4px 20px rgba(4,150,255,.15)}',
       '.lang-sw-trigger:focus-visible{outline:2px solid #0496ff;outline-offset:2px}',
-      '.lang-sw-globe{color:#6b7280;flex-shrink:0}',
-      '.lang-sw-chevron{transition:transform .2s ease;color:#6b7280;flex-shrink:0}',
+      '.lang-sw-globe{color:#4a6a8a;flex-shrink:0}',
+      '.lang-sw-chevron{transition:transform .2s ease;color:#4a6a8a;flex-shrink:0}',
       '.lang-sw.open .lang-sw-chevron{transform:rotate(180deg)}',
-      '.lang-sw-menu{position:absolute;bottom:calc(100% + 8px);right:0;min-width:180px;background:#fff;border:1px solid #e5e7eb;border-radius:16px;list-style:none;margin:0;padding:4px 0;display:none;box-shadow:0 8px 40px rgba(10,37,64,.15);overflow:hidden}',
+      '.lang-sw-menu{position:absolute;bottom:calc(100% + 8px);right:0;min-width:180px;background:#fff;border:1px solid rgba(4,150,255,.15);border-radius:4px;list-style:none;margin:0;padding:4px 0;display:none;box-shadow:0 8px 40px rgba(10,37,64,.15);overflow:hidden}',
       '.lang-sw.open .lang-sw-menu{display:block}',
       '.lang-sw-menu li{margin:0;padding:0}',
-      '.lang-sw-opt{display:flex;align-items:center;gap:12px;width:100%;padding:11px 16px;background:none;border:none;color:#6b7280;font-family:inherit;font-size:13px;font-weight:400;cursor:pointer;text-align:left;transition:color .15s,background .15s;line-height:1}',
-      '.lang-sw-opt:hover{background:#f5f0e8;color:#0a2540}',
-      '.lang-sw-opt.active{background:rgba(245,240,232,.6);color:#0a2540;font-weight:500}',
+      '.lang-sw-opt{display:flex;align-items:center;gap:12px;width:100%;padding:11px 16px;background:none;border:none;color:#4a6a8a;font-family:inherit;font-size:13px;font-weight:400;cursor:pointer;text-align:left;transition:color .15s,background .15s;line-height:1}',
+      '.lang-sw-opt:hover{background:#f5faff;color:#0a2540}',
+      '.lang-sw-opt.active{background:rgba(245,250,255,.6);color:#0a2540;font-weight:500}',
       '.lang-sw-opt:focus-visible{outline:2px solid #0496ff;outline-offset:-2px}',
       '.lang-sw-flag{font-size:16px;line-height:1;flex-shrink:0}',
       '.lang-sw-dot{margin-left:auto;width:6px;height:6px;border-radius:50%;background:#0496ff;flex-shrink:0;opacity:0}',
       '.lang-sw-opt.active .lang-sw-dot{opacity:1}',
-      '@media(max-width:640px){.lang-sw{bottom:88px;right:16px}}'
+      '@media(max-width:768px){.lang-sw{bottom:88px;right:16px}}'
     ].join('');
     document.head.appendChild(s);
   }
@@ -276,15 +277,15 @@
 
     var menu = document.createElement('ul');
     menu.className = 'lang-sw-menu';
-    menu.setAttribute('role', 'listbox');
+    menu.id = 'lang-sw-menu';
 
     LANGS.forEach(function (l) {
       var li = document.createElement('li');
       var btn = document.createElement('button');
+      btn.type = 'button';
       btn.className = 'lang-sw-opt' + (l.code === lang ? ' active' : '');
       btn.setAttribute('data-lang-opt', l.code);
-      btn.setAttribute('role', 'option');
-      btn.setAttribute('aria-selected', l.code === lang ? 'true' : 'false');
+      if (l.code === lang) btn.setAttribute('aria-current', 'true');
 
       var flagSpan = document.createElement('span');
       flagSpan.className = 'lang-sw-flag';
@@ -311,9 +312,12 @@
     });
 
     var trigger = document.createElement('button');
+    trigger.type = 'button';
     trigger.className = 'lang-sw-trigger';
-    trigger.setAttribute('aria-haspopup', 'listbox');
+    trigger.setAttribute('aria-haspopup', 'true');
+    trigger.setAttribute('aria-controls', 'lang-sw-menu');
     trigger.setAttribute('aria-expanded', 'false');
+    trigger.setAttribute('aria-label', 'Sprache wählen');
     trigger.innerHTML =
       '<svg class="lang-sw-globe" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>' +
       '<span class="lang-sw-code"></span>' +
@@ -352,7 +356,8 @@
     document.querySelectorAll('[data-lang-opt]').forEach(function (btn) {
       var isActive = btn.getAttribute('data-lang-opt') === lang;
       btn.classList.toggle('active', isActive);
-      btn.setAttribute('aria-selected', String(isActive));
+      if (isActive) btn.setAttribute('aria-current', 'true');
+      else btn.removeAttribute('aria-current');
     });
   }
 
@@ -360,7 +365,9 @@
   function watchNav() {
     if (!('MutationObserver' in window)) return;
     var obs = new MutationObserver(function () {
-      if (document.querySelector('nav')) {
+      // footer.html enthält <nav class="footer-col"> — nur auf die Haupt-
+      // Navigation reagieren (#hamburger oder .nav-links), nicht auf irgendein <nav>.
+      if (document.getElementById('hamburger') || document.querySelector('.nav-links')) {
         applyAll();
         obs.disconnect();
       }

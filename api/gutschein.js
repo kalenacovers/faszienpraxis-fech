@@ -12,15 +12,65 @@ export const config = {
   runtime: "nodejs",
 };
 
+// Erlaubte Origins für CORS (Allowlist). Same-origin-Requests senden keinen
+// Origin-Header; Cross-origin von fremden Domains wird nicht gespiegelt.
+const ALLOWED_ORIGINS = [
+  "https://faszienpraxis-fech.de",
+  "https://www.faszienpraxis-fech.de",
+  // lokale Entwicklung (optional)
+  "http://localhost:3000",
+];
+const PRIMARY_ORIGIN = "https://faszienpraxis-fech.de";
+
+// Einfaches In-Memory-Rate-Limiting pro IP.
+// ACHTUNG: Gilt nur pro Serverless-Instanz und wird NICHT global geteilt.
+// Für harten Schutz wäre ein zentraler KV-Store (z. B. Upstash/Redis) nötig.
+const RATE_LIMIT_MAX = 5; // max. Anfragen ...
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000; // ... pro 10 Minuten je IP
+const rateLimitHits = new Map(); // ip -> Array<number> (Zeitstempel in ms)
+
+function isRateLimited(ip) {
+  if (!ip) return false;
+  const now = Date.now();
+  const windowStart = now - RATE_LIMIT_WINDOW_MS;
+  const hits = (rateLimitHits.get(ip) || []).filter((t) => t > windowStart);
+  hits.push(now);
+  rateLimitHits.set(ip, hits);
+  // Gelegentliches Aufräumen, um den Speicher zu begrenzen
+  if (rateLimitHits.size > 500) {
+    for (const [key, times] of rateLimitHits) {
+      const fresh = times.filter((t) => t > windowStart);
+      if (fresh.length === 0) rateLimitHits.delete(key);
+      else rateLimitHits.set(key, fresh);
+    }
+  }
+  return hits.length > RATE_LIMIT_MAX;
+}
+
 export default async function handler(req, res) {
-  // CORS — same-origin in production, but allows easier local testing
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  // CORS — nur erlaubte Origins zulassen (Allowlist statt Wildcard "*").
+  const origin = req.headers.origin;
+  const allowOrigin =
+    origin && ALLOWED_ORIGINS.includes(origin) ? origin : PRIMARY_ORIGIN;
+  res.setHeader("Access-Control-Allow-Origin", allowOrigin);
+  res.setHeader("Vary", "Origin");
   res.setHeader("Access-Control-Allow-Methods", "POST, OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
   if (req.method === "OPTIONS") return res.status(204).end();
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
+  }
+
+  // Rate-Limit (best-effort, pro Serverless-Instanz) anhand der Client-IP.
+  const fwd = req.headers["x-forwarded-for"];
+  const ip = (Array.isArray(fwd) ? fwd[0] : String(fwd || ""))
+    .split(",")[0]
+    .trim();
+  if (isRateLimited(ip)) {
+    return res.status(429).json({
+      error: "Zu viele Anfragen. Bitte in einigen Minuten erneut versuchen.",
+    });
   }
 
   const apiKey = process.env.RESEND_API_KEY;
@@ -41,6 +91,18 @@ export default async function handler(req, res) {
   if (data._honey && String(data._honey).trim().length > 0) {
     return res.status(200).json({ success: true });
   }
+
+  // Feld-Limits gegen Missbrauch/DoS — harte Obergrenzen je Feld.
+  const capText = (v, max) => String(v == null ? "" : v).slice(0, max);
+  data.name = capText(data.name, 500);
+  data.email = capText(data.email, 500);
+  data.mobil = capText(data.mobil, 500);
+  data.anschrift = capText(data.anschrift, 500);
+  data.city = capText(data.city, 500);
+  data.dauer = capText(data.dauer, 500);
+  data.versand = capText(data.versand, 500);
+  data.nachricht = capText(data.nachricht, 2000);
+  data.anzahl = Math.min(20, Math.max(1, parseInt(data.anzahl, 10) || 1));
 
   // Validation
   const name = (data.name || "").trim();
@@ -81,26 +143,28 @@ export default async function handler(req, res) {
       body: JSON.stringify(requestBody),
     });
 
-    const responseText = await r.text();
-    console.log("[gutschein] Resend status:", r.status, "body:", responseText.slice(0, 500));
+    // Nur den Status loggen — niemals den Antwort-Body (kann Empfängerdaten enthalten).
+    console.log("[gutschein] Resend status:", r.status);
 
     if (!r.ok) {
-      let detail = responseText;
-      try {
-        const parsed = JSON.parse(responseText);
-        detail = parsed.message || parsed.error || responseText;
-      } catch { /* keep raw text */ }
+      // Rohen Upstream-Text nicht an den Client geben — nur generische Meldung.
+      console.error("[gutschein] Resend-Versand fehlgeschlagen, Status", r.status);
       return res.status(502).json({
-        error: `Resend ${r.status}: ${String(detail).slice(0, 300)}`,
+        error:
+          "Der Versand ist fehlgeschlagen. Bitte später erneut versuchen oder telefonisch melden.",
       });
     }
 
     return res.status(200).json({ success: true });
   } catch (err) {
-    const msg = err instanceof Error ? err.message : String(err);
-    console.error("[gutschein] fetch threw:", msg);
+    // Ausnahmetext nur serverseitig loggen (keine PII-Bodies); Client erhält Generisches.
+    console.error(
+      "[gutschein] Versand-Ausnahme:",
+      err instanceof Error ? err.message : String(err)
+    );
     return res.status(500).json({
-      error: `Mail-Versand fehlgeschlagen: ${msg}`,
+      error:
+        "Der Versand ist fehlgeschlagen. Bitte später erneut versuchen oder telefonisch melden.",
     });
   }
 }

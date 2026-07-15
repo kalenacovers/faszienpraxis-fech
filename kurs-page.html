@@ -4,20 +4,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <title>Online-Fachausbildung Faszien-Praktiker | Fech Puls</title>
   <meta name="description" content="Zertifizierte Online-Fachausbildung zum Faszien- und Triggerpunktpraktiker. Modular, flexibel, mit IPHM- und CPD-Zertifizierung. Geleitet von Wadim Fech.">
-  <link rel="canonical" href="https://faszienpraxis-fech.de/kurs-page.html">
-  <meta property="og:type" content="article">
+  <link rel="canonical" href="https://faszienpraxis-fech.de/kurs">
+  <meta property="og:type" content="website">
   <meta property="og:locale" content="de_DE">
   <meta property="og:title" content="Online-Fachausbildung Faszien-Praktiker | Fech Puls">
   <meta property="og:description" content="Zertifizierte Online-Fachausbildung zum Faszien- und Triggerpunktpraktiker.">
-  <meta property="og:url" content="https://faszienpraxis-fech.de/kurs-page.html">
+  <meta property="og:url" content="https://faszienpraxis-fech.de/kurs">
+  <meta property="og:image" content="https://faszienpraxis-fech.de/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Online-Fachausbildung Faszien-Praktiker | Fech Puls">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://faszienpraxis-fech.de/assets/og-image.jpg">
   <meta name="theme-color" content="#0a2540">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap"
-    rel="stylesheet">
+  <link rel="preload" href="assets/fonts/dm-sans-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/cormorant-garamond-300-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="fonts.css">
   <link rel="stylesheet" href="accessibility.css">
   <style>
     :root {
@@ -28,7 +35,7 @@
       --accent: #0496ff;
       --accent-light: #90caf9;
       --text-body: #1a2e45;
-      --text-muted: #5a7a99;
+      --text-muted: #4a6a8a;
       --border: rgba(4, 150, 255, 0.15);
     }
 
@@ -205,7 +212,7 @@
     .kurs-hero-right {
       position: relative;
       overflow: hidden;
-      background: linear-gradient(135deg, #0a2540 0%, #0d3a6e 45%, #0496ff 100%);
+      background: linear-gradient(135deg, #0a2540 0%, #0d3060 45%, #0496ff 100%);
       display: flex;
       flex-direction: column;
       padding: 52px 40px 40px;
@@ -277,7 +284,7 @@
     }
 
     .kurs-hero-card-label {
-      font-size: 10px;
+      font-size: 11px;
       letter-spacing: .18em;
       text-transform: uppercase;
       color: var(--accent-light);
@@ -435,7 +442,7 @@
     }
 
     .kurs-card-main-eyebrow {
-      font-size: 10px;
+      font-size: 11px;
       letter-spacing: .2em;
       text-transform: uppercase;
       color: var(--accent-light);
@@ -749,6 +756,7 @@
       color: rgba(227, 242, 253, .3);
       letter-spacing: .04em;
       text-align: center;
+      font-family: 'Cormorant Garamond', Georgia, serif;
       font-style: italic;
     }
 
@@ -768,7 +776,7 @@
     }
 
     .kurs-curriculum-label {
-      font-size: 10px;
+      font-size: 11px;
       letter-spacing: .2em;
       text-transform: uppercase;
       color: var(--accent);
@@ -992,7 +1000,7 @@
       width: 100%;
       text-align: center;
       background: var(--accent);
-      color: white;
+      color: var(--dark);
       padding: 18px;
       font-size: 13px;
       letter-spacing: .12em;
@@ -1003,7 +1011,7 @@
     }
 
     .kurs-btn-enroll:hover {
-      background: #0380d8;
+      background: #1ba3ff;
       transform: translateY(-1px);
     }
 
@@ -1025,7 +1033,7 @@
     }
 
     .kurs-info-block-label {
-      font-size: 10px;
+      font-size: 11px;
       letter-spacing: .18em;
       text-transform: uppercase;
       color: var(--accent);
@@ -1090,8 +1098,19 @@
       margin-top: auto;
     }
 
+    .kurs-price-soon-note {
+      margin-top: auto;
+      text-align: center;
+      padding: 18px;
+      font-size: 13px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--accent-light);
+    }
+
     .kurs-price-card.featured {
-      background: linear-gradient(160deg, #0e3f75 0%, #0a2540 65%);
+      background: linear-gradient(160deg, #0d3060 0%, #0a2540 65%);
       border-color: rgba(4, 150, 255, .55);
       box-shadow: 0 30px 70px -28px rgba(4, 150, 255, .55);
     }
@@ -1173,7 +1192,7 @@
     .kurs-cta-bg {
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, #0496ff 0%, #0d3a6e 50%, #0a2540 100%);
+      background: linear-gradient(135deg, #0496ff 0%, #0d3060 50%, #0a2540 100%);
     }
 
     .kurs-cta-content {
@@ -1334,7 +1353,7 @@
     }
 
     .footer-bottom {
-      background: #061828;
+      background: #0a2540;
       padding: 20px 60px;
       display: flex;
       justify-content: space-between;
@@ -1617,6 +1636,7 @@
   <!-- NAV (injected by components.js) -->
   <div id="site-nav"></div>
 
+  <main id="inhalt" tabindex="-1">
 
   <!-- ══════ PAGE HERO ══════ -->
   <section class="kurs-hero">
@@ -1631,8 +1651,8 @@
         individuell anpassbar an deinen Alltag.
       </p>
       <div class="kurs-hero-actions animate delay-3">
-        <a href="https://onlinekurs.faszienpraxis-fech.de/login" class="btn-accent">Jetzt anmelden</a>
-        <a href="#inhalt" class="btn-ghost">Kursinhalte ansehen</a>
+        <a href="https://onlinekurs.faszienpraxis-fech.de/register" class="btn-accent">Jetzt anmelden</a>
+        <a href="#kursinhalte" class="btn-ghost is-dark">Kursinhalte ansehen</a>
       </div>
       <div class="kurs-hero-stats animate delay-4">
         <div>
@@ -1651,14 +1671,14 @@
     </div>
 
     <div class="kurs-hero-right">
-      <img src="assets/Abschlusszertifikat.png"
+      <img src="assets/Abschlusszertifikat.png" width="959" height="1242"
         alt="Zertifikat Online-Fachausbildung"
         style="flex:1; min-height:0; display:block; width:65%; max-width:65%; object-fit:contain; margin:0 auto; position:relative; z-index:1;">
       <div class="kurs-hero-overlay"></div>
       <div class="kurs-hero-pattern"></div>
       <div class="kurs-hero-bg-text">Faszien</div>
       <div class="kurs-hero-badge animate delay-2">
-        <strong>★</strong>
+        <strong aria-hidden="true">★</strong>
         Zertifiziert
       </div>
       <div class="kurs-hero-card animate delay-3">
@@ -1676,20 +1696,20 @@
 
   <!-- ══════ TRUST BAR ══════ -->
   <div class="trust-bar">
-    <div class="trust-item"><span class="icon">✦</span> Ortsunabhängig absolvierbar</div>
+    <div class="trust-item"><span class="icon" aria-hidden="true">✦</span> Ortsunabhängig absolvierbar</div>
     <div class="trust-sep"></div>
-    <div class="trust-item"><span class="icon">✦</span> Eigenes Lerntempo</div>
+    <div class="trust-item"><span class="icon" aria-hidden="true">✦</span> Eigenes Lerntempo</div>
     <div class="trust-sep"></div>
-    <div class="trust-item"><span class="icon">✦</span> Offizielles Zertifikat</div>
+    <div class="trust-item"><span class="icon" aria-hidden="true">✦</span> Offizielles Zertifikat</div>
     <div class="trust-sep"></div>
-    <div class="trust-item"><span class="icon">✦</span> Praxisorientierte Inhalte</div>
+    <div class="trust-item"><span class="icon" aria-hidden="true">✦</span> Praxisorientierte Inhalte</div>
     <div class="trust-sep"></div>
-    <div class="trust-item"><span class="icon">✦</span> Zeitlich unbegrenzt gültig</div>
+    <div class="trust-item"><span class="icon" aria-hidden="true">✦</span> Zeitlich unbegrenzt gültig</div>
   </div>
 
 
   <!-- ══════ SECTION 1 — FLEXIBEL LERNEN ══════ -->
-  <section class="kurs-intro" id="inhalt">
+  <section class="kurs-intro" id="kursinhalte">
     <div class="kurs-intro-left">
       <p class="section-eyebrow animate">Online-Fachausbildung</p>
       <h2 class="section-title animate delay-1">
@@ -1846,7 +1866,7 @@
         <div class="kurs-step animate delay-1">
           <span class="kurs-step-num">01</span>
           <div>
-            <h4 class="kurs-step-title">Anatomische Grundlagen</h4>
+            <h3 class="kurs-step-title">Anatomische Grundlagen</h3>
             <p class="kurs-step-desc">Strukturelles Verständnis des Faszien- und Muskelsystems sowie grundlegende
               funktionelle Zusammenhänge im Bewegungsapparat.</p>
           </div>
@@ -1854,7 +1874,7 @@
         <div class="kurs-step animate delay-2">
           <span class="kurs-step-num">02</span>
           <div>
-            <h4 class="kurs-step-title">Analyse & Diagnose</h4>
+            <h3 class="kurs-step-title">Analyse & Diagnose</h3>
             <p class="kurs-step-desc">Spannungsbilder systematisch analysieren, muskuläre Dysbalancen erkennen und
               funktionelle Muster einordnen.</p>
           </div>
@@ -1862,7 +1882,7 @@
         <div class="kurs-step animate delay-3">
           <span class="kurs-step-num">03</span>
           <div>
-            <h4 class="kurs-step-title">Anwendungskonzepte</h4>
+            <h3 class="kurs-step-title">Anwendungskonzepte</h3>
             <p class="kurs-step-desc">Professionelle Anwendungskonzepte im präventiven Bereich strukturiert entwickeln
               und gezielt einsetzen.</p>
           </div>
@@ -1870,7 +1890,7 @@
         <div class="kurs-step animate delay-4">
           <span class="kurs-step-num">04</span>
           <div>
-            <h4 class="kurs-step-title">Moderne Faszienarbeit</h4>
+            <h3 class="kurs-step-title">Moderne Faszienarbeit</h3>
             <p class="kurs-step-desc">Aktuelle Konzepte ganzheitlicher Faszien- & Muskelarbeit mit direkter
               Praxisanbindung und Spezialisierung.</p>
           </div>
@@ -1931,7 +1951,7 @@
           <li>Offizielles Abschlusszertifikat</li>
           <li>Zeitlich unbegrenzter Zugang</li>
         </ul>
-        <a href="https://onlinekurs.faszienpraxis-fech.de/login"
+        <a href="https://onlinekurs.faszienpraxis-fech.de/register"
           class="kurs-btn-enroll">Jetzt anmelden</a>
       </div>
 
@@ -1942,12 +1962,10 @@
         <h3 class="kurs-price-title">Beide Ausbildungen — ein kompletter Weg</h3>
         <div class="kurs-price-amount-row">
           <div>
-            <div class="kurs-price-original">statt 1.090 €</div>
             <div class="kurs-price-amount"><sup>€</sup>850</div>
           </div>
           <div class="kurs-price-amount-note">Einmalige Zahlung<br>inkl. MwSt.</div>
         </div>
-        <div class="kurs-price-save"><strong>Spare 240 €</strong> ggü. Einzelbuchung</div>
         <ul class="kurs-price-features">
           <li>Faszienpraktiker Ausbildung <span style="opacity:.55">(Wert 600 €)</span></li>
           <li>Triggerpunkt Praktiker Ausbildung <span style="opacity:.55">(Wert 490 €)</span></li>
@@ -1955,7 +1973,7 @@
           <li>Kompletter Zugang zu allen Lernmodulen</li>
           <li>Zeitlich unbegrenzter Zugang</li>
         </ul>
-        <span class="kurs-btn-enroll is-disabled" aria-disabled="true" role="link" tabindex="-1">Bald verfügbar</span>
+        <div class="kurs-price-soon-note">Bald verfügbar</div>
       </div>
 
       <!-- Paket 3 — Triggerpunkt-Praktiker -->
@@ -2019,12 +2037,14 @@
         Melde dich jetzt an und starte flexibel in deine Spezialisierung für ganzheitliche Faszien- & Muskelarbeit.
       </p>
       <div class="kurs-cta-actions animate delay-3">
-        <a href="https://onlinekurs.faszienpraxis-fech.de/login"
+        <a href="https://onlinekurs.faszienpraxis-fech.de/register"
           class="btn-cta-primary">Jetzt anmelden</a>
-        <a href="index.html" class="btn-cta-ghost">Zurück zur Praxis</a>
+        <a href="/" class="btn-cta-ghost">Zurück zur Praxis</a>
       </div>
     </div>
   </section>
+
+  </main>
 
   <!-- FOOTER (injected by components.js) -->
   <div id="site-footer"></div>

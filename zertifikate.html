@@ -1115,7 +1115,8 @@ Meine Zertifizierungen vereinen tiefgehende Kenntnisse in Faszienarbeit, Trigger
           e.preventDefault();
           lastFocused = a;
           show(i);
-          document.getElementById('lb-close').focus();
+          // Defer focus until the dialog is actually visible (past visibility transition)
+          setTimeout(function () { document.getElementById('lb-close').focus(); }, 60);
         });
       });
 

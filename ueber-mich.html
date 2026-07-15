@@ -4,20 +4,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <title>Über Wadim Fech – Faszientherapeut & Sporttherapeut in Spaichingen | Fech Puls</title>
-  <meta name="description" content="Wadim Fech – zertifizierter Faszien- und Triggerpunkttherapeut in Spaichingen. Manuelle Tiefengewebearbeit, Sport- und Gesundheitstherapie. 191 Google-Bewertungen, 4,7 ★.">
-  <link rel="canonical" href="https://faszienpraxis-fech.de/ueber-mich.html">
+  <meta name="description" content="Wadim Fech – zertifizierter Faszien- & Triggerpunkttherapeut in Spaichingen. Manuelle Tiefengewebearbeit, Sport- und Gesundheitstherapie.">
+  <link rel="canonical" href="https://faszienpraxis-fech.de/ueber-mich">
   <meta property="og:type" content="profile">
   <meta property="og:locale" content="de_DE">
   <meta property="og:title" content="Über Wadim Fech – Faszientherapeut & Sporttherapeut Spaichingen">
   <meta property="og:description" content="Zertifizierter Faszien- und Triggerpunkttherapeut. Manuelle Tiefengewebearbeit in Spaichingen.">
-  <meta property="og:url" content="https://faszienpraxis-fech.de/ueber-mich.html">
+  <meta property="og:url" content="https://faszienpraxis-fech.de/ueber-mich">
+  <meta property="og:image" content="https://faszienpraxis-fech.de/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Wadim Fech – Faszientherapeut & Sporttherapeut in Spaichingen">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://faszienpraxis-fech.de/assets/og-image.jpg">
   <meta name="theme-color" content="#0a2540">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap"
-    rel="stylesheet">
+  <link rel="preload" href="assets/fonts/dm-sans-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/cormorant-garamond-300-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="fonts.css">
   <link rel="stylesheet" href="accessibility.css">
 
   <!-- Schema.org: Person -->
@@ -27,8 +34,8 @@
     "@type": "Person",
     "name": "Wadim Fech",
     "jobTitle": "Faszientherapeut & Sporttherapeut & Gesundheitspraktiker",
-    "url": "https://faszienpraxis-fech.de/ueber-mich.html",
-    "image": "assets/wadim-fech-portrait.jpg",
+    "url": "https://faszienpraxis-fech.de/ueber-mich",
+    "image": "https://faszienpraxis-fech.de/assets/wadim-fech-portrait.jpg",
     "knowsAbout": ["Faszientherapie", "Triggerpunkttherapie", "Manuelle Tiefengewebearbeit", "Sporttherapie"],
     "worksFor": {
       "@type": "MedicalBusiness",
@@ -56,7 +63,7 @@
       --accent: #0496ff;
       --accent-light: #90caf9;
       --text-body: #1a2e45;
-      --text-muted: #5a7a99;
+      --text-muted: #4a6a8a;
       --border: rgba(4, 150, 255, 0.15);
     }
 
@@ -208,7 +215,7 @@
     .ueber-hero-right {
       position: relative;
       overflow: hidden;
-      background: linear-gradient(160deg, #0d3a6e 0%, #0a2540 100%);
+      background: linear-gradient(160deg, #0d3060 0%, #0a2540 100%);
       order: -1;
     }
 
@@ -334,110 +341,6 @@
     }
 
     /* ══════════════════════════════
-     INTRO SECTION
-  ══════════════════════════════ */
-    .ueber-intro {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      background: var(--cream);
-    }
-
-    .ueber-intro-img {
-      min-height: 560px;
-      position: relative;
-      overflow: hidden;
-      background: #0a2540;
-    }
-
-    .ueber-intro-photo {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center 35%;
-      display: block;
-      filter: brightness(.82) saturate(.85);
-    }
-
-    .ueber-intro-img-overlay {
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(160deg, rgba(4, 80, 180, .28) 0%, rgba(10, 37, 64, .65) 55%, rgba(10, 37, 64, .9) 100%),
-        linear-gradient(to top, rgba(10, 37, 64, .55) 0%, transparent 50%);
-      z-index: 1;
-    }
-
-    .ueber-intro-img-pattern {
-      position: absolute;
-      inset: 0;
-      background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255, 255, 255, .03) 20px, rgba(255, 255, 255, .03) 21px);
-      z-index: 2;
-    }
-
-    .ueber-intro-img-label {
-      position: absolute;
-      bottom: 44px;
-      left: 44px;
-      color: var(--accent-light);
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 52px;
-      font-weight: 300;
-      line-height: 1;
-      letter-spacing: -.02em;
-      z-index: 3;
-    }
-
-    .ueber-intro-img-label small {
-      display: block;
-      font-size: 12px;
-      font-family: 'DM Sans', sans-serif;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: rgba(144, 202, 249, .6);
-      margin-top: 8px;
-    }
-
-    .ueber-intro-content {
-      padding: 80px 64px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-
-    .ueber-intro-content .section-title {
-      margin-bottom: 28px;
-    }
-
-    .ueber-intro-content p {
-      font-size: 16px;
-      line-height: 1.85;
-      color: var(--text-muted);
-      font-weight: 300;
-      margin-bottom: 20px;
-    }
-
-    .ueber-intro-content p strong {
-      color: var(--text-body);
-      font-weight: 500;
-    }
-
-    .ueber-statement {
-      margin-top: 8px;
-      padding: 0;
-      padding-left: 18px;
-      border-left: 2px solid var(--accent);
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 22px;
-      font-weight: 300;
-      font-style: italic;
-      color: var(--dark);
-      line-height: 1.45;
-      letter-spacing: -.005em;
-    }
-
-    /* ══════════════════════════════
      WHAT I DO / DON'T — DARK SECTION
   ══════════════════════════════ */
     .ueber-positioning {
@@ -522,7 +425,6 @@
       line-height: 1.75;
       padding-top: 24px;
       border-top: 1px solid rgba(255, 255, 255, .06);
-      font-style: italic;
     }
 
     /* Do-list */
@@ -798,7 +700,7 @@
       inset: 0;
       background:
         radial-gradient(ellipse at 25% 50%, rgba(4, 150, 255, .32) 0%, transparent 58%),
-        linear-gradient(150deg, #0d3a6e 0%, #0a2540 55%, #061828 100%);
+        linear-gradient(150deg, #0d3060 0%, #0a2540 55%, #0a2540 100%);
     }
 
     .ueber-cta-content {
@@ -950,7 +852,7 @@
     }
 
     .footer-bottom {
-      background: #061828;
+      background: #0a2540;
       padding: 20px 60px;
       display: flex;
       justify-content: space-between;
@@ -998,18 +900,6 @@
 
       .ueber-hero-right {
         min-height: 360px;
-      }
-
-      .ueber-intro {
-        grid-template-columns: 1fr;
-      }
-
-      .ueber-intro-img {
-        min-height: 300px;
-      }
-
-      .ueber-intro-content {
-        padding: 64px 40px;
       }
 
       .ueber-positioning {
@@ -1090,10 +980,6 @@
 
       .ueber-hero-name {
         font-size: 32px;
-      }
-
-      .ueber-intro-content {
-        padding: 52px 24px;
       }
 
       .ueber-positioning {
@@ -1448,11 +1334,12 @@
 
 <body data-page="ueber-mich">
 
-  <a class="skip-link" href="#geschichte">Zum Hauptinhalt springen</a>
+  <a class="skip-link" href="#main-content">Zum Hauptinhalt springen</a>
 
   <!-- NAV (injected by components.js) -->
   <div id="site-nav"></div>
 
+  <main id="main-content" tabindex="-1">
 
   <!-- ══════ HERO ══════ -->
   <section class="ueber-hero">
@@ -1465,8 +1352,8 @@
       </h1>
       <p class="ueber-hero-sub animate delay-2">
         Ich bin Wadim Fech, selbstständiger Faszientherapeut & Sporttherapeut mit Schwerpunkt auf manueller
-        Tiefengewebearbeit. Sie sind bei mir richtig, wenn Sie im Alltag anhaltenden Druck im Körper, Ziehen oder
-        stechende Empfindungen von Kopf bis Fuß wahrnehmen – zum Beispiel im Nacken-, Schulter-, Rücken-, Arm- oder
+        Tiefengewebearbeit. Du bist bei mir richtig, wenn du im Alltag anhaltenden Druck im Körper, Ziehen oder
+        stechende Empfindungen von Kopf bis Fuß wahrnimmst – zum Beispiel im Nacken-, Schulter-, Rücken-, Arm- oder
         Beinbereich. Viele Menschen spüren über längere Zeit Druck im Gewebe, harte Muskelstrukturen oder tief sitzende
         Verhärtungen, die sich im Laufe der Jahre im Körper aufbauen. Solche Strukturen entstehen häufig durch
         dauerhafte körperliche Belastung, einseitige Bewegungsmuster oder anhaltenden Druck im Bewegungsapparat.
@@ -1474,7 +1361,7 @@
       <div class="ueber-hero-cta animate delay-3">
         <a href="https://book.timify.com/?accountId=652fe85cbd51d3ad47200466&hideCloseButton=true"
           class="btn-primary">Termin buchen</a>
-        <a href="index.html#leistungen" class="btn-ghost">Leistungen ansehen</a>
+        <a href="/#leistungen" class="btn-ghost">Leistungen ansehen</a>
       </div>
     </div>
 
@@ -1482,6 +1369,7 @@
       <img class="ueber-hero-photo"
         src="assets/wadim-fech-portrait.jpg"
         alt="Wadim Fech – Faszientherapeut & Sporttherapeut in Spaichingen"
+        width="1340" height="2400"
         loading="eager" decoding="async">
       <div class="ueber-hero-img-overlay"></div>
       <div class="ueber-hero-bg-text">Wadim</div>
@@ -1733,51 +1621,26 @@
       <div class="ueber-cta-actions animate delay-3">
         <a href="https://book.timify.com/?accountId=652fe85cbd51d3ad47200466&hideCloseButton=true"
           class="btn-cta-primary">Termin buchen</a>
-        <a href="gutschein.html" class="btn-cta-ghost">Gutschein verschenken</a>
+        <a href="/gutschein" class="btn-cta-ghost">Gutschein verschenken</a>
       </div>
     </div>
   </section>
+
+  </main>
 
 
   <!-- FOOTER (injected by components.js) -->
   <div id="site-footer"></div>
 
   <script src="components.js"></script>
+  <script src="lang.js"></script>
 
   <script>
     // ══ MEINE GESCHICHTE ══
     (function () {
       var chapters = document.querySelectorAll('.mg-chapter');
-      var triggerGroups = document.querySelectorAll('.mg-tp');
-      var ringFill = document.querySelector('.mg-ring-fill');
-      var ringNum = document.getElementById('mgRingNum');
-      var labelText = document.getElementById('mgLabelText');
-      var CIRCUMFERENCE = 2 * Math.PI * 26; // ≈ 163.4
-
-      var chapterLabels = [
-        'Kapitel 1 · Der Ursprung',
-        'Kapitel 2 · Das Interesse',
-        'Kapitel 3 · Das Wissen',
-        'Kapitel 4 · Die Ausbildung',
-        'Kapitel 5 · Heute'
-      ];
-
-      // Which body highlight IDs to activate per chapter
-      var highlights = [
-        ['mg-hl-arms', 'mg-hl-arms-r'],
-        ['mg-hl-torso'],
-        ['mg-hl-head'],
-        ['mg-hl-hands-l', 'mg-hl-hands-r'],
-        ['mg-hl-head', 'mg-hl-torso', 'mg-hl-arms', 'mg-hl-arms-r', 'mg-hl-hands-l', 'mg-hl-hands-r', 'mg-hl-legs-l', 'mg-hl-legs-r']
-      ];
 
       var activeChapter = -1;
-
-      function clearHighlights() {
-        document.querySelectorAll('.mg-bp-highlight').forEach(function (el) {
-          el.classList.remove('active');
-        });
-      }
 
       function setActiveChapter(index) {
         if (index === activeChapter) return;
@@ -1786,33 +1649,6 @@
         chapters.forEach(function (ch, i) {
           ch.classList.toggle('mg-active', i === index);
         });
-
-        triggerGroups.forEach(function (tg) {
-          tg.classList.toggle('mg-tp-active', parseInt(tg.dataset.triggers) === index);
-        });
-
-        clearHighlights();
-        (highlights[index] || []).forEach(function (id) {
-          var el = document.getElementById(id);
-          if (el) el.classList.add('active');
-        });
-
-        if (ringFill) {
-          var progress = (index + 1) / chapters.length;
-          ringFill.style.strokeDashoffset = CIRCUMFERENCE * (1 - progress);
-        }
-
-        if (ringNum) {
-          ringNum.textContent = String(index + 1).padStart(2, '0');
-        }
-
-        if (labelText) {
-          labelText.style.opacity = '0';
-          setTimeout(function () {
-            labelText.textContent = chapterLabels[index] || '';
-            labelText.style.opacity = '1';
-          }, 200);
-        }
       }
 
       // Parallax on background text
@@ -1820,8 +1656,10 @@
       var mgBgText = document.querySelector('.mg-bg-text');
       window.addEventListener('scroll', function () {
         if (!mgBgText || !mgSection) return;
-        var rect = mgSection.getBoundingClientRect();
-        mgBgText.style.transform = 'translateY(' + (-rect.top * 0.12) + 'px)';
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          var rect = mgSection.getBoundingClientRect();
+          mgBgText.style.transform = 'translateY(' + (-rect.top * 0.12) + 'px)';
+        }
       }, { passive: true });
 
       // Reveal animation observer
@@ -1846,7 +1684,6 @@
       });
 
       // Init
-      if (labelText) labelText.style.transition = 'opacity 0.3s ease';
       setActiveChapter(0);
       if (chapters[0]) chapters[0].classList.add('mg-visible');
     })();

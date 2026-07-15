@@ -4,16 +4,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <title>Impressum | Fech Puls Faszienpraxis Spaichingen</title>
   <meta name="description" content="Impressum der Faszienpraxis Fech in Spaichingen – Wadim Fech, Faszientherapeut & Sporttherapeut & Gesundheitspraktiker.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://faszienpraxis-fech.de/impressum.html">
+  <link rel="canonical" href="https://faszienpraxis-fech.de/impressum">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:title" content="Impressum | Fech Puls Faszienpraxis Spaichingen">
+  <meta property="og:description" content="Impressum der Faszienpraxis Fech in Spaichingen – Wadim Fech, Faszientherapeut & Sporttherapeut & Gesundheitspraktiker.">
+  <meta property="og:url" content="https://faszienpraxis-fech.de/impressum">
+  <meta property="og:image" content="https://faszienpraxis-fech.de/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Fech Puls – Faszienpraxis Fech in Spaichingen">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#0a2540">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap"
-    rel="stylesheet">
+  <link rel="preload" href="assets/fonts/dm-sans-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/cormorant-garamond-300-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="fonts.css">
   <link rel="stylesheet" href="accessibility.css">
   <style>
     :root {
@@ -24,7 +35,7 @@
       --accent: #0496ff;
       --accent-light: #90caf9;
       --text-body: #1a2e45;
-      --text-muted: #5a7a99;
+      --text-muted: #4a6a8a;
       --border: rgba(4, 150, 255, 0.15);
     }
 
@@ -702,7 +713,7 @@
 
 <body data-page="impressum">
 
-  <a class="skip-link" href="#main-content">Zum Hauptinhalt springen</a>
+  <a class="skip-link" href="#main">Zum Hauptinhalt springen</a>
 
   <!-- NAV (injected by components.js) -->
   <div id="site-nav"></div>
@@ -714,12 +725,12 @@
     <div class="legal-banner-inner">
       <p class="legal-banner-eyebrow">Rechtliches · Fech Puls</p>
       <h1><em>Impressum</em></h1>
-      <p class="legal-banner-sub">Angaben gemäß § 5 TMG sowie Haftungsausschluss und urheberrechtliche Hinweise.</p>
+      <p class="legal-banner-sub">Angaben gemäß § 5 DDG sowie Haftungsausschluss und urheberrechtliche Hinweise.</p>
     </div>
     <div class="legal-tabs">
-      <a href="datenschutz.html" class="legal-tab">Datenschutz</a>
-      <a href="impressum.html" class="legal-tab active">Impressum</a>
-      <a href="index.html" class="legal-tab">Zurück zur Startseite</a>
+      <a href="/datenschutz" class="legal-tab">Datenschutz</a>
+      <a href="/impressum" class="legal-tab active">Impressum</a>
+      <a href="/" class="legal-tab">Zurück zur Startseite</a>
     </div>
   </div>
 
@@ -731,24 +742,24 @@
     <nav class="legal-toc" aria-label="Inhaltsverzeichnis">
       <div class="legal-toc-label">Inhalt</div>
       <ul class="legal-toc-list">
-        <li><a href="#abschnitt-1" class="active">1. Angaben gemäß § 5 TMG</a></li>
+        <li><a href="#abschnitt-1">1. Angaben gemäß § 5 DDG</a></li>
         <li><a href="#abschnitt-2">2. Kontakt</a></li>
-        <li><a href="#abschnitt-3">3. Steuer-ID</a></li>
+        <li><a href="#abschnitt-3">3. Umsatzsteuer-ID</a></li>
         <li><a href="#abschnitt-4">4. Berufsbezeichnung</a></li>
-        <li><a href="#abschnitt-5">5. Streitschlichtung</a></li>
+        <li><a href="#abschnitt-5">5. Verbraucherstreitbeilegung</a></li>
         <li><a href="#abschnitt-6">6. Haftungsausschluss</a></li>
       </ul>
     </nav>
 
     <!-- Main -->
-    <main class="legal-content" id="main-content">
+    <main class="legal-content" id="main" tabindex="-1">
 
       <!-- 1 — Angaben -->
       <div class="legal-section" id="abschnitt-1">
         <div class="legal-section-num">Abschnitt 01</div>
-        <h2>Angaben gemäß <em>§ 5 TMG</em></h2>
+        <h2>Angaben gemäß <em>§ 5 DDG</em></h2>
 
-        <div class="legal-chip">§ 5 TMG</div>
+        <div class="legal-chip">§ 5 DDG</div>
 
         <div class="impressum-contact-card">
           <div>
@@ -815,9 +826,9 @@
       <!-- 3 — Steuer-ID -->
       <div class="legal-section" id="abschnitt-3">
         <div class="legal-section-num">Abschnitt 03</div>
-        <h2><em>Steuer-ID</em></h2>
+        <h2><em>Umsatzsteuer-Identifikationsnummer</em> (USt-IdNr.)</h2>
         <div class="legal-chip">§ 27a UStG</div>
-        <p>Steuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:</p>
+        <p>Umsatzsteuer-Identifikationsnummer gemäß § 27a Umsatzsteuergesetz:</p>
         <div class="legal-highlight">
           <strong>DE438478044</strong>
         </div>
@@ -835,13 +846,7 @@
       <!-- 5 — Streitschlichtung -->
       <div class="legal-section" id="abschnitt-5">
         <div class="legal-section-num">Abschnitt 05</div>
-        <h2>EU-Streit&shy;schlichtung &amp; <em>Verbraucherstreit&shy;beilegung</em></h2>
-
-        <h3>EU-Streitschlichtung</h3>
-        <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:</p>
-        <p><a href="https://ec.europa.eu/consumers/odr/" target="_blank"
-            rel="noopener">https://ec.europa.eu/consumers/odr/</a></p>
-        <p>Unsere E-Mail-Adresse finden Sie oben im Impressum.</p>
+        <h2><em>Verbraucherstreit&shy;beilegung</em></h2>
 
         <h3>Verbraucherstreitbeilegung / Universalschlichtungsstelle</h3>
         <div class="legal-highlight">
@@ -856,9 +861,9 @@
         <h2><em>Haftungs&shy;ausschluss</em></h2>
 
         <h3>Haftung für Inhalte</h3>
-        <div class="legal-chip">§§ 7–10 TMG</div>
-        <p>Als Diensteanbieter sind wir gemäß <strong>§ 7 Abs. 1 TMG</strong> für eigene Inhalte auf diesen Seiten nach
-          den allgemeinen Gesetzen verantwortlich. Nach <strong>§§ 8 bis 10 TMG</strong> sind wir als Diensteanbieter
+        <div class="legal-chip">§§ 7 ff. DDG</div>
+        <p>Als Diensteanbieter sind wir gemäß <strong>§ 7 Abs. 1 DDG</strong> für eigene Inhalte auf diesen Seiten nach
+          den allgemeinen Gesetzen verantwortlich. Nach <strong>§§ 8 bis 10 DDG</strong> sind wir als Diensteanbieter
           jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach
           Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
         <p>Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen nach den allgemeinen Gesetzen
@@ -895,6 +900,7 @@
   <div id="site-footer"></div>
 
   <script src="components.js"></script>
+  <script src="lang.js"></script>
 </body>
 
 </html>

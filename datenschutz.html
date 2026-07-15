@@ -4,16 +4,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <title>Datenschutzerklärung | Fech Puls Faszienpraxis Spaichingen</title>
-  <meta name="description" content="Datenschutzerklärung der Faszienpraxis Fech in Spaichingen.">
+  <meta name="description" content="Datenschutzerklärung der Faszienpraxis Fech in Spaichingen – Informationen zur Verarbeitung Ihrer personenbezogenen Daten gemäß DSGVO.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://faszienpraxis-fech.de/datenschutz.html">
+  <link rel="canonical" href="https://faszienpraxis-fech.de/datenschutz">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:title" content="Datenschutzerklärung | Fech Puls Faszienpraxis Spaichingen">
+  <meta property="og:description" content="Datenschutzerklärung der Faszienpraxis Fech in Spaichingen – Informationen zur Verarbeitung Ihrer personenbezogenen Daten gemäß DSGVO.">
+  <meta property="og:url" content="https://faszienpraxis-fech.de/datenschutz">
+  <meta property="og:image" content="https://faszienpraxis-fech.de/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Fech Puls – Faszienpraxis Fech in Spaichingen">
+  <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#0a2540">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap"
-    rel="stylesheet">
+  <link rel="preload" href="assets/fonts/dm-sans-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/cormorant-garamond-300-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="fonts.css">
   <link rel="stylesheet" href="accessibility.css">
   <style>
     :root {
@@ -24,7 +35,7 @@
       --accent: #0496ff;
       --accent-light: #90caf9;
       --text-body: #1a2e45;
-      --text-muted: #5a7a99;
+      --text-muted: #4a6a8a;
       --border: rgba(4, 150, 255, 0.15);
     }
 
@@ -581,7 +592,7 @@
 
 <body data-page="datenschutz">
 
-  <a class="skip-link" href="#main-content">Zum Hauptinhalt springen</a>
+  <a class="skip-link" href="#main">Zum Hauptinhalt springen</a>
 
   <!-- NAV (injected by components.js) -->
   <div id="site-nav"></div>
@@ -597,9 +608,9 @@
         Datenschutz-Grundverordnung (DSGVO).</p>
     </div>
     <div class="legal-tabs">
-      <a href="datenschutz.html" class="legal-tab active">Datenschutz</a>
-      <a href="impressum.html" class="legal-tab">Impressum</a>
-      <a href="index.html" class="legal-tab">Zurück zur Startseite</a>
+      <a href="/datenschutz" class="legal-tab active">Datenschutz</a>
+      <a href="/impressum" class="legal-tab">Impressum</a>
+      <a href="/" class="legal-tab">Zurück zur Startseite</a>
     </div>
   </div>
 
@@ -611,16 +622,16 @@
     <nav class="legal-toc" aria-label="Inhaltsverzeichnis">
       <div class="legal-toc-label">Inhalt</div>
       <ul class="legal-toc-list">
-        <li><a href="#abschnitt-1" class="active">1. Datenschutz auf einen Blick</a></li>
+        <li><a href="#abschnitt-1">1. Datenschutz auf einen Blick</a></li>
         <li><a href="#abschnitt-2">2. Hosting</a></li>
-        <li><a href="#abschnitt-3">3. Allgemeine Hinweise</a></li>
-        <li><a href="#abschnitt-4">4. Datenerfassung</a></li>
-        <li><a href="#abschnitt-5">5. Plugins und Tools</a></li>
+        <li><a href="#abschnitt-3">3. Allgemeine Hinweise &amp; Rechte</a></li>
+        <li><a href="#abschnitt-4">4. Datenerfassung &amp; Formulare</a></li>
+        <li><a href="#abschnitt-5">5. Dienste &amp; lokale Speicherung</a></li>
       </ul>
     </nav>
 
     <!-- Main content -->
-    <main class="legal-content" id="main-content">
+    <main class="legal-content" id="main" tabindex="-1">
 
       <!-- 1 -->
       <div class="legal-section" id="abschnitt-1">
@@ -644,8 +655,8 @@
           des Seitenaufrufs).</p>
 
         <p><strong>Wofür nutzen wir Ihre Daten?</strong><br>
-          Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Andere Daten
-          können zur Analyse Ihres Nutzerverhaltens verwendet werden.</p>
+          Ein Teil der Daten wird erhoben, um eine fehlerfreie Bereitstellung der Website zu gewährleisten. Es findet
+          keine Analyse Ihres Nutzerverhaltens statt; wir setzen keine Analyse-, Tracking- oder Werbe-Cookies ein.</p>
 
         <p><strong>Welche Rechte haben Sie bezüglich Ihrer Daten?</strong><br>
           Sie haben jederzeit das Recht, unentgeltlich Auskunft über Herkunft, Empfänger und Zweck Ihrer gespeicherten
@@ -661,22 +672,34 @@
 
         <div class="legal-chip">Art. 6 Abs. 1 lit. f DSGVO</div>
 
-        <p>Wir hosten die Inhalte unserer Website bei folgendem Anbieter: <strong>Hostinger</strong></p>
-
-        <p>Die personenbezogenen Daten, die auf dieser Website erfasst werden, werden auf den Servern des Hosters
-          gespeichert. Hierbei kann es sich v. a. um folgende Daten handeln:</p>
-
-        <ul>
-          <li>IP-Adressen</li>
-          <li>Kontaktanfragen</li>
-          <li>Meta- und Kommunikationsdaten</li>
-          <li>Webseitenzugriffe</li>
-          <li>Sonstige Daten, die über eine Website generiert werden</li>
-        </ul>
+        <p>Wir hosten die Inhalte unserer Website bei folgendem Anbieter:</p>
 
         <div class="legal-highlight">
-          Der Einsatz des Hosters erfolgt auf Grundlage von <strong>Art. 6 Abs. 1 lit. f DSGVO</strong> (berechtigtes
-          Interesse an einer sicheren und effizienten Bereitstellung unseres Onlineangebots).
+          <strong>Vercel Inc.</strong><br>
+          340 S California Ave, Suite 200<br>
+          Palo Alto, CA 94304, USA
+        </div>
+
+        <p>Wenn Sie unsere Website aufrufen, erfasst Vercel als Betreiber der Server automatisch Informationen in
+          sogenannten Server-Logfiles, die Ihr Browser automatisch übermittelt. Dies sind in der Regel:</p>
+
+        <ul>
+          <li>(gekürzte) IP-Adresse des zugreifenden Geräts</li>
+          <li>Datum und Uhrzeit des Zugriffs</li>
+          <li>Name und URL der abgerufenen Datei bzw. Seite</li>
+          <li>verwendeter Browsertyp und Browserversion (User-Agent)</li>
+          <li>Betriebssystem und die zuvor besuchte Seite (Referrer-URL)</li>
+        </ul>
+
+        <p>Die Verarbeitung dieser Daten ist technisch erforderlich, um die Website auszuliefern sowie deren Stabilität
+          und Sicherheit zu gewährleisten und missbräuchliche Zugriffe abzuwehren.</p>
+
+        <div class="legal-highlight">
+          Der Einsatz des Hosters erfolgt auf Grundlage unseres berechtigten Interesses an einer sicheren und
+          effizienten Bereitstellung unseres Onlineangebots (<strong>Art. 6 Abs. 1 lit. f DSGVO</strong>). Mit Vercel
+          haben wir einen Vertrag über Auftragsverarbeitung (AVV/DPA) geschlossen. Soweit dabei personenbezogene Daten
+          in die USA übermittelt werden, erfolgt dies auf Grundlage der EU-Standardvertragsklauseln (SCC) bzw. einer
+          Zertifizierung des Anbieters nach dem EU-US Data Privacy Framework (DPF).
         </div>
       </div>
 
@@ -684,6 +707,17 @@
       <div class="legal-section" id="abschnitt-3">
         <div class="legal-section-num">Abschnitt 03</div>
         <h2>Allgemeine Hinweise und <em>Pflichtinformationen</em></h2>
+
+        <h3>Verantwortliche Stelle</h3>
+        <p>Verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:</p>
+        <div class="legal-highlight">
+          <strong>Wadim Fech</strong> · Faszienpraxis Fech<br>
+          Danzigerstr. 19, 78549 Spaichingen<br>
+          Telefon: 07424 960 609 9 · E-Mail: mein-therapeut@web.de
+        </div>
+        <p>Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder gemeinsam mit anderen über
+          die Zwecke und Mittel der Verarbeitung von personenbezogenen Daten entscheidet. Die vollständigen Angaben
+          finden Sie in unserem <a href="/impressum">Impressum</a>.</p>
 
         <h3>Datenschutz</h3>
         <p>Die Betreiber dieser Seiten nehmen den Schutz Ihrer persönlichen Daten sehr ernst. Wir behandeln Ihre
@@ -701,7 +735,11 @@
         <h3>Beschwerderecht bei der zuständigen Aufsichtsbehörde</h3>
         <p>Im Falle von Verstößen gegen die DSGVO steht den Betroffenen ein Beschwerderecht bei einer Aufsichtsbehörde,
           insbesondere in dem Mitgliedstaat ihres gewöhnlichen Aufenthalts, ihres Arbeitsplatzes oder des Orts des
-          mutmaßlichen Verstoßes zu.</p>
+          mutmaßlichen Verstoßes zu. Die für uns zuständige Aufsichtsbehörde ist:</p>
+        <div class="legal-highlight">
+          <strong>Der Landesbeauftragte für den Datenschutz und die Informationsfreiheit Baden-Württemberg</strong><br>
+          Lautenschlagerstraße 20, 70173 Stuttgart
+        </div>
 
         <h3>Recht auf Datenübertragbarkeit</h3>
         <p>Sie haben das Recht, Daten, die wir auf Grundlage Ihrer Einwilligung oder in Erfüllung eines Vertrags
@@ -713,6 +751,20 @@
         <p>Sie haben im Rahmen der geltenden gesetzlichen Bestimmungen jederzeit das Recht auf unentgeltliche Auskunft
           über Ihre gespeicherten personenbezogenen Daten, deren Herkunft und Empfänger und den Zweck der
           Datenverarbeitung sowie ggf. ein Recht auf Berichtigung oder Löschung dieser Daten.</p>
+
+        <h3>Widerspruchsrecht gegen die Datenerhebung in besonderen Fällen (Art. 21 DSGVO)</h3>
+        <p>Wenn die Datenverarbeitung auf Grundlage von <strong>Art. 6 Abs. 1 lit. f DSGVO</strong> erfolgt, haben Sie
+          jederzeit das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, gegen die Verarbeitung
+          Ihrer personenbezogenen Daten Widerspruch einzulegen. Wir verarbeiten die betroffenen personenbezogenen Daten
+          dann nicht mehr, es sei denn, wir können zwingende schutzwürdige Gründe für die Verarbeitung nachweisen, die
+          Ihre Interessen, Rechte und Freiheiten überwiegen, oder die Verarbeitung dient der Geltendmachung, Ausübung
+          oder Verteidigung von Rechtsansprüchen.</p>
+
+        <h3>SSL- bzw. TLS-Verschlüsselung</h3>
+        <p>Diese Seite nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte eine SSL- bzw.
+          TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von
+          „http://" auf „https://" wechselt und am Schloss-Symbol in Ihrer Browserzeile. Bei aktivierter SSL-/
+          TLS-Verschlüsselung können die Daten, die Sie an uns übermitteln, nicht von Dritten mitgelesen werden.</p>
       </div>
 
       <!-- 4 -->
@@ -734,41 +786,86 @@
           effektiven Bearbeitung der an uns gerichteten Anfragen (<strong>Art. 6 Abs. 1 lit. f DSGVO</strong>).
         </div>
 
-        <h3>Terminbuchung</h3>
-        <p>Wenn Sie online Termine buchen, werden die von Ihnen eingegebenen Daten zum Zweck der Terminvereinbarung und
-          -verwaltung verarbeitet. Hierzu setzen wir den Dienst <strong>Timify</strong> ein. Die Verarbeitung der Daten
-          durch Timify erfolgt auf Grundlage der jeweiligen Datenschutzbestimmungen des Anbieters.</p>
+        <h3>Gutschein-Bestellformular</h3>
+        <div class="legal-chip">Art. 6 Abs. 1 lit. b DSGVO</div>
+        <p>Über unser Gutschein-Bestellformular können Sie einen Gutschein bestellen. Dabei verarbeiten wir die von
+          Ihnen angegebenen Daten:</p>
+        <ul>
+          <li>Name</li>
+          <li>E-Mail-Adresse</li>
+          <li>Telefonnummer (optional)</li>
+          <li>Anschrift bzw. Ort (optional)</li>
+          <li>Nachricht (optional)</li>
+        </ul>
+        <p>Diese Daten verwenden wir ausschließlich zur Bearbeitung und Abwicklung Ihrer Gutscheinbestellung.
+          Rechtsgrundlage ist <strong>Art. 6 Abs. 1 lit. b DSGVO</strong> (Erfüllung eines Vertrags bzw. Durchführung
+          vorvertraglicher Maßnahmen). Die Daten werden bis zur vollständigen Abwicklung der Bestellung gespeichert und
+          anschließend unter Beachtung etwaiger gesetzlicher Aufbewahrungsfristen gelöscht.</p>
+        <div class="legal-highlight">
+          Der technische Versand der Formularnachricht erfolgt über den Dienst <strong>Resend</strong> (Resend, Inc.,
+          USA) als Auftragsverarbeiter; eine Übermittlung in die USA ist durch EU-Standardvertragsklauseln (SCC) bzw.
+          eine DPF-Zertifizierung abgesichert. Die Nachricht geht anschließend in unserem E-Mail-Postfach
+          <strong>mein-therapeut@web.de</strong> ein, das bei der 1&amp;1 Mail &amp; Media GmbH (United Internet)
+          betrieben wird.
+        </div>
+
+        <h3>Kontaktaufnahme per WhatsApp</h3>
+        <p>Sofern Sie uns über WhatsApp kontaktieren, werden die dabei anfallenden Daten (insbesondere Ihre
+          Mobilfunknummer sowie die Inhalte Ihrer Nachrichten) durch die <strong>Meta Platforms Ireland Ltd.</strong>
+          (4 Grand Canal Square, Dublin, Irland) verarbeitet; hierbei kann es zu einer Übermittlung von Daten in die USA
+          kommen. Rechtsgrundlage ist Ihre durch die aktive Kontaktaufnahme erteilte Einwilligung (<strong>Art. 6 Abs. 1
+          lit. a DSGVO</strong>) sowie – bei vertragsbezogenen Anfragen – <strong>Art. 6 Abs. 1 lit. b DSGVO</strong>.
+          Es steht Ihnen frei, uns stattdessen per Telefon, E-Mail oder Kontaktformular zu erreichen.</p>
+
+        <h3>TIMIFY (Online-Terminbuchung)</h3>
+        <p>Für die Online-Terminvereinbarung setzen wir den Dienst <strong>TIMIFY</strong> der TerminApp GmbH
+          (Konrad-Zuse-Platz 8, 81829 München) ein. Wenn Sie online einen Termin buchen, werden die von Ihnen
+          eingegebenen Termindaten (z. B. Name, Kontaktdaten sowie der gewünschte Termin) zum Zweck der
+          Terminvereinbarung und -verwaltung verarbeitet.</p>
+        <div class="legal-highlight">
+          Rechtsgrundlage ist <strong>Art. 6 Abs. 1 lit. b DSGVO</strong> (Durchführung vorvertraglicher Maßnahmen bzw.
+          Erfüllung eines Vertrags). Einzelheiten zur Datenverarbeitung durch TIMIFY entnehmen Sie der
+          Datenschutzerklärung des Anbieters.
+        </div>
       </div>
 
       <!-- 5 -->
       <div class="legal-section" id="abschnitt-5">
         <div class="legal-section-num">Abschnitt 05</div>
-        <h2>Plugins und <em>Tools</em></h2>
+        <h2>Eingebundene Dienste und <em>lokale Speicherung</em></h2>
 
-        <h3>Google Maps</h3>
-        <p>Diese Seite nutzt den Kartendienst Google Maps. Anbieter ist die Google Ireland Limited, Gordon House, Barrow
-          Street, Dublin 4, Irland.</p>
-        <p>Zur Nutzung der Funktionen von Google Maps ist es notwendig, Ihre IP-Adresse zu speichern. Diese
-          Informationen werden in der Regel an einen Server von Google in den USA übertragen und dort gespeichert. Der
-          Anbieter dieser Seite hat keinen Einfluss auf diese Datenübertragung. Wenn Google Maps aktiviert ist, kann
-          Google zum Zwecke der einheitlichen Darstellung der Schriftarten Google Web Fonts verwenden.</p>
+        <h3>OpenStreetMap</h3>
+        <p>Im Footer unserer Website binden wir eine Karte des Dienstes <strong>OpenStreetMap</strong> ein, um Ihnen die
+          Auffindbarkeit unserer Praxis zu erleichtern. Anbieter ist die <strong>OpenStreetMap Foundation (OSMF)</strong>,
+          St John's Innovation Centre, Cowley Road, Cambridge, CB4 0WS, Vereinigtes Königreich.</p>
+        <p>Die Karte wird per iframe eingebunden. Beim Laden der Seite wird Ihre IP-Adresse an die Server von
+          OpenStreetMap übertragen, damit die Karteninhalte an Ihren Browser ausgeliefert werden können. Der Anbieter
+          dieser Seite hat auf diese Übertragung keinen Einfluss.</p>
 
         <div class="legal-highlight">
-          Die Nutzung von Google Maps erfolgt im Interesse einer ansprechenden Darstellung unserer Online-Angebote und
-          an einer leichten Auffindbarkeit der von uns auf der Website angegebenen Orte. Dies stellt ein berechtigtes
-          Interesse im Sinne von <strong>Art. 6 Abs. 1 lit. f DSGVO</strong> dar.
+          Die Nutzung von OpenStreetMap erfolgt im Interesse einer leichten Auffindbarkeit der von uns angegebenen Orte
+          und stellt ein berechtigtes Interesse im Sinne von <strong>Art. 6 Abs. 1 lit. f DSGVO</strong> dar. Weitere
+          Informationen zum Umgang mit Nutzerdaten finden Sie in der Datenschutzrichtlinie der OpenStreetMap Foundation.
         </div>
 
-        <h3>Google Web Fonts</h3>
-        <p>Diese Seite nutzt zur einheitlichen Darstellung von Schriftarten sogenannte Web Fonts, die von Google
-          bereitgestellt werden. Beim Aufruf einer Seite lädt Ihr Browser die benötigten Web Fonts in ihren
-          Browsercache, um Texte und Schriftarten korrekt anzuzeigen.</p>
-        <p>Zu diesem Zweck muss der von Ihnen verwendete Browser Verbindung zu den Servern von Google aufnehmen.
-          Hierdurch erlangt Google Kenntnis darüber, dass über Ihre IP-Adresse diese Website aufgerufen wurde. Die
-          Nutzung von Google Web Fonts erfolgt auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO.</p>
+        <h3>Schriftarten (lokal gehostet)</h3>
+        <p>Diese Website nutzt zur einheitlichen Darstellung von Schriftarten eigene Schriftdateien (Web Fonts). Die
+          verwendeten Schriften werden <strong>lokal von unserem eigenen Server</strong> ausgeliefert. Eine Verbindung
+          zu Servern von Google oder anderen Dritten wird dabei <strong>nicht</strong> aufgebaut; eine Übermittlung Ihrer
+          Daten – insbesondere Ihrer IP-Adresse – an Dritte findet nicht statt.</p>
 
-        <p>Weitere Informationen zu Google Web Fonts finden Sie unter <strong>developers.google.com/fonts/faq</strong>
-          sowie in der Datenschutzerklärung von Google: <strong>policies.google.com/privacy</strong></p>
+        <h3>Lokale Speicherung (localStorage)</h3>
+        <p>Zur Speicherung der von Ihnen gewählten Sprache verwenden wir den lokalen Speicher Ihres Browsers
+          (localStorage) mit dem Eintrag <strong>fp-lang</strong>. Diese Information verbleibt ausschließlich in Ihrem
+          Browser und wird <strong>nicht</strong> an unsere Server oder an Dritte übertragen.</p>
+
+        <div class="legal-highlight">
+          Die Speicherung ist für die von Ihnen gewünschte Sprachfunktion technisch erforderlich (<strong>§ 25 Abs. 2
+          Nr. 2 TDDDG</strong>); eine Einwilligung über ein Cookie-Banner ist hierfür nicht erforderlich. Es werden
+          keine Analyse-, Tracking- oder Werbe-Cookies eingesetzt.
+        </div>
+
+        <p>Stand dieser Datenschutzerklärung: <strong>Juli 2026</strong></p>
       </div>
 
     </main>
@@ -778,6 +875,7 @@
   <div id="site-footer"></div>
 
   <script src="components.js"></script>
+  <script src="lang.js"></script>
 </body>
 
 </html>

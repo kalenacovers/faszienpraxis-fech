@@ -4,19 +4,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <title>Zertifikate & Ausbildungen | Faszientherapie Spaichingen – Fech Puls</title>
-  <meta name="description" content="Ausbildungen und Zertifikate von Wadim Fech – Faszientherapeut & Sporttherapeut, Triggerpunkttherapeut und Gesundheitspraktiker in Spaichingen. CPD-, IPHM-, IAOTH- und ITA-zertifiziert.">
-  <link rel="canonical" href="https://faszienpraxis-fech.de/zertifikate.html">
+  <meta name="description" content="Ausbildungen und Zertifikate von Wadim Fech – Faszien- & Sporttherapeut, Gesundheitspraktiker in Spaichingen. CPD-, IPHM-, IAOTH- & ITA-zertifiziert.">
+  <link rel="canonical" href="https://faszienpraxis-fech.de/zertifikate">
   <meta property="og:type" content="article">
   <meta property="og:locale" content="de_DE">
   <meta property="og:title" content="Zertifikate & Ausbildungen | Faszienpraxis Fech Spaichingen">
-  <meta property="og:url" content="https://faszienpraxis-fech.de/zertifikate.html">
+  <meta property="og:description" content="Ausbildungen und Zertifikate von Wadim Fech – Faszien- & Sporttherapeut, Gesundheitspraktiker in Spaichingen. CPD-, IPHM-, IAOTH- & ITA-zertifiziert.">
+  <meta property="og:url" content="https://faszienpraxis-fech.de/zertifikate">
+  <meta property="og:image" content="https://faszienpraxis-fech.de/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Faszienpraxis Fech – Zertifikate & Ausbildungen">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://faszienpraxis-fech.de/assets/og-image.jpg">
   <meta name="theme-color" content="#0a2540">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap"
-    rel="stylesheet">
+  <link rel="preload" href="assets/fonts/dm-sans-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/cormorant-garamond-300-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="fonts.css">
   <link rel="stylesheet" href="accessibility.css">
   <style>
     :root {
@@ -27,7 +35,7 @@
       --accent: #0496ff;
       --accent-light: #90caf9;
       --text-body: #1a2e45;
-      --text-muted: #5a7a99;
+      --text-muted: #4a6a8a;
       --border: rgba(4, 150, 255, 0.15);
     }
 
@@ -516,12 +524,14 @@
       justify-content: center;
       opacity: 0;
       pointer-events: none;
-      transition: opacity .4s ease;
+      visibility: hidden;
+      transition: opacity .4s ease, visibility .4s ease;
     }
 
     .lightbox.active {
       opacity: 1;
       pointer-events: all;
+      visibility: visible;
     }
 
     .lightbox img {
@@ -702,7 +712,7 @@
     }
 
     .footer-bottom {
-      background: #061828;
+      background: #0a2540;
       padding: 20px 60px;
       display: flex;
       justify-content: space-between;
@@ -895,6 +905,14 @@
     }
   </style>
   <link rel="stylesheet" href="widescreen.css">
+  <noscript>
+    <style>
+      .zert-row {
+        opacity: 1 !important;
+        transform: none !important;
+      }
+    </style>
+  </noscript>
 </head>
 
 <body data-page="zertifikate">
@@ -904,7 +922,7 @@
   <!-- NAV (injected by components.js) -->
   <div id="site-nav"></div>
 
-  <main id="main-content">
+  <main id="main-content" tabindex="-1">
 
     <!-- HERO -->
     <section class="zert-hero">
@@ -935,35 +953,6 @@ Meine Zertifizierungen vereinen tiefgehende Kenntnisse in Faszienarbeit, Trigger
       </div>
     </section>
 
-    <!-- FEATURED — Abschlusszertifikat -->
-    <section class="zert-featured">
-      <header class="zert-featured-head">
-        <span class="zert-featured-eyebrow">Im Mittelpunkt</span>
-        <span class="zert-featured-num">N° 01</span>
-      </header>
-
-      <div class="zert-featured-grid">
-        <a class="zert-featured-image" data-lb="0" href="#" aria-label="Abschlusszertifikat öffnen">
-          <img src="assets/Abschlusszertifikat.png" alt="Abschlusszertifikat – Faszientherapie und ganzheitliche Schmerztherapie" loading="eager">
-        </a>
-
-        <div class="zert-featured-text">
-          <h2>Das <em>Abschluss&shy;zertifikat.</em></h2>
-          <p>
-            Das Abschlusszertifikat steht für höchste fachliche Qualifikation in moderner Faszien- & Sporttherapie, biomechanischer Körperarbeit und funktioneller Regeneration.
-Tiefgreifende Behandlungstechniken, präzise Körperanalyse und leistungsorientierte Therapiekonzepte vereinen sich zu einem exklusiven Gesamtkonzept für Mobilität, Stabilität und körperliche Performance.
-Basierend auf internationalen Ausbildungsstandards und intensiver Praxiserfahrung.
-          </p>
-          <div class="zert-featured-tags">
-            <span class="zert-tag">CPD-akkreditiert</span>
-            <span class="zert-tag">IPHM</span>
-            <span class="zert-tag">IAOTH</span>
-            <span class="zert-tag">ITA</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- INDEX — specializations -->
     <section class="zert-index">
       <div class="zert-index-inner">
@@ -982,45 +971,73 @@ Basierend auf internationalen Ausbildungsstandards und intensiver Praxiserfahrun
         <div class="zert-index-list">
 
           <article class="zert-row" data-reveal>
-            <a class="zert-row-image" data-lb="1" href="#" aria-label="Zertifikat Faszientherapeut & Sporttherapeut öffnen">
-              <img src="assets/faszientherapeut.jpg" alt="Zertifikat Faszientherapeut & Sporttherapeut" loading="lazy">
+            <a class="zert-row-image" data-lb="1" href="assets/faszientherapeut.jpg" aria-label="Zertifikat Faszientherapeut & Sporttherapeut öffnen">
+              <img src="assets/faszientherapeut.jpg" alt="Zertifikat Faszientherapeut & Sporttherapeut" loading="lazy" width="1200" height="1535">
             </a>
+            <div class="zert-row-meta">
+              <span class="zert-row-num">01</span>
+              <h3 class="zert-row-title">Faszientherapeut &amp; Sporttherapeut</h3>
+            </div>
           </article>
 
           <article class="zert-row" data-reveal>
-            <a class="zert-row-image" data-lb="2" href="#" aria-label="Zertifikat Praktiker für tiefe Freisetzungspunkte öffnen">
-              <img src="assets/prakriker-für-tiefe-freisetzungspunkte.jpg" alt="Zertifikat Praktiker für tiefe Freisetzungspunkte" loading="lazy">
+            <a class="zert-row-image" data-lb="2" href="assets/prakriker-für-tiefe-freisetzungspunkte.jpg" aria-label="Zertifikat Praktiker für tiefe Freisetzungspunkte öffnen">
+              <img src="assets/prakriker-für-tiefe-freisetzungspunkte.jpg" alt="Zertifikat Praktiker für tiefe Freisetzungspunkte" loading="lazy" width="1200" height="1535">
             </a>
+            <div class="zert-row-meta">
+              <span class="zert-row-num">02</span>
+              <h3 class="zert-row-title">Praktiker für tiefe Freisetzungspunkte</h3>
+            </div>
           </article>
 
           <article class="zert-row" data-reveal>
-            <a class="zert-row-image" data-lb="3" href="#" aria-label="Zertifikat Professionelle ganzheitliche Schmerztherapie öffnen">
-              <img src="assets/professionelle-ganzheitliche-schmerztherapie.jpg" alt="Zertifikat Professionelle ganzheitliche Schmerztherapie" loading="lazy">
+            <a class="zert-row-image" data-lb="3" href="assets/professionelle-ganzheitliche-schmerztherapie.jpg" aria-label="Zertifikat Professionelle ganzheitliche Schmerztherapie öffnen">
+              <img src="assets/professionelle-ganzheitliche-schmerztherapie.jpg" alt="Zertifikat Professionelle ganzheitliche Schmerztherapie" loading="lazy" width="1200" height="1535">
             </a>
+            <div class="zert-row-meta">
+              <span class="zert-row-num">03</span>
+              <h3 class="zert-row-title">Professionelle ganzheitliche Schmerztherapie</h3>
+            </div>
           </article>
 
           <article class="zert-row" data-reveal>
-            <a class="zert-row-image" data-lb="4" href="#" aria-label="Zertifikat Professionelle ganzheitliche amerikanische Chiropraktik öffnen">
-              <img src="assets/professionelle-ganzheitliche-amerikanische-chiropraktik.jpg" alt="Zertifikat Professionelle ganzheitliche amerikanische Chiropraktik" loading="lazy">
+            <a class="zert-row-image" data-lb="4" href="assets/professionelle-ganzheitliche-amerikanische-chiropraktik.jpg" aria-label="Zertifikat Professionelle ganzheitliche amerikanische Chiropraktik öffnen">
+              <img src="assets/professionelle-ganzheitliche-amerikanische-chiropraktik.jpg" alt="Zertifikat Professionelle ganzheitliche amerikanische Chiropraktik" loading="lazy" width="1200" height="1535">
             </a>
+            <div class="zert-row-meta">
+              <span class="zert-row-num">04</span>
+              <h3 class="zert-row-title">Professionelle ganzheitliche amerikanische Chiropraktik</h3>
+            </div>
           </article>
 
           <article class="zert-row" data-reveal>
-            <a class="zert-row-image" data-lb="5" href="#" aria-label="Zertifikat Ganzheitlicher Gesundheitspraktiker öffnen">
-              <img src="assets/ganzheitlicher-gesundheitspraktiker.jpg" alt="Zertifikat Ganzheitlicher Gesundheitspraktiker" loading="lazy">
+            <a class="zert-row-image" data-lb="5" href="assets/ganzheitlicher-gesundheitspraktiker.jpg" aria-label="Zertifikat Ganzheitlicher Gesundheitspraktiker öffnen">
+              <img src="assets/ganzheitlicher-gesundheitspraktiker.jpg" alt="Zertifikat Ganzheitlicher Gesundheitspraktiker" loading="lazy" width="1200" height="1535">
             </a>
+            <div class="zert-row-meta">
+              <span class="zert-row-num">05</span>
+              <h3 class="zert-row-title">Ganzheitlicher Gesundheitspraktiker</h3>
+            </div>
           </article>
 
           <article class="zert-row" data-reveal>
-            <a class="zert-row-image" data-lb="6" href="#" aria-label="Zertifikat Sport-Therapeut öffnen">
-              <img src="assets/sport-therapeut.jpg" alt="Zertifikat Sport-Therapeut" loading="lazy">
+            <a class="zert-row-image" data-lb="6" href="assets/sport-therapeut.jpg" aria-label="Zertifikat Sport-Therapeut öffnen">
+              <img src="assets/sport-therapeut.jpg" alt="Zertifikat Sport-Therapeut" loading="lazy" width="1200" height="1535">
             </a>
+            <div class="zert-row-meta">
+              <span class="zert-row-num">06</span>
+              <h3 class="zert-row-title">Sport-Therapeut</h3>
+            </div>
           </article>
 
           <article class="zert-row" data-reveal>
-            <a class="zert-row-image" data-lb="7" href="#" aria-label="Zertifikat Bewegungstherapeut öffnen">
-              <img src="assets/bewegungstherapeut.jpg" alt="Zertifikat Bewegungstherapeut" loading="lazy">
+            <a class="zert-row-image" data-lb="7" href="assets/bewegungstherapeut.jpg" aria-label="Zertifikat Bewegungstherapeut öffnen">
+              <img src="assets/bewegungstherapeut.jpg" alt="Zertifikat Bewegungstherapeut" loading="lazy" width="1200" height="1535">
             </a>
+            <div class="zert-row-meta">
+              <span class="zert-row-num">07</span>
+              <h3 class="zert-row-title">Bewegungstherapeut</h3>
+            </div>
           </article>
 
         </div>
@@ -1036,7 +1053,7 @@ Basierend auf internationalen Ausbildungsstandards und intensiver Praxiserfahrun
         Trigger&shy;punkten ein. Vereinbaren Sie einen Termin in der Praxis in
         Spaichingen.
       </p>
-      <a class="zert-cta-btn" href="https://faszienpraxis-fech.de/termin">
+      <a class="zert-cta-btn" href="https://book.timify.com/?accountId=652fe85cbd51d3ad47200466&hideCloseButton=true">
         Termin anfragen
         <span aria-hidden="true">→</span>
       </a>
@@ -1048,7 +1065,7 @@ Basierend auf internationalen Ausbildungsstandards und intensiver Praxiserfahrun
   <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Zertifikat in voller Auflösung">
     <button class="lightbox-close" id="lb-close" aria-label="Schließen">&times;</button>
     <button class="lightbox-nav lightbox-prev" id="lb-prev" aria-label="Vorheriges Zertifikat">&#8249;</button>
-    <img id="lb-img" src="" alt="">
+    <img id="lb-img" alt="">
     <button class="lightbox-nav lightbox-next" id="lb-next" aria-label="Nächstes Zertifikat">&#8250;</button>
     <div class="lightbox-caption" id="lb-caption"></div>
     <div class="lightbox-counter" id="lb-counter"></div>
@@ -1058,6 +1075,7 @@ Basierend auf internationalen Ausbildungsstandards und intensiver Praxiserfahrun
   <div id="site-footer"></div>
 
   <script src="components.js"></script>
+  <script src="lang.js"></script>
   <script>
     (function () {
       // Collect all certificate links in DOM order
@@ -1072,6 +1090,7 @@ Basierend auf internationalen Ausbildungsstandards und intensiver Praxiserfahrun
       var lbCaption = document.getElementById('lb-caption');
       var lbCounter = document.getElementById('lb-counter');
       var current = 0;
+      var lastFocused = null;
 
       function show(i) {
         if (i < 0) i = slides.length - 1;
@@ -1088,12 +1107,15 @@ Basierend auf internationalen Ausbildungsstandards und intensiver Praxiserfahrun
       function close() {
         lb.classList.remove('active');
         document.body.style.overflow = '';
+        if (lastFocused) { lastFocused.focus(); lastFocused = null; }
       }
 
       triggers.forEach(function (a, i) {
         a.addEventListener('click', function (e) {
           e.preventDefault();
+          lastFocused = a;
           show(i);
+          document.getElementById('lb-close').focus();
         });
       });
 

@@ -4,23 +4,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <title>Faszientherapie Spaichingen | Fech Puls – Faszien & Triggerpunkte</title>
-  <meta name="description" content="Faszientherapie & Triggerpunktarbeit in Spaichingen, Tuttlingen, Trossingen, Aldingen und Umgebung. Wadim Fech – zertifizierter Faszientherapeut & Sporttherapeut. 191 Google-Bewertungen, 4,7 ★ Schnitt. Termin online buchen.">
-  <meta name="keywords" content="Faszientherapie Spaichingen, Triggerpunkttherapie, Faszientherapeut & Sporttherapeut, Tuttlingen, Trossingen, Aldingen, Wadim Fech">
+  <meta name="description" content="Faszien- & Triggerpunkttherapie in Spaichingen. Zertifizierter Faszientherapeut Wadim Fech – bei Verspannungen & Schmerzen. Termin online buchen.">
   <link rel="canonical" href="https://faszienpraxis-fech.de/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="de_DE">
   <meta property="og:title" content="Faszientherapie Spaichingen | Fech Puls">
   <meta property="og:description" content="Faszien- & Triggerpunktarbeit in Spaichingen. Zertifizierter Faszientherapeut & Sporttherapeut Wadim Fech. 191 Google-Bewertungen, 4,7 ★.">
   <meta property="og:url" content="https://faszienpraxis-fech.de/">
-  <meta property="og:image" content="https://faszienpraxis-fech.de/assets/fech-logo-v2-full-color-rgb.png">
+  <meta property="og:image" content="https://faszienpraxis-fech.de/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Fech Puls – Faszien- und Triggerpunkttherapie in Spaichingen">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#0a2540">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap"
-    rel="stylesheet">
+  <link rel="preload" href="assets/fonts/dm-sans-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/cormorant-garamond-300-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="fonts.css">
   <link rel="stylesheet" href="accessibility.css">
 
   <!-- Schema.org: LocalBusiness -->
@@ -88,7 +91,7 @@
     "name": "Wadim Fech",
     "jobTitle": "Faszientherapeut & Sporttherapeut & Gesundheitspraktiker",
     "worksFor": { "@id": "https://faszienpraxis-fech.de/#business" },
-    "url": "https://faszienpraxis-fech.de/ueber-mich.html",
+    "url": "https://faszienpraxis-fech.de/ueber-mich",
     "image": "https://faszienpraxis-fech.de/assets/wadim-fech-portrait.jpg",
     "knowsAbout": ["Faszientherapie", "Triggerpunkttherapie", "Manuelle Tiefengewebearbeit", "Sporttherapie"],
     "sameAs": [
@@ -164,7 +167,7 @@
       --accent: #0496ff;
       --accent-light: #90caf9;
       --text-body: #1a2e45;
-      --text-muted: #5a7a99;
+      --text-muted: #4a6a8a;
       --border: rgba(4, 150, 255, 0.15);
     }
 
@@ -997,7 +1000,7 @@
       margin-bottom: 16px;
     }
 
-    .cond-item h4 {
+    .cond-item h3 {
       font-family: 'Cormorant Garamond', serif;
       font-size: 20px;
       font-weight: 400;
@@ -1194,14 +1197,14 @@
 
     .price-card.featured .btn-price {
       background: var(--accent);
-      color: #ffffff;
+      color: var(--dark);
       border-color: var(--accent);
       box-shadow: 0 6px 18px rgba(4, 150, 255, .35);
     }
 
     .price-card.featured .btn-price:hover {
       background: #1ba3ff;
-      color: #ffffff;
+      color: var(--dark);
       box-shadow: 0 10px 24px rgba(4, 150, 255, .5);
     }
 
@@ -1759,7 +1762,7 @@
     .btn-kurs {
       display: inline-block;
       background: var(--accent);
-      color: #ffffff;
+      color: var(--dark);
       padding: 16px 36px;
       border-radius: 2px;
       font-size: 13px;
@@ -1867,7 +1870,7 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: 26px;
       font-weight: 300;
-      color: var(--text-light);
+      color: var(--warm-white);
       line-height: 1;
     }
 
@@ -1958,7 +1961,7 @@
     }
 
     .grev-footer-link:hover {
-      color: var(--text-light);
+      color: var(--warm-white);
     }
 
     @media (max-width: 560px) {
@@ -2392,7 +2395,7 @@
     .footer-cta-btn {
       display: inline-block;
       background: var(--accent);
-      color: #ffffff;
+      color: var(--dark);
       padding: 16px 32px;
       border-radius: 2px;
       font-size: 13px;
@@ -2543,7 +2546,6 @@
       align-items: flex-end;
       justify-content: flex-end;
       padding: 10px;
-      pointer-events: none;
     }
 
     .footer-praxis-map-pin {
@@ -2827,7 +2829,7 @@
 
 
       .hero {
-        min-height: 88vh;
+        min-height: 88svh;
         padding-top: 58px;
         align-items: flex-end;
       }
@@ -3387,7 +3389,7 @@
 
     .mobile-cta-bar .mcta-book {
       background: var(--accent);
-      color: #ffffff;
+      color: var(--dark);
     }
 
     .mobile-cta-bar svg {
@@ -3451,15 +3453,17 @@
 
 <body data-page="home">
 
-  <a class="skip-link" href="#leistungen">Zum Hauptinhalt springen</a>
+  <a class="skip-link" href="#main">Zum Hauptinhalt springen</a>
 
   <!-- NAV -->
   <div id="site-nav"></div>
 
+  <main id="main" tabindex="-1">
+
   <!-- HERO -->
   <section class="hero" aria-labelledby="hero-heading">
     <div class="hero-bg">
-      <img src="assets/hero.jpg"
+      <img src="assets/hero.jpg" width="2400" height="1340"
         alt="Wadim Fech bei einer Faszien- und Triggerpunktbehandlung in seiner Praxis in Spaichingen"
         fetchpriority="high" decoding="async">
     </div>
@@ -3472,7 +3476,7 @@
         <div class="hero-actions animate delay-3">
           <a href="https://book.timify.com/?accountId=652fe85cbd51d3ad47200466&hideCloseButton=true"
             class="btn-primary" data-i18n="hero.book">Termin buchen</a>
-          <a href="#preise" class="btn-ghost" data-i18n="hero.services">Leistungen ansehen</a>
+          <a href="#leistungen" class="btn-ghost" data-i18n="hero.services">Leistungen ansehen</a>
         </div>
         <div class="hero-trust animate delay-4">
           <div class="hero-trust-item">
@@ -3482,7 +3486,7 @@
               <span class="hero-trust-avatar">S</span>
             </div>
             <div class="hero-trust-review-info">
-              <span class="hero-trust-stars" aria-label="4,7 Sterne">★★★★½</span>
+              <span class="hero-trust-stars" role="img" aria-label="4,7 Sterne">★★★★½</span>
               <span class="hero-trust-review-text"><strong>4,7</strong> auf Google</span>
             </div>
           </div>
@@ -3558,7 +3562,7 @@
   </div>
 
   <!-- ÖFFNUNGSZEITEN -->
-  <div class="hours-strip" aria-label="Öffnungszeiten und Adresse">
+  <div class="hours-strip" role="group" aria-label="Öffnungszeiten und Adresse">
     <div class="hours-status" id="hours-status" data-open="false">
       <span class="hours-status-dot" aria-hidden="true"></span>
       <span class="hours-status-text">Öffnungszeiten</span>
@@ -3580,7 +3584,7 @@
   </div>
 
   <!-- HINWEISE FÜR DEN TERMIN -->
-  <div class="info-strip" aria-label="Hinweise für deinen Termin">
+  <div class="info-strip" role="group" aria-label="Hinweise für deinen Termin">
     <div class="info-item">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
         <path d="M9 11l3 3L22 4"/>
@@ -3598,39 +3602,39 @@
   </div>
 
   <!-- CONDITIONS — Womit ich helfen kann -->
-  <section class="conditions-section" id="leistungen">
+  <section class="conditions-section" id="leistungen" aria-labelledby="leistungen-heading">
     <div class="section-eyebrow" data-i18n="cond.eyebrow">Behandlungsbereiche</div>
-    <div class="section-title" data-i18n="cond.title">Womit ich helfen kann</div>
+    <h2 class="section-title" id="leistungen-heading" data-i18n="cond.title">Womit ich helfen kann</h2>
     <p class="conditions-lead" data-i18n="cond.lead">Wenn du dich in einem der folgenden Punkte erkennst, ist eine Behandlung für dich geeignet.</p>
     <div class="cond-grid">
       <div class="cond-item">
         <div class="cond-dot"></div>
-        <h4 data-i18n="cond.1.h">Rücken &amp; Nacken</h4>
+        <h3 data-i18n="cond.1.h">Rücken &amp; Nacken</h3>
         <p data-i18n="cond.1.p">Chronische Rückenschmerzen, Nackenverspannungen, Zugspannung im Kopfbereich</p>
       </div>
       <div class="cond-item">
         <div class="cond-dot"></div>
-        <h4 data-i18n="cond.2.h">Schulter &amp; Arm</h4>
+        <h3 data-i18n="cond.2.h">Schulter &amp; Arm</h3>
         <p data-i18n="cond.2.p">Eingeschränkte Schulterbeweglichkeit, Taubheitsgefühle in Armen oder Händen</p>
       </div>
       <div class="cond-item">
         <div class="cond-dot"></div>
-        <h4 data-i18n="cond.3.h">Beine &amp; Füße</h4>
+        <h3 data-i18n="cond.3.h">Beine &amp; Füße</h3>
         <p data-i18n="cond.3.p">Waden- und Oberschenkelverhärtungen, Fußsohlenschmerzen, Gesäßblockaden</p>
       </div>
       <div class="cond-item">
         <div class="cond-dot"></div>
-        <h4 data-i18n="cond.4.h">Triggerpunkte</h4>
+        <h3 data-i18n="cond.4.h">Triggerpunkte</h3>
         <p data-i18n="cond.4.p">Schmerz, der nicht dort sitzt, wo die Ursache liegt — ein Zeichen für aktive Triggerpunkte</p>
       </div>
       <div class="cond-item">
         <div class="cond-dot"></div>
-        <h4 data-i18n="cond.5.h">Kiefer &amp; Kopf</h4>
+        <h3 data-i18n="cond.5.h">Kiefer &amp; Kopf</h3>
         <p data-i18n="cond.5.p">Kieferverspannungen, Druckgefühl im Kopf, Schwindel durch Muskelverspannung</p>
       </div>
       <div class="cond-item">
         <div class="cond-dot"></div>
-        <h4 data-i18n="cond.6.h">Körperspannung &amp; Stress</h4>
+        <h3 data-i18n="cond.6.h">Körperspannung &amp; Stress</h3>
         <p data-i18n="cond.6.p">Dauerhaft angespannt, blockiert, innerer Druck — auch ohne klare Schmerzursache</p>
       </div>
     </div>
@@ -3689,7 +3693,7 @@
   <!-- ABOUT — Über Wadim -->
   <section class="about-grid" id="ueber-wadim" aria-labelledby="about-heading">
     <figure class="about-img">
-      <img src="assets/wadim-fech-portrait.jpg"
+      <img src="assets/wadim-fech-portrait.jpg" width="1340" height="2400"
         alt="Porträt von Wadim Fech – Faszientherapeut, Sporttherapeut und Gesundheitspraktiker in Spaichingen"
         loading="lazy" decoding="async"
         style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;">
@@ -3715,7 +3719,7 @@
       <div class="about-actions">
         <a href="https://book.timify.com/?accountId=652fe85cbd51d3ad47200466&hideCloseButton=true"
           class="btn-primary" data-i18n="hero.book">Termin buchen</a>
-        <a href="ueber-mich.html" class="about-link">
+        <a href="/ueber-mich" class="about-link">
           <span data-i18n="about.more">Mehr über mich</span>
           <span aria-hidden="true">→</span>
         </a>
@@ -3728,24 +3732,24 @@
     <div class="logo-slider-label" data-i18n="logos.label">Ausbildung &amp; Zertifizierungen</div>
     <div class="logo-track-wrap">
       <div class="logo-track">
-        <div class="logo-item"><img loading="lazy" decoding="async"
+        <div class="logo-item"><img loading="lazy" decoding="async" width="400" height="400"
             src="assets/cpd-logo.png" alt="CPD – Continuing Professional Development zertifiziert"></div>
-        <div class="logo-item"><img loading="lazy" decoding="async" src="assets/iphm-logo.jpg"
+        <div class="logo-item"><img loading="lazy" decoding="async" width="300" height="289" src="assets/iphm-logo.jpg"
             alt="IPHM – International Practitioners of Holistic Medicine"></div>
-        <div class="logo-item"><img loading="lazy" decoding="async" src="assets/pantharia-logo.png"
+        <div class="logo-item"><img loading="lazy" decoding="async" width="801" height="88" src="assets/pantharia-logo.png"
             alt="Pantharia – Akademie für Faszien- und Triggerpunktarbeit"></div>
-        <div class="logo-item"><img loading="lazy" decoding="async" src="assets/iaoth-logo.png"
+        <div class="logo-item"><img loading="lazy" decoding="async" width="400" height="170" src="assets/iaoth-logo.png"
             alt="IAOTH – International Association of Therapists"></div>
-        <div class="logo-item"><img loading="lazy" decoding="async" src="assets/ita-logo.png"
+        <div class="logo-item"><img loading="lazy" decoding="async" width="400" height="400" src="assets/ita-logo.png"
             alt="ITA – International Therapy Association"></div>
       </div>
     </div>
   </section>
 
   <!-- PRICING -->
-  <section class="pricing-section" id="preise">
+  <section class="pricing-section" id="preise" aria-labelledby="preise-heading">
     <div class="section-eyebrow" data-i18n="price.eyebrow">Preise &amp; Leistungen</div>
-    <div class="section-title" data-i18n="price.title">Behandlungsoptionen</div>
+    <h2 class="section-title" id="preise-heading" data-i18n="price.title">Behandlungsoptionen</h2>
     <p class="pricing-sub" data-i18n="price.sub">Wähle die Behandlung, die zu deinen Bedürfnissen passt. Alle Preise inkl. Nachbetreuung und Tipps.</p>
     <div class="pricing-grid">
       <div class="price-card">
@@ -3762,7 +3766,7 @@
           class="btn-price" data-i18n="price.book">Termin buchen</a>
       </div>
       <div class="price-card featured">
-        <div class="price-feat-badge" data-i18n="price.2.badge" aria-label="Beliebteste Wahl">Beliebteste Wahl</div>
+        <div class="price-feat-badge" data-i18n="price.2.badge">Beliebteste Wahl</div>
         <h3 class="price-name" data-i18n="price.2.name">Ganzkörperbehandlung</h3>
         <div class="price-duration" data-i18n="price.2.dur">30–45 Min. · je nach Körperbau</div>
         <div class="price-amount"><sup>€</sup>100</div>
@@ -3803,7 +3807,7 @@
   <!-- ZUSATZLEISTUNG: GLAS-SCHRÖPFEN -->
   <section class="schroepfen-section" aria-labelledby="schroepfen-heading">
     <div class="schroepfen-media">
-      <img src="assets/glas-schroepfen.png"
+      <img src="assets/glas-schroepfen.jpg" width="1600" height="1195"
         alt="Glas-Schröpfen als Zusatzbehandlung in der Faszienpraxis Spaichingen" loading="lazy" decoding="async">
       <div class="schroepfen-media-overlay" aria-hidden="true"></div>
       <div class="schroepfen-avail" aria-hidden="true">
@@ -3841,7 +3845,7 @@
 
       <!-- Foto-Block -->
       <figure class="kurs-figure">
-        <img src="assets/kurs-online-ausbildung.jpg"
+        <img src="assets/kurs-online-ausbildung.jpg" width="1200" height="1490"
           alt="Wadim Fech während der Online-Fachausbildung zum Faszien-Praktiker"
           loading="lazy" decoding="async">
         <figcaption class="kurs-figure-pill">
@@ -3919,24 +3923,16 @@
         <div class="kurs-trust-stripe">
           <span class="kurs-trust-label">Akkreditiert durch</span>
           <div class="kurs-trust-logos">
-            <img src="assets/cpd-logo.png" alt="CPD" loading="lazy">
-            <img src="assets/iphm-logo.jpg" alt="IPHM" loading="lazy">
-            <img src="assets/iaoth-logo.png" alt="IAOTH" loading="lazy">
-            <img src="assets/pantharia-logo.png" alt="Pantharia" loading="lazy">
+            <img src="assets/cpd-logo.png" width="400" height="400" alt="CPD" loading="lazy">
+            <img src="assets/iphm-logo.jpg" width="300" height="289" alt="IPHM" loading="lazy">
+            <img src="assets/iaoth-logo.png" width="400" height="170" alt="IAOTH" loading="lazy">
+            <img src="assets/pantharia-logo.png" width="801" height="88" alt="Pantharia" loading="lazy">
           </div>
         </div>
 
-        <!-- TODO: Platzhalter-Zitat ersetzen durch echtes Schüler-Zitat. -->
-        <blockquote class="kurs-quote">
-          <p class="kurs-quote-text">„Genau die Tiefe, die ich gesucht habe. Wadim erklärt komplexe Zusammenhänge so klar, dass die Praxis von Modul 1 an funktioniert."</p>
-          <footer class="kurs-quote-author">
-            <strong>K. Müller</strong> &middot; Absolventin, Heilpraktikerin
-          </footer>
-        </blockquote>
-
         <div class="kurs-banner-actions">
           <a href="https://onlinekurs.faszienpraxis-fech.de/login" class="btn-kurs">Jetzt anmelden</a>
-          <a href="kurs-page.html" class="btn-kurs-ghost">
+          <a href="/kurs" class="btn-kurs-ghost">
             Curriculum ansehen
             <span aria-hidden="true">→</span>
           </a>
@@ -3967,7 +3963,7 @@
           <div class="grev-summary">
             <div class="grev-rating-row">
               <span class="grev-rating-score">4,7</span>
-              <span class="grev-stars" aria-label="4,7 von 5 Sternen">★★★★½</span>
+              <span class="grev-stars" role="img" aria-label="4,7 von 5 Sternen">★★★★½</span>
             </div>
             <span class="grev-count"><span data-review-replace>191</span>+ Bewertungen auf Google</span>
           </div>
@@ -4048,8 +4044,8 @@
       <div class="faq-extra">
         <div class="faq-extra-label">Weitere Infos</div>
         <div class="faq-extra-links">
-          <a href="fuer-wen.html" class="faq-extra-link">→ Für wen geeignet?</a>
-          <a href="ueber-mich.html" class="faq-extra-link">→ Über Wadim Fech</a>
+          <a href="/fuer-wen" class="faq-extra-link">→ Für wen geeignet?</a>
+          <a href="/ueber-mich" class="faq-extra-link">→ Über Wadim Fech</a>
         </div>
       </div>
     </div>
@@ -4062,7 +4058,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><polyline points="6 9 12 15 18 9"/></svg>
           </span>
         </button>
-        <div class="faq-a-wrap" id="faq-massage-a" role="region" aria-labelledby="faq-massage">
+        <div class="faq-a-wrap" id="faq-massage-a" aria-labelledby="faq-massage">
           <div class="faq-a-inner">
             <div class="faq-a">Klassische Massage arbeitet an der Oberfläche. Meine Arbeit setzt im tieferen Muskel- und Fasziengewebe an – dort, wo sich über längere Zeit verhärtete Strukturen im Gewebe entwickeln. Präzise Gewebearbeit. Keine Entspannungsbehandlung.</div>
           </div>
@@ -4075,7 +4071,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><polyline points="6 9 12 15 18 9"/></svg>
           </span>
         </button>
-        <div class="faq-a-wrap" id="faq-erste-behandlung-a" role="region" aria-labelledby="faq-erste-behandlung">
+        <div class="faq-a-wrap" id="faq-erste-behandlung-a" aria-labelledby="faq-erste-behandlung">
           <div class="faq-a-inner">
             <div class="faq-a">Wir starten mit einem kurzen Gespräch zu deinen Beschwerden, Vorerkrankungen und Zielen. Anschließend taste ich gezielt nach den Bereichen mit Druck, Verhärtung oder Triggerpunkten. Die eigentliche Behandlung dauert je nach Option 30 bis 45 Minuten. Am Ende bekommst du Hinweise für die nächsten 24–48 Stunden und ggf. einfache Heimübungen.</div>
           </div>
@@ -4088,7 +4084,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><polyline points="6 9 12 15 18 9"/></svg>
           </span>
         </button>
-        <div class="faq-a-wrap" id="faq-schmerz-a" role="region" aria-labelledby="faq-schmerz">
+        <div class="faq-a-wrap" id="faq-schmerz-a" aria-labelledby="faq-schmerz">
           <div class="faq-a-inner">
             <div class="faq-a">Bei starken Gewebeverhärtungen kann die Behandlung intensiv sein. Der Druck wird kontrolliert angepasst — sag mir jederzeit, wenn es zu viel wird. Danach kann kurzfristig eine muskelkaterähnliche Reaktion auftreten, die meist nach 1–2 Tagen abklingt.</div>
           </div>
@@ -4101,7 +4097,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><polyline points="6 9 12 15 18 9"/></svg>
           </span>
         </button>
-        <div class="faq-a-wrap" id="faq-haeufigkeit-a" role="region" aria-labelledby="faq-haeufigkeit">
+        <div class="faq-a-wrap" id="faq-haeufigkeit-a" aria-labelledby="faq-haeufigkeit">
           <div class="faq-a-inner">
             <div class="faq-a">Das hängt von Alter, Beruf und Beschwerden ab. Jüngere Menschen: alle 2–4 Wochen. Bei chronischen oder berufsbedingten Beschwerden: alle 1–2 Wochen. Wir besprechen das individuell nach der ersten Behandlung.</div>
           </div>
@@ -4114,7 +4110,7 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><polyline points="6 9 12 15 18 9"/></svg>
           </span>
         </button>
-        <div class="faq-a-wrap" id="faq-kontraindikation-a" role="region" aria-labelledby="faq-kontraindikation">
+        <div class="faq-a-wrap" id="faq-kontraindikation-a" aria-labelledby="faq-kontraindikation">
           <div class="faq-a-inner">
             <div class="faq-a">Bei akuten Entzündungen, Fieber, Blutgerinnungsstörungen, frischen Operationen, Krebserkrankungen, Rheuma oder Arthrose ist von Tiefengewebsarbeit abzuraten. Bitte im Zweifel vorher ärztlich abklären.</div>
           </div>
@@ -4127,9 +4123,9 @@
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" focusable="false"><polyline points="6 9 12 15 18 9"/></svg>
           </span>
         </button>
-        <div class="faq-a-wrap" id="faq-online-kurs-a" role="region" aria-labelledby="faq-online-kurs">
+        <div class="faq-a-wrap" id="faq-online-kurs-a" aria-labelledby="faq-online-kurs">
           <div class="faq-a-inner">
-            <div class="faq-a">Ja! Ich biete zertifizierte Online-Kurse für alle, die fachlich in Faszienpraktiken einsteigen möchten — ob zur Weiterbildung oder für den Schritt in die Selbstständigkeit. <a href="kurs-page.html" class="faq-inline-link">Mehr zum Online-Kurs →</a></div>
+            <div class="faq-a">Ja! Ich biete zertifizierte Online-Kurse für alle, die fachlich in Faszienpraktiken einsteigen möchten — ob zur Weiterbildung oder für den Schritt in die Selbstständigkeit. <a href="/kurs" class="faq-inline-link">Mehr zum Online-Kurs →</a></div>
           </div>
         </div>
       </div>
@@ -4147,7 +4143,8 @@
           class="btn-cta-primary" data-i18n="cta.book">Termin online buchen</a>
       </div>
       <div class="cta-cards" role="list">
-        <a href="tel:+4974249606099" class="cta-card" role="listitem" aria-label="Praxis anrufen unter 07424 960 609 9">
+        <div role="listitem">
+          <a href="tel:+4974249606099" class="cta-card" aria-label="Praxis anrufen unter 07424 960 609 9">
           <span class="cta-card-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
               <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
@@ -4158,8 +4155,10 @@
             <span class="cta-card-value">07424 960 609 9</span>
             <span class="cta-card-hint" data-i18n="cta.call.hint">Mo–Fr während der Öffnungszeiten</span>
           </div>
-        </a>
-        <a href="mailto:mein-therapeut@web.de" class="cta-card" role="listitem" aria-label="E-Mail an mein-therapeut@web.de schreiben">
+          </a>
+        </div>
+        <div role="listitem">
+          <a href="mailto:mein-therapeut@web.de" class="cta-card" aria-label="E-Mail an mein-therapeut@web.de schreiben">
           <span class="cta-card-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
               <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
@@ -4171,8 +4170,10 @@
             <span class="cta-card-value">mein-therapeut@web.de</span>
             <span class="cta-card-hint" data-i18n="cta.email.hint">Antwort meist innerhalb 24 h</span>
           </div>
-        </a>
-        <a href="https://maps.google.com/?q=Danzigerstr.+19,+78549+Spaichingen" class="cta-card" role="listitem" rel="noopener" target="_blank" aria-label="Adresse Danzigerstr. 19, 78549 Spaichingen in Google Maps öffnen">
+          </a>
+        </div>
+        <div role="listitem">
+          <a href="https://maps.google.com/?q=Danzigerstr.+19,+78549+Spaichingen" class="cta-card" rel="noopener" target="_blank" aria-label="Adresse Danzigerstr. 19, 78549 Spaichingen in Google Maps öffnen">
           <span class="cta-card-icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" focusable="false">
               <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
@@ -4184,10 +4185,13 @@
             <span class="cta-card-value">Danzigerstr. 19<br>78549 Spaichingen</span>
             <span class="cta-card-hint" data-i18n="cta.location.hint">Route in Google Maps öffnen →</span>
           </div>
-        </a>
+          </a>
+        </div>
       </div>
     </div>
   </section>
+
+  </main>
 
   <!-- FOOTER (injected by components.js) -->
   <div id="site-footer"></div>

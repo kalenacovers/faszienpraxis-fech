@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Fech Puls">
+  <rect width="64" height="64" rx="12" fill="#0a2540"/>
+  <path d="M8 34 h13 l5 -14 l7 26 l5 -16 l4 8 h14"
+        fill="none" stroke="#0496ff" stroke-width="4"
+        stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

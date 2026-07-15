@@ -1,1 +1,8 @@
 *.php
+.gstack/
+.gstack-audit/
+.claude/
+AUDIT-REPORT.md
+PRODUCT.md
+DESIGN.md
+DESIGN.json

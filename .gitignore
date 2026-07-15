@@ -1,0 +1,16 @@
+# Dev / agent artifacts — never commit
+.gstack/
+.gstack-audit/
+.claude/
+
+# Dependencies & build
+node_modules/
+.vercel/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
+
+# Source image originals (keep out of deploy)
+assets/**/*.psd

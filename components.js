@@ -279,4 +279,50 @@ document.addEventListener('DOMContentLoaded', function () {
     openFaqFromHash();
     window.addEventListener('hashchange', openFaqFromHash);
   }
+
+  // Scroll reveal (§28)
+  initScrollReveal();
 });
+
+// ── SCROLL REVEAL (§28) ──────────────────────────────────
+// Progressive enhancement: only tags <html> and hides elements when an
+// IntersectionObserver is available and reduced-motion is NOT requested.
+// Reveals once (16–24px rise, ~600ms, ~80ms stagger), then cleans itself up
+// so per-element hover transitions are not affected.
+function initScrollReveal() {
+  var root = document.documentElement;
+  if (!('IntersectionObserver' in window)) return;
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+  var sel = '.section-eyebrow, .section-title, .conditions-lead, .cond-item, ' +
+            '.how-card, .price-card, .about-content, .schroepfen-content, ' +
+            '.kurs-banner-content, .grev-widget, .faq-item';
+  var els = Array.prototype.slice.call(document.querySelectorAll(sel));
+  if (!els.length) return;
+
+  root.classList.add('js-reveal');
+  els.forEach(function (el) { el.setAttribute('data-reveal', ''); });
+
+  var io = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (!e.isIntersecting) return;
+      var el = e.target;
+      var sibs = el.parentElement
+        ? Array.prototype.slice.call(el.parentElement.children).filter(function (c) {
+            return c.hasAttribute && c.hasAttribute('data-reveal');
+          })
+        : [el];
+      var idx = Math.max(0, sibs.indexOf(el));
+      var delay = Math.min(idx, 6) * 80;
+      el.style.transitionDelay = delay + 'ms';
+      el.classList.add('is-in');
+      io.unobserve(el);
+      window.setTimeout(function () {
+        el.style.transitionDelay = '';
+        el.removeAttribute('data-reveal');
+      }, 650 + delay);
+    });
+  }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+
+  els.forEach(function (el) { io.observe(el); });
+}

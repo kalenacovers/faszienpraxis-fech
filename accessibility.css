@@ -1,5 +1,79 @@
 /* Accessibility & UX-Quick-Wins — used by all pages */
 
+/* ═══════════════════════════════════════════════════════════
+   DESIGN-SYSTEM FOUNDATION — global tokens (site-wide)
+   Colours mirror each page's inline :root as safe fallbacks.
+   Canonical breakpoints: 480 · 768 · 1024 · 1280 · 1560px.
+   ═══════════════════════════════════════════════════════════ */
+:root {
+  /* Brand colour scale */
+  --dark: #0a2540;
+  --charcoal: #0d3060;
+  --accent: #0496ff;
+  --accent-light: #90caf9;
+  --cream: #e3f2fd;
+  --warm-white: #f5faff;
+  --text-body: #1a2e45;
+  --text-muted: #4a6a8a;
+  --border: rgba(4, 150, 255, .15);
+
+  /* Layout */
+  --container: 1280px;
+  --container-wide: 1440px;
+  --measure: 68ch;                          /* ~65–75 char text column */
+  --gutter: clamp(1.25rem, 5vw, 3.75rem);   /* 20px → 60px side padding */
+
+  /* Vertical section rhythm (§6) */
+  --section-y: clamp(3.5rem, 8vw, 9rem);    /* 56 → 144px */
+  --section-y-sm: clamp(2.75rem, 6vw, 5rem);
+
+  /* Spacing scale */
+  --space-1: 4px;  --space-2: 8px;   --space-3: 12px; --space-4: 16px;
+  --space-5: 24px; --space-6: 32px;  --space-7: 48px; --space-8: 64px;
+  --space-9: 96px;
+
+  /* Radius (matches site-wide softening) */
+  --radius: 6px;
+  --radius-lg: 10px;
+  --radius-pill: 999px;
+
+  /* Motion (§28) */
+  --ease: cubic-bezier(.22, .61, .36, 1);
+  --dur: .5s;
+}
+
+/* Shared content container — replaces ad-hoc max-width/margin/padding idiom */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+.container--wide { max-width: var(--container-wide); }
+
+/* Standard vertical section rhythm */
+.section-y { padding-block: var(--section-y); }
+.section-y-sm { padding-block: var(--section-y-sm); }
+
+/* Scroll reveal (§28) — progressive enhancement: hidden state only applies
+   once JS adds .js-reveal to <html>, so content stays visible without JS. */
+.js-reveal [data-reveal] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .6s var(--ease), transform .6s var(--ease);
+}
+.js-reveal [data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  .js-reveal [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
 a:focus-visible,
 button:focus-visible,
 input:focus-visible,
@@ -18,7 +92,7 @@ select:focus-visible,
   background: #0a2540;
   color: #ffffff;
   padding: 12px 18px;
-  border-radius: 4px;
+  border-radius: 6px;
   font-size: 14px;
   font-weight: 500;
   text-decoration: none;
@@ -68,7 +142,7 @@ select:focus-visible,
   letter-spacing: .04em;
   text-transform: uppercase;
   text-decoration: none;
-  border-radius: 4px;
+  border-radius: 6px;
   min-height: 48px;
 }
 
@@ -103,14 +177,14 @@ select:focus-visible,
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 6px 18px rgba(37, 211, 102, .35);
+  box-shadow: 0 6px 18px rgba(10, 37, 64, .22);
   text-decoration: none;
   transition: transform .2s, box-shadow .2s;
 }
 
 .whatsapp-fab:hover {
   transform: scale(1.06);
-  box-shadow: 0 8px 22px rgba(37, 211, 102, .5);
+  box-shadow: 0 8px 22px rgba(10, 37, 64, .3);
 }
 
 .whatsapp-fab svg {
@@ -219,20 +293,20 @@ select:focus-visible,
   background: #0496ff;
   color: var(--dark);
   padding: 16px 32px;
-  border-radius: 2px;
+  border-radius: 6px;
   font-size: 13px;
   letter-spacing: .12em;
   text-transform: uppercase;
   text-decoration: none;
   font-weight: 500;
   transition: background .2s, transform .15s, box-shadow .2s;
-  box-shadow: 0 6px 20px rgba(4, 150, 255, .35);
+  box-shadow: none;
 }
 
 .footer-cta-btn:hover {
   background: #1ba3ff;
   transform: translateY(-1px);
-  box-shadow: 0 10px 28px rgba(4, 150, 255, .5);
+  box-shadow: none;
 }
 
 .footer-cta-phone {
@@ -337,7 +411,7 @@ select:focus-visible,
   display: block;
   width: 100%;
   aspect-ratio: 16 / 9;
-  border-radius: 4px;
+  border-radius: 6px;
   overflow: hidden;
   margin-bottom: 16px;
   position: relative;
@@ -381,7 +455,7 @@ select:focus-visible,
   letter-spacing: .08em;
   text-transform: uppercase;
   font-weight: 500;
-  border-radius: 999px;
+  border-radius: 6px;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
 }
@@ -632,7 +706,7 @@ body > nav::before {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  background: linear-gradient(180deg, rgba(10, 37, 64, .55) 0%, rgba(10, 37, 64, .15) 70%, rgba(10, 37, 64, 0) 100%);
+  background: rgba(10, 37, 64, .32);
   z-index: -1;
   transition: opacity .3s ease;
 }
@@ -722,7 +796,7 @@ body > nav .nav-cta {
   color: #ffffff !important;
   padding: 9px 22px;
   border: 1px solid rgba(255, 255, 255, .55);
-  border-radius: 2px;
+  border-radius: 6px;
   font-size: 12px !important;
   letter-spacing: .14em !important;
   text-transform: uppercase !important;
@@ -820,7 +894,7 @@ body > .nav-mobile .nav-cta-mob {
   background: var(--dark) !important;
   color: var(--cream) !important;
   padding: 14px 44px;
-  border-radius: 2px;
+  border-radius: 6px;
   font-size: 13px;
   letter-spacing: .1em;
   text-transform: uppercase;
@@ -882,7 +956,7 @@ body > .nav-mobile .nav-cta-mob {
   background: #0496ff;
   color: var(--dark);
   padding: 18px 38px;
-  border-radius: 2px;
+  border-radius: 6px;
   border: 0;
   font-family: 'DM Sans', system-ui, sans-serif;
   font-size: 13px;
@@ -892,7 +966,7 @@ body > .nav-mobile .nav-cta-mob {
   font-weight: 500;
   display: inline-block;
   cursor: pointer;
-  box-shadow: 0 6px 20px rgba(4, 150, 255, .35);
+  box-shadow: none;
   transition: background .2s ease, transform .15s ease, box-shadow .2s ease;
 }
 
@@ -901,14 +975,14 @@ body > .nav-mobile .nav-cta-mob {
 .btn-submit:hover {
   background: #1ba3ff;
   transform: translateY(-1px);
-  box-shadow: 0 10px 28px rgba(4, 150, 255, .5);
+  box-shadow: none;
 }
 
 .btn-primary:active,
 .btn-accent:active,
 .btn-submit:active {
   transform: translateY(1px) scale(0.98);
-  box-shadow: 0 3px 10px rgba(4, 150, 255, .3);
+  box-shadow: none;
   transition-duration: .08s;
 }
 
@@ -925,7 +999,7 @@ body > .nav-mobile .nav-cta-mob {
   gap: 8px;
   padding: 18px 24px;
   border: 1px solid rgba(255, 255, 255, .35);
-  border-radius: 2px;
+  border-radius: 6px;
   font-weight: 500;
   cursor: pointer;
   transition: background .2s ease, border-color .2s ease, color .2s ease;
@@ -987,11 +1061,10 @@ body > .nav-mobile .nav-cta-mob {
 }
 
 /* ════════════════════════════════════════════════════
-   GLOBAL EYEBROW UPGRADE — "Chip" pill treatment
-   Ersetzt die Linien-Eyebrow durch einen weichen, abgerundeten
-   Chip mit leuchtendem Punkt. color-mix leitet Tint, Rand und
-   Punkt-Glow automatisch aus der jeweiligen Akzentfarbe ab
-   (funktioniert auf hellen UND dunklen Flächen). !important
+   GLOBAL EYEBROW — "+" label treatment
+   Schlichtes Uppercase-Label mit vorangestelltem, akzentblauem
+   "+". Das Label erbt currentColor (Navy auf hellen, aufgehellt
+   auf dunklen Flächen); das "+" ist fest akzentblau. !important
    überschreibt die pro-Seite definierten Inline-Eyebrow-Styles.
    ════════════════════════════════════════════════════ */
 .section-eyebrow,
@@ -1013,12 +1086,13 @@ body > .nav-mobile .nav-cta-mob {
   display: inline-flex !important;
   align-items: center !important;
   gap: 8px !important;
-  padding: 6px 14px 6px 12px !important;
-  border-radius: 999px !important;
-  font-weight: 500 !important;
-  letter-spacing: .2em !important;
-  background: color-mix(in srgb, currentColor 10%, transparent) !important;
-  border: 1px solid color-mix(in srgb, currentColor 26%, transparent) !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  font-weight: 600 !important;
+  letter-spacing: .16em !important;
+  text-transform: uppercase !important;
+  background: none !important;
+  border: 0 !important;
 }
 
 .section-eyebrow::before,
@@ -1037,13 +1111,17 @@ body > .nav-mobile .nav-cta-mob {
 .zert-featured-eyebrow::before,
 .zert-cta-eyebrow::before,
 .mg-eyebrow::before {
-  content: '' !important;
-  display: block !important;
-  width: 5px !important;
-  height: 5px !important;
-  border-radius: 50% !important;
-  background: currentColor !important;
-  box-shadow: 0 0 0 3px color-mix(in srgb, currentColor 22%, transparent) !important;
+  content: '+' !important;
+  display: inline-block !important;
+  width: auto !important;
+  height: auto !important;
+  border-radius: 0 !important;
+  background: none !important;
+  box-shadow: none !important;
+  color: #0496ff !important;
+  font-size: 1.15em !important;
+  font-weight: 700 !important;
+  line-height: 1 !important;
   flex-shrink: 0 !important;
   margin: 0 !important;
 }
@@ -1062,6 +1140,11 @@ body > .nav-mobile .nav-cta-mob {
    auf helleres Blau heben (besserer Kontrast auf Navy) */
 .how-section .section-eyebrow,
 .schroepfen-section .section-eyebrow {
+  color: #90caf9 !important;
+}
+.how-section .section-eyebrow::before,
+.schroepfen-section .section-eyebrow::before,
+.footer-cta-eyebrow::before {
   color: #90caf9 !important;
 }
 

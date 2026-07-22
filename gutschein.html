@@ -174,7 +174,7 @@
       gap: 8px;
       border: 1px solid var(--border);
       padding: 9px 16px;
-      border-radius: 2px;
+      border-radius: 6px;
       font-size: 12px;
       letter-spacing: .08em;
       text-transform: uppercase;
@@ -194,7 +194,7 @@
     .gutschein-hero-right {
       position: relative;
       overflow: hidden;
-      background: linear-gradient(135deg, #0a2540 0%, #0d3060 45%, #0496ff 100%);
+      background: #0a2540;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -203,7 +203,7 @@
     .gutschein-hero-pattern {
       position: absolute;
       inset: 0;
-      background-image: repeating-linear-gradient(45deg, transparent, transparent 24px, rgba(4, 150, 255, .06) 24px, rgba(4, 150, 255, .06) 25px);
+      background-image: none;
     }
 
     .gutschein-hero-bg-text {
@@ -231,7 +231,7 @@
     }
 
     .gutschein-card-top {
-      background: linear-gradient(135deg, rgba(4, 150, 255, .3), rgba(144, 202, 249, .15));
+      background: rgba(4, 150, 255, .18);
       padding: 32px 36px 28px;
       border-bottom: 1px solid rgba(144, 202, 249, .15);
     }
@@ -434,7 +434,7 @@
       outline: none;
       transition: border-color .2s, box-shadow .2s;
       width: 100%;
-      border-radius: 0;
+      border-radius: 6px;
       -webkit-appearance: none;
       appearance: none;
     }
@@ -707,7 +707,7 @@
       left: 0;
       right: 0;
       height: 2px;
-      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+      background: var(--accent);
     }
 
     .info-card-dark .info-card-eyebrow {

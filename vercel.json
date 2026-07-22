@@ -1,6 +1,15 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [{ "type": "host", "value": "www.faszienpraxis-fech.de" }],
+      "destination": "https://faszienpraxis-fech.de/$1",
+      "permanent": true
+    },
+    { "source": "/kurs-page", "destination": "/kurs", "permanent": true }
+  ],
   "rewrites": [
     { "source": "/kurs", "destination": "/kurs-page" }
   ],

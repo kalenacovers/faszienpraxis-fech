@@ -14,3 +14,5 @@ Thumbs.db
 
 # Source image originals (keep out of deploy)
 assets/**/*.psd
+.vercel
+.env*

@@ -1757,68 +1757,6 @@
       max-width: 100%;
     }
 
-    /* Loading skeleton — shown until Trustindex injects real reviews (§21/§31) */
-    .grev-skeleton {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px;
-    }
-
-    .grev-skel-card {
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 22px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      min-height: 190px;
-    }
-
-    .grev-skel-row {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 4px;
-    }
-
-    .grev-skel-avatar { width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0; }
-    .grev-skel-line { height: 11px; border-radius: 4px; width: 100%; }
-    .grev-skel-line.w40 { width: 40%; }
-    .grev-skel-line.w60 { width: 60%; }
-    .grev-skel-line.w80 { width: 80%; }
-
-    .grev-skel-avatar,
-    .grev-skel-line {
-      background: #e3edf6;
-      animation: grev-skel-pulse 1.4s ease-in-out infinite;
-    }
-
-    @keyframes grev-skel-pulse {
-      0%, 100% { opacity: 1; }
-      50% { opacity: .45; }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .grev-skel-avatar,
-      .grev-skel-line { animation: none; }
-    }
-
-    .grev-fallback {
-      margin-top: 20px;
-      text-align: center;
-      padding: 24px;
-      border: 1px dashed var(--border);
-      border-radius: 6px;
-    }
-
-    .grev-fallback-text {
-      font-size: 13px;
-      color: var(--text-muted);
-      margin: 0 0 12px;
-      font-weight: 300;
-    }
-
     .grev-footer {
       margin-top: 24px;
       text-align: center;

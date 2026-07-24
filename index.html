@@ -699,40 +699,7 @@
 
       <!-- Trustindex Live Google Reviews Widget -->
       <div class="grev-live" id="grev-live-mount">
-        <div class="grev-skeleton" id="grev-skeleton" aria-hidden="true">
-          <div class="grev-skel-card">
-            <div class="grev-skel-row"><span class="grev-skel-avatar"></span><span class="grev-skel-line w40"></span></div>
-            <span class="grev-skel-line w60"></span>
-            <span class="grev-skel-line"></span>
-            <span class="grev-skel-line w80"></span>
-          </div>
-          <div class="grev-skel-card">
-            <div class="grev-skel-row"><span class="grev-skel-avatar"></span><span class="grev-skel-line w40"></span></div>
-            <span class="grev-skel-line w60"></span>
-            <span class="grev-skel-line"></span>
-            <span class="grev-skel-line w80"></span>
-          </div>
-          <div class="grev-skel-card">
-            <div class="grev-skel-row"><span class="grev-skel-avatar"></span><span class="grev-skel-line w40"></span></div>
-            <span class="grev-skel-line w60"></span>
-            <span class="grev-skel-line"></span>
-            <span class="grev-skel-line w80"></span>
-          </div>
-        </div>
         <script defer async src='https://cdn.trustindex.io/loader.js?6cd57fd64aaa591ad226e99c141'></script>
-      </div>
-
-      <!-- Fallback wenn Trustindex nicht lädt -->
-      <div class="grev-fallback" id="grev-fallback" hidden>
-        <p class="grev-fallback-text">Live-Bewertungen werden geladen…</p>
-        <a
-          class="grev-footer-link"
-          href="https://g.page/r/CZw97sxQCau0EAE/review"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
-          Alle Bewertungen direkt auf Google ansehen →
-        </a>
       </div>
 
       <div class="grev-footer">
@@ -747,39 +714,6 @@
         </a>
       </div>
     </div>
-
-    <script>
-      (function() {
-        var mount = document.getElementById('grev-live-mount');
-        var skeleton = document.getElementById('grev-skeleton');
-        var fallback = document.getElementById('grev-fallback');
-        if (!mount) return;
-        // Real Trustindex output = any child of the mount that is not our
-        // skeleton and not the loader <script>.
-        function realContent() {
-          var kids = mount.children;
-          for (var i = 0; i < kids.length; i++) {
-            var el = kids[i];
-            if (el.id === 'grev-skeleton') continue;
-            if (el.tagName === 'SCRIPT') continue;
-            return el;
-          }
-          return null;
-        }
-        var tries = 0;
-        var poll = setInterval(function() {
-          tries++;
-          if (realContent()) {
-            if (skeleton) skeleton.hidden = true;
-            clearInterval(poll);
-          } else if (tries >= 16) { // ~8s
-            clearInterval(poll);
-            if (skeleton) skeleton.hidden = true;
-            if (fallback) fallback.hidden = false;
-          }
-        }, 500);
-      })();
-    </script>
   </section>
 
   <!-- FAQ -->

@@ -325,3 +325,51 @@
 {"ts":"2026-07-22T21:52:22.790Z","cmd":"goto","args":"http://localhost:8123/zertifikate.html","origin":"http://localhost:8123/zertifikate.html","durationMs":62,"status":"ok","hasCookies":false,"mode":"launched"}
 {"ts":"2026-07-22T21:52:22.880Z","cmd":"wait","args":"--load","origin":"http://localhost:8123/zertifikate.html","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
 {"ts":"2026-07-22T21:52:24.124Z","cmd":"screenshot","args":"C:/Users/macho/AppData/Local/Temp/claude/verify-zert.png --clip 0,0,1440,820","origin":"http://localhost:8123/zertifikate.html","durationMs":105,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:06:46.973Z","cmd":"goto","args":"file://./kurs-page.html","origin":"file:///C:/Users/macho/Documents/GitHub/faszienpraxis-fech/kurs-page.html","durationMs":185,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:06:47.079Z","cmd":"scroll","args":"#preise","origin":"file:///C:/Users/macho/Documents/GitHub/faszienpraxis-fech/kurs-page.html","durationMs":2,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:06:47.170Z","cmd":"console","args":"--errors","origin":"file:///C:/Users/macho/Documents/GitHub/faszienpraxis-fech/kurs-page.html","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:04.956Z","cmd":"goto","args":"http://127.0.0.1:8899/kurs-page.html","origin":"http://127.0.0.1:8899/kurs-page.html","durationMs":77,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:05.567Z","cmd":"wait","args":"--networkidle","origin":"http://127.0.0.1:8899/kurs-page.html","durationMs":493,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:05.658Z","cmd":"console","args":"--errors","origin":"http://127.0.0.1:8899/kurs-page.html","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:05.749Z","cmd":"js","args":"Array.from(document.querySelectorAll('#preise a, #preise span.kurs-btn-enroll')).map(e=>e.tagName+' | '+e.className+' | '+(e.getAttribute('href')||'NO-HREF')+' | '+e.textContent.trim()).join('\\n')","origin":"http://127.0.0.1:8899/kurs-page.html","durationMs":5,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:12.896Z","cmd":"console","args":"--clear","origin":"http://127.0.0.1:8899/kurs-page.html","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:13.003Z","cmd":"reload","args":"","origin":"http://127.0.0.1:8899/kurs-page.html","durationMs":21,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:13.532Z","cmd":"wait","args":"--networkidle","origin":"http://127.0.0.1:8899/kurs-page.html","durationMs":442,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:13.616Z","cmd":"console","args":"--errors","origin":"http://127.0.0.1:8899/kurs-page.html","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:13.707Z","cmd":"links","args":"","origin":"http://127.0.0.1:8899/kurs-page.html","durationMs":7,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:22.557Z","cmd":"viewport","args":"1600x1000","origin":"http://127.0.0.1:8899/kurs-page.html","durationMs":23,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:22.656Z","cmd":"goto","args":"http://127.0.0.1:8899/kurs-page.html","origin":"http://127.0.0.1:8899/kurs-page.html","durationMs":16,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:23.183Z","cmd":"wait","args":"--networkidle","origin":"http://127.0.0.1:8899/kurs-page.html","durationMs":443,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:23.728Z","cmd":"screenshot","args":"--selector .kurs-pricing-grid C:/Users/macho/AppData/Local/Temp/claude/c--Users-macho-Documents-GitHub-faszienpraxis-fech/e19cf8cf-b83b-4faf-90c3-dff248c6ee1d/scratchpad/pricing.png","origin":"http://127.0.0.1:8899/kurs-page.html","durationMs":463,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:43.287Z","cmd":"console","args":"--clear","origin":"http://127.0.0.1:8899/kurs-page.html","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:43.410Z","cmd":"goto","args":"http://127.0.0.1:8899/index.html","origin":"http://127.0.0.1:8899/index.html","durationMs":41,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:44.116Z","cmd":"wait","args":"--networkidle","origin":"http://127.0.0.1:8899/index.html","durationMs":604,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:44.204Z","cmd":"console","args":"--errors","origin":"http://127.0.0.1:8899/index.html","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:44.288Z","cmd":"console","args":"--clear","origin":"http://127.0.0.1:8899/index.html","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:44.388Z","cmd":"goto","args":"http://127.0.0.1:8899/gutschein.html","origin":"http://127.0.0.1:8899/gutschein.html","durationMs":16,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:45.013Z","cmd":"wait","args":"--networkidle","origin":"http://127.0.0.1:8899/gutschein.html","durationMs":523,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:45.099Z","cmd":"console","args":"--errors","origin":"http://127.0.0.1:8899/gutschein.html","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:45.189Z","cmd":"console","args":"--clear","origin":"http://127.0.0.1:8899/gutschein.html","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:45.289Z","cmd":"goto","args":"http://127.0.0.1:8899/ueber-mich.html","origin":"http://127.0.0.1:8899/ueber-mich.html","durationMs":17,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:45.852Z","cmd":"wait","args":"--networkidle","origin":"http://127.0.0.1:8899/ueber-mich.html","durationMs":474,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:45.939Z","cmd":"console","args":"--errors","origin":"http://127.0.0.1:8899/ueber-mich.html","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:46.026Z","cmd":"console","args":"--clear","origin":"http://127.0.0.1:8899/ueber-mich.html","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:46.131Z","cmd":"goto","args":"http://127.0.0.1:8899/zertifikate.html","origin":"http://127.0.0.1:8899/zertifikate.html","durationMs":16,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:46.669Z","cmd":"wait","args":"--networkidle","origin":"http://127.0.0.1:8899/zertifikate.html","durationMs":445,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:48.042Z","cmd":"console","args":"--errors","origin":"about:blank","durationMs":1,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:48.128Z","cmd":"console","args":"--clear","origin":"about:blank","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:48.294Z","cmd":"goto","args":"http://127.0.0.1:8899/fuer-wen.html","origin":"http://127.0.0.1:8899/fuer-wen.html","durationMs":78,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:49.195Z","cmd":"wait","args":"--networkidle","origin":"http://127.0.0.1:8899/fuer-wen.html","durationMs":813,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:49.289Z","cmd":"console","args":"--errors","origin":"http://127.0.0.1:8899/fuer-wen.html","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:49.377Z","cmd":"console","args":"--clear","origin":"http://127.0.0.1:8899/fuer-wen.html","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:49.502Z","cmd":"goto","args":"http://127.0.0.1:8899/impressum.html","origin":"http://127.0.0.1:8899/impressum.html","durationMs":11,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:50.076Z","cmd":"wait","args":"--networkidle","origin":"http://127.0.0.1:8899/impressum.html","durationMs":475,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:50.168Z","cmd":"console","args":"--errors","origin":"http://127.0.0.1:8899/impressum.html","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:50.264Z","cmd":"console","args":"--clear","origin":"http://127.0.0.1:8899/impressum.html","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:50.363Z","cmd":"goto","args":"http://127.0.0.1:8899/datenschutz.html","origin":"http://127.0.0.1:8899/datenschutz.html","durationMs":14,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:50.878Z","cmd":"wait","args":"--networkidle","origin":"http://127.0.0.1:8899/datenschutz.html","durationMs":427,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:50.963Z","cmd":"console","args":"--errors","origin":"http://127.0.0.1:8899/datenschutz.html","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:58.054Z","cmd":"goto","args":"http://127.0.0.1:8899/index.html","origin":"http://127.0.0.1:8899/index.html","durationMs":29,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:58.820Z","cmd":"wait","args":"--networkidle","origin":"http://127.0.0.1:8899/index.html","durationMs":673,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:58.905Z","cmd":"js","args":"Array.from(document.querySelectorAll('a[href*=onlinekurs]')).map(a=>a.href+' | '+a.textContent.trim()).join('\\n')","origin":"http://127.0.0.1:8899/index.html","durationMs":2,"status":"ok","hasCookies":false,"mode":"launched"}
+{"ts":"2026-07-27T19:07:58.986Z","cmd":"network","args":"","origin":"http://127.0.0.1:8899/index.html","durationMs":0,"status":"ok","hasCookies":false,"mode":"launched"}

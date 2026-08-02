@@ -299,6 +299,18 @@
       flex-shrink: 0;
     }
 
+    .kurs-hero-target {
+      position: relative;
+      z-index: 2;
+      margin-top: 18px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 300;
+      letter-spacing: .03em;
+      line-height: 1.5;
+      color: rgba(227, 242, 253, .72);
+    }
+
     /* ══════════════════════════════
      TRUST BAR
   ══════════════════════════════ */

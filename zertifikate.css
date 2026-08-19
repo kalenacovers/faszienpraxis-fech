@@ -466,13 +466,13 @@
       gap: 12px;
       padding: 18px 38px;
       background: var(--accent);
-      color: #fff;
+      color: var(--dark);
       text-decoration: none;
       font-size: 13px;
       letter-spacing: .15em;
       text-transform: uppercase;
       font-weight: 500;
-      border-radius: 6px;
+      border-radius: 2px;
       transition: background .25s, transform .25s;
     }
 

@@ -62,20 +62,41 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
+  // The JS enhancement sends `Accept: application/json`. A native browser
+  // form submit (JS disabled/failed) does not — for those we redirect to a
+  // proper page instead of returning bare JSON (which would trap the user in
+  // a "resubmit to reload" loop and lose their input).
+  const wantsJson =
+    String(req.headers.accept || "").indexOf("application/json") !== -1;
+  const ok = () => {
+    if (!wantsJson) {
+      res.writeHead(303, { Location: "/gutschein?sent=1" });
+      return res.end();
+    }
+    return res.status(200).json({ success: true });
+  };
+  const fail = (status, payload) => {
+    if (!wantsJson) {
+      res.writeHead(303, { Location: "/gutschein?error=1" });
+      return res.end();
+    }
+    return res.status(status).json(payload);
+  };
+
   // Rate-Limit (best-effort, pro Serverless-Instanz) anhand der Client-IP.
   const fwd = req.headers["x-forwarded-for"];
   const ip = (Array.isArray(fwd) ? fwd[0] : String(fwd || ""))
     .split(",")[0]
     .trim();
   if (isRateLimited(ip)) {
-    return res.status(429).json({
+    return fail(429, {
       error: "Zu viele Anfragen. Bitte in einigen Minuten erneut versuchen.",
     });
   }
 
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
-    return res.status(500).json({
+    return fail(500, {
       error: "Mail-Service ist nicht konfiguriert (RESEND_API_KEY fehlt).",
     });
   }
@@ -89,7 +110,7 @@ export default async function handler(req, res) {
 
   // Honeypot — if filled, silently "succeed" but do nothing
   if (data._honey && String(data._honey).trim().length > 0) {
-    return res.status(200).json({ success: true });
+    return ok();
   }
 
   // Feld-Limits gegen Missbrauch/DoS — harte Obergrenzen je Feld.
@@ -108,10 +129,10 @@ export default async function handler(req, res) {
   const name = (data.name || "").trim();
   const email = (data.email || "").trim();
   if (!name || !email) {
-    return res.status(400).json({ error: "Name und E-Mail sind erforderlich." });
+    return fail(400, { error: "Name und E-Mail sind erforderlich." });
   }
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-    return res.status(400).json({ error: "Bitte eine gültige E-Mail-Adresse angeben." });
+    return fail(400, { error: "Bitte eine gültige E-Mail-Adresse angeben." });
   }
 
   const subject = `Neue Gutschein-Anfrage von ${name}`;
@@ -149,20 +170,20 @@ export default async function handler(req, res) {
     if (!r.ok) {
       // Rohen Upstream-Text nicht an den Client geben — nur generische Meldung.
       console.error("[gutschein] Resend-Versand fehlgeschlagen, Status", r.status);
-      return res.status(502).json({
+      return fail(502, {
         error:
           "Der Versand ist fehlgeschlagen. Bitte später erneut versuchen oder telefonisch melden.",
       });
     }
 
-    return res.status(200).json({ success: true });
+    return ok();
   } catch (err) {
     // Ausnahmetext nur serverseitig loggen (keine PII-Bodies); Client erhält Generisches.
     console.error(
       "[gutschein] Versand-Ausnahme:",
       err instanceof Error ? err.message : String(err)
     );
-    return res.status(500).json({
+    return fail(500, {
       error:
         "Der Versand ist fehlgeschlagen. Bitte später erneut versuchen oder telefonisch melden.",
     });

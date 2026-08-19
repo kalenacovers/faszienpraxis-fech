@@ -294,6 +294,38 @@
       var origLabel = submitBtn ? submitBtn.textContent : '';
       var errorBox  = document.getElementById('form-error');
 
+      // ── Draft persistence — a reload never loses what was typed ──────
+      var DRAFT_KEY = 'fp-gutschein-draft';
+      function saveDraft() {
+        try {
+          var o = {};
+          new FormData(form).forEach(function (v, k) { if (k !== '_honey') o[k] = v; });
+          localStorage.setItem(DRAFT_KEY, JSON.stringify(o));
+        } catch (e) {}
+      }
+      function restoreDraft() {
+        try {
+          var raw = localStorage.getItem(DRAFT_KEY);
+          if (!raw) return;
+          var o = JSON.parse(raw);
+          Object.keys(o).forEach(function (k) {
+            var els = form.elements[k];
+            if (!els) return;
+            if (els.forEach || (els.length && typeof els !== 'string' && els[0] && els[0].type === 'radio')) {
+              Array.prototype.forEach.call(els, function (r) { if (r.value === o[k]) r.checked = true; });
+            } else if (els.type === 'radio' || els.type === 'checkbox') {
+              if (els.value === o[k]) els.checked = true;
+            } else {
+              els.value = o[k];
+            }
+          });
+        } catch (e) {}
+      }
+      function clearDraft() { try { localStorage.removeItem(DRAFT_KEY); } catch (e) {} }
+      restoreDraft();
+      form.addEventListener('input', saveDraft);
+      form.addEventListener('change', saveDraft);
+
       function showError() {
         if (errorBox) {
           errorBox.hidden = false;
@@ -338,6 +370,7 @@
           })
           .then(function (res) {
             if (res.ok && res.body && res.body.success) {
+              clearDraft();
               form.style.display = 'none';
               if (errorBox) errorBox.hidden = true;
               if (success) {
@@ -353,6 +386,24 @@
             showError();
           });
       });
+
+      // ── No-JS / server-redirect result (?sent=1 / ?error=1) ─────────
+      try {
+        var params = new URLSearchParams(window.location.search);
+        if (params.get('sent') === '1') {
+          clearDraft();
+          form.style.display = 'none';
+          if (success) {
+            success.style.display = 'block';
+            success.focus();
+            success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }
+          history.replaceState(null, '', window.location.pathname);
+        } else if (params.get('error') === '1') {
+          if (errorBox) errorBox.hidden = false;
+          history.replaceState(null, '', window.location.pathname);
+        }
+      } catch (e) {}
     })();
   </script>
 </body>

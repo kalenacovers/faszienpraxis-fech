@@ -20,11 +20,11 @@ Die Website hat ein **echtes, durchdachtes Design-System** und wirkt visuell pre
 ## C1 · Security/Datenschutz · Repository & Deploy
 **Admin-Passwort und Kundendaten im Klartext im Git-Repo.**
 
-- **Beschreibung:** `.gstack/browse-audit.jsonl` enthält in Zeile 63 ein Klartext-Passwort (`input[type=password] 1234567890`) zusammen mit der Login-E-Mail (`denis.jungkind99@gmail.com`) für `onlinekurs.faszienpraxis-fech.de/login`. `.gstack-audit/design-audit-20260524/screenshots/` enthält Screenshots der **LMS-Admin-Kundenliste mit echten Namen und E-Mail-Adressen**. Insgesamt **29 Dateien** unter `.gstack/`, `.gstack-audit/` und `.claude/` sind git-getrackt. `.vercelignore` schließt nur `*.php` aus — diese Verzeichnisse werden also potenziell mitdeployt.
+- **Beschreibung:** `.gstack/browse-audit.jsonl` enthält in Zeile 63 ein Klartext-Passwort (im Original als `input[type=password] …` — der Wert ist hier bewusst **nicht** wiedergegeben) zusammen mit der Login-E-Mail des Admins für `onlinekurs.faszienpraxis-fech.de/login`. `.gstack-audit/design-audit-20260524/screenshots/` enthält Screenshots der **LMS-Admin-Kundenliste mit echten Namen und E-Mail-Adressen**. Insgesamt **29 Dateien** unter `.gstack/`, `.gstack-audit/` und `.claude/` sind git-getrackt. `.vercelignore` schließt nur `*.php` aus — diese Verzeichnisse werden also potenziell mitdeployt.
 - **Ursache:** Audit-Artefakte eines Browser-Agenten und lokale Tool-Konfiguration wurden mitcommittet; fehlende `.gitignore`/`.vercelignore`-Hygiene.
 - **Auswirkung:** Kritischer Datenschutzvorfall. Admin-Zugang zum Kurssystem und Kunden-PII liegen im Versionsverlauf und im Deploy-Bundle. Selbst wenn Vercel Dotfiles nicht ausliefert (nicht garantiert), ist die Kompromittierung durch die Git-History bereits erfolgt.
 - **Lösung (in dieser Reihenfolge):**
-  1. Passwort `1234567890` **sofort rotieren** (und generell ein starkes Passwort setzen).
+  1. Das betroffene Admin-Passwort **sofort rotieren** (und generell ein starkes Passwort setzen).
   2. Verzeichnisse aus dem Tracking nehmen und ignorieren:
      ```bash
      git rm -r --cached .gstack .gstack-audit .claude

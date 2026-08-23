@@ -34,11 +34,6 @@
     'hero.cert':     { de: 'Zertifizierter Faszientherapeut &amp; Sporttherapeut', en: 'Certified Fascia &amp; Sports Therapist', es: 'Terapeuta de fascia y deportivo certificado', it: 'Terapista della fascia e sportivo certificato', ru: 'Сертифицированный фасциальный и спортивный терапевт', fr: 'Thérapeute certifié des fascias &amp; du sport' },
 
     // Trust bar
-    'trust.google':  { de: 'auf Google',             en: 'on Google',               es: 'en Google',             it: 'su Google',             ru: 'в Google',            fr: 'sur Google' },
-    'trust.reviews': { de: 'Bewertungen',             en: 'Reviews',                 es: 'Reseñas',               it: 'Recensioni',            ru: 'отзывов',             fr: 'avis' },
-    'trust.cert':    { de: 'Zertifizierter Faszientherapeut', en: 'Certified Fascia Therapist', es: 'Terapeuta de fascia certificado', it: 'Terapista della fascia certificato', ru: 'Сертифицированный фасциальный терапевт', fr: 'Thérapeute certifié des fascias' },
-    'trust.deep':    { de: 'Gezielte Tiefengewebearbeit',     en: 'Targeted Deep-Tissue Work',  es: 'Trabajo profundo dirigido',      it: 'Lavoro profondo mirato',            ru: 'Целенаправленная работа с тканями', fr: 'Travail ciblé des tissus profonds' },
-    'trust.appt':    { de: 'Behandlung mit Termin',      en: 'By Appointment Only',        es: 'Solo con cita previa',           it: 'Solo su appuntamento',              ru: 'Только по записи', fr: 'Sur rendez-vous uniquement' },
 
     // Hours
     'hours.label': { de: 'Öffnungszeiten', en: 'Opening Hours', es: 'Horario', it: 'Orari', ru: 'Часы работы', fr: 'Horaires' },

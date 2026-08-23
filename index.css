@@ -8,6 +8,21 @@
       --text-body: #1a2e45;
       --text-muted: #4a6a8a;
       --border: rgba(4, 150, 255, 0.15);
+
+      /* ── Typo-Skala — vier Rollen, harter Floor bei 12px ── */
+      --fs-lead: 20px;      /* Einleitungsabsatz unter der Section-Headline */
+      --fs-body: 17px;      /* Fließtext in Karten und FAQ */
+      --fs-body-sm: 15px;   /* Meta: Zeiten, Preis-Features, Hinweise */
+      --fs-label: 12px;     /* Eyebrows, Tags, Badges — nichts darunter */
+      --lh-body: 1.7;
+      --measure: 62ch;      /* Zeilenlänge für Fließtextblöcke */
+
+      /* ── Vertikaler Rhythmus — drei Stufen statt 7× dasselbe 100px ──
+         lg = dunkle Abschnitte, md = helle Inhaltsabschnitte, sm = Leisten */
+      --sect-lg: clamp(72px, 9vw, 136px);
+      --sect-md: clamp(56px, 6vw, 96px);
+      --sect-sm: clamp(32px, 4vw, 56px);
+      /* horizontal: --gutter aus accessibility.css:24 */
     }
 
     *,
@@ -20,6 +35,12 @@
 
     html {
       scroll-behavior: smooth;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: var(--dark);
     }
 
     body {
@@ -38,7 +59,7 @@
       inset: 0;
       pointer-events: none;
       z-index: 9998;
-      opacity: .028;
+      opacity: .02;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
       background-size: 256px 256px;
     }
@@ -122,7 +143,7 @@
       width: 100%;
       max-width: 1280px;
       margin: 0 auto;
-      padding: 80px 60px;
+      padding: var(--sect-md) var(--gutter);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -134,7 +155,7 @@
     }
 
     .hero-eyebrow {
-      font-size: 11px;
+      font-size: var(--fs-label);
       font-weight: 500;
       letter-spacing: .2em;
       text-transform: uppercase;
@@ -174,10 +195,10 @@
     }
 
     .hero-sub {
-      font-size: 18px;
-      line-height: 1.65;
-      color: rgba(255, 255, 255, .88);
-      max-width: 540px;
+      font-size: var(--fs-lead);
+      line-height: var(--lh-body);
+      color: rgba(255, 255, 255, .92);
+      max-width: 600px;
       margin-bottom: 44px;
       font-weight: 300;
     }
@@ -200,7 +221,7 @@
       border-top: 1px solid rgba(255, 255, 255, .18);
       flex-wrap: wrap;
       color: rgba(255, 255, 255, .85);
-      font-size: 13px;
+      font-size: var(--fs-body-sm);
       font-weight: 400;
       letter-spacing: .04em;
     }
@@ -214,7 +235,7 @@
     .hero-trust-stars {
       color: rgba(255, 255, 255, .95);
       letter-spacing: .12em;
-      font-size: 13px;
+      font-size: var(--fs-body-sm);
       line-height: 1;
     }
 
@@ -232,7 +253,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 9px;
+      font-size: var(--fs-label);
       font-weight: 500;
       color: #ffffff;
       letter-spacing: 0;
@@ -254,7 +275,7 @@
     }
 
     .hero-trust-review-text {
-      font-size: 12px;
+      font-size: var(--fs-body-sm);
       color: rgba(255, 255, 255, .58);
       letter-spacing: .03em;
     }
@@ -278,68 +299,13 @@
     }
 
     /* ── TRUST BAR ── */
-    .trust-bar {
-      background: var(--dark);
-      padding: 22px 60px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 36px;
-      flex-wrap: wrap;
-      position: relative;
-    }
 
-    .trust-bar::before,
-    .trust-bar::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: rgba(255, 255, 255, .12);
-    }
 
-    .trust-bar::before { top: 0; }
-    .trust-bar::after { bottom: 0; }
 
-    .trust-item {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      color: rgba(255, 255, 255, .92);
-      font-size: 13px;
-      font-weight: 400;
-      letter-spacing: .02em;
-      line-height: 1.3;
-    }
 
-    .trust-item-icon {
-      width: 32px;
-      height: 32px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 50%;
-      background: rgba(4, 150, 255, .14);
-      color: var(--accent-light);
-      flex-shrink: 0;
-    }
 
-    .trust-item-icon svg {
-      width: 16px;
-      height: 16px;
-    }
 
-    .trust-item strong {
-      color: #ffffff;
-      font-weight: 500;
-    }
 
-    .trust-sep {
-      width: 1px;
-      height: 24px;
-      background: rgba(255, 255, 255, .14);
-    }
 
     /* ── PRAKTISCHE INFO-LEISTE (Öffnungszeiten + Termin-Hinweise) ── */
     .util-bar {
@@ -354,20 +320,17 @@
     .util-bar-row {
       display: flex;
       align-items: center;
-      gap: 12px 28px;
+      gap: 10px 24px;
       flex-wrap: wrap;
     }
 
-    .util-bar-notes {
-      padding-top: 12px;
-      border-top: 1px solid var(--border);
-    }
+
 
     .hours-status {
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      font-size: 13px;
+      font-size: var(--fs-body-sm);
       color: var(--text-body);
       font-weight: 400;
       flex-shrink: 0;
@@ -411,14 +374,14 @@
 
     .hours-items {
       display: flex;
-      gap: 22px;
+      gap: 8px 18px;
       flex-wrap: wrap;
       flex: 1;
       min-width: 0;
     }
 
     .hours-item {
-      font-size: 13px;
+      font-size: var(--fs-body-sm);
       color: var(--text-muted);
       white-space: nowrap;
     }
@@ -433,7 +396,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-size: 13px;
+      font-size: var(--fs-body-sm);
       color: var(--text-muted);
       text-decoration: none;
       flex-shrink: 0;
@@ -454,7 +417,7 @@
       display: inline-flex;
       align-items: center;
       gap: 9px;
-      font-size: 13px;
+      font-size: var(--fs-body-sm);
       color: var(--text-body);
     }
 
@@ -498,7 +461,7 @@
       gap: 2px;
       color: #ffffff;
       font-family: 'DM Sans', sans-serif;
-      font-size: 14px;
+      font-size: var(--fs-body-sm);
       font-weight: 500;
       letter-spacing: .04em;
       background: rgba(10, 37, 64, .55);
@@ -514,7 +477,7 @@
     }
 
     .about-img-label small {
-      font-size: 11px;
+      font-size: var(--fs-label);
       letter-spacing: .14em;
       text-transform: uppercase;
       color: rgba(255, 255, 255, .7);
@@ -522,7 +485,7 @@
     }
 
     .about-content {
-      padding: 80px 60px;
+      padding: var(--sect-md) var(--gutter);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -547,11 +510,12 @@
     }
 
     .about-content p {
-      font-size: 16px;
-      line-height: 1.75;
-      color: #3a5876;
+      font-size: var(--fs-body);
+      line-height: var(--lh-body);
+      color: var(--text-body);
       font-weight: 400;
       margin: 0 0 22px;
+      max-width: var(--measure);
     }
 
     .about-content p strong {
@@ -573,12 +537,14 @@
       border: 1px solid var(--border);
       padding: 8px 14px 8px 32px;
       border-radius: 6px;
-      font-size: 11px;
+      font-size: var(--fs-label);
       letter-spacing: .1em;
       text-transform: uppercase;
       color: var(--text-muted);
       font-weight: 500;
       position: relative;
+      /* „Faszienpraktiker/Sportmasseur" ist bei 12px breiter als eine 320px-Spalte */
+      overflow-wrap: anywhere;
       transition: border-color .2s, color .2s;
     }
 
@@ -608,7 +574,7 @@
     }
 
     .about-link {
-      font-size: 13px;
+      font-size: var(--fs-body-sm);
       letter-spacing: .06em;
       color: var(--text-muted);
       text-decoration: none;
@@ -625,15 +591,15 @@
 
     /* ── LOGO SLIDER ── */
     .logo-slider {
+      grid-column: 1 / -1;
       background: var(--warm-white);
-      padding: 48px 60px;
+      padding: var(--sect-sm) var(--gutter);
       border-top: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
     }
 
     .logo-slider-label {
       text-align: center;
-      font-size: 11px;
+      font-size: var(--fs-label);
       letter-spacing: .2em;
       text-transform: uppercase;
       color: var(--text-muted);
@@ -679,7 +645,7 @@
     /* ── HOW ── */
     .how-section {
       background: var(--dark);
-      padding: 100px 60px;
+      padding: var(--sect-lg) var(--gutter);
       position: relative;
       overflow: hidden;
     }
@@ -708,7 +674,7 @@
     .how-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
+      gap: 40px;
       position: relative;
       list-style: none;
       margin: 0;
@@ -718,6 +684,20 @@
 
     .how-grid::before {
       display: none;
+    }
+
+    /* Praktische Hinweise zum Termin — stehen beim Ablauf, nicht in einer Leiste oben */
+    .how-notes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px 40px;
+      margin-top: 48px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(255, 255, 255, .12);
+    }
+
+    .how-notes .info-item {
+      color: rgba(227, 242, 253, .86);
     }
 
     .how-card {
@@ -778,48 +758,48 @@
     }
 
     .how-card p {
-      font-size: 14px;
-      color: rgba(227, 242, 253, .7);
-      line-height: 1.75;
-      font-weight: 300;
+      font-size: var(--fs-body);
+      color: rgba(227, 242, 253, .88);
+      line-height: var(--lh-body);
+      font-weight: 400;
       margin: 0;
+      max-width: var(--measure);
     }
 
     /* ── CONDITIONS ── */
     .conditions-section {
-      padding: 100px 60px;
+      padding: var(--sect-md) var(--gutter);
       background: var(--warm-white);
     }
 
     .conditions-lead {
-      font-size: 16px;
+      font-size: var(--fs-lead);
       color: var(--text-muted);
       margin: 16px 0 0;
       font-weight: 300;
-      max-width: 480px;
-      line-height: 1.7;
+      max-width: 620px;
+      line-height: var(--lh-body);
     }
 
     .cond-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+      gap: 1px;
       margin-top: 48px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
     }
 
     .cond-item {
-      background: #ffffff;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 30px 28px;
-      transition: border-color .25s var(--ease), transform .25s var(--ease), box-shadow .25s var(--ease);
+      background: var(--warm-white);
+      padding: 34px 32px;
+      transition: background .25s var(--ease);
       cursor: default;
     }
 
     .cond-item:hover {
-      border-color: color-mix(in srgb, var(--accent) 42%, transparent);
-      transform: translateY(-4px);
-      box-shadow: 0 14px 34px rgba(10, 37, 64, .08);
+      background: color-mix(in srgb, var(--accent) 6%, var(--warm-white));
     }
 
     .cond-dot {
@@ -832,33 +812,34 @@
 
     .cond-item h3 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 22px;
-      font-weight: 400;
+      font-size: 24px;
+      font-weight: 300;
       color: var(--dark);
       margin-bottom: 8px;
       text-wrap: balance;
     }
 
     .cond-item p {
-      font-size: 14.5px;
-      color: #3a5876;
-      line-height: 1.6;
+      font-size: var(--fs-body);
+      color: var(--text-body);
+      line-height: var(--lh-body);
       font-weight: 400;
     }
 
     /* ── PRICING ── */
     .pricing-section {
-      padding: 100px 60px;
+      padding: var(--sect-md) var(--gutter);
       background: var(--cream);
     }
 
     .pricing-sub {
-      font-size: 16px;
+      font-size: var(--fs-lead);
       color: var(--text-muted);
       font-weight: 300;
       margin-bottom: 64px;
-      max-width: 480px;
+      max-width: 620px;
       margin-top: 16px;
+      line-height: var(--lh-body);
     }
 
     .pricing-grid {
@@ -910,7 +891,7 @@
       background: var(--accent);
       color: #ffffff;
       font-family: 'DM Sans', sans-serif;
-      font-size: 10px;
+      font-size: var(--fs-label);
       letter-spacing: .2em;
       text-transform: uppercase;
       padding: 13px 16px;
@@ -954,7 +935,7 @@
 
     .price-duration {
       font-family: 'DM Sans', sans-serif;
-      font-size: 11px;
+      font-size: var(--fs-label);
       font-weight: 500;
       letter-spacing: .16em;
       text-transform: uppercase;
@@ -973,14 +954,14 @@
     }
 
     .price-features li {
-      font-size: 14px;
-      color: var(--text-muted);
-      padding: 9px 0;
+      font-size: var(--fs-body-sm);
+      color: var(--text-body);
+      padding: 10px 0;
       display: flex;
       align-items: baseline;
       gap: 10px;
       border-bottom: 1px solid var(--border);
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
     .price-features li:last-child {
@@ -1008,7 +989,7 @@
       border: 1px solid var(--dark);
       border-radius: var(--radius);
       font-family: 'DM Sans', sans-serif;
-      font-size: 11px;
+      font-size: 13px;
       letter-spacing: .14em;
       text-transform: uppercase;
       text-decoration: none;
@@ -1043,11 +1024,11 @@
     .price-notice {
       margin-top: 48px;
       padding: 0;
-      font-size: 14px;
+      font-size: var(--fs-body-sm);
       color: var(--text-muted);
-      line-height: 1.75;
-      font-weight: 300;
-      max-width: 720px;
+      line-height: 1.6;
+      font-weight: 400;
+      max-width: var(--measure);
       border-top: 1px solid var(--border);
       padding-top: 24px;
     }
@@ -1106,7 +1087,7 @@
       border: 1px solid rgba(4, 150, 255, .35);
       border-radius: 6px;
       padding: 9px 16px;
-      font-size: 11px;
+      font-size: var(--fs-label);
       font-weight: 500;
       letter-spacing: .08em;
       text-transform: uppercase;
@@ -1119,7 +1100,7 @@
     }
 
     .schroepfen-content {
-      padding: 80px 64px;
+      padding: var(--sect-lg) var(--gutter);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -1138,11 +1119,12 @@
     }
 
     .schroepfen-content p {
-      font-size: 16px;
-      line-height: 1.85;
-      color: rgba(227, 242, 253, .68);
-      font-weight: 300;
+      font-size: var(--fs-body);
+      line-height: var(--lh-body);
+      color: rgba(227, 242, 253, .86);
+      font-weight: 400;
       margin: 0 0 18px;
+      max-width: var(--measure);
     }
 
     .schroepfen-content p:last-of-type {
@@ -1179,7 +1161,7 @@
     }
 
     .schroepfen-effects-label {
-      font-size: 10px;
+      font-size: var(--fs-label);
       letter-spacing: .2em;
       text-transform: uppercase;
       color: rgba(4, 150, 255, .9);
@@ -1205,15 +1187,15 @@
     }
 
     .schroepfen-effects-list li {
-      font-size: 14px;
-      color: rgba(227, 242, 253, .82);
-      padding: 12px 0;
+      font-size: var(--fs-body);
+      color: rgba(227, 242, 253, .88);
+      padding: 14px 0;
       border-bottom: 1px solid rgba(255, 255, 255, .06);
       display: flex;
       gap: 14px;
       align-items: flex-start;
-      font-weight: 300;
-      line-height: 1.55;
+      font-weight: 400;
+      line-height: 1.6;
     }
 
     .schroepfen-effects-list li:last-child {
@@ -1253,7 +1235,7 @@
     .kurs-banner {
       background: var(--dark);
       background-image: none;
-      padding: 100px 60px;
+      padding: var(--sect-lg) var(--gutter);
       position: relative;
       overflow: hidden;
     }
@@ -1351,7 +1333,7 @@
     }
 
     .kurs-figure-pill-label {
-      font-size: 10px;
+      font-size: var(--fs-label);
       letter-spacing: .18em;
       text-transform: uppercase;
       color: rgba(255, 255, 255, .65);
@@ -1359,7 +1341,7 @@
     }
 
     .kurs-figure-pill-value {
-      font-size: 14px;
+      font-size: var(--fs-body-sm);
       font-weight: 500;
       color: #ffffff;
       letter-spacing: -.005em;
@@ -1377,7 +1359,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      font-size: 11px;
+      font-size: var(--fs-label);
       letter-spacing: .18em;
       text-transform: uppercase;
       color: var(--accent-light);
@@ -1394,7 +1376,7 @@
     }
 
     .kurs-banner-eyebrow {
-      font-size: 11px;
+      font-size: var(--fs-label);
       font-weight: 500;
       letter-spacing: .2em;
       text-transform: uppercase;
@@ -1430,10 +1412,10 @@
     }
 
     .kurs-banner-sub {
-      font-size: 16px;
-      line-height: 1.7;
-      color: rgba(227, 242, 253, .72);
-      max-width: 540px;
+      font-size: var(--fs-lead);
+      line-height: var(--lh-body);
+      color: rgba(227, 242, 253, .86);
+      max-width: 600px;
       margin: 0 0 36px;
       font-weight: 300;
     }
@@ -1492,13 +1474,13 @@
     .kurs-curriculum-title {
       color: var(--cream);
       font-weight: 500;
-      font-size: 14px;
+      font-size: var(--fs-body);
       letter-spacing: -.003em;
     }
 
     .kurs-curriculum-meta {
       color: rgba(227, 242, 253, .55);
-      font-size: 12px;
+      font-size: var(--fs-body-sm);
       font-weight: 300;
     }
 
@@ -1515,7 +1497,7 @@
     }
 
     .kurs-trust-label {
-      font-size: 10px;
+      font-size: var(--fs-label);
       letter-spacing: .18em;
       text-transform: uppercase;
       color: rgba(227, 242, 253, .55);
@@ -1633,7 +1615,7 @@
 
     .kurs-price-note {
       margin-top: 16px;
-      font-size: 13px;
+      font-size: var(--fs-body-sm);
       color: rgba(227, 242, 253, .6);
       font-weight: 300;
     }
@@ -1646,7 +1628,7 @@
     /* ── TESTIMONIALS ── */
     .testimonials-section {
       background: var(--warm-white);
-      padding: 100px 60px;
+      padding: var(--sect-md) var(--gutter);
     }
 
     .testi-title {
@@ -1708,7 +1690,7 @@
     }
 
     .grev-count {
-      font-size: 11px;
+      font-size: var(--fs-label);
       color: var(--text-muted);
       letter-spacing: .04em;
     }
@@ -1795,7 +1777,7 @@
 
     /* ── FAQ ── */
     .faq-section {
-      padding: 100px 60px;
+      padding: var(--sect-md) var(--gutter);
       display: grid;
       grid-template-columns: 1fr 2fr;
       gap: 80px;
@@ -1808,33 +1790,7 @@
       top: 100px;
     }
 
-    .faq-lead {
-      font-size: 14px;
-      color: var(--text-muted);
-      font-weight: 300;
-      margin: 20px 0 0;
-      line-height: 1.7;
-      max-width: 280px;
-    }
 
-    .faq-contact-actions {
-      margin-top: 28px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      align-items: flex-start;
-    }
-
-    .faq-mail-link {
-      font-size: 13px;
-      color: var(--text-muted);
-      text-decoration: none;
-      transition: color .2s;
-    }
-
-    .faq-mail-link:hover {
-      color: var(--accent);
-    }
 
     .faq-extra {
       margin-top: 32px;
@@ -1843,7 +1799,7 @@
     }
 
     .faq-extra-label {
-      font-size: 10px;
+      font-size: var(--fs-label);
       letter-spacing: .16em;
       text-transform: uppercase;
       color: var(--text-muted);
@@ -1858,7 +1814,7 @@
     }
 
     .faq-extra-link {
-      font-size: 13px;
+      font-size: var(--fs-body-sm);
       color: var(--text-muted);
       text-decoration: none;
       transition: color .2s, gap .2s;
@@ -1946,12 +1902,12 @@
     }
 
     .faq-a {
-      font-size: 14px;
-      color: var(--text-muted);
-      line-height: 1.75;
-      font-weight: 300;
+      font-size: var(--fs-body);
+      color: var(--text-body);
+      line-height: var(--lh-body);
+      font-weight: 400;
       padding: 0 0 24px;
-      max-width: 640px;
+      max-width: var(--measure);
     }
 
     .faq-item.open .faq-a-wrap {
@@ -1972,7 +1928,7 @@
 
     /* ── CTA ── */
     .cta-section {
-      padding: 100px 60px;
+      padding: var(--sect-lg) var(--gutter);
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -2056,7 +2012,7 @@
     .cta-cards {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+      gap: 24px;
       margin-top: 64px;
       padding-top: 48px;
       border-top: 1px solid rgba(255, 255, 255, .14);
@@ -2104,7 +2060,7 @@
     }
 
     .cta-card-label {
-      font-size: 11px;
+      font-size: var(--fs-label);
       letter-spacing: .18em;
       text-transform: uppercase;
       color: rgba(227, 242, 253, .65);
@@ -2557,24 +2513,7 @@
         padding: 16px 32px;
       }
 
-      .hero-content {
-        padding: 60px 40px;
-      }
-
-      .how-section,
-      .conditions-section,
-      .pricing-section,
-      .testimonials-section,
-      .cta-section {
-        padding: 80px 40px;
-      }
-
-      .about-content {
-        padding: 60px 40px;
-      }
-
       .faq-section {
-        padding: 80px 40px;
         gap: 48px;
       }
 
@@ -2592,12 +2531,6 @@
       .footer-bottom {
         padding: 18px 40px;
       }
-
-      .trust-bar {
-        padding: 20px 40px;
-        gap: 14px 28px;
-      }
-
       .pricing-grid {
         gap: 16px;
       }
@@ -2610,14 +2543,6 @@
         grid-template-columns: 1fr;
         grid-template-rows: 400px auto;
         min-height: unset;
-      }
-
-      .schroepfen-content {
-        padding: 64px 40px;
-      }
-
-      .kurs-banner {
-        padding: 80px 40px;
       }
 
       .kurs-banner-grid {
@@ -2645,16 +2570,12 @@
         align-items: flex-end;
       }
 
-      .hero-content {
-        padding: 64px 24px 56px;
-      }
-
       .hero-overlay {
         background: rgba(10, 37, 64, .72);
       }
 
       .hero-sub {
-        font-size: 16px;
+        font-size: 18px;
         margin-bottom: 36px;
       }
 
@@ -2675,37 +2596,15 @@
         gap: 14px 18px;
         margin-top: 36px;
         padding-top: 24px;
-        font-size: 12px;
+        font-size: 14px;
       }
 
       .hero-trust-divider {
         display: none;
       }
 
-      .trust-bar {
-        padding: 22px 20px;
-        gap: 14px 22px;
-        justify-content: center;
-      }
 
-      .trust-item {
-        font-size: 12px;
-        gap: 10px;
-      }
 
-      .trust-item-icon {
-        width: 28px;
-        height: 28px;
-      }
-
-      .trust-item-icon svg {
-        width: 14px;
-        height: 14px;
-      }
-
-      .trust-sep {
-        display: none;
-      }
 
       .util-bar-hours {
         gap: 12px 20px;
@@ -2723,7 +2622,7 @@
       }
 
       .hours-address {
-        font-size: 12px;
+        font-size: 14px;
       }
 
       .about-grid {
@@ -2738,28 +2637,16 @@
       .about-img-label {
         bottom: 16px;
         left: 16px;
-        font-size: 13px;
+        font-size: 14px;
         padding: 9px 14px;
       }
 
       .about-img-label small {
-        font-size: 10px;
-      }
-
-      .about-content {
-        padding: 48px 24px;
+        font-size: var(--fs-label);
       }
 
       .about-content p {
-        font-size: 16px;
-      }
-
-      .how-section,
-      .conditions-section,
-      .pricing-section,
-      .testimonials-section,
-      .cta-section {
-        padding: 64px 24px;
+        font-size: var(--fs-body);
       }
 
       .how-grid {
@@ -2785,10 +2672,6 @@
         right: 24px;
       }
 
-      .cond-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
       .pricing-grid {
         grid-template-columns: 1fr;
         max-width: 420px;
@@ -2808,10 +2691,6 @@
       .grev-widget {
         margin-top: 40px;
         padding-top: 32px;
-      }
-
-      .logo-slider {
-        padding: 32px 40px;
       }
 
       .logo-slider-label {
@@ -2837,16 +2716,8 @@
         min-height: unset;
       }
 
-      .schroepfen-content {
-        padding: 48px 20px;
-      }
-
       .schroepfen-effects {
         padding: 28px 24px;
-      }
-
-      .kurs-banner {
-        padding: 64px 20px;
       }
 
       .kurs-banner-grid {
@@ -2878,7 +2749,7 @@
       }
 
       .kurs-figure-pill-value {
-        font-size: 13px;
+        font-size: 14px;
       }
 
       .kurs-banner-title {
@@ -2907,7 +2778,7 @@
       }
 
       .kurs-quote-text {
-        font-size: 16px;
+        font-size: var(--fs-body);
       }
 
       .kurs-banner-actions {
@@ -2930,13 +2801,12 @@
       }
 
       .kurs-meta-item {
-        font-size: 10px;
+        font-size: var(--fs-label);
       }
 
       .faq-section {
         grid-template-columns: 1fr;
         gap: 0;
-        padding: 64px 24px;
       }
 
       .faq-left-sticky {
@@ -3036,7 +2906,7 @@
       }
 
       .hero-sub {
-        font-size: 15px;
+        font-size: var(--fs-body);
         margin-bottom: 36px;
       }
 
@@ -3055,10 +2925,6 @@
         justify-content: center;
       }
 
-      .cond-grid {
-        grid-template-columns: 1fr;
-      }
-
       .section-title {
         font-size: 28px;
       }
@@ -3066,12 +2932,12 @@
       .about-img-label {
         bottom: 12px;
         left: 12px;
-        font-size: 12px;
+        font-size: 14px;
         padding: 8px 12px;
       }
 
       .about-img-label small {
-        font-size: 9px;
+        font-size: var(--fs-label);
       }
 
       .how-card h3 {
@@ -3132,22 +2998,6 @@
       .hours-items {
         flex-direction: column;
         gap: 6px;
-      }
-
-      .faq-section {
-        padding: 56px 20px;
-      }
-
-      .about-content {
-        padding: 40px 20px;
-      }
-
-      .how-section,
-      .conditions-section,
-      .pricing-section,
-      .testimonials-section,
-      .cta-section {
-        padding: 56px 20px;
       }
 
       .price-card.featured,

@@ -294,7 +294,7 @@ function initScrollReveal() {
   if (!('IntersectionObserver' in window)) return;
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  var sel = '.section-eyebrow, .section-title, .conditions-lead, .cond-item, ' +
+  var sel = '.section-eyebrow, .section-title, .conditions-lead, .cond-grid, ' +
             '.how-card, .price-card, .about-content, .schroepfen-content, ' +
             '.kurs-banner-content, .grev-widget, .faq-item';
   var els = Array.prototype.slice.call(document.querySelectorAll(sel));

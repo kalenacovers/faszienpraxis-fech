@@ -15,7 +15,7 @@
       --fs-body-sm: 15px;   /* Meta: Zeiten, Preis-Features, Hinweise */
       --fs-label: 12px;     /* Eyebrows, Tags, Badges — nichts darunter */
       --lh-body: 1.7;
-      --measure: 62ch;      /* Zeilenlänge für Fließtextblöcke */
+      /* --measure kommt aus accessibility.css:23 (68ch, site-weit einheitlich) */
 
       /* ── Vertikaler Rhythmus — drei Stufen statt 7× dasselbe 100px ──
          lg = dunkle Abschnitte, md = helle Inhaltsabschnitte, sm = Leisten */
@@ -1062,7 +1062,7 @@
       object-fit: cover;
       object-position: center;
       display: block;
-      transition: transform .8s cubic-bezier(.25,.46,.45,.94);
+      transition: transform .8s var(--ease);
     }
 
     .schroepfen-section:hover .schroepfen-media img {

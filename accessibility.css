@@ -23,19 +23,9 @@
   --measure: 68ch;                          /* ~65–75 char text column */
   --gutter: clamp(1.25rem, 5vw, 3.75rem);   /* 20px → 60px side padding */
 
-  /* Vertical section rhythm (§6) */
-  --section-y: clamp(3.5rem, 8vw, 9rem);    /* 56 → 144px */
-  --section-y-sm: clamp(2.75rem, 6vw, 5rem);
-
-  /* Spacing scale */
-  --space-1: 4px;  --space-2: 8px;   --space-3: 12px; --space-4: 16px;
-  --space-5: 24px; --space-6: 32px;  --space-7: 48px; --space-8: 64px;
-  --space-9: 96px;
-
   /* Radius (matches site-wide softening) */
   --radius: 6px;
   --radius-lg: 10px;
-  --radius-pill: 999px;
 
   /* Motion (§28) */
   --ease: cubic-bezier(.22, .61, .36, 1);
@@ -50,10 +40,6 @@
   padding-inline: var(--gutter);
 }
 .container--wide { max-width: var(--container-wide); }
-
-/* Standard vertical section rhythm */
-.section-y { padding-block: var(--section-y); }
-.section-y-sm { padding-block: var(--section-y-sm); }
 
 /* Scroll reveal (§28) — progressive enhancement: hidden state only applies
    once JS adds .js-reveal to <html>, so content stays visible without JS. */
@@ -1088,7 +1074,7 @@ body > .nav-mobile .nav-cta-mob {
   gap: 8px !important;
   padding: 0 !important;
   border-radius: 0 !important;
-  font-weight: 600 !important;
+  font-weight: 500 !important;
   letter-spacing: .16em !important;
   text-transform: uppercase !important;
   background: none !important;
@@ -1118,9 +1104,9 @@ body > .nav-mobile .nav-cta-mob {
   border-radius: 0 !important;
   background: none !important;
   box-shadow: none !important;
-  color: #0496ff !important;
+  color: var(--accent) !important;
   font-size: 1.15em !important;
-  font-weight: 700 !important;
+  font-weight: 500 !important;
   line-height: 1 !important;
   flex-shrink: 0 !important;
   margin: 0 !important;

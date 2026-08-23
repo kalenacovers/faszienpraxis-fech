@@ -23,6 +23,14 @@
   --measure: 68ch;                          /* ~65–75 char text column */
   --gutter: clamp(1.25rem, 5vw, 3.75rem);   /* 20px → 60px side padding */
 
+  /* Typo-Skala — fünf Rollen, site-weit geteilt */
+  --fs-lead: 20px;      /* Einleitungsabsatz unter der Section-Headline (Startseiten-Hero) */
+  --fs-body-lg: 17px;   /* Hero-Sub & CTA-Absatz auf den Unterseiten */
+  --fs-body: 16px;      /* Fließtext */
+  --fs-body-sm: 15px;   /* Meta: Zeiten, Preis-Features, Hinweise */
+  --fs-label: 12px;     /* Tags, Badges — die Eyebrow selbst bleibt bei 11px */
+  --lh-body: 1.7;
+
   /* Radius (matches site-wide softening) */
   --radius: 6px;
   --radius-lg: 10px;

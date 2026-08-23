@@ -8,14 +8,7 @@
       --text-body: #1a2e45;
       --text-muted: #4a6a8a;
       --border: rgba(4, 150, 255, 0.15);
-
-      /* ── Typo-Skala — vier Rollen, harter Floor bei 12px ── */
-      --fs-lead: 20px;      /* Einleitungsabsatz unter der Section-Headline */
-      --fs-body: 17px;      /* Fließtext in Karten und FAQ */
-      --fs-body-sm: 15px;   /* Meta: Zeiten, Preis-Features, Hinweise */
-      --fs-label: 12px;     /* Eyebrows, Tags, Badges — nichts darunter */
-      --lh-body: 1.7;
-      /* --measure kommt aus accessibility.css:23 (68ch, site-weit einheitlich) */
+      /* --fs-lead/body/body-sm/label, --lh-body, --measure kommen aus accessibility.css (site-weit einheitlich) */
 
       /* ── Vertikaler Rhythmus — drei Stufen statt 7× dasselbe 100px ──
          lg = dunkle Abschnitte, md = helle Inhaltsabschnitte, sm = Leisten */
@@ -1960,7 +1953,7 @@
     }
 
     .cta-section p {
-      font-size: 17px;
+      font-size: var(--fs-body-lg);
       color: rgba(227, 242, 253, .65);
       max-width: 480px;
       margin: 0 auto 48px;

@@ -433,15 +433,18 @@
     /* ── ABOUT ── */
     .about-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: minmax(240px, 460px) 1fr;
+      align-items: start;
       background: var(--warm-white);
     }
 
     .about-img {
       background: var(--charcoal);
-      position: relative;
+      position: sticky;
+      top: 104px;
       overflow: hidden;
-      min-height: 600px;
+      aspect-ratio: 3 / 4;
+      max-height: calc(100vh - 160px);
     }
 
     .about-img img {
@@ -456,6 +459,7 @@
       position: absolute;
       bottom: 24px;
       left: 24px;
+      max-width: calc(100% - 48px);
       display: inline-flex;
       flex-direction: column;
       gap: 2px;
@@ -488,7 +492,6 @@
       padding: var(--sect-md) var(--gutter);
       display: flex;
       flex-direction: column;
-      justify-content: center;
     }
 
     .about-title {
@@ -591,7 +594,6 @@
 
     /* ── LOGO SLIDER ── */
     .logo-slider {
-      grid-column: 1 / -1;
       background: var(--warm-white);
       padding: var(--sect-sm) var(--gutter);
       border-top: 1px solid var(--border);
@@ -783,7 +785,7 @@
 
     .cond-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 1px;
       margin-top: 48px;
       background: var(--border);
@@ -2625,15 +2627,6 @@
         font-size: 14px;
       }
 
-      .about-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .about-img {
-        aspect-ratio: 4 / 5;
-        min-height: 0;
-      }
-
       .about-img-label {
         bottom: 16px;
         left: 16px;
@@ -2652,6 +2645,10 @@
       .how-grid {
         grid-template-columns: 1fr;
         gap: 16px;
+      }
+
+      .cond-grid {
+        grid-template-columns: 1fr;
       }
 
       .how-grid::before {
@@ -2896,6 +2893,21 @@
 
       .footer-links {
         justify-content: center;
+      }
+    }
+
+    /* About: stack the portrait above the text only once a 2-column
+       layout would leave the text column too narrow to read. */
+    @media (max-width: 560px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .about-img {
+        position: relative;
+        top: auto;
+        aspect-ratio: 4 / 5;
+        max-height: none;
       }
     }
 

@@ -113,7 +113,7 @@
       font-family: 'Cormorant Garamond', serif;
       font-size: clamp(38px, 4.5vw, 68px);
       font-weight: 300;
-      line-height: 1.08;
+      line-height: 1.05;
       color: var(--dark);
       letter-spacing: -.01em;
       margin-bottom: 24px;
@@ -125,7 +125,7 @@
     }
 
     .gutschein-hero-sub {
-      font-size: 17px;
+      font-size: var(--fs-body-lg);
       line-height: 1.7;
       color: var(--text-muted);
       max-width: 440px;
@@ -428,7 +428,7 @@
     }
 
     .gutschein-form-intro {
-      font-size: 16px;
+      font-size: var(--fs-body);
       line-height: 1.8;
       color: var(--text-muted);
       font-weight: 300;

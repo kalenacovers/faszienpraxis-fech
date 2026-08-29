@@ -171,12 +171,6 @@
       justify-content: center;
     }
 
-    .gutschein-hero-pattern {
-      position: absolute;
-      inset: 0;
-      background-image: none;
-    }
-
     .gutschein-hero-bg-text {
       position: absolute;
       bottom: -10px;
@@ -191,115 +185,197 @@
       letter-spacing: -.03em;
     }
 
-    /* Voucher card visual */
-    .gutschein-card-visual {
+    /* ── Echte Gutschein-Fotos: versetzter Stapel ──
+       Nicht die Auffächerung von .kurs-hero-certs übernehmen — die stellt zwei
+       Hochformate nebeneinander. Diese Karten sind Querformat und würden dabei
+       auf halbe Breite schrumpfen. */
+    .gutschein-shots {
       position: relative;
       z-index: 2;
-      width: 340px;
-      border: 1px solid rgba(144, 202, 249, .25);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      background: rgba(255, 255, 255, .05);
-      backdrop-filter: blur(8px);
+      width: min(420px, 100%);
+      padding-bottom: 34px;
     }
 
-    .gutschein-card-top {
-      background: rgba(4, 150, 255, .18);
-      padding: 32px 36px 28px;
-      border-bottom: 1px solid rgba(144, 202, 249, .15);
+    .gutschein-shot {
+      margin: 0;
+      transition: transform .55s cubic-bezier(.22, 1, .36, 1);
     }
 
-    .gutschein-card-top-label {
-      font-size: 10px;
-      letter-spacing: .2em;
+    .gutschein-shot a {
+      display: block;
+      cursor: zoom-in;
+      border-radius: 3px;
+    }
+
+    .gutschein-shot img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 3px;
+      box-shadow: 0 22px 44px -16px rgba(2, 14, 30, .75);
+    }
+
+    .gutschein-shot figcaption {
+      margin-top: 10px;
+      font-size: 12px;
+      letter-spacing: .14em;
       text-transform: uppercase;
-      color: var(--accent-light);
-      margin-bottom: 20px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
+      font-weight: 500;
+      color: rgba(227, 242, 253, .75);
     }
 
-    .gutschein-card-top-label::before {
-      content: '';
-      width: 16px;
-      height: 1px;
-      background: var(--accent-light);
+    .gutschein-shot.is-front {
+      position: relative;
+      z-index: 2;
+      transform: rotate(-2deg);
     }
 
-    .gutschein-card-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 26px;
-      font-weight: 300;
-      color: white;
-      line-height: 1.2;
-      margin-bottom: 8px;
+    .gutschein-shot.is-back {
+      position: relative;
+      z-index: 1;
+      /* schmal genug, dass die linksbündige Bildunterschrift der
+         Vorderseite darunter frei bleibt */
+      width: 70%;
+      margin: -4px 0 0 auto;
+      transform: rotate(3deg);
     }
 
-    .gutschein-card-sub {
-      font-size: 13px;
-      color: rgba(227, 242, 253, .5);
-      font-weight: 300;
+    .gutschein-shot.is-back figcaption {
+      text-align: right;
     }
 
-    .gutschein-card-body {
-      padding: 28px 36px;
+    .gutschein-shots:hover .gutschein-shot.is-front {
+      transform: rotate(-3deg) translate(-4%, -2%);
     }
 
-    .gutschein-price-row {
-      display: flex;
-      gap: 16px;
-      margin-bottom: 20px;
+    .gutschein-shots:hover .gutschein-shot.is-back {
+      transform: rotate(4deg) translate(3%, 2%);
     }
 
-    .gutschein-price-item {
-      flex: 1;
-      border: 1px solid rgba(144, 202, 249, .2);
-      padding: 16px;
-      text-align: center;
-    }
-
-    .gutschein-price-item .price {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 32px;
-      font-weight: 300;
-      color: white;
-      line-height: 1;
-    }
-
-    .gutschein-price-item .duration {
-      font-size: 11px;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-      color: rgba(227, 242, 253, .45);
-      margin-top: 6px;
-    }
-
-    .gutschein-card-seal {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255, 255, 255, .07);
-    }
-
-    .gutschein-card-seal-icon {
-      width: 40px;
-      height: 40px;
-      border: 1px solid rgba(144, 202, 249, .3);
-      border-radius: 50%;
+    /* ══════════════════════════════
+       LIGHTBOX
+       Übernommen aus zertifikate.css — dort liegt dieselbe Komponente inline.
+       Bewusst dupliziert statt ausgelagert; ein geteiltes Modul wäre ein
+       Refactoring über zwei Seiten und gehört nicht in diese Änderung.
+    ══════════════════════════════ */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: rgba(10, 37, 64, .96);
+      backdrop-filter: blur(20px);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 16px;
-      color: var(--accent-light);
-      flex-shrink: 0;
+      opacity: 0;
+      pointer-events: none;
+      visibility: hidden;
+      transition: opacity .4s ease, visibility .4s ease;
     }
 
-    .gutschein-card-seal-text {
-      font-size: 12px;
-      color: rgba(227, 242, 253, .45);
-      line-height: 1.5;
+    .lightbox.active {
+      opacity: 1;
+      pointer-events: all;
+      visibility: visible;
+    }
+
+    .lightbox img {
+      max-width: 90vw;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 6px;
+      box-shadow: 0 40px 100px -20px rgba(0, 0, 0, .6);
+      transform: scale(.94) translateY(20px);
+      transition: transform .5s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    .lightbox.active img {
+      transform: scale(1) translateY(0);
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 28px;
+      right: 36px;
+      width: 44px;
+      height: 44px;
+      background: none;
+      border: 1px solid rgba(255, 255, 255, .18);
+      border-radius: 50%;
+      color: rgba(255, 255, 255, .75);
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color .2s, color .2s, transform .2s;
+    }
+
+    .lightbox-close:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: rotate(90deg);
+    }
+
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 48px;
+      height: 48px;
+      background: none;
+      border: 1px solid rgba(255, 255, 255, .18);
+      border-radius: 50%;
+      color: rgba(255, 255, 255, .75);
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color .2s, color .2s;
+    }
+
+    .lightbox-nav:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .lightbox-prev {
+      left: 24px;
+    }
+
+    .lightbox-next {
+      right: 24px;
+    }
+
+    .lightbox-caption {
+      position: absolute;
+      bottom: 64px;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      color: rgba(255, 255, 255, .85);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 300;
+      max-width: 80vw;
+    }
+
+    .lightbox-counter {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 11px;
+      letter-spacing: .2em;
+      color: rgba(255, 255, 255, .35);
+      text-transform: uppercase;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .gutschein-shot {
+        transition: none;
+      }
     }
 
     /* ══════════════════════════════
@@ -928,6 +1004,17 @@
     }
 
     @media (max-width: 768px) {
+      .lightbox-prev {
+        left: 12px;
+      }
+      .lightbox-next {
+        right: 12px;
+      }
+      .lightbox-caption {
+        font-size: 15px;
+        bottom: 56px;
+      }
+
       nav {
         padding: 14px 20px;
       }
@@ -965,17 +1052,6 @@
       .gutschein-hero-right {
         min-height: 320px;
         padding: 40px 16px;
-      }
-
-      .gutschein-card-visual {
-        width: 100%;
-        max-width: 360px;
-      }
-
-      .gutschein-card-top,
-      .gutschein-card-body {
-        padding-left: 24px;
-        padding-right: 24px;
       }
 
       .gutschein-main {
@@ -1149,32 +1225,10 @@
         padding: 16px 20px;
       }
 
-      .gutschein-card-visual {
-        width: 100%;
-      }
 
-      .gutschein-card-top {
-        padding: 24px 20px 20px;
-      }
 
-      .gutschein-card-body {
-        padding: 20px;
-      }
 
-      .gutschein-card-title {
-        font-size: 22px;
-      }
 
-      .gutschein-price-row {
-        gap: 12px;
-      }
 
-      .gutschein-price-item {
-        padding: 12px 8px;
-      }
-
-      .gutschein-price-item .price {
-        font-size: 26px;
-      }
     }
   

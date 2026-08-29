@@ -63,30 +63,26 @@
     </div>
 
     <div class="gutschein-hero-right">
-      <div class="gutschein-hero-pattern"></div>
       <div class="gutschein-hero-bg-text">Gutschein</div>
-      <div class="gutschein-card-visual animate delay-2">
-        <div class="gutschein-card-top">
-          <div class="gutschein-card-top-label">Geschenkgutschein</div>
-          <div class="gutschein-card-title">Faszien- &<br>Triggerpunktarbeit</div>
-          <div class="gutschein-card-sub">Fech Puls · Spaichingen</div>
-        </div>
-        <div class="gutschein-card-body">
-          <div class="gutschein-price-row">
-            <div class="gutschein-price-item">
-              <div class="price">€80</div>
-              <div class="duration">30 Min</div>
-            </div>
-            <div class="gutschein-price-item">
-              <div class="price">€100</div>
-              <div class="duration">45 Min</div>
-            </div>
-          </div>
-          <div class="gutschein-card-seal">
-            <div class="gutschein-card-seal-icon">◈</div>
-            <div class="gutschein-card-seal-text">Einlösbar nach<br>Zahlungseingang</div>
-          </div>
-        </div>
+      <div class="gutschein-shots animate delay-2">
+        <figure class="gutschein-shot is-front">
+          <a data-lb href="assets/gutschein-vorderseite.webp"
+            aria-label="Vorderseite des Gutscheins vergrößert ansehen">
+            <img src="assets/gutschein-vorderseite.webp" width="1400" height="652"
+              fetchpriority="high" decoding="async"
+              alt="Vorderseite des Geschenkgutscheins der Faszienpraxis Fech mit den Feldern für Empfänger, Absender, Betrag und Datum">
+          </a>
+          <figcaption>Vorderseite</figcaption>
+        </figure>
+        <figure class="gutschein-shot is-back">
+          <a data-lb href="assets/gutschein-rueckseite.webp"
+            aria-label="Rückseite des Gutscheins vergrößert ansehen">
+            <img src="assets/gutschein-rueckseite.webp" width="1400" height="743"
+              loading="lazy" decoding="async"
+              alt="Rückseite des Geschenkgutscheins mit QR-Codes zu Instagram, Website und Google-Bewertungen">
+          </a>
+          <figcaption>Rückseite</figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -253,6 +249,17 @@
   </section>
   </main>
 
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Gutschein in voller Auflösung">
+    <button class="lightbox-close" id="lb-close" aria-label="Schließen">&times;</button>
+    <button class="lightbox-nav lightbox-prev" id="lb-prev" aria-label="Vorheriges Bild">&#8249;</button>
+    <img id="lb-img" alt="">
+    <button class="lightbox-nav lightbox-next" id="lb-next" aria-label="Nächstes Bild">&#8250;</button>
+    <div class="lightbox-caption" id="lb-caption"></div>
+    <div class="lightbox-counter" id="lb-counter"></div>
+  </div>
+
   <!-- FOOTER (injected by components.js) -->
   <div id="site-footer"></div>
 
@@ -404,6 +411,67 @@
           history.replaceState(null, '', window.location.pathname);
         }
       } catch (e) {}
+    })();
+  </script>
+  <script>
+    // Lightbox — gleiche Mechanik wie auf zertifikate.html:
+    // jedes <a data-lb> um ein <img> wird in DOM-Reihenfolge zu einem Slide.
+    (function () {
+      var triggers = Array.prototype.slice.call(document.querySelectorAll('[data-lb]'));
+      if (!triggers.length) return;
+      var slides = triggers.map(function (a) {
+        var img = a.querySelector('img');
+        return { src: img.getAttribute('src'), alt: img.getAttribute('alt') };
+      });
+
+      var lb = document.getElementById('lightbox');
+      var lbImg = document.getElementById('lb-img');
+      var lbCaption = document.getElementById('lb-caption');
+      var lbCounter = document.getElementById('lb-counter');
+      var lbClose = document.getElementById('lb-close');
+      if (!lb || !lbImg || !lbCaption || !lbCounter || !lbClose) return;
+
+      var current = 0;
+      var lastFocused = null;
+
+      function show(i) {
+        if (i < 0) i = slides.length - 1;
+        if (i >= slides.length) i = 0;
+        current = i;
+        lbImg.src = slides[i].src;
+        lbImg.alt = slides[i].alt;
+        lbCaption.textContent = slides[i].alt;
+        lbCounter.textContent = (i + 1) + ' / ' + slides.length;
+        lb.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function close() {
+        lb.classList.remove('active');
+        document.body.style.overflow = '';
+        if (lastFocused) { lastFocused.focus(); lastFocused = null; }
+      }
+
+      triggers.forEach(function (a, i) {
+        a.addEventListener('click', function (e) {
+          e.preventDefault();
+          lastFocused = a;
+          show(i);
+          // Fokus erst setzen, wenn der Dialog wirklich sichtbar ist
+          setTimeout(function () { lbClose.focus(); }, 60);
+        });
+      });
+
+      lbClose.addEventListener('click', close);
+      document.getElementById('lb-prev').addEventListener('click', function () { show(current - 1); });
+      document.getElementById('lb-next').addEventListener('click', function () { show(current + 1); });
+      lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+      document.addEventListener('keydown', function (e) {
+        if (!lb.classList.contains('active')) return;
+        if (e.key === 'Escape') close();
+        if (e.key === 'ArrowLeft') show(current - 1);
+        if (e.key === 'ArrowRight') show(current + 1);
+      });
     })();
   </script>
 </body>

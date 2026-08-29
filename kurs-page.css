@@ -1281,9 +1281,11 @@
     /* :not() nötig — der Eyebrow ist ebenfalls ein <p> in diesem Container
        und würde sonst die Abstände aus accessibility.css verlieren */
     .kurs-soon-text p:not(.section-eyebrow) {
-      font-size: 17px;
-      line-height: 1.7;
+      font-size: var(--fs-body);
+      line-height: var(--lh-body);
       color: var(--text-body);
+      /* nicht --measure (68ch): das ist für einspaltigen Text gedacht und
+         wäre in dieser zweispaltigen Anordnung zu breit */
       max-width: 58ch;
       margin: 20px 0 0;
     }
@@ -1319,7 +1321,7 @@
     }
 
     .kurs-soon-fact dt {
-      font-size: 12px;
+      font-size: var(--fs-label);
       letter-spacing: .16em;
       text-transform: uppercase;
       font-weight: 500;
@@ -1328,7 +1330,7 @@
 
     .kurs-soon-fact dd {
       margin: 0;
-      font-size: 15px;
+      font-size: var(--fs-body-sm);
       font-weight: 500;
       color: var(--text-body);
       text-align: right;
@@ -1336,7 +1338,7 @@
 
     .kurs-soon-status {
       margin: 24px 0 0;
-      font-size: 15px;
+      font-size: var(--fs-body-sm);
       line-height: 1.6;
       color: var(--text-muted);
     }

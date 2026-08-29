@@ -198,7 +198,7 @@
 
     .gutschein-shot {
       margin: 0;
-      transition: transform .55s cubic-bezier(.22, 1, .36, 1);
+      transition: transform .55s var(--ease);
     }
 
     .gutschein-shot a {
@@ -217,7 +217,7 @@
 
     .gutschein-shot figcaption {
       margin-top: 10px;
-      font-size: 12px;
+      font-size: var(--fs-label);
       letter-spacing: .14em;
       text-transform: uppercase;
       font-weight: 500;
@@ -286,7 +286,7 @@
       border-radius: 6px;
       box-shadow: 0 40px 100px -20px rgba(0, 0, 0, .6);
       transform: scale(.94) translateY(20px);
-      transition: transform .5s cubic-bezier(.16, 1, .3, 1);
+      transition: transform .5s var(--ease);
     }
 
     .lightbox.active img {

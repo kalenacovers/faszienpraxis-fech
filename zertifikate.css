@@ -1,14 +1,4 @@
-    :root {
-      --cream: #e3f2fd;
-      --warm-white: #f5faff;
-      --dark: #0a2540;
-      --charcoal: #0d3060;
-      --accent: #0496ff;
-      --accent-light: #90caf9;
-      --text-body: #1a2e45;
-      --text-muted: #4a6a8a;
-      --border: rgba(4, 150, 255, 0.15);
-    }
+    /* Farb-Tokens kommen aus accessibility.css (site-weit einheitlich) */
 
     *,
     *::before,

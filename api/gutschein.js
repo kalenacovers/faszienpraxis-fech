@@ -96,8 +96,12 @@ export default async function handler(req, res) {
 
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
+    // Konfigurationsdetails nur ins Server-Log — der Client bekommt Generisches,
+    // da die Meldung im Formular direkt angezeigt wird.
+    console.error("[gutschein] RESEND_API_KEY fehlt in den Environment Variables.");
     return fail(500, {
-      error: "Mail-Service ist nicht konfiguriert (RESEND_API_KEY fehlt).",
+      error:
+        "Der Versand ist derzeit nicht möglich. Bitte später erneut versuchen oder telefonisch melden.",
     });
   }
 

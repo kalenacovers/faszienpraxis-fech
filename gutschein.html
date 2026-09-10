@@ -300,6 +300,8 @@
       var submitBtn = form.querySelector('button[type="submit"]');
       var origLabel = submitBtn ? submitBtn.textContent : '';
       var errorBox  = document.getElementById('form-error');
+      // Generischer Fallback-Text — die konkrete Meldung der API hat Vorrang.
+      var genericError = errorBox ? errorBox.textContent : '';
 
       // ── Draft persistence — a reload never loses what was typed ──────
       var DRAFT_KEY = 'fp-gutschein-draft';
@@ -333,8 +335,9 @@
       form.addEventListener('input', saveDraft);
       form.addEventListener('change', saveDraft);
 
-      function showError() {
+      function showError(msg) {
         if (errorBox) {
+          errorBox.textContent = msg || genericError;
           errorBox.hidden = false;
           errorBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
@@ -387,10 +390,10 @@
               }
               return;
             }
-            showError();
+            showError(res.body && res.body.error);
           })
           .catch(function () {
-            showError();
+            showError('Keine Verbindung zum Server. Bitte Internetverbindung prüfen und erneut versuchen — oder telefonisch melden: 07424 960 609 9.');
           });
       });
 

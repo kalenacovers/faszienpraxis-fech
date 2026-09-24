@@ -125,7 +125,7 @@
     'cta.email':         { de: 'E-Mail',                         en: 'E-Mail',                      es: 'Correo electrónico',            it: 'E-mail',                            ru: 'Эл. почта',                  fr: 'E-mail' },
     'cta.email.hint':    { de: 'Antwort meist innerhalb 24 h',   en: 'Reply usually within 24 h',   es: 'Respuesta en menos de 24 h',    it: 'Risposta di solito entro 24 h',     ru: 'Ответ обычно в течение 24 ч', fr: 'Réponse généralement sous 24 h' },
     'cta.location':      { de: 'Praxis',                         en: 'Practice',                    es: 'Clínica',                       it: 'Studio',                            ru: 'Кабинет',                    fr: 'Cabinet' },
-    'cta.location.hint': { de: 'Route in Google Maps öffnen →',  en: 'Open route in Google Maps →', es: 'Abrir ruta en Google Maps →',   it: 'Apri percorso in Google Maps →',    ru: 'Маршрут в Google Maps →',    fr: 'Ouvrir l\'itinéraire dans Google Maps →' }
+    'cta.location.hint': { de: 'Route in Google Maps öffnen',  en: 'Open route in Google Maps', es: 'Abrir ruta en Google Maps',   it: 'Apri percorso in Google Maps',    ru: 'Маршрут в Google Maps',    fr: 'Ouvrir l\'itinéraire dans Google Maps' }
   };
 
   // ── Hours: multilingual schedule status ───────────────────

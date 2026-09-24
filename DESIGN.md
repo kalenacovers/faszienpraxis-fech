@@ -1,76 +1,44 @@
 ---
 name: Fech Puls – Faszienpraxis Spaichingen
 description: Editorial fascia therapy practice. Precise, authoritative, premium without opulence.
+source-of-truth: site.css (tokens, layout primitives, components). This file explains it.
 colors:
-  deep-navy: "#0a2540"
-  charcoal-ink: "#0d3060"
-  signal-blue: "#0496ff"
-  sky-trace: "#90caf9"
-  body-ink: "#1a2e45"
-  steel-mist: "#5a7a99"
-  paper-white: "#f5faff"
-  cold-tint: "#e3f2fd"
-  star-gold: "#ffd166"
-  open-green: "#22c55e"
-  contra-red: "#d64045"
+  deep-navy: "#0a2540"      # --navy
+  navy-deep: "#061828"      # --navy-deep (footer base line)
+  charcoal-ink: "#0d3060"   # --charcoal
+  signal-blue: "#0496ff"    # --accent
+  signal-blue-hover: "#1ba3ff"
+  sky-trace: "#90caf9"      # --accent-light
+  body-ink: "#1a2e45"       # --ink
+  steel-mist: "#4a6a8a"     # --muted (darkened from #5a7a99 for AA contrast)
+  paper-white: "#f5faff"    # --paper
+  cold-tint: "#e3f2fd"      # --tint
+  accent-wash: "#eaf5ff"    # --accent-wash (selected form choice)
+  star-gold: "#ffd166"      # --star
+  open-green: "#22c55e"     # --open
+  contra-red: "#d64045"     # --contra
 typography:
-  display:
-    fontFamily: "Cormorant Garamond, Georgia, serif"
-    fontSize: "clamp(42px, 5.5vw, 86px)"
-    fontWeight: 300
-    lineHeight: 1.05
-    letterSpacing: "-0.01em"
-  headline:
-    fontFamily: "Cormorant Garamond, Georgia, serif"
-    fontSize: "clamp(32px, 4vw, 56px)"
-    fontWeight: 300
-    lineHeight: 1.12
-  title:
-    fontFamily: "Cormorant Garamond, Georgia, serif"
-    fontSize: "28px"
-    fontWeight: 300
-    lineHeight: 1.2
-  body:
-    fontFamily: "DM Sans, system-ui, sans-serif"
-    fontSize: "16px"
-    fontWeight: 300
-    lineHeight: 1.8
-  label:
-    fontFamily: "DM Sans, system-ui, sans-serif"
-    fontSize: "11px"
-    fontWeight: 500
-    letterSpacing: "0.2em"
+  display:  { family: "Cormorant Garamond", weight: 300, size: "clamp(42px → 86px)", lineHeight: 1.04 }
+  h1:       { family: "Cormorant Garamond", weight: 300, size: "clamp(40px → 72px)", lineHeight: 1.04 }
+  h2:       { family: "Cormorant Garamond", weight: 300, size: "clamp(32px → 56px)", lineHeight: 1.12 }
+  h2-sm:    { family: "Cormorant Garamond", weight: 300, size: "clamp(28px → 42px)" }
+  h3:       { family: "Cormorant Garamond", weight: 300, size: "clamp(22px → 28px)" }
+  lead:     { family: "DM Sans", weight: 300, size: "clamp(18px → 20px)", lineHeight: 1.7 }
+  body:     { family: "DM Sans", weight: 400, size: "16px", lineHeight: 1.7 }
+  eyebrow:  { family: "DM Sans", weight: 500, size: "11px", letterSpacing: "0.18em", transform: uppercase }
 rounded:
-  sharp: "2px"
-  soft: "4px"
-  pill: "999px"
+  controls: "2px"   # buttons, fields, badges
+  surfaces: "4px"   # cards, media frames
+  pill: "999px"     # status dots only
 spacing:
-  xs: "8px"
-  sm: "16px"
-  md: "32px"
-  lg: "60px"
-  xl: "100px"
-components:
-  button-primary:
-    backgroundColor: "#0496ff"
-    textColor: "#ffffff"
-    rounded: "2px"
-    padding: "18px 38px"
-  button-primary-hover:
-    backgroundColor: "#1ba3ff"
-    textColor: "#ffffff"
-  button-ghost:
-    backgroundColor: "transparent"
-    textColor: "#ffffff"
-    rounded: "2px"
-    padding: "18px 24px"
-  button-ghost-hover:
-    backgroundColor: "rgba(255,255,255,0.08)"
-  nav-cta:
-    backgroundColor: "transparent"
-    textColor: "#ffffff"
-    rounded: "2px"
-    padding: "9px 22px"
+  scale: "4 · 8 · 12 · 16 · 24 · 32 · 40→56 · 48→88"
+  section-sm: "clamp(40px → 64px)"
+  section: "clamp(72px → 128px)"
+  section-lg: "clamp(96px → 168px)"
+layout:
+  container: "1320px"
+  gutter: "clamp(20px → 60px)"
+  breakpoints: "480 · 640 · 768 · 1023 · 1279 (max-width)"
 ---
 
 # Design System: Fech Puls
@@ -79,124 +47,133 @@ components:
 
 **Creative North Star: "The Practitioner's Dispatch"**
 
-This is the visual language of a craftsperson who doesn't need to sell themselves — only to be found and trusted. Every surface operates like a careful publication: spare, considered, unhurried. The typography carries the authority; the color is kept on a tight leash. When the accent fires, it fires with purpose.
+This is the visual language of a craftsperson who doesn't need to sell themselves — only to be found and trusted. Every surface operates like a careful publication: spare, considered, unhurried. The typography carries the authority; the colour is kept on a tight leash. When the accent fires, it fires with purpose.
 
-The palette is built around a deep navy world — not dark as mood, but dark as precision instrument. The hero is drenched in it; sections breathe into a cool paper-white ground; dark-surfaced modules snap back in. The signal-blue accent appears where the eye needs a direction: calls to action, certification marks, live-status indicators. It is never decorative.
+The palette is built around a deep navy world — not dark as mood, but dark as precision instrument. Sections alternate between a cool paper-white ground, a cold tint and navy; dark bands snap back in to change pace. Signal Blue appears where the eye needs a direction: calls to action, the eyebrow mark, list markers. It is never decorative.
 
-This system explicitly rejects: stock-photo wellness softness, sterile hospital whites with zero warmth, SaaS hero-metric templates (big number, small label, gradient accent, identical card grid), and nightclub-dark luxury with gold dust. If it reads as a theme-park version of a therapy practice, it has failed.
+This system explicitly rejects: stock-photo wellness softness, sterile hospital whites, SaaS hero-metric templates, identical card grids, glassmorphism, glow, giant watermark words and anything that could have been generated for any business in any category.
 
-**Key Characteristics:**
-- Serifed display type (Cormorant Garamond, weight 300) anchors every section as an editorial moment
-- Accent blue used with restraint — on CTAs, live indicators, and certification chips only
-- Section rhythm alternates between paper-white ground and deep-navy ground for tonal contrast without visual noise
-- Motion is minimal: translateY(-2px) hover lifts, underline scale transitions, scroll-driven fade-ins — nothing choreographed
-- Shapes are nearly sharp: 2px radius on interactive elements, 4px on containers, full-pill on badges only
+**Key characteristics**
+- Serifed display type (Cormorant Garamond 300) anchors every section as an editorial moment
+- Hairlines instead of boxes: lists, indexes, steps and contact rows are separated by 1px rules
+- Numbers are typography (Cormorant numerals), never icons in circles
+- One container edge: every band, the nav and the footer align to the same left and right line at every width
+- Shapes are nearly sharp: 2px on controls, 4px on surfaces
 
-## 2. Colors: The Dispatch Palette
+## 2. Architecture
+
+| File | Role |
+|---|---|
+| `site.css` | **Single source of truth.** Tokens, base, layout primitives, typography, components, site chrome (nav, menu, footer, fixed contact), motion and focus. Loaded on every page. |
+| `index.css`, `kurs-page.css`, `ueber-mich.css`, `gutschein.css`, `fuer-wen.css`, `zertifikate.css`, `legal.css` | **Composition only.** Page-specific arrangement of system parts. They never redefine tokens, buttons, headings or surfaces. |
+| `nav.html`, `footer.html` | Shared fragments, injected by `components.js`. |
+
+Rules of the house:
+- A value that appears twice becomes a token in `site.css`.
+- Layout primitives use zero-specificity child selectors (`:where()`), so a page rule with one class always wins — no `!important`, no `body > …` chains.
+- Components never set a background that a surface class also sets (`.surface-dark` must be able to recolour them).
+
+## 3. Colours: The Dispatch Palette
 
 A monochromatic navy world, punctuated by one precision accent.
 
-### Primary
-- **Signal Blue** (`#0496ff`): The sole accent. Appears on primary CTAs, section eyebrow labels, the accent rule in the quote blockquote, cert-chip checkmarks, and the live-open status dot. Nowhere decorative.
-- **Sky Trace** (`#90caf9`): Desaturated blue. Used in hero text emphasis, icon tints on dark surfaces, and subdued trust indicators. Never a standalone accent — always supporting Signal Blue.
+- **Signal Blue** `--accent` — primary buttons, the eyebrow "+", list markers, numerals and heading emphasis on light grounds.
+- **Sky Trace** `--accent-light` — the same roles on dark grounds.
+- **Deep Navy** `--navy` — dark bands, nav, footer, featured cards.
+- **Charcoal Ink** `--charcoal` — the tonal step for page-closing CTA bands, so they read apart from the footer.
+- **Paper White** `--paper` / **Cold Tint** `--tint` — the light grounds. Never `#ffffff` or grey as a surface.
+- **Body Ink** `--ink` / **Steel Mist** `--muted` — text on light.
 
-### Neutral (Dark)
-- **Deep Navy** (`#0a2540`): The primary dark surface. Hero background (via overlay), trust bar, how-section, featured price card. The "floor" of the dark world.
-- **Charcoal Ink** (`#0d3060`): Slightly bluer dark. Used as the about-section image placeholder and as a secondary dark surface for layering.
-- **Body Ink** (`#1a2e45`): Default text on light surfaces. The readable mid-navy.
+**Semantic exclusivity.** Star Gold only for stars. Open Green only for the "open now" dot. Contra Red only for contraindications on `/fuer-wen`. WhatsApp green only on the WhatsApp button. Form errors use `--error`, not Contra Red.
 
-### Neutral (Light)
-- **Paper White** (`#f5faff`): The primary body background. Slightly blue-tinted — never neutral-gray, never warm-cream. Keeps the navy world coherent even in light sections.
-- **Cold Tint** (`#e3f2fd`): The section-level light background for the pricing area. One step cooler and slightly more saturated than Paper White.
-- **Steel Mist** (`#5a7a99`): Muted body text, metadata, timestamps, secondary labels. Legible but clearly secondary.
+### Surfaces
+A section declares its ground; components follow automatically.
 
-### Accent (Functional Only)
-- **Star Gold** (`#ffd166`): Stars only. Never buttons, never borders, never backgrounds.
-- **Open Green** (`#22c55e`): Live-hours "open" indicator only. One semantic dot, full stop.
-- **Contra Red** (`#d64045`, tint `rgba(214, 64, 69, 0.08)`): Medical contraindication warnings only (fuer-wen.html). Never CTAs, never decorative accents, never error styling outside the contraindication context.
+| Class | Ground | Headings | Emphasis / eyebrow | Rules |
+|---|---|---|---|---|
+| *(default)* / `.surface-paper` | Paper White | Navy | Signal Blue | `--line` |
+| `.surface-tint` | Cold Tint | Navy | Signal Blue | `--line` |
+| `.surface-dark` | Navy | Cold Tint | Sky Trace | white 12 % |
+| `.surface-charcoal` | Charcoal | Cold Tint | Sky Trace | white 12 % |
 
-### Named Rules
-**The One Voice Rule.** Signal Blue and Sky Trace together are the only chromatic elements in the interface. Every other surface is a navy or a tinted neutral. If a new element needs color, the answer is always a shade of blue or a tonal navy — not a new hue.
+Rhythm: never the same ground more than twice in a row. A page that ends in a charcoal CTA band hides the generic footer CTA (`body:has(.cta-band) .footer-cta`).
 
-**The Semantic Exclusivity Rule.** Star Gold is reserved for star ratings and nothing else. Open Green is reserved for the live-open status dot and nothing else. Contra Red is reserved for medical contraindication warnings and nothing else. Each appears in exactly one context per page.
+## 4. Typography
 
-## 3. Typography
+**Display:** Cormorant Garamond 300 (+ italic). **Body:** DM Sans 300/400/500. All sizes are fluid tokens; there are no per-page font sizes.
 
-**Display Font:** Cormorant Garamond (weight 300, with italic variant) — Georgia, serif fallback
-**Body Font:** DM Sans (weights 300, 400, 500) — system-ui, sans-serif fallback
+| Role | Token | Use |
+|---|---|---|
+| Display | `--fs-display` | Home hero only (`.display`) |
+| Page title | `--fs-h1` | Sub-page heroes (`.page-title`) |
+| Section title | `--fs-h2` | `.section-title` |
+| Section title, compact | `--fs-h2-sm` | Long titles, cards on dark (`.section-title--sm`) |
+| Item title | `--fs-h3` / `--fs-h4` | List items, steps, cards (`.item-title`) |
+| Numeral | `--fs-num` | `.num` — lining figures |
+| Lead | `--fs-lead` | `.lead`, hero sub-lines |
+| Body | `--fs-body` 16px | Paragraphs, max `--measure` (66ch) |
+| Eyebrow / label | `--fs-eyebrow` 11px | `.eyebrow` (with "+"), `.label` (without) — never smaller |
 
-**Character:** Cormorant at weight 300 brings a quiet editorial authority — the kind of type that belongs on the cover of a specialist journal, not a wellness brochure. DM Sans at weight 300 acts as its precise, unpretentious counterpart. The pairing works because neither tries to emote: Cormorant is formal without being cold; DM Sans is clear without being clinical.
+- Cormorant stays at weight 300; emphasis inside headings is `<em>` (italic, `--em` colour).
+- Numerals use `font-variant-numeric: lining-nums` so "01" never reads as "OI".
+- `.flow` sets the vertical rhythm of any text column (eyebrow → title → text → lists → actions).
 
-### Hierarchy
-- **Display** (weight 300, `clamp(42px, 5.5vw, 86px)`, line-height 1.05): Hero headline only. One per page.
-- **Headline** (weight 300, `clamp(32px, 4vw, 56px)`, line-height 1.12): Section titles. May include italic `<em>` spans for the accent-blue emphasis moment.
-- **Title** (weight 300, `28px`, line-height 1.2): Card headings, the about-section pull quote font size reference point.
-- **Body** (weight 300, `16px`, line-height 1.8): Long-form paragraph content. Max line length 65–75ch. Weight 400 used for `<strong>` emphasis within body copy.
-- **Label** (weight 500, `11px`, letter-spacing `0.2em`, uppercase): Eyebrow labels, certification tags, nav links, badge text. The smallest legible unit — never go below `11px`.
+## 5. Layout system
 
-### Named Rules
-**The Weight Ceiling Rule.** Weight 600 (semibold) is not in this system. The highest weight is 500 (medium) on DM Sans labels and strong spans. Display and headline stay at 300 always. Heaviness here reads as shouting.
+- **Band:** `.section` (+ `--sm` / `--lg`) is full-bleed; its content is inset by `--band-inline = max(gutter, (100% − 1320px) / 2)`. The nav and footer use the same value, so all content shares one edge — no wrappers, no widescreen overrides.
+- **Split:** `.split` — two columns inside a band, ratio via `--split-cols`, stacks below 1024px.
+- **Media split:** `.media-split` — one side bleeds to the viewport edge, the text stays on the container edge. `--split` is the media share (e.g. `.42`), and the ratio holds at every width. `--reverse` flips it. Stacked, the media takes `--media-ratio-stacked`.
+- **Page hero:** `.page-hero` on top of the media split — text on one side, photo or dark `.page-hero-panel` on the other (the panel keeps its content on the container grid via subgrid).
+- **Section head:** `.section-head` (stacked) or `.section-head--split` (title left, lead right).
+- **Index grid:** `.index-grid` — editorial columns separated by hairlines, `--cols` 3 → 2 → 1.
 
-**The Italic Signal Rule.** Italic in Cormorant Garamond is the only typographic accent on dark surfaces (see hero `<em>`). On light surfaces, italic appears in pull quotes. It is never used in DM Sans.
+Breakpoints (max-width): 480 · 640 · 768 · 1023 · 1279. Everything between them is fluid.
 
-## 4. Elevation
+## 6. Components
 
-This system is nearly flat by default. Depth is communicated through tonal contrast between sections (dark navy vs paper-white), not shadow layering. Shadows appear only as hover state responses.
+**Buttons** — one family. `.btn-primary` (Signal Blue fill, navy label), `.btn-ghost` (hairline outline that follows the surface, → arrow), `.btn-link` (text action with arrow and underline). Modifiers `.btn-block`, `.btn-sm`. Height 52px, 2px radius, 13px uppercase. Hover: lift 1px and lighten; no glow.
 
-### Shadow Vocabulary
-- **Accent Glow** (`0 6px 20px rgba(4, 150, 255, 0.35)`, scales to `0 10px 28px rgba(4, 150, 255, 0.5)` on hover): Primary button only. The only intentional glow in the system.
-- **Card Lift** (`0 14px 38px rgba(10, 37, 64, 0.12)`): Price card hover state. Structural — indicates the card has risen above the surface.
-- **Featured Elevation** (`0 18px 50px rgba(10, 37, 64, 0.22)`): Featured price card at rest. The single persistent shadow in the page, establishing one clear hierarchy peak.
-- **Nav Glass** (`0 1px 0 rgba(255,255,255,0.06), 0 8px 30px rgba(10, 37, 64, 0.18)`): Scrolled navigation. Anchors the frosted nav bar against the content below.
+**Rule list** `.rule-list` — the standard list: dash marker, hairline between items.
 
-### Named Rules
-**The Flat-By-Default Rule.** At rest, cards have no shadow. Shadows only emerge on hover (lift state) or for the one intentionally elevated featured element. If a card has a shadow at rest and no hover change, it reads as frozen mid-interaction.
+**Price card** `.price-card` in `.pricing-grid` — paper card with hairline border; `.is-featured.surface-dark` is navy, extends above and below its row and carries `.price-badge`. Used for treatments and course packages alike.
 
-## 5. Components
+**Stat row** `.stat-row` — numbers set in Cormorant with a label, separated by a hairline, never in boxes.
 
-### Buttons
-Shape: nearly sharp, gently radiused (2px). Every button uses uppercase DM Sans at 13px, weight 500, letter-spacing 0.1em — consistent across all variants.
+**Trust strip** `.trust-strip` — a quiet navy info line, one row on desktop, two columns on tablet, one on small phones.
 
-- **Primary:** Signal Blue (`#0496ff`) background, white text, 18px 38px padding, 2px radius. Carries a subtle accent glow (`box-shadow: 0 6px 20px rgba(4,150,255,.35)`). On hover: lightens to `#1ba3ff`, rises `translateY(-1px)`, glow intensifies.
-- **Ghost:** Transparent background, white text, `1px solid rgba(255,255,255,.35)` border, same padding. Used on dark backgrounds only. Carries an `→` arrow that slides `translateX(4px)` on hover. Border strengthens to `rgba(255,255,255,.7)` on hover.
-- **Nav CTA:** Inline ghost variant at a smaller scale — `9px 22px` padding, `12px` type. Inverts to solid white background + dark text on hover. Lives only in the navigation.
+**Media** `.media` + `.media-caption` — image fills its frame, focus point via `--focus`; the caption is a solid navy tag (no blur).
 
-### Chips / Tags
-- **Cert Tags:** Full-pill radius (`999px`), white background, `1px` border in `rgba(4,150,255,.15)`. Uppercase DM Sans 11px, letter-spacing 0.1em, Steel Mist text. Leading checkmark icon embedded as SVG background-image in Signal Blue. On hover: border strengthens, text darkens to Body Ink.
+**Contact list** `.contact-list` — label / value / hint rows with an arrow; used on the home CTA and `/fuer-wen`.
 
-### Cards / Containers
-- **How-Section Cards (dark):** 4px radius, `1px solid rgba(255,255,255,.08)` border, near-transparent background `rgba(255,255,255,.03)`. On hover: background shifts to `rgba(4,150,255,.06)`, border to `rgba(4,150,255,.35)`, `translateY(-2px)`. Ghost Cormorant numeral (weight 300, 56px, 14% opacity) as decorative position marker in top-right corner.
-- **Price Cards (light):** No radius (flat-edged). `1px solid` border in border token `rgba(4,150,255,.15)`. White background. On hover: border becomes Signal Blue, card lifts with Card Lift shadow + `translateY(-2px)`.
-- **Featured Price Card:** Inverted — Deep Navy background, Cream text. Permanently elevated `translateY(-12px)` above siblings. Badge in Signal Blue at card top-center.
-- **Condition Grid:** No individual card borders. Items separated by a 2px-wide gap with the border-token color as background — the grid gap IS the line. Items are flat panels.
+**CTA band** `.cta-band` — the page finale: large title left, text/actions or contact list right.
 
-### Inputs / Fields
-Not defined in the main index (booking is external via Timify). For future form surfaces: follow the same sharp-edge (2px radius), Body Ink stroke, Paper White background pattern as the rest of the light surface system.
+**Pull quote** `.pull-quote` — Cormorant italic with a 2px Signal Blue rule. The only coloured left border in the system.
 
-### Navigation
-Fixed, transparent-over-hero. At rest: gradient readability veil from Deep Navy at 55% opacity, fading to transparent — not a visible bar, just legibility. On scroll (`is-scrolled`): frosted glass (`backdrop-filter: blur(18px) saturate(140%)`) with Deep Navy at 42% opacity, Nav Glass shadow. Links are DM Sans 13px uppercase, letter-spacing 0.12em, weight 400. Hover: white + underline scaleX(0→1) from left. Mobile: full-screen overlay with Paper White at 98% opacity, Cormorant Garamond 22px links.
+**Lightbox** `.lightbox` — shared by `/zertifikate` and `/gutschein`.
 
-### Signature Component: Quote Blockquote
-Cormorant Garamond italic, weight 300, 24px, line-height 1.45. A `2px solid Signal Blue` left border at 18px padding-left. This is the only place a left-border stripe is permitted — it's structural (the sole typographic affordance for quotation), not decorative.
+**Navigation** — solid navy by default; transparent with a top readability veil only while it overlaps the home hero (`.is-over-hero`, set by `components.js`). Collapses to the hamburger below 1024px.
 
-## 6. Do's and Don'ts
+**Fixed contact** — below 768px a bottom bar (call · WhatsApp · book); above, a WhatsApp button stacked over the language switcher on the right, so it never covers the start of a line.
 
-### Do:
-- **Do** use Cormorant Garamond at weight 300 for all display and headline text. The lightness is load-bearing.
-- **Do** reserve Signal Blue (`#0496ff`) for primary CTAs, eyebrow labels, cert checkmarks, and the quote rule. Nowhere else.
-- **Do** alternate section backgrounds between Paper White and Deep Navy for tonal rhythm — never the same background more than two sections in a row.
-- **Do** let typography carry hierarchy. Resist adding icons, borders, or backgrounds to make sections feel "more designed."
-- **Do** keep body line length at 65–75ch. At wider widths, constrain with `max-width`.
-- **Do** use uppercase DM Sans (11–13px, letter-spacing 0.12–0.2em) for all labels, eyebrows, and navigation links.
-- **Do** write copy that is direct and specific. Numbers, place names, credentials — these are design elements.
+## 7. Elevation & motion
 
-### Don't:
-- **Don't** add new hues. The palette is Signal Blue + navy world. A third accent (coral, sage, amber) breaks the single-voice system immediately.
-- **Don't** use gradient text (`background-clip: text`). Prohibited across the entire system.
-- **Don't** build identical card grids. The conditions grid, how-section, and price cards are all deliberately different structures. New sections should find their own form.
-- **Don't** use generic wellness/spa imagery language — stock photo green leaves, lotus flowers, "ganzheitlich" paired with a soft-focus pastel. This practice is medical-grade, not spa-grade.
-- **Don't** create cold clinical / hospital whites — every white surface is Paper White (`#f5faff`), blue-tinted and alive. Never `#ffffff` or `#f8f8f8` as a background.
-- **Don't** replicate SaaS landing page patterns: hero metric boxes, gradient text, identical feature card grids, hero subtext that lists three bullet benefits.
-- **Don't** use `border-left` or `border-right` greater than 2px as a colored accent stripe on cards or list items, except for the designated quote blockquote component.
-- **Don't** add Cormorant Garamond at weight 400 or 600. The system only uses 300 (body text in DM Sans weight 400/500 is fine).
-- **Don't** animate layout properties. Transitions are confined to `opacity`, `transform`, `color`, `background-color`, `border-color`, `box-shadow`.
+Flat by default. Shadows: `--shadow-lift` (card hover), `--shadow-raised` (featured card), `--shadow-media` (framed images), `--shadow-document` (paper on navy), `--shadow-nav`.
+
+Motion is confined to `opacity`, `transform`, colours and shadows. Hero content fades up once on load (`.animate`); below the fold, section heads and `.reveal-group` children fade in once on scroll. Everything is visible without JavaScript and with reduced motion.
+
+## 8. Do's and Don'ts
+
+### Do
+- Start every new section from a surface class, `.section`, and a `.section-head`.
+- Use hairlines, numerals and typography to structure content.
+- Keep body text at 66ch or less.
+- Add a token before adding a second occurrence of any value.
+
+### Don't
+- Don't add new hues, gradients as decoration, or `background-clip: text`.
+- Don't add glassmorphism, glow, grain overlays or giant watermark words behind sections.
+- Don't use icon-in-a-circle cards, Unicode glyphs (✦ ◈ ☎) or emoji as icons.
+- Don't build three identical cards with ghost numerals; use `.index-grid`, a stepped list or a manifesto list instead.
+- Don't use coloured left/right borders thicker than 2px (only `.pull-quote` has one).
+- Don't set font sizes, paddings or container widths per page — use the tokens.
+- Don't put a second CTA directly above the footer CTA; use `.cta-band` and let the footer step back.

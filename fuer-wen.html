@@ -25,9 +25,8 @@
   <link rel="preload" href="assets/fonts/dm-sans-400-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/cormorant-garamond-300-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="fonts.css">
-  <link rel="stylesheet" href="accessibility.css">
+  <link rel="stylesheet" href="site.css">
   <link rel="stylesheet" href="fuer-wen.css">
-  <link rel="stylesheet" href="widescreen.css">
 </head>
 
 <body data-page="fuer-wen">
@@ -40,189 +39,155 @@
   <main id="main-content" tabindex="-1">
 
   <!-- ══════ HERO ══════ -->
-  <section class="fuerwen-hero">
-    <div class="fuerwen-hero-left">
-      <p class="fuerwen-hero-eyebrow animate">Wichtige Hinweise · Fech Puls</p>
-      <h1 class="animate delay-1">
+  <section class="page-hero media-split media-split--reverse surface-paper" aria-labelledby="fuerwen-heading">
+    <div class="split-body flow">
+      <p class="eyebrow animate">Wichtige Hinweise · Fech Puls</p>
+      <h1 id="fuerwen-heading" class="page-title animate delay-1">
         Für wen ist die<br>
         Tiefengewebe&shy;behandlung<br>
         <em>nicht geeignet?</em>
       </h1>
-      <p class="fuerwen-hero-sub animate delay-2">
+      <p class="page-hero-lead animate delay-2">
         Die Tiefengewebsarbeit ist eine kraftvolle, manuelle Methode zur gezielten Lösung von Spannungen, Verklebungen
         und Blockaden. Doch sie ist nicht für jede Person sinnvoll oder empfehlenswert.
       </p>
-      <div class="fuerwen-hero-pills animate delay-3">
-        <div class="fuerwen-pill"><span class="fuerwen-pill-dot"></span> 8 Kontraindikationen</div>
-        <div class="fuerwen-pill"><span class="fuerwen-pill-dot"></span> Ehrliche Beratung</div>
-        <div class="fuerwen-pill"><span class="fuerwen-pill-dot"></span> Alternative vorhanden</div>
+      <div class="cluster actions animate delay-3">
+        <a href="#kontraindikationen" class="btn-ghost">Zu den 8 Kontraindikationen</a>
       </div>
     </div>
 
-    <div class="fuerwen-hero-right">
-      <div class="fuerwen-hero-pattern"></div>
-      <div class="fuerwen-hero-bg-text">Sicherheit</div>
-      <div class="fuerwen-hero-list animate delay-2">
-        <div class="fuerwen-hero-list-item">
-          <div class="fuerwen-hero-list-item-label">Geeignet für</div>
-          <p>Muskuläre Verspannungen, Triggerpunkte, Bewegungseinschränkungen, chronische Schmerzen</p>
+    <div class="split-media page-hero-panel surface-dark">
+      <dl class="fuerwen-overview animate delay-2">
+        <div>
+          <dt class="label">Geeignet für</dt>
+          <dd>Muskuläre Verspannungen, Triggerpunkte, Bewegungseinschränkungen, chronische Schmerzen</dd>
         </div>
-        <div class="fuerwen-hero-list-item">
-          <div class="fuerwen-hero-list-item-label">Nicht geeignet bei</div>
-          <p>Krebserkrankungen, akuten Entzündungen, Gerinnungsstörungen, frischen OPs</p>
+        <div>
+          <dt class="label">Nicht geeignet bei</dt>
+          <dd>Krebserkrankungen, akuten Entzündungen, Gerinnungsstörungen, frischen OPs</dd>
         </div>
-        <div class="fuerwen-hero-list-item">
-          <div class="fuerwen-hero-list-item-label">Alternative</div>
-          <p>Sanfte Wellnessmassage bei Kontraindikationen — beruhigend, ohne Tiefenreiz</p>
+        <div>
+          <dt class="label">Alternative</dt>
+          <dd>Sanfte Wellnessmassage bei Kontraindikationen — beruhigend, ohne Tiefenreiz</dd>
         </div>
-        <div class="fuerwen-hero-list-item">
-          <div class="fuerwen-hero-list-item-label">Im Zweifel</div>
-          <p>Einfach ansprechen — gemeinsam finden wir die passende Behandlung</p>
+        <div>
+          <dt class="label">Im Zweifel</dt>
+          <dd>Einfach ansprechen — gemeinsam finden wir die passende Behandlung</dd>
         </div>
-      </div>
-      <p class="fuerwen-hero-note animate delay-3">
+      </dl>
+      <p class="text-meta fuerwen-hero-note animate delay-3">
         Unsicher ob die Behandlung für Sie geeignet ist? Sprechen Sie mich vor dem Termin offen an.
       </p>
     </div>
   </section>
 
 
-  <!-- ══════ TRUST BAR ══════ -->
-  <div class="trust-bar">
-    <div class="trust-item"><span class="icon" aria-hidden="true">✦</span> Ehrliche Aufklärung</div>
-    <div class="trust-sep"></div>
-    <div class="trust-item"><span class="icon" aria-hidden="true">✦</span> Keine Behandlung auf Teufel komm raus</div>
-    <div class="trust-sep"></div>
-    <div class="trust-item"><span class="icon" aria-hidden="true">✦</span> Alternative Behandlung verfügbar</div>
-    <div class="trust-sep"></div>
-    <div class="trust-item"><span class="icon" aria-hidden="true">✦</span> Individuelle Beratung</div>
+  <!-- ══════ TRUST STRIP ══════ -->
+  <div class="trust-strip">
+    <ul>
+      <li>Ehrliche Aufklärung</li>
+      <li>Keine Behandlung auf Teufel komm raus</li>
+      <li>Alternative Behandlung verfügbar</li>
+      <li>Individuelle Beratung</li>
+    </ul>
   </div>
 
 
-  <!-- ══════ KONTRAINDIKATIONEN GRID ══════ -->
-  <section class="fuerwen-contra">
-    <div class="fuerwen-contra-header">
+  <!-- ══════ KONTRAINDIKATIONEN ══════ -->
+  <section class="section surface-paper" id="kontraindikationen" aria-labelledby="contra-heading">
+    <header class="section-head section-head--split">
       <div>
-        <p class="section-eyebrow animate">Kontraindikationen</p>
-        <h2 class="section-title animate delay-1">
+        <p class="eyebrow">Kontraindikationen</p>
+        <h2 id="contra-heading" class="section-title contra-title">
           Keine Tiefengewebe&shy;behandlung <em>bei diesen Fällen</em>
         </h2>
       </div>
-      <p class="fuerwen-contra-desc animate delay-2">
+      <p class="lead">
         Die folgende Liste gibt Ihnen einen klaren Überblick — bei welchen Beschwerden und Zuständen von einer
         Tiefengewebsbehandlung abgeraten wird, und warum.
       </p>
-    </div>
+    </header>
 
-    <div class="fuerwen-contra-grid" role="list">
-
-      <div class="fuerwen-contra-card animate delay-1" role="listitem">
-        <span class="fuerwen-contra-num">01</span>
-        <div class="fuerwen-contra-icon" aria-hidden="true">✕</div>
-        <h3 class="fuerwen-contra-title">Krebserkrankungen</h3>
-        <p class="fuerwen-contra-text">Bei bestehenden oder kürzlich behandelten Krebserkrankungen ist von intensiver
+    <ol class="index-grid contra-grid reveal-group">
+      <li>
+        <span class="num" aria-hidden="true">01</span>
+        <h3 class="item-title">Krebserkrankungen</h3>
+        <p>Bei bestehenden oder kürzlich behandelten Krebserkrankungen ist von intensiver
           manueller Arbeit abzuraten. Eine sanfte Wellnessmassage kann zur Entspannung sinnvoller sein — nicht zur
           Tieflockerung.</p>
-        <span class="fuerwen-contra-bar"></span>
-      </div>
-
-      <div class="fuerwen-contra-card animate delay-2" role="listitem">
-        <span class="fuerwen-contra-num">02</span>
-        <div class="fuerwen-contra-icon" aria-hidden="true">✕</div>
-        <h3 class="fuerwen-contra-title">Akute Entzündungen oder Fieber</h3>
-        <p class="fuerwen-contra-text">Bei grippalen Infekten, Entzündungen oder erhöhter Temperatur sollte der Körper
+      </li>
+      <li>
+        <span class="num" aria-hidden="true">02</span>
+        <h3 class="item-title">Akute Entzündungen oder Fieber</h3>
+        <p>Bei grippalen Infekten, Entzündungen oder erhöhter Temperatur sollte der Körper
           nicht zusätzlich belastet werden. Der Körper braucht in diesem Zustand Ruhe, keine intensive Reize.</p>
-        <span class="fuerwen-contra-bar"></span>
-      </div>
-
-      <div class="fuerwen-contra-card animate delay-3" role="listitem">
-        <span class="fuerwen-contra-num">03</span>
-        <div class="fuerwen-contra-icon" aria-hidden="true">✕</div>
-        <h3 class="fuerwen-contra-title">Nierenerkrankungen oder Organleiden</h3>
-        <p class="fuerwen-contra-text">Bei Problemen mit inneren Organen — besonders Niere, Leber oder Herz — sollte
+      </li>
+      <li>
+        <span class="num" aria-hidden="true">03</span>
+        <h3 class="item-title">Nierenerkrankungen oder Organleiden</h3>
+        <p>Bei Problemen mit inneren Organen — besonders Niere, Leber oder Herz — sollte
           keine tiefe Druckarbeit erfolgen. Bitte im Zweifel vorher ärztlich abklären.</p>
-        <span class="fuerwen-contra-bar"></span>
-      </div>
-
-      <div class="fuerwen-contra-card animate delay-1" role="listitem">
-        <span class="fuerwen-contra-num">04</span>
-        <div class="fuerwen-contra-icon" aria-hidden="true">✕</div>
-        <h3 class="fuerwen-contra-title">Blutgerinnungsstörungen / Blutverdünner</h3>
-        <p class="fuerwen-contra-text">Menschen mit eingeschränkter Blutgerinnung (z. B. Marcumar) haben ein erhöhtes
+      </li>
+      <li>
+        <span class="num" aria-hidden="true">04</span>
+        <h3 class="item-title">Blutgerinnungsstörungen / Blutverdünner</h3>
+        <p>Menschen mit eingeschränkter Blutgerinnung (z. B. Marcumar) haben ein erhöhtes
           Risiko für innere Blutungen bei intensiver Druckarbeit. Hier ist eine sanfte Berührung deutlich sicherer.</p>
-        <span class="fuerwen-contra-bar"></span>
-      </div>
-
-      <div class="fuerwen-contra-card animate delay-2" role="listitem">
-        <span class="fuerwen-contra-num">05</span>
-        <div class="fuerwen-contra-icon" aria-hidden="true">✕</div>
-        <h3 class="fuerwen-contra-title">Frische Operationen oder Verletzungen</h3>
-        <p class="fuerwen-contra-text">Direkt nach OPs oder bei noch nicht vollständig verheilten Narben und Wunden
+      </li>
+      <li>
+        <span class="num" aria-hidden="true">05</span>
+        <h3 class="item-title">Frische Operationen oder Verletzungen</h3>
+        <p>Direkt nach OPs oder bei noch nicht vollständig verheilten Narben und Wunden
           sollte nicht tief in das Gewebe gearbeitet werden. Warten bis zur vollständigen Heilung ist wichtig.</p>
-        <span class="fuerwen-contra-bar"></span>
-      </div>
-
-      <div class="fuerwen-contra-card animate delay-3" role="listitem">
-        <span class="fuerwen-contra-num">06</span>
-        <div class="fuerwen-contra-icon" aria-hidden="true">✕</div>
-        <h3 class="fuerwen-contra-title">Instabile psychische Zustände</h3>
-        <p class="fuerwen-contra-text">Bei akuten psychischen Krisen oder sehr sensibler Verfassung kann tiefe
+      </li>
+      <li>
+        <span class="num" aria-hidden="true">06</span>
+        <h3 class="item-title">Instabile psychische Zustände</h3>
+        <p>Bei akuten psychischen Krisen oder sehr sensibler Verfassung kann tiefe
           Körperarbeit emotional überfordernd wirken. Auch hier ist eine beruhigende, oberflächliche Massage oft die
           bessere Wahl.</p>
-        <span class="fuerwen-contra-bar"></span>
-      </div>
-
-      <div class="fuerwen-contra-card animate delay-1" role="listitem">
-        <span class="fuerwen-contra-num">07</span>
-        <div class="fuerwen-contra-icon" aria-hidden="true">✕</div>
-        <h3 class="fuerwen-contra-title">Rheuma</h3>
-        <p class="fuerwen-contra-text">Bei rheumatischen Erkrankungen sollte in akuten Schubphasen auf intensive
+      </li>
+      <li>
+        <span class="num" aria-hidden="true">07</span>
+        <h3 class="item-title">Rheuma</h3>
+        <p>Bei rheumatischen Erkrankungen sollte in akuten Schubphasen auf intensive
           Tiefengewebebehandlung verzichtet werden. Starker Druck auf entzündete Gelenke oder gereizte Strukturen kann
           die Beschwerden verschlimmern — eine sanfte Behandlung ist hier die sicherere Wahl.</p>
-        <span class="fuerwen-contra-bar"></span>
-      </div>
-
-      <div class="fuerwen-contra-card animate delay-2" role="listitem">
-        <span class="fuerwen-contra-num">08</span>
-        <div class="fuerwen-contra-icon" aria-hidden="true">✕</div>
-        <h3 class="fuerwen-contra-title">Thrombose / Venenerkrankungen</h3>
-        <p class="fuerwen-contra-text">Bei Thrombose oder Venenerkrankungen ist tiefe manuelle Arbeit wegen
+      </li>
+      <li>
+        <span class="num" aria-hidden="true">08</span>
+        <h3 class="item-title">Thrombose / Venenerkrankungen</h3>
+        <p>Bei Thrombose oder Venenerkrankungen ist tiefe manuelle Arbeit wegen
           Emboliegefahr nicht geeignet — bitte vorab ärztlich abklären.</p>
-        <span class="fuerwen-contra-bar"></span>
-      </div>
-
-    </div>
+      </li>
+    </ol>
   </section>
 
 
   <!-- ══════ ALTERNATIVE ══════ -->
-  <section class="fuerwen-alternative">
-    <div class="fuerwen-alternative-left">
-      <p class="section-eyebrow animate">Die Alternative</p>
-      <h2 class="section-title animate delay-1">
-        Was ist sinnvoller<br>in diesen <em>Fällen?</em>
-      </h2>
-      <p class="animate delay-2">
-        In allen oben genannten Situationen ist eine <strong>sanfte, entspannende Wellnessmassage</strong> oft die
-        deutlich hilfreichere und sicherere Wahl.
-      </p>
-      <p class="animate delay-2">
-        Sie wirkt beruhigend auf das Nervensystem und unterstützt den Energiefluss — ohne die Tiefe des Gewebes zu
-        reizen oder den Körper zusätzlich zu belasten.
-      </p>
-      <p class="animate delay-3">
-        Wenn Sie sich unsicher sind, sprechen Sie mich gerne offen an. <strong>Gemeinsam finden wir die passende
+  <section class="section surface-tint" aria-labelledby="alternative-heading">
+    <div class="split fuerwen-alternative">
+      <div class="flow">
+        <p class="eyebrow">Die Alternative</p>
+        <h2 id="alternative-heading" class="section-title">Was ist sinnvoller<br>in diesen <em>Fällen?</em></h2>
+        <p>
+          In allen oben genannten Situationen ist eine <strong>sanfte, entspannende Wellnessmassage</strong> oft die
+          deutlich hilfreichere und sicherere Wahl.
+        </p>
+        <p>
+          Sie wirkt beruhigend auf das Nervensystem und unterstützt den Energiefluss — ohne die Tiefe des Gewebes zu
+          reizen oder den Körper zusätzlich zu belasten.
+        </p>
+        <p>
+          Wenn Sie sich unsicher sind, sprechen Sie mich gerne offen an. <strong>Gemeinsam finden wir die passende
           Behandlung für Ihren Körper.</strong>
-      </p>
-    </div>
+        </p>
+      </div>
 
-    <div class="animate delay-2">
-      <div class="fuerwen-alt-card">
-        <div class="fuerwen-alt-label">Sanfte Alternative</div>
-        <h3 class="fuerwen-alt-title">
-          Entspannende<br><em>Wellnessmassage</em>
-        </h3>
-        <ul class="fuerwen-alt-benefits">
+      <aside class="fuerwen-alt-card surface-dark flow" aria-labelledby="alt-card-heading" data-reveal>
+        <p class="eyebrow">Sanfte Alternative</p>
+        <h3 id="alt-card-heading" class="section-title section-title--sm">Entspannende<br><em>Wellnessmassage</em></h3>
+        <ul class="rule-list">
           <li>Beruhigende Wirkung auf das Nervensystem</li>
           <li>Unterstützung des natürlichen Energieflusses</li>
           <li>Kein intensiver Tiefenreiz — sanft und schonend</li>
@@ -231,50 +196,52 @@
           <li>Individuelle Abstimmung auf Ihren Zustand</li>
         </ul>
         <a href="https://book.timify.com/?accountId=652fe85cbd51d3ad47200466&hideCloseButton=true"
-          class="fuerwen-alt-cta">Termin anfragen</a>
-      </div>
+          class="btn-primary btn-block">Termin anfragen</a>
+      </aside>
     </div>
   </section>
 
 
-  <!-- ══════ CALLOUT — Kontakt ══════ -->
-  <section class="fuerwen-callout">
-    <div class="fuerwen-callout-left">
-      <p class="fuerwen-callout-eyebrow animate">Nicht sicher?</p>
-      <h2 class="fuerwen-callout-title animate delay-1">
-        Sprechen Sie mich<br>einfach <em>offen an</em>
-      </h2>
-      <p class="fuerwen-callout-text animate delay-2">
-        Wenn Sie sich unsicher sind, ob eine Tiefengewebsbehandlung für Sie geeignet ist, melden Sie sich gerne vorab.
-        Gemeinsam klären wir, welche Behandlung am besten zu Ihrer Situation passt — ohne Druck, ohne Verpflichtung.
-      </p>
-    </div>
+  <!-- ══════ NICHT SICHER? — Kontakt ══════ -->
+  <section class="section section--lg surface-charcoal" aria-labelledby="callout-heading">
+    <div class="cta-band">
+      <div class="cta-band-main flow">
+        <p class="eyebrow">Nicht sicher?</p>
+        <h2 id="callout-heading" class="cta-band-title">Sprechen Sie mich<br>einfach <em>offen an</em></h2>
+        <p class="text-muted">
+          Wenn Sie sich unsicher sind, ob eine Tiefengewebsbehandlung für Sie geeignet ist, melden Sie sich gerne vorab.
+          Gemeinsam klären wir, welche Behandlung am besten zu Ihrer Situation passt — ohne Druck, ohne Verpflichtung.
+        </p>
+      </div>
 
-    <div class="fuerwen-callout-right animate delay-2">
-      <a href="tel:+4974249606099" class="fuerwen-contact-item">
-        <div class="fuerwen-contact-icon">☎</div>
-        <div>
-          <div class="fuerwen-contact-label">Telefon</div>
-          <div class="fuerwen-contact-value">07424 960 609 9</div>
-        </div>
-      </a>
-      <a href="mailto:mein-therapeut@web.de" class="fuerwen-contact-item">
-        <div class="fuerwen-contact-icon">✉</div>
-        <div>
-          <div class="fuerwen-contact-label">E-Mail</div>
-          <div class="fuerwen-contact-value">mein-therapeut@web.de</div>
-        </div>
-      </a>
-      <a href="https://book.timify.com/?accountId=652fe85cbd51d3ad47200466&hideCloseButton=true"
-        class="fuerwen-contact-item">
-        <div class="fuerwen-contact-icon">◈</div>
-        <div>
-          <div class="fuerwen-contact-label">Online</div>
-          <div class="fuerwen-contact-value">Termin buchen</div>
-        </div>
-      </a>
-      <p class="fuerwen-contact-note">Mo & Di 8–11 · 15–18 Uhr &nbsp;·&nbsp; Mi 9–13 Uhr &nbsp;·&nbsp; Do 15–19 Uhr
-        &nbsp;·&nbsp; Fr 9–13 Uhr</p>
+      <div class="cta-band-aside">
+        <ul class="contact-list">
+          <li>
+            <a href="tel:+4974249606099">
+              <span class="label contact-label">Telefon</span>
+              <span class="contact-value">07424 960 609 9</span>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:mein-therapeut@web.de">
+              <span class="label contact-label">E-Mail</span>
+              <span class="contact-value">mein-therapeut@web.de</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://book.timify.com/?accountId=652fe85cbd51d3ad47200466&hideCloseButton=true">
+              <span class="label contact-label">Online</span>
+              <span class="contact-value">Termin buchen</span>
+            </a>
+          </li>
+        </ul>
+        <p class="text-meta">
+          <span class="nowrap">Mo &amp; Di 8–11 · 15–18 Uhr</span> ·
+          <span class="nowrap">Mi 9–13 Uhr</span> ·
+          <span class="nowrap">Do 15–19 Uhr</span> ·
+          <span class="nowrap">Fr 9–13 Uhr</span>
+        </p>
+      </div>
     </div>
   </section>
 

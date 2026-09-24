@@ -25,9 +25,8 @@
   <link rel="preload" href="assets/fonts/dm-sans-400-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/cormorant-garamond-300-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="fonts.css">
-  <link rel="stylesheet" href="accessibility.css">
-  <link rel="stylesheet" href="datenschutz.css">
-  <link rel="stylesheet" href="widescreen.css">
+  <link rel="stylesheet" href="site.css">
+  <link rel="stylesheet" href="legal.css">
 </head>
 
 <body data-page="datenschutz">
@@ -38,21 +37,22 @@
   <div id="site-nav"></div>
 
 
-  <!-- ══════ PAGE BANNER ══════ -->
-  <div class="legal-banner">
-    <div class="legal-banner-bg">Datenschutz</div>
-    <div class="legal-banner-inner">
-      <p class="legal-banner-eyebrow">Rechtliches · Fech Puls</p>
-      <h1>Datenschutz-<br><em>erklärung</em></h1>
-      <p class="legal-banner-sub">Informationen zum Umgang mit Ihren personenbezogenen Daten gemäß der
+  <main id="main" tabindex="-1">
+
+  <!-- ══════ BANNER ══════ -->
+  <header class="legal-banner surface-dark">
+    <div class="legal-banner-inner flow">
+      <p class="eyebrow">Rechtliches · Fech Puls</p>
+      <h1 class="page-title">Datenschutz-<br><em>erklärung</em></h1>
+      <p class="page-hero-lead">Informationen zum Umgang mit Ihren personenbezogenen Daten gemäß der
         Datenschutz-Grundverordnung (DSGVO).</p>
     </div>
-    <div class="legal-tabs">
-      <a href="/datenschutz" class="legal-tab active">Datenschutz</a>
+    <nav class="legal-tabs" aria-label="Rechtliche Seiten">
+      <a href="/datenschutz" class="legal-tab active" aria-current="page">Datenschutz</a>
       <a href="/impressum" class="legal-tab">Impressum</a>
       <a href="/" class="legal-tab">Zurück zur Startseite</a>
-    </div>
-  </div>
+    </nav>
+  </header>
 
 
   <!-- ══════ CONTENT ══════ -->
@@ -60,7 +60,7 @@
 
     <!-- TOC Sidebar -->
     <nav class="legal-toc" aria-label="Inhaltsverzeichnis">
-      <div class="legal-toc-label">Inhalt</div>
+      <p class="label legal-toc-label">Inhalt</p>
       <ul class="legal-toc-list">
         <li><a href="#abschnitt-1">1. Datenschutz auf einen Blick</a></li>
         <li><a href="#abschnitt-2">2. Hosting</a></li>
@@ -71,7 +71,7 @@
     </nav>
 
     <!-- Main content -->
-    <main class="legal-content" id="main" tabindex="-1">
+    <div class="legal-content">
 
       <!-- 1 -->
       <div class="legal-section" id="abschnitt-1">
@@ -308,8 +308,10 @@
         <p>Stand dieser Datenschutzerklärung: <strong>Juli 2026</strong></p>
       </div>
 
-    </main>
+    </div>
   </div>
+
+  </main>
 
   <!-- FOOTER (injected by components.js) -->
   <div id="site-footer"></div>

@@ -25,17 +25,8 @@
   <link rel="preload" href="assets/fonts/dm-sans-400-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/cormorant-garamond-300-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="fonts.css">
-  <link rel="stylesheet" href="accessibility.css">
+  <link rel="stylesheet" href="site.css">
   <link rel="stylesheet" href="zertifikate.css">
-  <link rel="stylesheet" href="widescreen.css">
-  <noscript>
-    <style>
-      .zert-row {
-        opacity: 1 !important;
-        transform: none !important;
-      }
-    </style>
-  </noscript>
 </head>
 
 <body data-page="zertifikate">
@@ -48,138 +39,139 @@
   <main id="main-content" tabindex="-1">
 
     <!-- HERO -->
-    <section class="zert-hero">
-      <div class="zert-hero-inner">
-        <div class="zert-hero-left">
-          <p class="zert-hero-label">Qualifikationen &amp; Nachweise</p>
-          <h1>Zertifikate &amp; <em>Ausbildungen</em>.</h1>
-          <p class="zert-hero-lead">
+    <section class="section surface-dark zert-hero" aria-labelledby="zert-heading">
+      <div class="split zert-hero-grid">
+        <div class="flow">
+          <p class="eyebrow animate">Qualifikationen &amp; Nachweise</p>
+          <h1 id="zert-heading" class="page-title animate delay-1">Zertifikate &amp; <em>Ausbildungen</em>.</h1>
+          <p class="page-hero-lead animate delay-2">
             Jede Anwendung in der Faszienpraxis Fech basiert auf fundierter Ausbildung, intensiver Praxiserfahrung und modernen Konzepten der funktionellen Faszien- und Sporttherapie.
-Meine Zertifizierungen vereinen tiefgehende Kenntnisse in Faszienarbeit, Triggerpunkttechniken, körperorientierter Regeneration und funktioneller Bewegungsarbeit — mit dem Ziel, den Körper nachhaltig in Balance zu bringen.
+            Meine Zertifizierungen vereinen tiefgehende Kenntnisse in Faszienarbeit, Triggerpunkttechniken, körperorientierter Regeneration und funktioneller Bewegungsarbeit — mit dem Ziel, den Körper nachhaltig in Balance zu bringen.
           </p>
         </div>
 
-        <div class="zert-hero-meta">
-          <div class="zert-hero-stat">
-            <div class="zert-hero-stat-num">7</div>
-            <div class="zert-hero-stat-label">Zertifikate</div>
+        <div class="zert-stats animate delay-3">
+          <div class="stat">
+            <span class="stat-num">7</span>
+            <span class="label">Zertifikate</span>
           </div>
-          <div class="zert-hero-stat">
-            <div class="zert-hero-stat-num">CPD</div>
-            <div class="zert-hero-stat-label">IPHM · IAOTH · ITA</div>
+          <div class="stat">
+            <span class="stat-num">CPD</span>
+            <span class="label">IPHM · IAOTH · ITA</span>
           </div>
-          <div class="zert-hero-stat">
-            <div class="zert-hero-stat-num">600 h+</div>
-            <div class="zert-hero-stat-label">Fachausbildung</div>
+          <div class="stat">
+            <span class="stat-num">600 h+</span>
+            <span class="label">Fachausbildung</span>
           </div>
         </div>
       </div>
     </section>
 
     <!-- INDEX — specializations -->
-    <section class="zert-index">
-      <div class="zert-index-inner">
-        <header class="zert-index-head">
-          <div>
-            <p class="zert-index-eyebrow">Fachausbildungen</p>
-            <h2>Spezialisierungen im <em>Überblick.</em></h2>
-          </div>
-          <p>
-            Sieben einzelne Fachausbildungen bilden das Fundament — von Faszien&shy;therapie
-            über Triggerpunkt&shy;arbeit bis hin zu ganz&shy;heitlicher amerikanischer
-            Chiropraktik. Klicken Sie auf ein Zertifikat, um es in voller Auflösung zu sehen.
-          </p>
-        </header>
-
-        <div class="zert-index-list">
-
-          <article class="zert-row" data-reveal>
-            <a class="zert-row-image" data-lb="1" href="assets/faszientherapeut.jpg" aria-label="Zertifikat Faszientherapeut & Sporttherapeut öffnen">
-              <img src="assets/faszientherapeut.jpg" alt="Zertifikat Faszientherapeut & Sporttherapeut" loading="lazy" width="1200" height="1535">
-            </a>
-            <div class="zert-row-meta">
-              <span class="zert-row-num">01</span>
-              <h3 class="zert-row-title">Faszientherapeut &amp; Sporttherapeut</h3>
-            </div>
-          </article>
-
-          <article class="zert-row" data-reveal>
-            <a class="zert-row-image" data-lb="2" href="assets/prakriker-für-tiefe-freisetzungspunkte.jpg" aria-label="Zertifikat Praktiker für tiefe Freisetzungspunkte öffnen">
-              <img src="assets/prakriker-für-tiefe-freisetzungspunkte.jpg" alt="Zertifikat Praktiker für tiefe Freisetzungspunkte" loading="lazy" width="1200" height="1535">
-            </a>
-            <div class="zert-row-meta">
-              <span class="zert-row-num">02</span>
-              <h3 class="zert-row-title">Praktiker für tiefe Freisetzungspunkte</h3>
-            </div>
-          </article>
-
-          <article class="zert-row" data-reveal>
-            <a class="zert-row-image" data-lb="3" href="assets/professionelle-ganzheitliche-schmerztherapie.jpg" aria-label="Zertifikat Professionelle ganzheitliche Schmerztherapie öffnen">
-              <img src="assets/professionelle-ganzheitliche-schmerztherapie.jpg" alt="Zertifikat Professionelle ganzheitliche Schmerztherapie" loading="lazy" width="1200" height="1535">
-            </a>
-            <div class="zert-row-meta">
-              <span class="zert-row-num">03</span>
-              <h3 class="zert-row-title">Professionelle ganzheitliche Schmerztherapie</h3>
-            </div>
-          </article>
-
-          <article class="zert-row" data-reveal>
-            <a class="zert-row-image" data-lb="4" href="assets/professionelle-ganzheitliche-amerikanische-chiropraktik.jpg" aria-label="Zertifikat Professionelle ganzheitliche amerikanische Chiropraktik öffnen">
-              <img src="assets/professionelle-ganzheitliche-amerikanische-chiropraktik.jpg" alt="Zertifikat Professionelle ganzheitliche amerikanische Chiropraktik" loading="lazy" width="1200" height="1535">
-            </a>
-            <div class="zert-row-meta">
-              <span class="zert-row-num">04</span>
-              <h3 class="zert-row-title">Professionelle ganzheitliche amerikanische Chiropraktik</h3>
-            </div>
-          </article>
-
-          <article class="zert-row" data-reveal>
-            <a class="zert-row-image" data-lb="5" href="assets/ganzheitlicher-gesundheitspraktiker.jpg" aria-label="Zertifikat Ganzheitlicher Gesundheitspraktiker öffnen">
-              <img src="assets/ganzheitlicher-gesundheitspraktiker.jpg" alt="Zertifikat Ganzheitlicher Gesundheitspraktiker" loading="lazy" width="1200" height="1535">
-            </a>
-            <div class="zert-row-meta">
-              <span class="zert-row-num">05</span>
-              <h3 class="zert-row-title">Ganzheitlicher Gesundheitspraktiker</h3>
-            </div>
-          </article>
-
-          <article class="zert-row" data-reveal>
-            <a class="zert-row-image" data-lb="6" href="assets/sport-therapeut.jpg" aria-label="Zertifikat Sport-Therapeut öffnen">
-              <img src="assets/sport-therapeut.jpg" alt="Zertifikat Sport-Therapeut" loading="lazy" width="1200" height="1535">
-            </a>
-            <div class="zert-row-meta">
-              <span class="zert-row-num">06</span>
-              <h3 class="zert-row-title">Sport-Therapeut</h3>
-            </div>
-          </article>
-
-          <article class="zert-row" data-reveal>
-            <a class="zert-row-image" data-lb="7" href="assets/bewegungstherapeut.jpg" aria-label="Zertifikat Bewegungstherapeut öffnen">
-              <img src="assets/bewegungstherapeut.jpg" alt="Zertifikat Bewegungstherapeut" loading="lazy" width="1200" height="1535">
-            </a>
-            <div class="zert-row-meta">
-              <span class="zert-row-num">07</span>
-              <h3 class="zert-row-title">Bewegungstherapeut</h3>
-            </div>
-          </article>
-
+    <section class="section surface-tint" aria-labelledby="index-heading">
+      <header class="section-head section-head--split">
+        <div>
+          <p class="eyebrow">Fachausbildungen</p>
+          <h2 id="index-heading" class="section-title">Spezialisierungen im <em>Überblick.</em></h2>
         </div>
+        <p class="lead">
+          Sieben einzelne Fachausbildungen bilden das Fundament — von Faszien&shy;therapie
+          über Triggerpunkt&shy;arbeit bis hin zu ganz&shy;heitlicher amerikanischer
+          Chiropraktik. Klicken Sie auf ein Zertifikat, um es in voller Auflösung zu sehen.
+        </p>
+      </header>
+
+      <div class="zert-grid reveal-group">
+
+        <article class="zert-item">
+          <a class="zert-item-image" data-lb="1" href="assets/faszientherapeut.jpg" aria-label="Zertifikat Faszientherapeut & Sporttherapeut öffnen">
+            <img src="assets/faszientherapeut.jpg" alt="Zertifikat Faszientherapeut & Sporttherapeut" loading="lazy" decoding="async" width="1200" height="1535">
+          </a>
+          <div class="zert-item-meta">
+            <span class="num" aria-hidden="true">01</span>
+            <h3 class="zert-item-title">Faszientherapeut &amp; Sporttherapeut</h3>
+          </div>
+        </article>
+
+        <article class="zert-item">
+          <a class="zert-item-image" data-lb="2" href="assets/prakriker-für-tiefe-freisetzungspunkte.jpg" aria-label="Zertifikat Praktiker für tiefe Freisetzungspunkte öffnen">
+            <img src="assets/prakriker-für-tiefe-freisetzungspunkte.jpg" alt="Zertifikat Praktiker für tiefe Freisetzungspunkte" loading="lazy" decoding="async" width="1200" height="1535">
+          </a>
+          <div class="zert-item-meta">
+            <span class="num" aria-hidden="true">02</span>
+            <h3 class="zert-item-title">Praktiker für tiefe Freisetzungspunkte</h3>
+          </div>
+        </article>
+
+        <article class="zert-item">
+          <a class="zert-item-image" data-lb="3" href="assets/professionelle-ganzheitliche-schmerztherapie.jpg" aria-label="Zertifikat Professionelle ganzheitliche Schmerztherapie öffnen">
+            <img src="assets/professionelle-ganzheitliche-schmerztherapie.jpg" alt="Zertifikat Professionelle ganzheitliche Schmerztherapie" loading="lazy" decoding="async" width="1200" height="1535">
+          </a>
+          <div class="zert-item-meta">
+            <span class="num" aria-hidden="true">03</span>
+            <h3 class="zert-item-title">Professionelle ganzheitliche Schmerztherapie</h3>
+          </div>
+        </article>
+
+        <article class="zert-item">
+          <a class="zert-item-image" data-lb="4" href="assets/professionelle-ganzheitliche-amerikanische-chiropraktik.jpg" aria-label="Zertifikat Professionelle ganzheitliche amerikanische Chiropraktik öffnen">
+            <img src="assets/professionelle-ganzheitliche-amerikanische-chiropraktik.jpg" alt="Zertifikat Professionelle ganzheitliche amerikanische Chiropraktik" loading="lazy" decoding="async" width="1200" height="1535">
+          </a>
+          <div class="zert-item-meta">
+            <span class="num" aria-hidden="true">04</span>
+            <h3 class="zert-item-title">Professionelle ganzheitliche amerikanische Chiropraktik</h3>
+          </div>
+        </article>
+
+        <article class="zert-item">
+          <a class="zert-item-image" data-lb="5" href="assets/ganzheitlicher-gesundheitspraktiker.jpg" aria-label="Zertifikat Ganzheitlicher Gesundheitspraktiker öffnen">
+            <img src="assets/ganzheitlicher-gesundheitspraktiker.jpg" alt="Zertifikat Ganzheitlicher Gesundheitspraktiker" loading="lazy" decoding="async" width="1200" height="1535">
+          </a>
+          <div class="zert-item-meta">
+            <span class="num" aria-hidden="true">05</span>
+            <h3 class="zert-item-title">Ganzheitlicher Gesundheitspraktiker</h3>
+          </div>
+        </article>
+
+        <article class="zert-item">
+          <a class="zert-item-image" data-lb="6" href="assets/sport-therapeut.jpg" aria-label="Zertifikat Sport-Therapeut öffnen">
+            <img src="assets/sport-therapeut.jpg" alt="Zertifikat Sport-Therapeut" loading="lazy" decoding="async" width="1200" height="1535">
+          </a>
+          <div class="zert-item-meta">
+            <span class="num" aria-hidden="true">06</span>
+            <h3 class="zert-item-title">Sport-Therapeut</h3>
+          </div>
+        </article>
+
+        <article class="zert-item">
+          <a class="zert-item-image" data-lb="7" href="assets/bewegungstherapeut.jpg" aria-label="Zertifikat Bewegungstherapeut öffnen">
+            <img src="assets/bewegungstherapeut.jpg" alt="Zertifikat Bewegungstherapeut" loading="lazy" decoding="async" width="1200" height="1535">
+          </a>
+          <div class="zert-item-meta">
+            <span class="num" aria-hidden="true">07</span>
+            <h3 class="zert-item-title">Bewegungstherapeut</h3>
+          </div>
+        </article>
+
       </div>
     </section>
 
     <!-- CTA -->
-    <section class="zert-cta">
-      <p class="zert-cta-eyebrow">Termin vereinbaren</p>
-      <h2>Fundiertes Wissen, in <em>jeder Behandlung.</em></h2>
-      <p>
-        Jede dieser Ausbildungen fließt direkt in die Arbeit an Ihren Faszien und
-        Trigger&shy;punkten ein. Vereinbaren Sie einen Termin in der Praxis in
-        Spaichingen.
-      </p>
-      <a class="zert-cta-btn" href="https://book.timify.com/?accountId=652fe85cbd51d3ad47200466&hideCloseButton=true">
-        Termin anfragen
-        <span aria-hidden="true">→</span>
-      </a>
+    <section class="section section--lg surface-paper" aria-labelledby="zert-cta-heading">
+      <div class="cta-band">
+        <div class="cta-band-main">
+          <p class="eyebrow">Termin vereinbaren</p>
+          <h2 id="zert-cta-heading" class="cta-band-title">Fundiertes Wissen, in <em>jeder Behandlung.</em></h2>
+        </div>
+        <div class="cta-band-aside">
+          <p>
+            Jede dieser Ausbildungen fließt direkt in die Arbeit an Ihren Faszien und
+            Trigger&shy;punkten ein. Vereinbaren Sie einen Termin in der Praxis in
+            Spaichingen.
+          </p>
+          <a class="btn-primary" href="https://book.timify.com/?accountId=652fe85cbd51d3ad47200466&hideCloseButton=true">Termin anfragen</a>
+        </div>
+      </div>
     </section>
 
   </main>
@@ -255,25 +247,6 @@ Meine Zertifizierungen vereinen tiefgehende Kenntnisse in Faszienarbeit, Trigger
         if (e.key === 'ArrowLeft') show(current - 1);
         if (e.key === 'ArrowRight') show(current + 1);
       });
-
-      // Reveal on scroll
-      if ('IntersectionObserver' in window) {
-        var io = new IntersectionObserver(function (entries) {
-          entries.forEach(function (entry) {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('revealed');
-              io.unobserve(entry.target);
-            }
-          });
-        }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
-        document.querySelectorAll('[data-reveal]').forEach(function (el) {
-          io.observe(el);
-        });
-      } else {
-        document.querySelectorAll('[data-reveal]').forEach(function (el) {
-          el.classList.add('revealed');
-        });
-      }
     })();
   </script>
 </body>

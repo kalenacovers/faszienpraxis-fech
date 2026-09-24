@@ -25,9 +25,8 @@
   <link rel="preload" href="assets/fonts/dm-sans-400-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/cormorant-garamond-300-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="fonts.css">
-  <link rel="stylesheet" href="accessibility.css">
-  <link rel="stylesheet" href="impressum.css">
-  <link rel="stylesheet" href="widescreen.css">
+  <link rel="stylesheet" href="site.css">
+  <link rel="stylesheet" href="legal.css">
 </head>
 
 <body data-page="impressum">
@@ -38,20 +37,21 @@
   <div id="site-nav"></div>
 
 
+  <main id="main" tabindex="-1">
+
   <!-- ══════ BANNER ══════ -->
-  <div class="legal-banner">
-    <div class="legal-banner-bg">Impressum</div>
-    <div class="legal-banner-inner">
-      <p class="legal-banner-eyebrow">Rechtliches · Fech Puls</p>
-      <h1><em>Impressum</em></h1>
-      <p class="legal-banner-sub">Angaben gemäß § 5 DDG sowie Haftungsausschluss und urheberrechtliche Hinweise.</p>
+  <header class="legal-banner surface-dark">
+    <div class="legal-banner-inner flow">
+      <p class="eyebrow">Rechtliches · Fech Puls</p>
+      <h1 class="page-title"><em>Impressum</em></h1>
+      <p class="page-hero-lead">Angaben gemäß § 5 DDG sowie Haftungsausschluss und urheberrechtliche Hinweise.</p>
     </div>
-    <div class="legal-tabs">
+    <nav class="legal-tabs" aria-label="Rechtliche Seiten">
       <a href="/datenschutz" class="legal-tab">Datenschutz</a>
-      <a href="/impressum" class="legal-tab active">Impressum</a>
+      <a href="/impressum" class="legal-tab active" aria-current="page">Impressum</a>
       <a href="/" class="legal-tab">Zurück zur Startseite</a>
-    </div>
-  </div>
+    </nav>
+  </header>
 
 
   <!-- ══════ CONTENT ══════ -->
@@ -59,7 +59,7 @@
 
     <!-- TOC -->
     <nav class="legal-toc" aria-label="Inhaltsverzeichnis">
-      <div class="legal-toc-label">Inhalt</div>
+      <p class="label legal-toc-label">Inhalt</p>
       <ul class="legal-toc-list">
         <li><a href="#abschnitt-1">1. Angaben gemäß § 5 DDG</a></li>
         <li><a href="#abschnitt-2">2. Kontakt</a></li>
@@ -71,7 +71,7 @@
     </nav>
 
     <!-- Main -->
-    <main class="legal-content" id="main" tabindex="-1">
+    <div class="legal-content">
 
       <!-- 1 — Angaben -->
       <div class="legal-section" id="abschnitt-1">
@@ -106,7 +106,7 @@
         <div class="legal-section-num">Abschnitt 02</div>
         <h2><em>Kontakt</em></h2>
 
-        <div class="impressum-dark-box">
+        <div class="impressum-dark-box surface-dark">
           <div class="impressum-dark-box-label">Direktkontakt</div>
           <div class="impressum-dark-box-title">Faszienpraxis Fech · Spaichingen</div>
           <ul class="impressum-contact-rows">
@@ -212,8 +212,10 @@
           Rechtsverletzungen werden wir derartige Inhalte umgehend entfernen.</p>
       </div>
 
-    </main>
+    </div>
   </div>
+
+  </main>
 
   <!-- FOOTER (injected by components.js) -->
   <div id="site-footer"></div>

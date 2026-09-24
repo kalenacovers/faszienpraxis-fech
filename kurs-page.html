@@ -25,9 +25,8 @@
   <link rel="preload" href="assets/fonts/dm-sans-400-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/cormorant-garamond-300-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="fonts.css">
-  <link rel="stylesheet" href="accessibility.css">
+  <link rel="stylesheet" href="site.css">
   <link rel="stylesheet" href="kurs-page.css">
-  <link rel="stylesheet" href="widescreen.css">
 </head>
 
 <body data-page="kurs">
@@ -40,38 +39,26 @@
   <main id="inhalt" tabindex="-1">
 
   <!-- ══════ PAGE HERO ══════ -->
-  <section class="kurs-hero">
-    <div class="kurs-hero-left">
-      <p class="kurs-hero-eyebrow animate">Private Fachausbildungen als Faszien- & Triggerpunkt-Praktiker ( Online )</p>
-      <h1 class="animate delay-1">
-        Werde zu einer wertvollen Unterstützung<br>
-        <em>für andere Menschen.</em><br>
-      </h1>
-      <p class="kurs-hero-sub animate delay-2">
-        Die Online-Fachausbildungen für ganzheitliche Faszien- & Muskelarbeit — ortsunabhängig, praxisorientiert und
+  <section class="page-hero media-split media-split--reverse surface-paper" aria-labelledby="kurs-heading">
+    <div class="split-body flow">
+      <p class="eyebrow animate">Private Fachausbildungen als Faszien- &amp; Triggerpunkt-Praktiker (Online)</p>
+      <h1 id="kurs-heading" class="page-title animate delay-1">Werde zu einer wertvollen Unterstützung <em>für andere Menschen.</em></h1>
+      <p class="page-hero-lead animate delay-2">
+        Die Online-Fachausbildungen für ganzheitliche Faszien- &amp; Muskelarbeit — ortsunabhängig, praxisorientiert und
         individuell anpassbar an deinen Alltag.
       </p>
-      <div class="kurs-hero-actions animate delay-3">
-        <a href="#preise" class="btn-accent">Jetzt anmelden</a>
-        <a href="#kursinhalte" class="btn-ghost is-dark">Kursinhalte ansehen</a>
+      <div class="cluster actions animate delay-3">
+        <a href="#preise" class="btn-primary">Jetzt anmelden</a>
+        <a href="#kursinhalte" class="btn-ghost">Kursinhalte ansehen</a>
       </div>
-      <div class="kurs-hero-stats animate delay-4">
-        <div>
-          <div class="stat-num">100%</div>
-          <div class="stat-label">Online</div>
-        </div>
-        <div>
-          <div class="stat-num">∞</div>
-          <div class="stat-label">Flexibles Tempo</div>
-        </div>
-        <div>
-          <div class="stat-num">17</div>
-          <div class="stat-label">Lernmodule</div>
-        </div>
+      <div class="stat-row animate delay-4">
+        <div class="stat"><span class="stat-num">100 %</span><span class="label">Online</span></div>
+        <div class="stat"><span class="stat-num">∞</span><span class="label">Flexibles Tempo</span></div>
+        <div class="stat"><span class="stat-num">17</span><span class="label">Lernmodule</span></div>
       </div>
     </div>
 
-    <div class="kurs-hero-right">
+    <div class="split-media page-hero-panel surface-dark">
       <div class="kurs-hero-certs">
         <figure class="kurs-hero-cert is-fascia">
           <img src="assets/Vorschau-Zertifikat-Faszienpraktiker.webp" width="880" height="1245"
@@ -85,175 +72,132 @@
           <figcaption>Triggerpunkt-Praktiker</figcaption>
         </figure>
       </div>
-      <div class="kurs-hero-overlay"></div>
-      <div class="kurs-hero-pattern"></div>
-      <div class="kurs-hero-bg-text">Faszien</div>
-      <div class="kurs-hero-badge animate delay-2">
-        <strong aria-hidden="true">★</strong>
-        Zertifiziert
-      </div>
-      <div class="kurs-hero-card animate delay-3">
-        <div class="kurs-hero-card-label">Das erwartet dich</div>
-        <ul>
-          <li>Digitale Lernunterlagen mit Theorie & Praxis</li>
+      <div class="kurs-hero-card">
+        <p class="eyebrow">Das erwartet dich</p>
+        <ul class="rule-list">
+          <li>Digitale Lernunterlagen mit Theorie &amp; Praxis</li>
           <li>Schritt-für-Schritt-Struktur — von Grundlagen bis Spezialisierung</li>
           <li>Offizielles Abschlusszertifikat</li>
-          <li>Abrufbar jederzeit & auf allen Geräten</li>
+          <li>Abrufbar jederzeit &amp; auf allen Geräten</li>
         </ul>
       </div>
-      <p class="kurs-hero-target animate delay-4">Für Quereinsteiger, Therapeuten, Masseure und Wellness-Fachkräfte</p>
+      <p class="text-meta">Für Quereinsteiger, Therapeuten, Masseure und Wellness-Fachkräfte</p>
     </div>
   </section>
 
-
-  <!-- ══════ TRUST BAR ══════ -->
-  <div class="trust-bar">
-    <div class="trust-item"><span class="icon" aria-hidden="true">✦</span> Ortsunabhängig absolvierbar</div>
-    <div class="trust-sep"></div>
-    <div class="trust-item"><span class="icon" aria-hidden="true">✦</span> Eigenes Lerntempo</div>
-    <div class="trust-sep"></div>
-    <div class="trust-item"><span class="icon" aria-hidden="true">✦</span> Offizielles Zertifikat</div>
-    <div class="trust-sep"></div>
-    <div class="trust-item"><span class="icon" aria-hidden="true">✦</span> Praxisorientierte Inhalte</div>
-    <div class="trust-sep"></div>
-    <div class="trust-item"><span class="icon" aria-hidden="true">✦</span> Zeitlich unbegrenzt gültig</div>
+  <!-- ══════ TRUST STRIP ══════ -->
+  <div class="trust-strip">
+    <ul>
+      <li>Ortsunabhängig absolvierbar</li>
+      <li>Eigenes Lerntempo</li>
+      <li>Offizielles Zertifikat</li>
+      <li>Praxisorientierte Inhalte</li>
+      <li>Zeitlich unbegrenzt gültig</li>
+    </ul>
   </div>
 
-
-  <!-- ══════ SECTION 1 — FLEXIBEL LERNEN ══════ -->
-  <section class="kurs-intro" id="kursinhalte">
-    <div class="kurs-intro-left">
-      <p class="section-eyebrow animate">Online-Fachausbildung</p>
-      <h2 class="section-title animate delay-1">
-        Lerne maximal <em>flexibel</em><br>in deiner Fachausbildung
-      </h2>
-      <p class="animate delay-2">
-        Die Ausbildung ermöglicht es dir, deinen Lernplan individuell an deinen Alltag und dein persönliches Lerntempo
-        anzupassen. Keine festen Präsenzzeiten — du bestimmst, wann und wo du lernst.
-      </p>
-      <p class="animate delay-2">
-        Du erhältst ausführliche digitale Lernunterlagen sowie praxisorientierte Inhalte, die du Schritt für Schritt
-        durcharbeiten kannst.
-      </p>
-      <p class="animate delay-3">
-        Alles, was du benötigst, ist ein Internetzugang. So integrierst du deine Weiterbildung flexibel neben Beruf und
-        Familie.
-      </p>
-      <div class="kurs-pills animate delay-4">
-        <div class="kurs-pill"><span class="kurs-pill-dot"></span> 100 % Online</div>
-        <div class="kurs-pill"><span class="kurs-pill-dot"></span> Eigenes Tempo</div>
-        <div class="kurs-pill"><span class="kurs-pill-dot"></span> Ortsunabhängig</div>
-        <div class="kurs-pill"><span class="kurs-pill-dot"></span> Praxisorientiert</div>
+  <!-- ══════ FLEXIBEL LERNEN ══════ -->
+  <section class="section surface-paper" id="kursinhalte" aria-labelledby="flexibel-heading">
+    <div class="split kurs-intro">
+      <div class="flow">
+        <p class="eyebrow">Online-Fachausbildung</p>
+        <h2 id="flexibel-heading" class="section-title">Lerne maximal <em>flexibel</em><br>in deiner Fachausbildung</h2>
+        <p>
+          Die Ausbildung ermöglicht es dir, deinen Lernplan individuell an deinen Alltag und dein persönliches Lerntempo
+          anzupassen. Keine festen Präsenzzeiten — du bestimmst, wann und wo du lernst.
+        </p>
+        <p>
+          Du erhältst ausführliche digitale Lernunterlagen sowie praxisorientierte Inhalte, die du Schritt für Schritt
+          durcharbeiten kannst.
+        </p>
+        <p>
+          Alles, was du benötigst, ist ein Internetzugang. So integrierst du deine Weiterbildung flexibel neben Beruf und
+          Familie.
+        </p>
       </div>
-    </div>
 
-    <div class="animate delay-2">
-      <div class="kurs-card-stack">
-        <div class="kurs-card-bg"></div>
-        <div class="kurs-card-main">
-          <div class="kurs-card-badge">Dein Lernbereich</div>
-          <div class="kurs-card-main-eyebrow">Was dich erwartet</div>
-          <h3 class="kurs-card-heading">
-            Strukturiertes Lernen.<br>
-            <em>Flexibel & digital.</em>
-          </h3>
-          <ul class="kurs-feature-list">
-            <li>Ausführliche digitale Lernunterlagen mit Theorie & Praxis</li>
-            <li>Schritt-für-Schritt-Aufbau vom Grundwissen zur Spezialisierung</li>
-            <li>Anatomische Grundlagen bis zu modernen Anwendungskonzepten</li>
-            <li>Abrufbar zu jeder Zeit — auf allen Geräten</li>
-            <li>Kein Präsenzunterricht erforderlich</li>
-          </ul>
-        </div>
-      </div>
+      <aside class="kurs-feature-card surface-dark flow" aria-labelledby="lernbereich-card-heading" data-reveal>
+        <p class="eyebrow">Dein Lernbereich</p>
+        <h3 id="lernbereich-card-heading" class="section-title section-title--sm">Strukturiertes Lernen.<br><em>Flexibel &amp; digital.</em></h3>
+        <ul class="rule-list">
+          <li>Ausführliche digitale Lernunterlagen mit Theorie &amp; Praxis</li>
+          <li>Schritt-für-Schritt-Aufbau vom Grundwissen zur Spezialisierung</li>
+          <li>Anatomische Grundlagen bis zu modernen Anwendungskonzepten</li>
+          <li>Abrufbar zu jeder Zeit — auf allen Geräten</li>
+          <li>Kein Präsenzunterricht erforderlich</li>
+        </ul>
+      </aside>
     </div>
   </section>
 
-
-  <!-- ══════ SECTION 2 — POSITIONIERUNG ══════ -->
-  <section class="kurs-pillars">
-    <div class="kurs-pillars-header">
+  <!-- ══════ POSITIONIERUNG ══════ -->
+  <section class="section surface-tint" aria-labelledby="kompetenz-heading">
+    <header class="section-head section-head--split">
       <div>
-        <p class="section-eyebrow animate">Deine Kompetenz</p>
-        <h2 class="section-title animate delay-1">
-          Positioniere dich als<br><em>zertifizierter Faszienpraktiker</em>
-        </h2>
+        <p class="eyebrow">Deine Kompetenz</p>
+        <h2 id="kompetenz-heading" class="section-title">Positioniere dich als<br><em>zertifizierter Faszienpraktiker</em></h2>
       </div>
-      <p class="kurs-pillars-desc animate delay-2">
+      <p class="lead">
         Mit dem Abschluss erwirbst du fundiertes, praxisorientiertes Fachwissen — und hebst dich klar von klassischen
         Wellness-Angeboten ab.
       </p>
-    </div>
+    </header>
 
-    <div class="kurs-pillars-grid">
-      <div class="kurs-pillar-card animate delay-1">
-        <span class="kurs-pillar-num">01</span>
-        <div class="kurs-pillar-icon">◈</div>
-        <h3 class="kurs-pillar-title">Fachliche Kompetenz</h3>
-        <p class="kurs-pillar-text">
+    <ol class="index-grid pillars reveal-group">
+      <li>
+        <span class="num" aria-hidden="true">01</span>
+        <h3 class="item-title">Fachliche Kompetenz</h3>
+        <p>
           Du lernst, funktionelle Zusammenhänge zu erkennen, muskuläre Spannungsmuster einzuordnen und gezielte
           Anwendungen strukturiert umzusetzen — auf professionellem Niveau.
         </p>
-        <span class="kurs-pillar-accent-bar"></span>
-      </div>
-      <div class="kurs-pillar-card animate delay-2">
-        <span class="kurs-pillar-num">02</span>
-        <div class="kurs-pillar-icon">◎</div>
-        <h3 class="kurs-pillar-title">Klare Ausrichtung</h3>
-        <p class="kurs-pillar-text">
+      </li>
+      <li>
+        <span class="num" aria-hidden="true">02</span>
+        <h3 class="item-title">Klare Ausrichtung</h3>
+        <p>
           Diese Zusatzqualifikation ermöglicht es dir, dein Leistungsportfolio professionell zu erweitern und dich als
           qualifizierter Ansprechpartner im präventiven Bereich zu positionieren.
         </p>
-        <span class="kurs-pillar-accent-bar"></span>
-      </div>
-      <div class="kurs-pillar-card animate delay-3">
-        <span class="kurs-pillar-num">03</span>
-        <div class="kurs-pillar-icon">✦</div>
-        <h3 class="kurs-pillar-title">Marktdifferenzierung</h3>
-        <p class="kurs-pillar-text">
+      </li>
+      <li>
+        <span class="num" aria-hidden="true">03</span>
+        <h3 class="item-title">Marktdifferenzierung</h3>
+        <p>
           Du stärkst deine fachliche Kompetenz und differenzierst dich klar von klassischen Wellness-Angeboten — mit
           spezialisierter Zusatzkompetenz und praxisnaher Umsetzung.
         </p>
-        <span class="kurs-pillar-accent-bar"></span>
-      </div>
-    </div>
+      </li>
+    </ol>
   </section>
 
+  <!-- ══════ PERSPEKTIVE ══════ -->
+  <section class="section section--lg surface-dark" aria-labelledby="perspektive-heading">
+    <div class="split kurs-perspektive">
+      <div class="flow">
+        <p class="eyebrow">Nach der Ausbildung</p>
+        <h2 id="perspektive-heading" class="section-title section-title--sm">
+          Fachausbildung zum zertifizierten <em>Faszienpraktiker - Ganzheitliche Faszien- &amp; Gewebearbeit</em>
+        </h2>
+        <p>
+          Mit dem erfolgreichen Abschluss erhältst du dein offizielles Abschlusszertifikat als Nachweis deiner
+          Spezialisierung in ganzheitlicher Faszien- &amp; Muskelarbeit.
+        </p>
+        <p>
+          Du verfügst über fundiertes Fachwissen, praxisorientierte Kompetenz und ein klares methodisches Verständnis
+          funktioneller Zusammenhänge im Bewegungsapparat. Damit positionierst du dich deutlich über dem klassischen
+          Wellness-Niveau.
+        </p>
+        <p>
+          Diese Qualifikation eröffnet dir neue berufliche Möglichkeiten — im Fitness- und Gesundheitsbereich, im Personal
+          Training oder in deiner eigenen selbstständigen Tätigkeit.
+        </p>
+      </div>
 
-  <!-- ══════ SECTION 3 — PERSPEKTIVE ══════ -->
-  <section class="kurs-perspektive">
-    <div class="kurs-perspektive-left">
-      <p class="section-eyebrow animate">Nach der Ausbildung</p>
-      <h2 class="section-title animate delay-1">
-        Fachausbildung zum zertifizierten<br><em>Faszienpraktiker
-        - Ganzheitliche Faszien- & Gewebearbeit</em>
-      </h2>
-      <p class="animate delay-2">
-        Mit dem erfolgreichen Abschluss erhältst du dein offizielles Abschlusszertifikat als Nachweis deiner
-        Spezialisierung in ganzheitlicher Faszien- & Muskelarbeit.
-      </p>
-      <p class="animate delay-2">
-        Du verfügst über fundiertes Fachwissen, praxisorientierte Kompetenz und ein klares methodisches Verständnis
-        funktioneller Zusammenhänge im Bewegungsapparat. Damit positionierst du dich deutlich über dem klassischen
-        Wellness-Niveau.
-      </p>
-      <p class="animate delay-3">
-        Diese Qualifikation eröffnet dir neue berufliche Möglichkeiten — im Fitness- und Gesundheitsbereich, im Personal
-        Training oder in deiner eigenen selbstständigen Tätigkeit.
-      </p>
-    </div>
-
-    <div class="animate delay-3">
-      <div class="kurs-cert">
-        <div class="kurs-cert-top">
-          <div class="kurs-cert-seal">◈</div>
-          <div>
-            <div class="kurs-cert-label">Offizielles Zertifikat</div>
-            <div class="kurs-cert-title-text">Fachausbildung zum zertifizierten<br>Faszienpraktiker
-            - Ganzheitliche Faszien- & Gewebearbeit</div>
-          </div>
-        </div>
-        <ul class="kurs-cert-items">
+      <aside class="kurs-cert-card flow" aria-labelledby="zertifikat-card-heading" data-reveal>
+        <p class="label">Offizielles Zertifikat</p>
+        <h3 id="zertifikat-card-heading" class="kurs-cert-title">Fachausbildung zum zertifizierten Faszienpraktiker - Ganzheitliche Faszien- &amp; Gewebearbeit</h3>
+        <ul class="rule-list">
           <li>Offiziell anerkanntes Abschlusszertifikat</li>
           <li>Zeitlich unbegrenzt gültig</li>
           <li>Stärkung deiner Marktposition durch spezialisierte Zusatzkompetenz</li>
@@ -261,144 +205,126 @@
           <li>Berufseinstieg im Fitness-, Gesundheits- oder Präventionsbereich</li>
           <li>Geeignet für selbstständige Tätigkeit und Personal Training</li>
         </ul>
-        <div class="kurs-cert-footer">
-          Dein Zertifikat dokumentiert deine Qualifikation auf professionellem Niveau — zeitlich unbegrenzt gültig.
-        </div>
-      </div>
+        <p class="text-meta">Dein Zertifikat dokumentiert deine Qualifikation auf professionellem Niveau — zeitlich unbegrenzt gültig.</p>
+      </aside>
     </div>
   </section>
 
-
-  <!-- ══════ SECTION 4 — LERNBEREICH ══════ -->
-  <section class="kurs-lernbereich" id="lernbereich">
-    <div class="kurs-lernbereich-inner">
-
-      <div>
-        <div class="kurs-curriculum-label">Lernaufbau</div>
-        <div class="kurs-step animate delay-1">
-          <span class="kurs-step-num">01</span>
-          <div>
-            <h3 class="kurs-step-title">Anatomische Grundlagen</h3>
-            <p class="kurs-step-desc">Strukturelles Verständnis des Faszien- und Muskelsystems sowie grundlegende
-              funktionelle Zusammenhänge im Bewegungsapparat.</p>
-          </div>
-        </div>
-        <div class="kurs-step animate delay-2">
-          <span class="kurs-step-num">02</span>
-          <div>
-            <h3 class="kurs-step-title">Analyse & Diagnose</h3>
-            <p class="kurs-step-desc">Spannungsbilder systematisch analysieren, muskuläre Dysbalancen erkennen und
-              funktionelle Muster einordnen.</p>
-          </div>
-        </div>
-        <div class="kurs-step animate delay-3">
-          <span class="kurs-step-num">03</span>
-          <div>
-            <h3 class="kurs-step-title">Anwendungskonzepte</h3>
-            <p class="kurs-step-desc">Professionelle Anwendungskonzepte im präventiven Bereich strukturiert entwickeln
-              und gezielt einsetzen.</p>
-          </div>
-        </div>
-        <div class="kurs-step animate delay-4">
-          <span class="kurs-step-num">04</span>
-          <div>
-            <h3 class="kurs-step-title">Moderne Faszienarbeit</h3>
-            <p class="kurs-step-desc">Aktuelle Konzepte ganzheitlicher Faszien- & Muskelarbeit mit direkter
-              Praxisanbindung und Spezialisierung.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="kurs-lernbereich-right">
-        <p class="section-eyebrow animate">Fachliche Tiefe</p>
-        <h2 class="section-title animate delay-1">
-          Vertiefe deine Expertise in moderner <em>Faszien- & Muskelarbeit</em>
-        </h2>
-        <p class="animate delay-2">
+  <!-- ══════ LERNBEREICH ══════ -->
+  <section class="section surface-paper" id="lernbereich" aria-labelledby="tiefe-heading">
+    <div class="split kurs-lern">
+      <div class="flow">
+        <p class="eyebrow">Fachliche Tiefe</p>
+        <h2 id="tiefe-heading" class="section-title">Vertiefe deine Expertise in moderner <em>Faszien- &amp; Muskelarbeit</em></h2>
+        <p>
           Moderne Lebens- und Arbeitsgewohnheiten führen zunehmend zu funktionellen Spannungsmustern, muskulären
           Dysbalancen und eingeschränkter Bewegungsqualität. Genau hier setzt diese Fachausbildung an.
         </p>
-        <p class="animate delay-2">
+        <p>
           Du entwickelst ein fundiertes Verständnis für die strukturellen Zusammenhänge von Faszien, Muskulatur und
           Bewegungssystem — von anatomischen Grundlagen bis hin zu modernen Anwendungskonzepten.
         </p>
-        <p class="animate delay-3">
+        <p>
           Im digitalen Lernbereich erarbeitest du dir Schritt für Schritt vertiefte Theorie- und Praxisinhalte, die du
           direkt in der Praxis anwenden kannst.
         </p>
-        <div class="kurs-disclaimer animate delay-4">
+        <p class="kurs-disclaimer">
           Diese Ausbildung dient der fachlichen Spezialisierung und professionellen Kompetenzentwicklung im präventiven
           Bereich — nicht der Ausübung therapeutischer Heilkunde.
-        </div>
+        </p>
       </div>
 
+      <div class="kurs-steps">
+        <p class="label">Lernaufbau</p>
+        <ol class="step-list reveal-group">
+          <li>
+            <span class="num" aria-hidden="true">01</span>
+            <div>
+              <h3 class="step-title">Anatomische Grundlagen</h3>
+              <p>Strukturelles Verständnis des Faszien- und Muskelsystems sowie grundlegende funktionelle Zusammenhänge im Bewegungsapparat.</p>
+            </div>
+          </li>
+          <li>
+            <span class="num" aria-hidden="true">02</span>
+            <div>
+              <h3 class="step-title">Analyse &amp; Diagnose</h3>
+              <p>Spannungsbilder systematisch analysieren, muskuläre Dysbalancen erkennen und funktionelle Muster einordnen.</p>
+            </div>
+          </li>
+          <li>
+            <span class="num" aria-hidden="true">03</span>
+            <div>
+              <h3 class="step-title">Anwendungskonzepte</h3>
+              <p>Professionelle Anwendungskonzepte im präventiven Bereich strukturiert entwickeln und gezielt einsetzen.</p>
+            </div>
+          </li>
+          <li>
+            <span class="num" aria-hidden="true">04</span>
+            <div>
+              <h3 class="step-title">Moderne Faszienarbeit</h3>
+              <p>Aktuelle Konzepte ganzheitlicher Faszien- &amp; Muskelarbeit mit direkter Praxisanbindung und Spezialisierung.</p>
+            </div>
+          </li>
+        </ol>
+      </div>
     </div>
   </section>
 
-
-  <!-- ══════ PRICING ══════ -->
-  <section class="kurs-pricing" id="preise">
-    <div class="kurs-pricing-header">
-      <p class="section-eyebrow animate">Investition</p>
-      <h2 class="section-title animate delay-1">Kurs & <em>Preise</em></h2>
-      <p class="kurs-pricing-sub animate delay-2">Eine einmalige Investition in deine fachliche Spezialisierung — mit
+  <!-- ══════ PREISE ══════ -->
+  <section class="section surface-tint" id="preise" aria-labelledby="preise-heading">
+    <header class="section-head section-head--split">
+      <div>
+        <p class="eyebrow">Investition</p>
+        <h2 id="preise-heading" class="section-title">Kurs &amp; <em>Preise</em></h2>
+      </div>
+      <p class="lead">Eine einmalige Investition in deine fachliche Spezialisierung — mit
         lebenslangem Zugang und offiziellem Abschlusszertifikat.</p>
-    </div>
+    </header>
 
-    <div class="kurs-pricing-grid">
+    <div class="pricing-grid reveal-group">
 
       <!-- Paket 1 — Faszienpraktiker -->
-      <div class="kurs-price-card animate delay-1">
-        <div class="kurs-price-badge">Verfügbar</div>
-        <div class="kurs-price-name">Faszienpraktiker Ausbildung</div>
-        <h3 class="kurs-price-title">Verstehe, woher Druck und Spannungen im Körper kommen</h3>
-        <div class="kurs-price-amount-row">
-          <div class="kurs-price-amount"><sup>€</sup>600</div>
-          <div class="kurs-price-amount-note">Einmalige Zahlung<br>inkl. MwSt.</div>
-        </div>
-        <ul class="kurs-price-features">
+      <article class="price-card">
+        <p class="label">Faszienpraktiker Ausbildung · Verfügbar</p>
+        <h3 class="price-name">Verstehe, woher Druck und Spannungen im Körper kommen</h3>
+        <p class="price-amount">600<span class="price-currency">€</span></p>
+        <p class="text-meta">Einmalige Zahlung inkl. MwSt.</p>
+        <ul class="rule-list price-features">
           <li>Vollständige Online-Ausbildung zum Faszienpraktiker</li>
-          <li>Ganzheitliche Faszien- & Gewebearbeit</li>
+          <li>Ganzheitliche Faszien- &amp; Gewebearbeit</li>
           <li>Ausführliche digitale Lernunterlagen</li>
           <li>Offizielles Abschlusszertifikat</li>
           <li>Zeitlich unbegrenzter Zugang</li>
         </ul>
         <a href="https://onlinekurs.faszienpraxis-fech.de/kaufen/faszienpraktiker"
-          class="kurs-btn-enroll">Jetzt anmelden</a>
-      </div>
+          class="btn-ghost btn-block">Jetzt anmelden</a>
+      </article>
 
       <!-- Paket 2 — Premium (hervorgehoben) -->
-      <div class="kurs-price-card featured animate delay-2">
-        <div class="kurs-price-badge is-best">Bestes Angebot</div>
-        <div class="kurs-price-name">Ganzheitlicher Körperpraktiker · Premium</div>
-        <h3 class="kurs-price-title">Beide Ausbildungen — ein kompletter Weg</h3>
-        <div class="kurs-price-amount-row">
-          <div>
-            <div class="kurs-price-amount"><sup>€</sup>850</div>
-          </div>
-          <div class="kurs-price-amount-note">Einmalige Zahlung<br>inkl. MwSt.</div>
-        </div>
-        <ul class="kurs-price-features">
-          <li>Faszienpraktiker Ausbildung <span style="opacity:.55">(Wert 600 €)</span></li>
-          <li>Triggerpunkt Praktiker Ausbildung <span style="opacity:.55">(Wert 490 €)</span></li>
+      <article class="price-card is-featured surface-dark">
+        <p class="price-badge">Bestes Angebot</p>
+        <p class="label">Ganzheitlicher Körperpraktiker · Premium</p>
+        <h3 class="price-name">Beide Ausbildungen — ein kompletter Weg</h3>
+        <p class="price-amount">850<span class="price-currency">€</span></p>
+        <p class="text-meta">Einmalige Zahlung inkl. MwSt.</p>
+        <ul class="rule-list price-features">
+          <li>Faszienpraktiker Ausbildung <span class="text-muted">(Wert 600 €)</span></li>
+          <li>Triggerpunkt Praktiker Ausbildung <span class="text-muted">(Wert 490 €)</span></li>
           <li>Beide offiziellen Abschlusszertifikate</li>
           <li>Kompletter Zugang zu allen Lernmodulen</li>
           <li>Zeitlich unbegrenzter Zugang</li>
         </ul>
         <a href="https://onlinekurs.faszienpraxis-fech.de/kaufen/premium"
-          class="kurs-btn-enroll">Premium sichern</a>
-      </div>
+          class="btn-primary btn-block">Premium sichern</a>
+      </article>
 
       <!-- Paket 3 — Triggerpunkt-Praktiker -->
-      <div class="kurs-price-card animate delay-3">
-        <div class="kurs-price-badge">Verfügbar</div>
-        <div class="kurs-price-name">Triggerpunkt Praktiker Ausbildung</div>
-        <h3 class="kurs-price-title">Löse gezielt muskuläre Triggerpunkte & Verspannungen</h3>
-        <div class="kurs-price-amount-row">
-          <div class="kurs-price-amount"><sup>€</sup>490</div>
-          <div class="kurs-price-amount-note">Einmalige Zahlung<br>inkl. MwSt.</div>
-        </div>
-        <ul class="kurs-price-features">
+      <article class="price-card">
+        <p class="label">Triggerpunkt Praktiker Ausbildung · Verfügbar</p>
+        <h3 class="price-name">Löse gezielt muskuläre Triggerpunkte &amp; Verspannungen</h3>
+        <p class="price-amount">490<span class="price-currency">€</span></p>
+        <p class="text-meta">Einmalige Zahlung inkl. MwSt.</p>
+        <ul class="rule-list price-features">
           <li>Vollständige Online-Ausbildung zum Triggerpunkt-Praktiker</li>
           <li>Gezielte Behandlung muskulärer Triggerpunkte</li>
           <li>Ausführliche digitale Lernunterlagen</li>
@@ -406,44 +332,41 @@
           <li>Zeitlich unbegrenzter Zugang</li>
         </ul>
         <a href="https://onlinekurs.faszienpraxis-fech.de/kaufen/triggerpunkt-praktiker"
-          class="kurs-btn-enroll">Jetzt anmelden</a>
-      </div>
+          class="btn-ghost btn-block">Jetzt anmelden</a>
+      </article>
 
     </div>
 
-    <!-- Info blocks — gelten für alle Pakete -->
-    <div class="kurs-pricing-extras animate delay-2">
-      <div class="kurs-info-block">
-        <div class="kurs-info-block-label">Zugang</div>
-        <div class="kurs-info-block-title">Lebenslanger Kurszugang</div>
+    <!-- Gilt für alle Pakete -->
+    <ul class="index-grid kurs-info">
+      <li>
+        <p class="label">Zugang</p>
+        <h3 class="item-title">Lebenslanger Kurszugang</h3>
         <p>Nach der Anmeldung erhältst du dauerhaften Zugang zu allen Lernmaterialien — ohne Ablaufdatum und ohne zusätzliche Kosten.</p>
-      </div>
-      <div class="kurs-info-block">
-        <div class="kurs-info-block-label">Zertifikat</div>
-        <div class="kurs-info-block-title">Offizielles Abschlusszertifikat</div>
-        <p>Nach erfolgreichem Abschluss erhältst du dein Zertifikat als qualifizierter Nachweis deiner Spezialisierung
-          — zeitlich unbegrenzt gültig.</p>
-      </div>
-      <div class="kurs-info-block">
-        <div class="kurs-info-block-label">Flexibilität</div>
-        <div class="kurs-info-block-title">Lernen in deinem Tempo</div>
-        <p>Kein Stundenplan, keine Präsenzpflicht. Du bestimmst wann, wo und wie schnell du die Inhalte
-          durcharbeitest.</p>
-      </div>
-    </div>
+      </li>
+      <li>
+        <p class="label">Zertifikat</p>
+        <h3 class="item-title">Offizielles Abschlusszertifikat</h3>
+        <p>Nach erfolgreichem Abschluss erhältst du dein Zertifikat als qualifizierter Nachweis deiner Spezialisierung — zeitlich unbegrenzt gültig.</p>
+      </li>
+      <li>
+        <p class="label">Flexibilität</p>
+        <h3 class="item-title">Lernen in deinem Tempo</h3>
+        <p>Kein Stundenplan, keine Präsenzpflicht. Du bestimmst wann, wo und wie schnell du die Inhalte durcharbeitest.</p>
+      </li>
+    </ul>
 
-    <div class="kurs-price-notice">
+    <p class="kurs-price-notice">
       <strong>Fragen zur Ausbildung?</strong> Kontaktiere uns gerne — wir beraten dich persönlich, welches Paket
       für deinen beruflichen Hintergrund am besten passt.
-    </div>
+    </p>
   </section>
 
-
   <!-- ══════ IN VORBEREITUNG: SCHRÖPF-KURS ══════ -->
-  <section class="kurs-soon" aria-labelledby="kurs-soon-heading">
-    <div class="kurs-soon-inner">
-      <div class="kurs-soon-text">
-        <p class="section-eyebrow">In Vorbereitung</p>
+  <section class="section surface-paper" aria-labelledby="kurs-soon-heading">
+    <div class="split kurs-soon">
+      <div class="flow">
+        <p class="eyebrow">In Vorbereitung</p>
         <h2 id="kurs-soon-heading" class="section-title">Trockenes <em>Schröpfen</em></h2>
         <p>
           Das Glas-Schröpfen gehört in der Praxis zur Behandlung. Daraus entsteht gerade eine eigene
@@ -455,17 +378,17 @@
       </div>
 
       <aside class="kurs-soon-facts" aria-label="Eckdaten zum Schröpf-Kurs">
-        <dl class="kurs-soon-dl">
-          <div class="kurs-soon-fact">
-            <dt>Preis</dt>
+        <dl>
+          <div>
+            <dt class="label">Preis</dt>
             <dd>250 €</dd>
           </div>
-          <div class="kurs-soon-fact">
-            <dt>Umfang</dt>
+          <div>
+            <dt class="label">Umfang</dt>
             <dd>5 bis 10 Module</dd>
           </div>
-          <div class="kurs-soon-fact">
-            <dt>Format</dt>
+          <div>
+            <dt class="label">Format</dt>
             <dd>Online, im eigenen Tempo</dd>
           </div>
         </dl>
@@ -479,20 +402,18 @@
   </section>
 
   <!-- ══════ CTA ══════ -->
-  <section class="kurs-cta" id="anmelden">
-    <div class="kurs-cta-bg"></div>
-    <div class="kurs-cta-content">
-      <p class="section-eyebrow animate">Jetzt starten</p>
-      <h2 class="section-title animate delay-1">
-        Bereit für deine<br><em>Fachausbildung?</em>
-      </h2>
-      <p class="animate delay-2">
-        Melde dich jetzt an und starte flexibel in deine Spezialisierung für ganzheitliche Faszien- & Muskelarbeit.
-      </p>
-      <div class="kurs-cta-actions animate delay-3">
-        <a href="#preise"
-          class="btn-cta-primary">Jetzt anmelden</a>
-        <a href="/" class="btn-cta-ghost">Zurück zur Praxis</a>
+  <section class="section section--lg surface-charcoal" id="anmelden" aria-labelledby="kurs-cta-heading">
+    <div class="cta-band">
+      <div class="cta-band-main">
+        <p class="eyebrow">Jetzt starten</p>
+        <h2 id="kurs-cta-heading" class="cta-band-title">Bereit für deine <em>Fachausbildung?</em></h2>
+      </div>
+      <div class="cta-band-aside">
+        <p>Melde dich jetzt an und starte flexibel in deine Spezialisierung für ganzheitliche Faszien- &amp; Muskelarbeit.</p>
+        <div class="cluster">
+          <a href="#preise" class="btn-primary">Jetzt anmelden</a>
+          <a href="/" class="btn-ghost">Zurück zur Praxis</a>
+        </div>
       </div>
     </div>
   </section>

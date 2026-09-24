@@ -14,24 +14,18 @@ function fetchFragment(url) {
 }
 
 // ── NAV ──────────────────────────────────────────────────
+// The nav is solid by default (site.css). Only while it overlaps a
+// photo hero (.hero on the home page) is it transparent.
 function initNav(container, activePage) {
-  var navEl = container.querySelector('body > nav, nav');
+  var navEl = container.querySelector('.site-nav');
   var heroEl = document.querySelector('.hero');
 
-  // Scroll state
-  if (navEl && 'IntersectionObserver' in window && heroEl) {
+  if (navEl && heroEl && 'IntersectionObserver' in window) {
+    navEl.classList.add('is-over-hero');
     var obs = new IntersectionObserver(function (entries) {
-      navEl.classList.toggle('is-scrolled', !entries[0].isIntersecting);
-    }, { rootMargin: '-80px 0px 0px 0px', threshold: 0 });
+      navEl.classList.toggle('is-over-hero', entries[0].isIntersecting);
+    }, { rootMargin: '-96px 0px 0px 0px', threshold: 0 });
     obs.observe(heroEl);
-  } else if (navEl) {
-    var onScroll = function () {
-      navEl.classList.toggle('is-scrolled', window.scrollY > 80);
-    };
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-    // On pages without a hero the nav is always scrolled
-    if (!heroEl) navEl.classList.add('is-scrolled');
   }
 
   // Active link
@@ -53,6 +47,7 @@ function initNav(container, activePage) {
       mobileMenu.classList.remove('open');
       hamburger.classList.remove('open');
       hamburger.setAttribute('aria-expanded', 'false');
+      document.documentElement.classList.remove('menu-open');
       document.body.style.overflow = '';
       if (returnFocus) hamburger.focus();
     };
@@ -61,7 +56,8 @@ function initNav(container, activePage) {
       var isOpen = mobileMenu.classList.toggle('open');
       hamburger.classList.toggle('open', isOpen);
       hamburger.setAttribute('aria-expanded', String(isOpen));
-      // Body-Scroll sperren, solange das Menü offen ist
+      // Body-Scroll sperren und schwebende Elemente ausblenden, solange das Menü offen ist
+      document.documentElement.classList.toggle('menu-open', isOpen);
       document.body.style.overflow = isOpen ? 'hidden' : '';
     });
 
@@ -180,13 +176,6 @@ function patchReviewCount() {
   });
 }
 
-// ── Inject shared nav-active style ───────────────────────
-(function () {
-  var style = document.createElement('style');
-  style.textContent = '.nav-links a.nav-active:not(.nav-cta){opacity:1}.nav-links a.nav-active:not(.nav-cta)::after{transform:scaleX(1)!important}';
-  document.head.appendChild(style);
-})();
-
 // ── Boot ─────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded', function () {
   // data-page on <body> or <html> identifies the active nav item
@@ -209,12 +198,12 @@ document.addEventListener('DOMContentLoaded', function () {
       }).catch(function () {
         // Fallback: Pflichtseiten müssen erreichbar bleiben, auch wenn das Fragment fehlt
         navPlaceholder.innerHTML =
-          '<nav class="nav is-scrolled"><div class="nav-inner">' +
-          '<a href="/" class="nav-logo" aria-label="Startseite">Fech Puls</a>' +
-          '<div class="nav-links">' +
-          '<a href="/impressum">Impressum</a>' +
-          '<a href="/datenschutz">Datenschutz</a>' +
-          '</div></div></nav>';
+          '<nav class="site-nav">' +
+          '<a href="/" style="color:#fff;text-decoration:none">Fech Puls</a>' +
+          '<ul class="nav-links">' +
+          '<li><a href="/impressum">Impressum</a></li>' +
+          '<li><a href="/datenschutz">Datenschutz</a></li>' +
+          '</ul></nav>';
       })
     );
   }
@@ -227,8 +216,8 @@ document.addEventListener('DOMContentLoaded', function () {
       }).catch(function () {
         // Fallback: minimaler Footer mit erreichbaren Pflichtseiten
         footerPlaceholder.innerHTML =
-          '<footer class="footer"><div class="footer-inner">' +
-          '<a href="/" class="footer-logo" aria-label="Startseite">Fech Puls</a>' +
+          '<footer class="site-footer"><div class="footer-bottom">' +
+          '<p>Faszienpraxis Fech · Spaichingen</p>' +
           '<nav class="footer-links" aria-label="Rechtliches">' +
           '<a href="/impressum">Impressum</a>' +
           '<a href="/datenschutz">Datenschutz</a>' +
@@ -294,9 +283,8 @@ function initScrollReveal() {
   if (!('IntersectionObserver' in window)) return;
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  var sel = '.section-eyebrow, .section-title, .conditions-lead, .cond-grid, ' +
-            '.how-card, .price-card, .about-content, .schroepfen-content, ' +
-            '.kurs-banner-content, .grev-widget, .faq-item';
+  // Blocks below the fold that fade in once. Hero content uses .animate instead.
+  var sel = '[data-reveal], .section-head, .reveal-group > *';
   var els = Array.prototype.slice.call(document.querySelectorAll(sel));
   if (!els.length) return;
 

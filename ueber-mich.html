@@ -25,7 +25,7 @@
   <link rel="preload" href="assets/fonts/dm-sans-400-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/cormorant-garamond-300-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="fonts.css">
-  <link rel="stylesheet" href="accessibility.css">
+  <link rel="stylesheet" href="site.css">
 
   <!-- Schema.org: Person -->
   <script type="application/ld+json">
@@ -55,7 +55,6 @@
   }
   </script>
   <link rel="stylesheet" href="ueber-mich.css">
-  <link rel="stylesheet" href="widescreen.css">
 </head>
 
 <body data-page="ueber-mich">
@@ -68,109 +67,102 @@
   <main id="main-content" tabindex="-1">
 
   <!-- ══════ HERO ══════ -->
-  <section class="ueber-hero">
-    <div class="ueber-hero-left">
-      <p class="ueber-hero-eyebrow animate">Über mich · Fech Puls</p>
-      <h1 class="animate delay-1">
+  <section class="page-hero media-split ueber-hero surface-paper" aria-labelledby="ueber-heading">
+    <figure class="split-media media ueber-hero-media">
+      <img src="assets/wadim-fech-portrait.jpg"
+        alt="Wadim Fech – Faszientherapeut & Sporttherapeut in Spaichingen"
+        width="1340" height="2400"
+        fetchpriority="high" decoding="async">
+      <figcaption class="media-caption animate delay-3">
+        <strong>Wadim Fech</strong>
+        <span>Faszientherapeut &amp; Sporttherapeut · Spaichingen</span>
+      </figcaption>
+    </figure>
+
+    <div class="split-body flow">
+      <p class="eyebrow animate">Über mich · Fech Puls</p>
+      <h1 id="ueber-heading" class="page-title animate delay-1">
         Dein zertifizierter<br>
         <em>Faszientherapeut</em><br>
-        & Sporttherapeut
+        &amp; Sporttherapeut
       </h1>
-      <p class="ueber-hero-sub animate delay-2">
-        Ich bin Wadim Fech, selbstständiger Faszientherapeut & Sporttherapeut mit Schwerpunkt auf manueller
+      <p class="page-hero-lead animate delay-2">
+        Ich bin Wadim Fech, selbstständiger Faszientherapeut &amp; Sporttherapeut mit Schwerpunkt auf manueller
         Tiefengewebearbeit. Du bist bei mir richtig, wenn du im Alltag anhaltenden Druck im Körper, Ziehen oder
         stechende Empfindungen von Kopf bis Fuß wahrnimmst – zum Beispiel im Nacken-, Schulter-, Rücken-, Arm- oder
         Beinbereich. Viele Menschen spüren über längere Zeit Druck im Gewebe, harte Muskelstrukturen oder tief sitzende
         Verhärtungen, die sich im Laufe der Jahre im Körper aufbauen. Solche Strukturen entstehen häufig durch
         dauerhafte körperliche Belastung, einseitige Bewegungsmuster oder anhaltenden Druck im Bewegungsapparat.
       </p>
-      <div class="ueber-hero-cta animate delay-3">
+      <div class="cluster actions animate delay-3">
         <a href="https://book.timify.com/?accountId=652fe85cbd51d3ad47200466&hideCloseButton=true"
           class="btn-primary">Termin buchen</a>
         <a href="/#leistungen" class="btn-ghost">Leistungen ansehen</a>
-      </div>
-    </div>
-
-    <div class="ueber-hero-right">
-      <img class="ueber-hero-photo"
-        src="assets/wadim-fech-portrait.jpg"
-        alt="Wadim Fech – Faszientherapeut & Sporttherapeut in Spaichingen"
-        width="1340" height="2400"
-        loading="eager" decoding="async">
-      <div class="ueber-hero-img-overlay"></div>
-      <div class="ueber-hero-bg-text">Wadim</div>
-      <div class="ueber-hero-name-tag animate delay-3">
-        <div class="ueber-hero-name">Wadim Fech</div>
-        <div class="ueber-hero-role">Faszientherapeut & Sporttherapeut · Spaichingen</div>
       </div>
     </div>
   </section>
 
 
   <!-- ══════ WAS ICH BIN / WAS ICH TUE ══════ -->
-  <section class="ueber-positioning">
+  <section class="section section--lg surface-dark">
+    <div class="split ueber-positioning">
 
-    <div class="ueber-not-block">
-      <p class="section-eyebrow animate">Transparenz</p>
-      <h2 class="ueber-not-title animate delay-1">
-        Was ich<br><em>nicht bin</em>
-      </h2>
-      <ul class="ueber-not-list animate delay-2">
-        <li>Ich bin kein Arzt</li>
-        <li>Ich bin kein Orthopäde</li>
-        <li>Ich bin kein Physiotherapeut</li>
-        <li>Ich bin kein Heilpraktiker</li>
-      </ul>
-      <p class="ueber-not-note animate delay-3">
-        Ich stelle keine Diagnosen und behandle keine Krankheiten wie Krebs, Rheuma, Organstörungen oder andere
-        medizinische Beschwerden. Ich ersetze keine ärztliche, heilpraktische oder physiotherapeutische Behandlung.
-      </p>
+      <div class="flow">
+        <p class="eyebrow">Transparenz</p>
+        <h2 class="section-title">Was ich<br><em>nicht bin</em></h2>
+        <ul class="not-list">
+          <li>Ich bin kein Arzt</li>
+          <li>Ich bin kein Orthopäde</li>
+          <li>Ich bin kein Physiotherapeut</li>
+          <li>Ich bin kein Heilpraktiker</li>
+        </ul>
+        <p class="text-meta ueber-not-note">
+          Ich stelle keine Diagnosen und behandle keine Krankheiten wie Krebs, Rheuma, Organstörungen oder andere
+          medizinische Beschwerden. Ich ersetze keine ärztliche, heilpraktische oder physiotherapeutische Behandlung.
+        </p>
+      </div>
+
+      <div class="flow">
+        <p class="eyebrow">Meine Arbeit</p>
+        <h2 class="section-title">Was ich<br><em>tue</em></h2>
+        <dl class="do-list reveal-group">
+          <div>
+            <dt class="label">Körperzentriert</dt>
+            <dd>
+              Ich arbeite <strong>körperzentriert, ehrlich und tiefgehend</strong> mit Menschen, die unter Spannung,
+              Bewegungseinschränkungen oder anhaltenden Beschwerden leiden — und spüren, dass der Ursprung oft tiefer sitzt
+              als vermutet.
+            </dd>
+          </div>
+          <div>
+            <dt class="label">Triggerpunktarbeit</dt>
+            <dd>
+              Gezieltes Arbeiten an <strong>Triggerpunkten und tiefen Faszienstrukturen</strong> — um Beschwerden dort zu
+              adressieren, wo sie wirklich entstehen, nicht nur an der Oberfläche.
+            </dd>
+          </div>
+          <div>
+            <dt class="label">Nachhaltige Linderung</dt>
+            <dd>
+              Für Menschen mit anhaltendem Druck, Ziehen, Stechen oder verhärteten Strukturen im Körper <strong>– besonders
+              wenn bisher keine passende Lösung gefunden wurde.</strong>
+            </dd>
+          </div>
+        </dl>
+      </div>
+
     </div>
-
-    <div class="ueber-do-block">
-      <p class="section-eyebrow animate">Meine Arbeit</p>
-      <h2 class="ueber-do-title animate delay-1">
-        Was ich<br><em>tue</em>
-      </h2>
-      <div class="ueber-do-card animate delay-2">
-        <div class="ueber-do-card-label">Körperzentriert</div>
-        <p>
-          Ich arbeite <strong>körperzentriert, ehrlich und tiefgehend</strong> mit Menschen, die unter Spannung,
-          Bewegungseinschränkungen oder anhaltenden Beschwerden leiden — und spüren, dass der Ursprung oft tiefer sitzt
-          als vermutet.
-        </p>
-      </div>
-      <div class="ueber-do-card animate delay-3">
-        <div class="ueber-do-card-label">Triggerpunktarbeit</div>
-        <p>
-          Gezieltes Arbeiten an <strong>Triggerpunkten und tiefen Faszienstrukturen</strong> — um Beschwerden dort zu
-          adressieren, wo sie wirklich entstehen, nicht nur an der Oberfläche.
-        </p>
-      </div>
-      <div class="ueber-do-card animate delay-4">
-        <div class="ueber-do-card-label">Nachhaltige Linderung</div>
-        <p>
-          Für Menschen mit anhaltendem Druck, Ziehen, Stechen oder verhärteten Strukturen im Körper <strong>- besonders
-            wenn bisher keine passende Lösung gefunden wurde.</strong>.
-        </p>
-      </div>
-    </div>
-
   </section>
 
 
-  <!-- ══════ ZIEL / QUOTE ══════ -->
-  <section class="ueber-ziel">
-    <div class="ueber-ziel-left animate">
-      <div class="ueber-ziel-label">Mein Ziel</div>
-      <h2 class="ueber-ziel-heading">
-        Freiheit.<br>
-        Ruhe.<br>
-        <em>Beweglichkeit.</em>
-      </h2>
-    </div>
-    <div class="ueber-ziel-quote animate delay-2">
-      <p>
+  <!-- ══════ ZIEL ══════ -->
+  <section class="section surface-paper" aria-labelledby="ziel-heading">
+    <div class="split ueber-ziel">
+      <div>
+        <p class="eyebrow">Mein Ziel</p>
+        <h2 id="ziel-heading" class="section-title">Freiheit.<br>Ruhe.<br><em>Beweglichkeit.</em></h2>
+      </div>
+      <p class="pull-quote ueber-ziel-quote" data-reveal>
         Nicht Symptome zu bekämpfen, sondern zu erkennen, <strong>wo dein Körper festhält</strong> — und dort gezielt
         <strong>Druck und Entlastung zu geben</strong>, damit du dich wieder <strong>frei, ruhig und beweglich</strong>
         fühlst.
@@ -180,169 +172,135 @@
 
 
   <!-- ══════ WOFÜR ICH STEHE ══════ -->
-  <section class="ueber-values">
-    <div class="ueber-values-header">
+  <section class="section surface-tint" aria-labelledby="werte-heading">
+    <header class="section-head section-head--split">
       <div>
-        <p class="section-eyebrow animate">Wofür ich stehe</p>
-        <h2 class="section-title animate delay-1">
-          Meine <em>Werte &<br>Prinzipien</em>
-        </h2>
+        <p class="eyebrow">Wofür ich stehe</p>
+        <h2 id="werte-heading" class="section-title">Meine <em>Werte &amp;<br>Prinzipien</em></h2>
       </div>
-      <p class="ueber-values-desc animate delay-2">
+      <p class="lead">
         Meine Arbeit basiert auf drei Grundsätzen — die bestimmen, wie ich jeden Menschen behandle und was du von meiner
         Praxis erwarten kannst.
       </p>
-    </div>
+    </header>
 
-    <div class="ueber-values-grid">
-      <div class="ueber-value-card animate delay-1">
-        <span class="ueber-value-num">01</span>
-        <span class="ueber-value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></span>
-        <h3 class="ueber-value-title">Ehrlichkeit</h3>
-        <p class="ueber-value-text">
+    <ol class="values-list reveal-group">
+      <li>
+        <span class="num" aria-hidden="true">01</span>
+        <h3 class="values-word">Ehrlichkeit</h3>
+        <p>
           Ich sage dir klar, womit ich helfen kann — und womit nicht. Keine Versprechen, die ich nicht halten kann.
           Keine Behandlung, die dir nicht nützt.
         </p>
-        <span class="ueber-value-bar"></span>
-      </div>
-      <div class="ueber-value-card animate delay-2">
-        <span class="ueber-value-num">02</span>
-        <span class="ueber-value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/></svg></span>
-        <h3 class="ueber-value-title">Tiefenarbeit</h3>
-        <p class="ueber-value-text">
+      </li>
+      <li>
+        <span class="num" aria-hidden="true">02</span>
+        <h3 class="values-word">Tiefenarbeit</h3>
+        <p>
           Ich arbeite gezielt an den Strukturen, die tatsächlich für deine Beschwerden verantwortlich sind — nicht an
           der Oberfläche, sondern dort, wo der Schmerz wirklich entsteht.
         </p>
-        <span class="ueber-value-bar"></span>
-      </div>
-      <div class="ueber-value-card animate delay-3">
-        <span class="ueber-value-num">03</span>
-        <span class="ueber-value-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></span>
-        <h3 class="ueber-value-title">Nachhaltigkeit</h3>
-        <p class="ueber-value-text">
+      </li>
+      <li>
+        <span class="num" aria-hidden="true">03</span>
+        <h3 class="values-word">Nachhaltigkeit</h3>
+        <p>
           Mein Ziel ist keine kurzfristige Erleichterung, sondern eine nachhaltige Verbesserung — damit du langfristig
           schmerzfreier und beweglicher lebst.
         </p>
-        <span class="ueber-value-bar"></span>
-      </div>
-    </div>
+      </li>
+    </ol>
   </section>
 
 
   <!-- ══════ MEINE GESCHICHTE ══════ -->
-  <section class="mg-section" id="geschichte">
-    <div class="mg-bg-glow"></div>
-    <div class="mg-bg-text" aria-hidden="true">Geschichte</div>
+  <section class="section section--lg surface-dark" id="geschichte" aria-labelledby="mg-heading">
+    <div class="split mg-layout">
 
-    <!-- Header -->
-    <div class="mg-header">
-      <p class="mg-eyebrow">
-        <span class="mg-eyebrow-line"></span>
-        Meine Geschichte
-      </p>
-      <h2 class="mg-title">Der Weg zu dem,<br><em>was ich heute tue</em></h2>
-      <p class="mg-subtitle">Fünf Kapitel &nbsp;·&nbsp; Ein Weg</p>
-    </div>
+      <header class="mg-head">
+        <p class="eyebrow">Meine Geschichte</p>
+        <h2 id="mg-heading" class="section-title">Der Weg zu dem,<br><em>was ich heute tue</em></h2>
+        <p class="label">Fünf Kapitel · Ein Weg</p>
+      </header>
 
-    <!-- Layout: Timeline + Body -->
-    <div class="mg-layout">
-
-      <!-- Timeline -->
-      <div class="mg-timeline" id="mgTimeline">
-
-        <div class="mg-chapter" data-chapter="0">
-          <div class="mg-chapter-inner">
-            <div class="mg-chapter-header">
-              <span class="mg-chapter-num">01</span>
-              <h3 class="mg-chapter-title">Der Ursprung</h3>
-            </div>
-            <p class="mg-chapter-text">
+      <ol class="mg-timeline reveal-group">
+        <li class="mg-chapter" data-chapter="0">
+          <span class="num" aria-hidden="true">01</span>
+          <div>
+            <h3 class="item-title">Der Ursprung</h3>
+            <p>
               Der Zugang zu meiner heutigen Tätigkeit entwickelte sich bereits in frühen Jahren
               durch intensive sportliche Aktivität, unter anderem im Bereich Boxtraining.
             </p>
-            <span class="mg-chapter-tag">Sport · Boxen</span>
+            <p class="label">Sport · Boxen</p>
           </div>
-        </div>
-
-        <div class="mg-chapter" data-chapter="1">
-          <div class="mg-chapter-inner">
-            <div class="mg-chapter-header">
-              <span class="mg-chapter-num">02</span>
-              <h3 class="mg-chapter-title">Das Interesse entsteht</h3>
-            </div>
-            <p class="mg-chapter-text">
+        </li>
+        <li class="mg-chapter" data-chapter="1">
+          <span class="num" aria-hidden="true">02</span>
+          <div>
+            <h3 class="item-title">Das Interesse entsteht</h3>
+            <p>
               In diesem Zusammenhang entstand ein ausgeprägtes Interesse an den funktionellen
               Zusammenhängen des menschlichen Körpers — insbesondere an der Reaktion von Muskulatur,
               Faszien und Gewebestrukturen auf körperliche Belastung.
             </p>
-            <span class="mg-chapter-tag">Muskulatur · Faszien · Gewebe</span>
+            <p class="label">Muskulatur · Faszien · Gewebe</p>
           </div>
-        </div>
-
-        <div class="mg-chapter" data-chapter="2">
-          <div class="mg-chapter-inner">
-            <div class="mg-chapter-header">
-              <span class="mg-chapter-num">03</span>
-              <h3 class="mg-chapter-title">Vertiefung &amp; Wissen</h3>
-            </div>
-            <p class="mg-chapter-text">
+        </li>
+        <li class="mg-chapter" data-chapter="2">
+          <span class="num" aria-hidden="true">03</span>
+          <div>
+            <h3 class="item-title">Vertiefung &amp; Wissen</h3>
+            <p>
               Darauf folgte eine vertiefte Auseinandersetzung mit Fachliteratur zu Muskelverhärtungen,
               faszialen Strukturen und Triggerpunkten — mit dem Ziel, Druck-, Zug- und stechende
               Empfindungen sowie verhärtete Gewebestrukturen im Körper besser zu verstehen.
             </p>
-            <span class="mg-chapter-tag">Triggerpunkte · Fachliteratur</span>
+            <p class="label">Triggerpunkte · Fachliteratur</p>
           </div>
-        </div>
-
-        <div class="mg-chapter" data-chapter="3">
-          <div class="mg-chapter-inner">
-            <div class="mg-chapter-header">
-              <span class="mg-chapter-num">04</span>
-              <h3 class="mg-chapter-title">Die Ausbildung</h3>
-            </div>
-            <p class="mg-chapter-text">
+        </li>
+        <li class="mg-chapter" data-chapter="3">
+          <span class="num" aria-hidden="true">04</span>
+          <div>
+            <h3 class="item-title">Die Ausbildung</h3>
+            <p>
               Darauf aufbauend absolvierte ich Ausbildungen an privaten Instituten in den Bereichen
               Faszienbehandlung, Arbeit in tieferen Gewebeschichten und Triggerpunkte.
             </p>
-            <span class="mg-chapter-tag">Zertifiziert · Faszienbehandlung</span>
+            <p class="label">Zertifiziert · Faszienbehandlung</p>
           </div>
-        </div>
-
-        <div class="mg-chapter" data-chapter="4">
-          <div class="mg-chapter-inner">
-            <div class="mg-chapter-header">
-              <span class="mg-chapter-num">05</span>
-              <h3 class="mg-chapter-title">Heute</h3>
-            </div>
-            <p class="mg-chapter-text">
+        </li>
+        <li class="mg-chapter" data-chapter="4">
+          <span class="num" aria-hidden="true">05</span>
+          <div>
+            <h3 class="item-title">Heute</h3>
+            <p>
               Heute konzentriert sich meine Tätigkeit auf die Arbeit mit Menschen, die anhaltenden
               Druck, Ziehen, Stechen oder verhärtete Strukturen im Körper von Kopf bis Fuß wahrnehmen.
             </p>
-            <span class="mg-chapter-tag">Kopf bis Fuß · Tiefengewebe</span>
+            <p class="label">Kopf bis Fuß · Tiefengewebe</p>
           </div>
-        </div>
-
-      </div>
+        </li>
+      </ol>
 
     </div>
   </section>
 
 
   <!-- ══════ CTA ══════ -->
-  <section class="ueber-cta">
-    <div class="ueber-cta-bg"></div>
-    <div class="ueber-cta-content">
-      <p class="section-eyebrow animate">Jetzt starten</p>
-      <h2 class="section-title animate delay-1">
-        Bereit für<br><em>echte Veränderung?</em>
-      </h2>
-      <p class="animate delay-2">
-        Buche jetzt deinen Termin — und finde heraus, wo dein Körper festhält.
-      </p>
-      <div class="ueber-cta-actions animate delay-3">
-        <a href="https://book.timify.com/?accountId=652fe85cbd51d3ad47200466&hideCloseButton=true"
-          class="btn-cta-primary">Termin buchen</a>
-        <a href="/gutschein" class="btn-cta-ghost">Gutschein verschenken</a>
+  <section class="section section--lg surface-charcoal" aria-labelledby="ueber-cta-heading">
+    <div class="cta-band">
+      <div class="cta-band-main">
+        <p class="eyebrow">Jetzt starten</p>
+        <h2 id="ueber-cta-heading" class="cta-band-title">Bereit für <em>echte Veränderung?</em></h2>
+      </div>
+      <div class="cta-band-aside">
+        <p>Buche jetzt deinen Termin — und finde heraus, wo dein Körper festhält.</p>
+        <div class="cluster">
+          <a href="https://book.timify.com/?accountId=652fe85cbd51d3ad47200466&hideCloseButton=true"
+            class="btn-primary">Termin buchen</a>
+          <a href="/gutschein" class="btn-ghost">Gutschein verschenken</a>
+        </div>
       </div>
     </div>
   </section>
@@ -357,56 +315,22 @@
   <script src="lang.js"></script>
 
   <script>
-    // ══ MEINE GESCHICHTE ══
+    // Meine Geschichte: das Kapitel in der Lesezone wird hervorgehoben.
     (function () {
       var chapters = document.querySelectorAll('.mg-chapter');
+      if (!chapters.length || !('IntersectionObserver' in window)) return;
 
-      var activeChapter = -1;
-
-      function setActiveChapter(index) {
-        if (index === activeChapter) return;
-        activeChapter = index;
-
-        chapters.forEach(function (ch, i) {
-          ch.classList.toggle('mg-active', i === index);
-        });
-      }
-
-      // Parallax on background text
-      var mgSection = document.querySelector('.mg-section');
-      var mgBgText = document.querySelector('.mg-bg-text');
-      window.addEventListener('scroll', function () {
-        if (!mgBgText || !mgSection) return;
-        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-          var rect = mgSection.getBoundingClientRect();
-          mgBgText.style.transform = 'translateY(' + (-rect.top * 0.12) + 'px)';
-        }
-      }, { passive: true });
-
-      // Reveal animation observer
-      var revealObserver = new IntersectionObserver(function (entries) {
+      var observer = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
-          if (entry.isIntersecting) entry.target.classList.add('mg-visible');
+          if (!entry.isIntersecting) return;
+          chapters.forEach(function (ch) {
+            ch.classList.toggle('mg-active', ch === entry.target);
+          });
         });
-      }, { threshold: 0.1 });
+      }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
 
-      // Active chapter observer
-      var activeObserver = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            setActiveChapter(parseInt(entry.target.dataset.chapter, 10));
-          }
-        });
-      }, { threshold: 0.45, rootMargin: '-8% 0px -42% 0px' });
-
-      chapters.forEach(function (ch) {
-        revealObserver.observe(ch);
-        activeObserver.observe(ch);
-      });
-
-      // Init
-      setActiveChapter(0);
-      if (chapters[0]) chapters[0].classList.add('mg-visible');
+      chapters.forEach(function (ch) { observer.observe(ch); });
+      chapters[0].classList.add('mg-active');
     })();
   </script>
 </body>

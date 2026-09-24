@@ -25,9 +25,8 @@
   <link rel="preload" href="assets/fonts/dm-sans-400-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="assets/fonts/cormorant-garamond-300-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="fonts.css">
-  <link rel="stylesheet" href="accessibility.css">
+  <link rel="stylesheet" href="site.css">
   <link rel="stylesheet" href="gutschein.css">
-  <link rel="stylesheet" href="widescreen.css">
 </head>
 
 <body data-page="gutschein">
@@ -37,33 +36,29 @@
   <!-- NAV (injected by components.js) -->
   <div id="site-nav"></div>
 
+  <main id="main-content" tabindex="-1">
 
   <!-- ══════ HERO ══════ -->
-  <main id="main-content" tabindex="-1">
-  <section class="gutschein-hero">
-    <div class="gutschein-hero-left">
-      <p class="gutschein-hero-eyebrow animate">Fech Puls · Spaichingen</p>
-      <h1 class="animate delay-1">
+  <section class="page-hero media-split media-split--reverse surface-paper gutschein-hero" aria-labelledby="gutschein-heading">
+    <div class="split-body flow">
+      <p class="eyebrow animate">Fech Puls · Spaichingen</p>
+      <h1 id="gutschein-heading" class="page-title animate delay-1">
         Gutschein für<br>
         <em>Tiefengewebs-</em><br>
         behandlung
       </h1>
-      <p class="gutschein-hero-sub animate delay-2">
+      <p class="page-hero-lead animate delay-2">
         Hat jemand in Ihrem Umfeld anhaltenden Druck, Ziehen oder verhärtete Strukturen im Körper?
-        Verschenken Sie einen Gutschein für eine Tiefengewebebehandlung & Triggerpunkte.
-
+        Verschenken Sie einen Gutschein für eine Tiefengewebebehandlung &amp; Triggerpunkte.
         Präzise manuelle Behandlung im tiefen Muskel- und Fasziengewebe bei Druck, Ziehen, Stechen und verhärteten
         Strukturen im Körper.
       </p>
-      <div class="gutschein-hero-pills animate delay-3">
-        <div class="gutschein-pill"><span class="gutschein-pill-dot"></span> Abholung & Versand</div>
-        <div class="gutschein-pill"><span class="gutschein-pill-dot"></span> 30 oder 45 Min</div>
-        <div class="gutschein-pill"><span class="gutschein-pill-dot"></span> Persönlich & individuell</div>
+      <div class="cluster actions animate delay-3">
+        <a href="#bestellen" class="btn-primary">Gutschein anfragen</a>
       </div>
     </div>
 
-    <div class="gutschein-hero-right">
-      <div class="gutschein-hero-bg-text">Gutschein</div>
+    <div class="split-media page-hero-panel surface-dark">
       <div class="gutschein-shots animate delay-2">
         <figure class="gutschein-shot is-front">
           <a data-lb href="assets/gutschein-vorderseite.webp"
@@ -88,36 +83,36 @@
   </section>
 
 
-  <!-- ══════ TRUST BAR ══════ -->
-  <div class="trust-bar">
-    <div class="trust-item"><span class="icon">✦</span> Persönliche Beratung</div>
-    <div class="trust-sep"></div>
-    <div class="trust-item"><span class="icon">✦</span> Abholung oder Versand per Post</div>
-    <div class="trust-sep"></div>
-    <div class="trust-item"><span class="icon">✦</span> 30 Min – 80 € · 45 Min – 100 €</div>
-    <div class="trust-sep"></div>
-    <div class="trust-item"><span class="icon">✦</span> Nach Zahlungseingang versandfertig</div>
-    <div class="trust-sep"></div>
-    <div class="trust-item"><span class="icon">✦</span> Behandlungen ausschließlich mit Termin</div>
+  <!-- ══════ TRUST STRIP ══════ -->
+  <div class="trust-strip">
+    <ul>
+      <li>Persönliche Beratung</li>
+      <li>Abholung oder Versand per Post</li>
+      <li>30 Min – 80 € · 45 Min – 100 €</li>
+      <li>Nach Zahlungseingang versandfertig</li>
+      <li>Behandlungen ausschließlich mit Termin</li>
+    </ul>
   </div>
 
 
-  <!-- ══════ MAIN: FORM + SIDEBAR ══════ -->
-  <section class="gutschein-main">
+  <!-- ══════ FORMULAR + SIDEBAR ══════ -->
+  <section class="section surface-tint" id="bestellen" aria-labelledby="bestellen-heading">
+    <div class="split gutschein-main">
 
     <!-- FORM -->
     <div class="gutschein-form-wrap">
-      <p class="section-eyebrow animate">Gutschein bestellen</p>
-      <h2 class="section-title animate delay-1">Jetzt <em>verschenken</em></h2>
-      <p class="gutschein-form-intro animate delay-2">
-        Füllen Sie das Formular aus — wir bereiten Ihren Gutschein nach Zahlungseingang persönlich vor und stellen ihn
-        zur Abholung bereit oder senden ihn per Post zu.
-      </p>
+      <header class="section-head">
+        <p class="eyebrow">Gutschein bestellen</p>
+        <h2 id="bestellen-heading" class="section-title">Jetzt <em>verschenken</em></h2>
+        <p class="lead">
+          Füllen Sie das Formular aus — wir bereiten Ihren Gutschein nach Zahlungseingang persönlich vor und stellen ihn
+          zur Abholung bereit oder senden ihn per Post zu.
+        </p>
+      </header>
 
       <form id="gutschein-form" action="/api/gutschein" method="POST" novalidate>
         <!-- Honeypot for bots -->
-        <input type="text" name="_honey" tabindex="-1" autocomplete="off"
-               style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0" aria-hidden="true">
+        <input class="hp-field" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
 
         <div class="form-grid">
 
@@ -147,33 +142,33 @@
           </div>
 
           <!-- Duration -->
-          <fieldset class="form-group form-duration-group">
+          <fieldset class="form-group full">
             <legend class="form-label">Behandlungsdauer</legend>
-            <div class="form-duration-options">
-              <input type="radio" name="dauer" id="dauer-45" value="45min-100" class="duration-option" checked>
-              <label for="dauer-45" class="duration-label">
-                <span class="duration-price">€100</span>
-                <span class="duration-time">45 Minuten</span>
+            <div class="choice-group">
+              <input type="radio" name="dauer" id="dauer-45" value="45min-100" class="choice-input" checked>
+              <label for="dauer-45" class="choice">
+                <span class="choice-price">100 €</span>
+                <span class="choice-meta">45 Minuten</span>
               </label>
-              <input type="radio" name="dauer" id="dauer-30" value="30min-80" class="duration-option">
-              <label for="dauer-30" class="duration-label">
-                <span class="duration-price">€80</span>
-                <span class="duration-time">30 Minuten</span>
+              <input type="radio" name="dauer" id="dauer-30" value="30min-80" class="choice-input">
+              <label for="dauer-30" class="choice">
+                <span class="choice-price">80 €</span>
+                <span class="choice-meta">30 Minuten</span>
               </label>
             </div>
           </fieldset>
 
           <!-- Delivery -->
-          <fieldset class="form-group form-delivery-group">
+          <fieldset class="form-group full">
             <legend class="form-label">Versand oder Abholung</legend>
-            <div class="form-delivery-options">
-              <input type="radio" name="versand" id="versand-abholung" value="Abholung" class="delivery-option" checked>
-              <label for="versand-abholung" class="delivery-label">
-                <span class="delivery-icon">🏪</span> Abholung vor Ort
+            <div class="choice-group">
+              <input type="radio" name="versand" id="versand-abholung" value="Abholung" class="choice-input" checked>
+              <label for="versand-abholung" class="choice">
+                <span class="choice-text">Abholung vor Ort</span>
               </label>
-              <input type="radio" name="versand" id="versand-post" value="Versand per Post" class="delivery-option">
-              <label for="versand-post" class="delivery-label">
-                <span class="delivery-icon">✉️</span> Versand per Post
+              <input type="radio" name="versand" id="versand-post" value="Versand per Post" class="choice-input">
+              <label for="versand-post" class="choice">
+                <span class="choice-text">Versand per Post</span>
               </label>
             </div>
           </fieldset>
@@ -196,7 +191,7 @@
           </div>
 
           <div class="form-submit-row">
-            <button type="submit" class="btn-submit">Gutschein anfragen</button>
+            <button type="submit" class="btn-primary">Gutschein anfragen</button>
             <p class="form-note">Nach Absenden melden wir uns mit Zahlungsdetails. Der Gutschein wird nach
               Zahlungseingang versandfertig gemacht.</p>
           </div>
@@ -204,48 +199,49 @@
         </div>
       </form>
 
-      <div id="form-error" role="alert" hidden>Es gab ein Problem beim Senden. Bitte später erneut versuchen oder telefonisch melden.</div>
+      <div id="form-error" class="form-message is-error" role="alert" hidden>Es gab ein Problem beim Senden. Bitte später erneut versuchen oder telefonisch melden.</div>
 
-      <div class="form-success" id="form-success" role="status" tabindex="-1">
+      <div class="form-success form-message" id="form-success" role="status" tabindex="-1">
         <strong>Vielen Dank für Ihre Anfrage!</strong><br>
         Wir melden uns in Kürze mit den Zahlungsdetails. Ihr Gutschein wird nach Zahlungseingang persönlich vorbereitet.
       </div>
     </div>
 
     <!-- SIDEBAR -->
-    <aside class="gutschein-sidebar animate delay-2">
+    <aside class="gutschein-sidebar">
 
-      <div class="info-card-dark">
-        <div class="info-card-eyebrow">Hinweis</div>
-        <div class="info-card-title">Versand nach Zahlungseingang</div>
+      <div class="info-card surface-dark">
+        <p class="eyebrow">Hinweis</p>
+        <h3 class="info-card-title">Versand nach Zahlungseingang</h3>
         <p>Die Gutscheine werden nach erfolgtem Zahlungseingang persönlich vorbereitet und können abgeholt oder per Post
           versendet werden.</p>
       </div>
 
       <div class="info-card">
-        <div class="info-card-eyebrow">Preise</div>
-        <div class="info-card-title">Behandlungsoptionen</div>
-        <ul class="info-contact-list">
-          <li><strong>45 Min</strong> 100 € — Tiefengewebs & Triggerpunktarbeit</li>
-          <li><strong>30 Min</strong> 80 € — Gezielte Behandlung</li>
-        </ul>
+        <p class="eyebrow">Preise</p>
+        <h3 class="info-card-title">Behandlungsoptionen</h3>
+        <dl class="info-rows">
+          <div><dt>45 Min</dt><dd>100 € — Tiefengewebs &amp; Triggerpunktarbeit</dd></div>
+          <div><dt>30 Min</dt><dd>80 € — Gezielte Behandlung</dd></div>
+        </dl>
       </div>
 
       <div class="info-card">
-        <div class="info-card-eyebrow">Kontakt & Öffnungszeiten</div>
-        <div class="info-card-title">Faszienpraxis Fech</div>
-        <ul class="info-contact-list">
-          <li><strong>Adresse</strong>Danzigerstr. 19, 78549 Spaichingen</li>
-          <li><strong>Tel.</strong>07424 960 609 9</li>
-          <li><strong>Mo & Di</strong>8–11 · 15–18 Uhr</li>
-          <li><strong>Mi</strong>9–13 Uhr</li>
-          <li><strong>Do</strong>15–19 Uhr</li>
-          <li><strong>Fr</strong>9–13 Uhr</li>
-        </ul>
+        <p class="eyebrow">Kontakt &amp; Öffnungszeiten</p>
+        <h3 class="info-card-title">Faszienpraxis Fech</h3>
+        <dl class="info-rows">
+          <div><dt>Adresse</dt><dd>Danzigerstr. 19, 78549 Spaichingen</dd></div>
+          <div><dt>Tel.</dt><dd><a href="tel:+4974249606099">07424 960 609 9</a></dd></div>
+          <div><dt>Mo &amp; Di</dt><dd>8–11 · 15–18 Uhr</dd></div>
+          <div><dt>Mi</dt><dd>9–13 Uhr</dd></div>
+          <div><dt>Do</dt><dd>15–19 Uhr</dd></div>
+          <div><dt>Fr</dt><dd>9–13 Uhr</dd></div>
+        </dl>
       </div>
 
     </aside>
 
+    </div>
   </section>
   </main>
 

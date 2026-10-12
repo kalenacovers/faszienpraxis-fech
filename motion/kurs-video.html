@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kurs-Video · Spannung lösen</title>
+<!--
+  Motion source of the course film (assets/kurs-video.mp4).
+  Open via a local server from the repo root: /motion/kurs-video.html (needs `npm install --prefix motion`).
+  Timeline: Space play/pause · ←/→ one frame · Shift+←/→ one second · click a scene to jump.
+  Export:   node motion/render.mjs   (1920×1080 @ 30 fps through ffmpeg)
+  render(t) is a pure function of time — WebGL (three.js) for fibres, photo and cards,
+  HTML/CSS 3D for type — so scrubbing and export are frame-exact.
+-->
+<script type="importmap">{ "imports": { "three": "./node_modules/three/build/three.module.js" } }</script>
+<style>
+@font-face{font-family:'Host Grotesk';font-style:normal;font-weight:300 800;src:url(../assets/fonts/host-grotesk.woff2) format('woff2')}
+@font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:300 700;src:url(../assets/fonts/cormorant-garamond.woff2) format('woff2')}
+@font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:300 700;src:url(../assets/fonts/cormorant-garamond-italic.woff2) format('woff2')}
+:root{--ink:#0a2540;--paper:#f5faff;--tint:#e3f2fd;--accent:#0496ff;--accent-ink:#0377cc;--muted:#4a6a8a;--sky:#90caf9}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{background:#05101c;color:var(--paper);font-family:'Host Grotesk',system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+
+.viewport{position:relative;width:100%;aspect-ratio:16/9;max-height:calc(100vh - 150px);margin:0 auto;overflow:hidden}
+.stage{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;background:var(--ink);transform-origin:0 0}
+.render .viewport{width:1920px;height:1080px;max-height:none;aspect-ratio:auto}
+.render .editor{display:none}
+#gl{position:absolute;inset:0;width:1920px;height:1080px}
+.abs{position:absolute}
+.layer{position:absolute;inset:0}
+.serif{font-family:'Cormorant Garamond',Georgia,serif;font-weight:400;letter-spacing:-.02em;line-height:1}
+.serif em{font-style:italic;font-weight:300}
+.label{display:flex;align-items:center;gap:14px;font-size:28px;font-weight:500;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap}
+.label::before{content:'';width:12px;height:12px;background:var(--dot,var(--accent))}
+.mask{display:inline-block;overflow:hidden;vertical-align:top;padding:0 .05em .16em;margin:0 -.05em -.16em}
+.mask>span{display:inline-block}
+
+/* 1–2 */
+#t-spannung{left:0;right:0;top:390px;text-align:center;font-size:220px;font-style:italic;font-weight:300}
+#t-verstehen{left:0;right:0;top:430px;text-align:center;font-size:128px}
+
+/* 4 · counter drums */
+#counter{left:1360px;top:250px;width:460px}
+.drums{display:flex;height:330px;overflow:hidden;perspective:1400px}
+.drum-wrap{position:relative;width:205px;height:330px;transform-style:preserve-3d}
+.drum{position:absolute;inset:0;transform-style:preserve-3d}
+.face{position:absolute;left:0;top:0;width:205px;height:330px;display:grid;place-items:center;font-size:380px;font-weight:300;letter-spacing:-.06em;line-height:1;color:var(--paper);backface-visibility:hidden}
+#counter .sub{margin-top:36px;font-size:34px;line-height:1.3;color:var(--sky)}
+
+/* 5–6 · paper */
+#paper{background:var(--paper);opacity:0;color:var(--ink)}
+#facts{left:160px;top:190px;width:1600px}
+#facts .label,#cert-label{--dot:var(--ink)}
+.row{position:relative;height:170px;perspective:1200px}
+.label + .row{margin-top:60px}
+.flap{position:absolute;inset:0;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(10,37,64,.14);transform-origin:50% 0;backface-visibility:hidden}
+.flap .text{font-size:76px;font-weight:500;letter-spacing:-.02em}
+.flap .idx{font-size:32px;color:var(--muted)}
+.row .bar{position:absolute;left:0;bottom:-1px;height:3px;width:100%;background:var(--accent);transform-origin:0 50%}
+#cert-scene{inset:0;perspective:1600px}
+#cert-label{left:160px;top:230px}
+#t-zert{left:150px;top:300px;font-size:190px}
+.logo-dot{width:156px;height:156px;border-radius:50%;background:#fff;border:1px solid rgba(10,37,64,.1);display:grid;place-items:center}
+.logo-dot img{width:66%;height:66%;object-fit:contain}
+#cert{left:1240px;top:190px;width:480px;height:679px;border-radius:8px;border:1px solid rgba(10,37,64,.12);background:#fff;transform-origin:50% 40%}
+
+/* 7 · Kurse */
+#courses{perspective:2000px}
+#courses .label{left:160px;top:118px}
+#t-kurse{left:150px;top:176px;font-size:124px;color:var(--paper)}
+.course{position:absolute;left:0;top:400px;width:385px;height:520px;border-radius:26px;padding:34px;display:flex;flex-direction:column;gap:20px;background:var(--tint);color:var(--ink);backface-visibility:hidden;transform-style:preserve-3d}
+.course .pill{align-self:flex-start;padding:9px 18px;border-radius:999px;background:var(--paper);font-size:28px;font-weight:500;white-space:nowrap}
+.course .name{font-family:'Cormorant Garamond',Georgia,serif;font-size:50px;line-height:1.02;letter-spacing:-.015em}
+.course .sub{font-size:28px;line-height:1.25;color:var(--muted)}
+.course .price{margin-top:auto;font-size:104px;font-weight:400;letter-spacing:-.05em;line-height:1;white-space:nowrap}
+.course .was{margin-top:auto;font-size:28px}
+.course .was + .price{margin-top:4px}
+.course--featured{background:var(--accent)}
+.course--featured .pill{background:var(--ink);color:var(--paper)}
+.course--featured .sub,.course--featured .was{color:var(--ink);opacity:.72}
+.course--soon{background:rgba(255,255,255,.04);border:2px solid rgba(255,255,255,.22);color:var(--paper)}
+.course--soon .pill{background:rgba(255,255,255,.12)}
+.course--soon .sub{color:var(--sky)}
+
+/* 8 */
+#door{background:var(--ink);transform-origin:0 50%;backface-visibility:hidden}
+#t-end{left:150px;top:200px;font-size:210px;color:var(--paper);line-height:.95}
+#pill{left:160px;top:720px;height:104px;display:flex;align-items:center;gap:22px;padding:0 14px 0 44px;border-radius:999px;background:var(--accent);color:var(--ink);font-size:38px;font-weight:600;white-space:nowrap}
+#pill .arrow{width:76px;height:76px;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center}
+#endlogo{left:160px;top:946px;height:66px}
+
+/* editor */
+.editor{max-width:1200px;margin:14px auto 0;padding:0 16px;display:grid;gap:10px;font-size:14px}
+.bar-row{display:flex;align-items:center;gap:12px}
+.editor button{font:inherit;color:inherit;background:#13263a;border:1px solid #23405e;border-radius:999px;padding:7px 14px;cursor:pointer}
+.editor button:hover{background:#1b3550}
+.editor input[type=range]{flex:1;accent-color:var(--accent)}
+.time{font-variant-numeric:tabular-nums;min-width:150px;color:var(--sky)}
+.scenes{display:flex;flex-wrap:wrap;gap:6px}
+.scenes button{padding:5px 12px;font-size:13px}
+.scenes button.on{background:var(--accent);border-color:var(--accent);color:var(--ink)}
+.hint{color:#6f8aa6;font-size:12px}
+</style>
+</head>
+<body>
+<div class="viewport" id="viewport">
+<div class="stage" id="stage">
+  <canvas id="gl" width="1920" height="1080"></canvas>
+
+  <div class="abs serif" id="t-spannung"><span class="mask"><span>Spannung</span></span></div>
+  <div class="abs serif" id="t-verstehen"><span class="mask"><span><em>Verstehen,</em></span></span> <span class="mask"><span>wo</span></span> <span class="mask"><span>sie</span></span> <span class="mask"><span>entsteht.</span></span></div>
+  <div class="abs label" id="label3" style="left:160px;top:118px">Faszien- &amp; Triggerpunktarbeit</div>
+  <div class="abs label" id="label4" style="left:160px;top:118px">Online-Fachausbildung</div>
+  <div class="abs" id="counter">
+    <div class="drums"><div class="drum-wrap"><div class="drum" id="drum-tens"></div></div><div class="drum-wrap"><div class="drum" id="drum-ones"></div></div></div>
+    <div class="sub">Module · Theorie<br>+ Praxis-Videos</div>
+  </div>
+
+  <div class="layer" id="paper">
+    <div class="abs" id="facts">
+      <div class="label">Deine Ausbildung</div>
+      <div class="row"><div class="flap"><span class="text">Lebenslanger Zugang</span><span class="idx">01 /</span></div><span class="bar"></span></div>
+      <div class="row"><div class="flap"><span class="text">Keine Präsenzzeiten</span><span class="idx">02 /</span></div><span class="bar"></span></div>
+      <div class="row"><div class="flap"><span class="text">20+ ausgebildete Praktiker</span><span class="idx">03 /</span></div><span class="bar"></span></div>
+    </div>
+    <div class="layer" id="cert-scene">
+      <div class="abs label" id="cert-label">Abschlusszertifikat</div>
+      <div class="abs serif" id="t-zert"><span class="mask"><span><em>Zertifiziert.</em></span></span></div>
+      <div class="abs logo-dot" style="left:160px;top:640px"><img src="../assets/cpd-logo.png" alt=""></div>
+      <div class="abs logo-dot" style="left:346px;top:640px"><img src="../assets/iphm-logo.jpg" alt=""></div>
+      <div class="abs logo-dot" style="left:532px;top:640px"><img src="../assets/iaoth-logo.png" alt=""></div>
+      <img class="abs" id="cert" src="../assets/Vorschau-Zertifikat-Faszienpraktiker.webp" alt="">
+    </div>
+  </div>
+
+  <div class="layer" id="door"></div>
+
+  <div class="layer" id="courses">
+    <div class="abs label">Online-Fachausbildungen</div>
+    <div class="abs serif" id="t-kurse"><span class="mask"><span>Kurs</span></span> <span class="mask"><span>&amp;</span></span> <span class="mask"><span><em>Preise.</em></span></span></div>
+    <div class="course"><span class="pill">Mit Zertifikat</span><span class="name">Faszien&shy;praktiker</span><span class="sub">Ganzheitliche Faszien- &amp; Gewebearbeit</span><span class="price">600 €</span></div>
+    <div class="course course--featured"><span class="pill">Bestes Angebot</span><span class="name">Ganzheitlicher Körperpraktiker</span><span class="sub">Beide Ausbildungen, beide Zertifikate</span><span class="was">statt <s>1.090 €</s></span><span class="price">850 €</span></div>
+    <div class="course"><span class="pill">Mit Zertifikat</span><span class="name">Triggerpunkt-Praktiker</span><span class="sub">Muskuläre Triggerpunkte gezielt lösen</span><span class="price">490 €</span></div>
+    <div class="course course--soon"><span class="pill">In Vorbereitung</span><span class="name">Trockenes Schröpfen</span><span class="sub">Online-Ausbildung, wird gerade gefilmt</span><span class="price">250 €</span></div>
+  </div>
+
+  <div class="layer" id="endcard">
+    <div class="abs serif" id="t-end"><span class="mask"><span>Werde</span></span><br><span class="mask"><span><em>Faszien-Praktiker.</em></span></span></div>
+    <div class="abs" id="pill">Jetzt starten · ab 490 € <span class="arrow"><svg width="30" height="30" viewBox="0 0 18 18" fill="none"><path d="M5 13L13 5M6 5h7v7" stroke="currentColor" stroke-width="1.8"/></svg></span></div>
+    <img class="abs" id="endlogo" src="fech-logo-white.svg" alt="">
+  </div>
+</div>
+</div>
+
+<div class="editor">
+  <div class="bar-row">
+    <button id="play" type="button">▶ Play</button>
+    <button id="prev" type="button" title="Ein Frame zurück">‹</button>
+    <button id="next" type="button" title="Ein Frame vor">›</button>
+    <input id="scrub" type="range" min="0" max="34" step="0.0333333" value="0" aria-label="Zeit">
+    <span class="time" id="time">00:00.00 / 00:34.00</span>
+    <label><input id="loop" type="checkbox" checked> Loop</label>
+  </div>
+  <div class="scenes" id="scenes"></div>
+  <p class="hint">Space Play/Pause · ←/→ Frame · Shift+←/→ Sekunde · Export: <code>node motion/render.mjs</code></p>
+</div>
+
+<script type="module">
+import * as THREE from 'three';
+
+const DUR = 34, FPS = 30;
+const SCENES = [[0, '1 Spannung'], [4, '2 Lösen'], [7.6, '→ Rahmen'], [9.8, '3 Behandlung'], [13, '4 Kurs'], [19, '5 Freiheit'], [23, '6 Zertifiziert'], [25.8, '7 Kurse'], [30.2, '8 Endcard']];
+
+// ── Easing (brief: expo-out for entrances, power2.inOut for morphs, linear only for zoom) ──
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const prog = (t, a, b) => clamp((t - a) / (b - a));
+const lerp = (a, b, x) => a + (b - a) * x;
+const expoOut = x => x >= 1 ? 1 : 1 - Math.pow(2, -10 * x);
+const p2io = x => x < .5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
+const spring = x => x >= 1 ? 1 : 1 - Math.exp(-6 * x) * Math.cos(10 * x);
+
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+function wordsIn(el, t, start, dur = 1) {
+  el.querySelectorAll('.mask > span').forEach((w, i) => {
+    const p = expoOut(prog(t, start + i * .07, start + i * .07 + dur));
+    w.style.transform = `translateY(${(1 - p) * 115}%)`;
+  });
+}
+function show(el, opacity, transform = '') {
+  el.style.opacity = opacity.toFixed(3);
+  el.style.transform = transform;
+  el.style.visibility = opacity <= .001 ? 'hidden' : 'visible';
+}
+
+// ════════════════════════════════════════════════════════
+//  WebGL world · 1 unit = 100 px on the z = 0 plane at the frontal camera
+// ════════════════════════════════════════════════════════
+THREE.ColorManagement.enabled = false;                       // brand hex values pass through untouched
+const renderer = new THREE.WebGLRenderer({ canvas: $('#gl'), antialias: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(1);
+renderer.setSize(1920, 1080, false);
+renderer.outputColorSpace = THREE.LinearSRGBColorSpace;
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x0a2540);
+const FOV = 35, D = 5.4 / Math.tan(THREE.MathUtils.degToRad(FOV / 2));   // frontal distance: 1080 px ↔ 10.8 units
+const camera = new THREE.PerspectiveCamera(FOV, 16 / 9, .1, 200);
+const toWorld = (px, py) => [(px - 960) / 100, (540 - py) / 100];
+
+// ── Fibres: tubes whose centre line is computed in the vertex shader from time ──
+const NF = 56, NE = 12, SU = 240, SA = 6;
+function fibreGeometry(count) {
+  const n = count * (SU + 1) * SA, aU = new Float32Array(n), aA = new Float32Array(n), aF = new Float32Array(n);
+  const idx = [];
+  let v = 0;
+  for (let f = 0; f < count; f++) {
+    const base = v;
+    for (let i = 0; i <= SU; i++) for (let j = 0; j < SA; j++) { aU[v] = i / SU; aA[v] = j / SA * Math.PI * 2; aF[v] = f; v++; }
+    for (let i = 0; i < SU; i++) for (let j = 0; j < SA; j++) {
+      const a = base + i * SA + j, b = base + i * SA + (j + 1) % SA, c = a + SA, d = b + SA;
+      idx.push(a, c, b, b, c, d);
+    }
+  }
+  const g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.BufferAttribute(new Float32Array(n * 3), 3));
+  g.setAttribute('aU', new THREE.BufferAttribute(aU, 1));
+  g.setAttribute('aA', new THREE.BufferAttribute(aA, 1));
+  g.setAttribute('aF', new THREE.BufferAttribute(aF, 1));
+  g.setIndex(idx);
+  g.boundingSphere = new THREE.Sphere(new THREE.Vector3(), 1e4);
+  return g;
+}
+const fibreVS = /* glsl */`
+  uniform float uTime, uAmp, uRel0, uConv, uEnd, uMode, uRadius, uNF;
+  uniform vec3 uFrame; uniform float uFrameY;
+  attribute float aU, aA, aF;
+  varying float vU, vFace, vViewZ, vSeed;
+  float h(float n) { return fract(sin(n * 12.9898) * 43758.5453); }
+  float backOut(float x) { float c1 = 1.4, c3 = c1 + 1.0; return 1.0 + c3 * pow(x - 1.0, 3.0) + c1 * pow(x - 1.0, 2.0); }
+  float ease2(float x) { return x < .5 ? 2.0 * x * x : 1.0 - pow(-2.0 * x + 2.0, 2.0) / 2.0; }
+  // point on the rounded frame perimeter, clockwise from the top-left edge
+  vec2 rrPoint(float s, out vec2 nrm) {
+    float w = uFrame.x, hh = uFrame.y, r = uFrame.z, sw = w - 2.0 * r, sh = hh - 2.0 * r, arc = 1.5707963 * r;
+    float d = fract(s) * (2.0 * (sw + sh) + 4.0 * arc);
+    if (d < sw) { nrm = vec2(0.0, 1.0); return vec2(-sw * .5 + d, hh * .5); } d -= sw;
+    if (d < arc) { float a = 1.5707963 - d / r; nrm = vec2(cos(a), sin(a)); return vec2(sw * .5, sh * .5) + nrm * r; } d -= arc;
+    if (d < sh) { nrm = vec2(1.0, 0.0); return vec2(w * .5, sh * .5 - d); } d -= sh;
+    if (d < arc) { float a = -d / r; nrm = vec2(cos(a), sin(a)); return vec2(sw * .5, -sh * .5) + nrm * r; } d -= arc;
+    if (d < sw) { nrm = vec2(0.0, -1.0); return vec2(sw * .5 - d, -hh * .5); } d -= sw;
+    if (d < arc) { float a = -1.5707963 - d / r; nrm = vec2(cos(a), sin(a)); return vec2(-sw * .5, -sh * .5) + nrm * r; } d -= arc;
+    if (d < sh) { nrm = vec2(-1.0, 0.0); return vec2(-w * .5, -sh * .5 + d); } d -= sh;
+    float a = 3.1415926 - d / r; nrm = vec2(cos(a), sin(a)); return vec2(-sw * .5, sh * .5) + nrm * r;
+  }
+  vec3 centre(float u) {
+    float f = aF, h1 = h(f + 1.0), h2 = h(f + 7.3), h3 = h(f + 13.1), h4 = h(f + 21.7);
+    if (uMode < .5) {
+      // a twisted bundle under tension → released into flowing silk → wrapped around the frame
+      float x = mix(-9.5, 9.5, u);
+      float k = f + .5, rr = sqrt(k / uNF) * 1.15, th = k * 2.39996;
+      vec2 cs = vec2(cos(th), sin(th)) * rr;
+      float rel = backOut(clamp((uTime - (uRel0 + h3 * 2.2)) / 1.8, 0.0, 1.0));
+      float tense = 1.0 - clamp(rel, 0.0, 1.0);
+      float a = x * .2 * tense;
+      vec2 c2 = vec2(cs.x * cos(a) - cs.y * sin(a), cs.x * sin(a) + cs.y * cos(a));
+      float vib = uAmp * tense * sin(3.1415926 * u) * sin(6.2831853 * (3.2 + h1 * 1.6) * uTime + h2 * 6.2831853);
+      vec3 p = vec3(x, c2.x + vib * .09, c2.y + vib * .06);
+      p.y += rel * (cs.x * 2.2 + sin(.5 * x + uTime * .9 + h2 * 6.0) * (.8 + h1 * .9));
+      p.z += rel * (cs.y * 2.6 + cos(.42 * x + uTime * .75 + h1 * 6.0) * (.8 + h2 * .9));
+      float cq = clamp(uConv * 1.5 - h4 * .5, 0.0, 1.0);
+      if (cq > 0.0) {
+        vec2 nrm;
+        vec2 fp = rrPoint(h4 + u * .38, nrm);
+        vec3 target = vec3(fp + nrm * (h2 - .5) * .16, (h1 - .5) * .12);
+        target.y += uFrameY;
+        p = mix(p, target, ease2(cq));
+      }
+      return p;
+    }
+    // finale: drifting threads settle into one calm horizontal line
+    float x = mix(-11.0, 11.0, u);
+    vec3 p = vec3(x, -3.6 + (h1 - .5) * 3.2 + sin(.45 * x + uTime * .8 + h2 * 6.0) * .6,
+                  (h2 - .5) * 4.0 + cos(.4 * x + uTime * .6 + h1 * 6.0) * .8);
+    return mix(p, vec3(x, -3.6, 0.0), ease2(clamp(uEnd * 1.5 - h3 * .5, 0.0, 1.0)));
+  }
+  void main() {
+    vU = aU; vSeed = h(aF + 3.3);
+    vec3 c = centre(aU);
+    vec3 T = normalize(centre(min(aU + .003, 1.0)) - centre(max(aU - .003, 0.0)) + vec3(1e-5, 0.0, 0.0));
+    vec3 up = abs(T.z) > .9 ? vec3(0.0, 1.0, 0.0) : vec3(0.0, 0.0, 1.0);
+    vec3 N = normalize(cross(T, up)), B = cross(T, N);
+    vec3 n = cos(aA) * N + sin(aA) * B;
+    vec4 mv = modelViewMatrix * vec4(c + n * uRadius, 1.0);
+    vViewZ = -mv.z;
+    vFace = abs(dot(normalize(normalMatrix * n), normalize(-mv.xyz)));
+    gl_Position = projectionMatrix * mv;
+  }`;
+const fibreFS = /* glsl */`
+  uniform vec3 uColor; uniform float uIntensity, uHalo, uTime, uDraw, uPhase, uPulse, uMode, uBand;
+  varying float vU, vFace, vViewZ, vSeed;
+  void main() {
+    float a = uHalo > .5 ? pow(vFace, 1.6) * .2 : .22 + .42 * vFace;
+    // keep the headline legible: fibres dim in the band behind the type
+    a *= 1.0 - uBand * exp(-pow((gl_FragCoord.y - 580.0) / 170.0, 2.0));
+    if (uMode < .5) {
+      float dp = clamp((uDraw - vSeed * .35) / .65, 0.0, 1.0);
+      dp = dp >= 1.0 ? 1.1 : 1.0 - pow(2.0, -10.0 * dp);
+      a *= 1.0 - smoothstep(dp - .025, dp, vU);
+      a *= smoothstep(0.0, .06, vU) * smoothstep(1.0, .94, vU);
+    }
+    float ph = fract(uPhase + vSeed);
+    float pulse = exp(-pow((vU - ph) * 20.0, 2.0)) * uPulse;
+    a *= smoothstep(70.0, 10.0, vViewZ) * smoothstep(1.2, 4.0, vViewZ);
+    a *= uIntensity * (1.0 + pulse * 2.0);
+    vec3 col = mix(uColor, vec3(.86, .95, 1.0), clamp(pulse * .8 + (uHalo > .5 ? 0.0 : .1 * vFace), 0.0, 1.0));
+    gl_FragColor = vec4(col, a);
+  }`;
+function fibreMaterial(mode, radius, halo, intensity) {
+  return new THREE.ShaderMaterial({
+    vertexShader: fibreVS, fragmentShader: fibreFS,
+    transparent: true, depthWrite: false, blending: THREE.AdditiveBlending,
+    uniforms: {
+      uTime: { value: 0 }, uAmp: { value: 0 }, uRel0: { value: 4 }, uConv: { value: 0 }, uEnd: { value: 0 },
+      uMode: { value: mode }, uRadius: { value: radius }, uNF: { value: NF },
+      uFrame: { value: new THREE.Vector3(16, 7.4, .34) }, uFrameY: { value: -.3 },
+      uColor: { value: new THREE.Color(0x0496ff) }, uIntensity: { value: intensity }, uHalo: { value: halo },
+      uDraw: { value: 0 }, uPhase: { value: 0 }, uPulse: { value: 1 }, uBand: { value: 0 },
+    },
+  });
+}
+const bundleGeo = fibreGeometry(NF), endGeo = fibreGeometry(NE);
+const bundle = [new THREE.Mesh(bundleGeo, fibreMaterial(0, .055, 1, .9)), new THREE.Mesh(bundleGeo, fibreMaterial(0, .011, 0, 1))];
+const ending = [new THREE.Mesh(endGeo, fibreMaterial(1, .06, 1, .9)), new THREE.Mesh(endGeo, fibreMaterial(1, .012, 0, 1))];
+[...bundle, ...ending].forEach(m => { m.frustumCulled = false; scene.add(m); });
+
+// ── Panels: the photo (with a ripple shader) and the module cards, rounded by SDF ──
+const panelVS = /* glsl */`
+  uniform vec2 uSize; varying vec2 vUv;
+  void main() { vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position.xy * uSize, 0.0, 1.0); }`;
+const panelFS = /* glsl */`
+  uniform vec2 uSize, uCoverScale, uCoverOffset, uRipC; uniform vec4 uRadii; uniform vec3 uColor, uRipR, uRipA;
+  uniform sampler2D uMap, uText; uniform float uHasMap, uHasText, uZoom, uOpacity;
+  varying vec2 vUv;
+  float sdRound(vec2 p, vec2 b, vec4 r) {
+    float rr = p.x > 0.0 ? (p.y > 0.0 ? r.y : r.z) : (p.y > 0.0 ? r.x : r.w);
+    vec2 q = abs(p) - b + rr;
+    return min(max(q.x, q.y), 0.0) + length(max(q, 0.0)) - rr;
+  }
+  void main() {
+    float d = sdRound((vUv - .5) * uSize, uSize * .5, uRadii);
+    float aa = fwidth(d);
+    float alpha = 1.0 - smoothstep(-aa, aa, d);
+    vec3 col = uColor;
+    if (uHasMap > .5) {
+      vec2 uv = (vUv - .5) / uZoom + .5;
+      float aspect = uSize.x / uSize.y;
+      vec3 glow = vec3(0.0);
+      for (int i = 0; i < 3; i++) {
+        float A = uRipA[i];
+        if (A <= 0.0) continue;
+        vec2 dv = (vUv - uRipC) * vec2(aspect, 1.0);
+        float dist = length(dv) + 1e-5;
+        float w = exp(-pow((dist - uRipR[i]) / .055, 2.0));
+        uv -= dv / dist / vec2(aspect, 1.0) * w * .02 * A;                 // light refraction of the wave
+        glow += vec3(.016, .588, 1.0) * exp(-pow((dist - uRipR[i]) / .0045, 2.0)) * A * .9;
+      }
+      col = texture2D(uMap, uv * uCoverScale + uCoverOffset).rgb + glow;
+    }
+    if (uHasText > .5) { vec4 tx = texture2D(uText, vUv); col = mix(col, tx.rgb, tx.a); }
+    gl_FragColor = vec4(col, alpha * uOpacity);
+  }`;
+function panelMaterial(extra = {}) {
+  return new THREE.ShaderMaterial({
+    vertexShader: panelVS, fragmentShader: panelFS, transparent: true, depthWrite: false,
+    uniforms: {
+      uSize: { value: new THREE.Vector2(1, 1) }, uRadii: { value: new THREE.Vector4(.24, .24, .24, .24) },
+      uColor: { value: new THREE.Color(0xe3f2fd) }, uOpacity: { value: 1 },
+      uMap: { value: null }, uHasMap: { value: 0 }, uCoverScale: { value: new THREE.Vector2(1, 1) }, uCoverOffset: { value: new THREE.Vector2(0, 0) }, uZoom: { value: 1 },
+      uText: { value: null }, uHasText: { value: 0 },
+      uRipC: { value: new THREE.Vector2(.5, .5) }, uRipR: { value: new THREE.Vector3() }, uRipA: { value: new THREE.Vector3() },
+      ...extra,
+    },
+  });
+}
+const unitPlane = new THREE.PlaneGeometry(1, 1);
+const grid = new THREE.Group();                       // pivots on the bottom edge of the card grid for the fall in scene 5
+const PIVOT_Y = toWorld(0, 890)[1];
+grid.position.set(0, PIVOT_Y, 0);
+scene.add(grid);
+const photo = new THREE.Mesh(unitPlane, panelMaterial());
+photo.material.uniforms.uHasMap.value = 1;
+grid.add(photo);
+const loader = new THREE.TextureLoader();
+const photoTex = loader.loadAsync('../assets/hero.jpg').then(tex => {
+  tex.colorSpace = THREE.NoColorSpace;
+  tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
+  photo.material.uniforms.uMap.value = tex;
+});
+const IMG_ASPECT = 2400 / 1340, IMG_POS = [.47, .3], CONTACT = [.55, .67];   // hands on the back, in image coords from the top
+
+const FRAME_PX = { x: 160, y: 200, w: 1600, h: 740 };
+const GRID_PX = { x: 160, y: 230, w: 1100, h: 660 };
+const SLOTS = [[0, 0], [1, 0], [2, 0], [0, 1], [1, 1], [2, 1]];
+const CARD_TEXT = [['02', 'Anatomische Grundlagen'], ['03', 'Analyse & Einordnung'], ['04', 'Anwendungs­konzepte'], ['05', 'Moderne Faszienarbeit'], ['06', 'Praxis-Videos & Prüfung']];
+// where each card floats before it flies into the grid: [x, y, z, rotX, rotY, rotZ]
+const SCATTER = [[6.5, 3.4, -7, .25, -.55, .08], [10.5, -2.8, -12, -.2, -.8, -.1], [-10, 4.6, -14, .3, .7, .12], [3.8, -5.4, -4, -.45, -.3, -.06], [13, 1.6, -18, .1, -1, .05]];
+const cards = CARD_TEXT.map(() => {
+  const m = new THREE.Mesh(unitPlane, panelMaterial());
+  m.material.uniforms.uHasText.value = 1;
+  grid.add(m);
+  return m;
+});
+function cardTexture([num, title]) {
+  const c = document.createElement('canvas');
+  c.width = 1024; c.height = 908;
+  const g = c.getContext('2d');
+  g.fillStyle = '#0377cc';
+  g.font = '300 150px "Host Grotesk"';
+  g.textBaseline = 'top';
+  g.fillText(num, 82, 70);
+  g.fillStyle = '#0a2540';
+  g.font = '400 100px "Cormorant Garamond"';
+  g.textBaseline = 'alphabetic';
+  const lines = [];
+  let line = '';
+  title.split(' ').forEach(w => {
+    const test = (line ? line + ' ' : '') + w.replace('­', '');
+    if (g.measureText(test).width > 860 && line) { lines.push(line); line = w.replace('­', ''); }
+    else line = test;
+  });
+  lines.push(line);
+  lines.forEach((l, i) => g.fillText(l, 82, 908 - 80 - (lines.length - 1 - i) * 104));
+  const tex = new THREE.CanvasTexture(c);
+  tex.colorSpace = THREE.NoColorSpace;
+  tex.anisotropy = renderer.capabilities.getMaxAnisotropy();
+  return tex;
+}
+const cardsReady = document.fonts.load('300 150px "Host Grotesk"')
+  .then(() => document.fonts.load('400 100px "Cormorant Garamond"'))
+  .then(() => cards.forEach((m, k) => { m.material.uniforms.uText.value = cardTexture(CARD_TEXT[k]); }));
+
+// rect in px → panel placement inside the grid group
+function placePanel(mesh, rect, z = 0) {
+  const [cx, cy] = toWorld(rect.x + rect.w / 2, rect.y + rect.h / 2);
+  mesh.position.set(cx, cy - PIVOT_Y, z);
+  mesh.material.uniforms.uSize.value.set(rect.w / 100, rect.h / 100);
+}
+function slotRect(c, r, gap) {
+  const cw = (GRID_PX.w - 2 * gap) / 3, ch = (GRID_PX.h - gap) / 2;
+  return { x: GRID_PX.x + c * (cw + gap), y: GRID_PX.y + r * (ch + gap), w: cw, h: ch };
+}
+function radii(c, r, outer, inner) {   // tl, tr, br, bl in world units
+  return [c === 0 && r === 0 ? outer : inner, c === 2 && r === 0 ? outer : inner, c === 2 && r === 1 ? outer : inner, c === 0 && r === 1 ? outer : inner].map(v => v / 100);
+}
+// image "cover" mapping for the photo at a given panel aspect
+function cover(aspect) {
+  const sx = aspect > IMG_ASPECT ? 1 : aspect / IMG_ASPECT, sy = aspect > IMG_ASPECT ? IMG_ASPECT / aspect : 1;
+  return { sx, sy, ox: (1 - sx) * IMG_POS[0], oy: (1 - sy) * (1 - IMG_POS[1]) };
+}
+
+// ── Camera path (Hermite through keys; `hold` keys have zero velocity) ──
+const CAM = [
+  { t: 0, p: [-5.2, 1.2, 4.6], l: [.8, 0, 0] },
+  { t: 4, p: [-3.4, .7, 3.4], l: [.6, 0, 0] },
+  { t: 7.6, p: [3, 2.2, 8.5], l: [0, 0, 0] },
+  { t: 9.8, p: [0, 0, D], l: [0, 0, 0], hold: true },
+  { t: 13, p: [0, 0, D], l: [0, 0, 0], hold: true },
+  { t: 14.5, p: [5, 2.6, 24.5], l: [-1.2, -.3, -4] },
+  { t: 16.4, p: [0, 0, D], l: [0, 0, 0], hold: true },
+  { t: 19, p: [0, 0, D], l: [0, 0, 0], hold: true },
+  { t: 20.4, p: [0, -1.6, D + 1.8], l: [0, -1, 0], hold: true },
+  { t: 26.6, p: [0, 0, D], l: [0, 0, 0], hold: true },
+  { t: 34, p: [0, 0, D], l: [0, 0, 0], hold: true },
+];
+function camAt(t, key) {
+  let i = 0;
+  while (i < CAM.length - 2 && t > CAM[i + 1].t) i++;
+  const a = CAM[i], b = CAM[i + 1], h = b.t - a.t, s = clamp((t - a.t) / h);
+  const tan = (k) => {
+    const K = CAM[k];
+    if (K.hold || k === 0 || k === CAM.length - 1) return [0, 0, 0];
+    const P = CAM[k - 1], N = CAM[k + 1];
+    return K[key].map((_, j) => (N[key][j] - P[key][j]) / (N.t - P.t));
+  };
+  const ma = tan(i), mb = tan(i + 1);
+  const h00 = 2 * s ** 3 - 3 * s ** 2 + 1, h10 = s ** 3 - 2 * s ** 2 + s, h01 = -2 * s ** 3 + 3 * s ** 2, h11 = s ** 3 - s ** 2;
+  return a[key].map((v, j) => h00 * v + h10 * h * ma[j] + h01 * b[key][j] + h11 * h * mb[j]);
+}
+// Pulse phase = ∫ speed dt: fast current under tension, slow after release, still at the end.
+function pulsePhase(t) {
+  if (t < 4) return .55 * t;
+  if (t < 6) return 2.2 + .55 * (t - 4) - .1075 * (t - 4) ** 2;
+  return 2.87 + .12 * (t - 6);
+}
+
+// ── Counter drums (CSS 3D) ──
+const FACE_H = 330, R = FACE_H / 2 / Math.tan(Math.PI / 10);
+function setDrum(drum, turns) {          // turns: digit position, 1 = 36°
+  drum.style.transform = `translateZ(${-R}px) rotateX(${turns * 36}deg)`;
+  [...drum.children].forEach((f, i) => {
+    const off = ((turns - i) % 10 + 15) % 10 - 5;            // −5…5 digits away from the front
+    f.style.opacity = clamp(1 - Math.abs(off) / .8).toFixed(3);
+  });
+}
+['#drum-tens', '#drum-ones'].forEach((sel, d) => {
+  const drum = $(sel);
+  for (let i = 0; i < 10; i++) {
+    const f = document.createElement('div');
+    f.className = 'face';
+    f.textContent = d === 0 && i === 0 ? '' : i;
+    f.style.transform = `rotateX(${-i * 36}deg) translateZ(${R}px)`;
+    drum.appendChild(f);
+  }
+});
+
+// ════════════════════════════════════════════════════════
+//  render(t): the whole film as a function of time
+// ════════════════════════════════════════════════════════
+function render(t) {
+  // ── camera ──
+  camera.position.set(...camAt(t, 'p'));
+  camera.lookAt(...camAt(t, 'l'));
+
+  // ── 1–2 · fibres: draw in, tremble, release, flow, wrap around the frame ──
+  const fade = 1 - prog(t, 9.8, 10.8);
+  bundle.forEach(m => {
+    const u = m.material.uniforms;
+    u.uTime.value = t;
+    u.uAmp.value = 1 + 6 * p2io(prog(t, .6, 4));
+    u.uConv.value = prog(t, 7.6, 9.6);
+    u.uDraw.value = prog(t, 0, 1.4);
+    u.uPhase.value = pulsePhase(t);
+    u.uPulse.value = 1 - prog(t, 8, 9);
+    u.uIntensity.value = (u.uHalo.value ? .9 : 1) * fade * (1 - (u.uHalo.value ? .7 : .3) * prog(t, 8.4, 9.4));
+    u.uBand.value = .72 * (1 - prog(t, 8.2, 8.8));
+    m.visible = t < 10.8;
+  });
+  wordsIn($('#t-spannung'), t, .5, 1.1);
+  show($('#t-spannung'), 1 - prog(t, 4.3, 5), `translateY(${-24 * p2io(prog(t, 4.3, 5))}px)`);
+  wordsIn($('#t-verstehen'), t, 5);
+  show($('#t-verstehen'), 1 - prog(t, 7.7, 8.3), `translateY(${-20 * p2io(prog(t, 7.7, 8.3))}px)`);
+
+  // ── 3 · photo inside the frame, a wave of light ripples out from the hands ──
+  const pu = photo.material.uniforms;
+  const morph = p2io(prog(t, 13, 14.4));
+  const merge = p2io(prog(t, 16.6, 17.8));
+  const gap = lerp(12, 6, merge), inner = lerp(24, 8, merge);
+  const s0 = slotRect(0, 0, gap);
+  const rect = { x: lerp(FRAME_PX.x, s0.x, morph), y: lerp(FRAME_PX.y, s0.y, morph), w: lerp(FRAME_PX.w, s0.w, morph), h: lerp(FRAME_PX.h, s0.h, morph) };
+  placePanel(photo, rect, 2.2 * Math.sin(Math.PI * morph));                    // arcs towards the camera on its way
+  photo.rotation.set(0, -.35 * Math.sin(Math.PI * morph), 0);
+  pu.uRadii.value.set(...(morph < 1 ? Array(4).fill(lerp(34, 24, morph) / 100) : radii(0, 0, 24, inner)));
+  pu.uOpacity.value = expoOut(prog(t, 9.2, 10.2));
+  photo.visible = t >= 9.2;
+  const zoom = lerp(1, 1.08, prog(t, 9.2, 13));
+  const cv = cover(rect.w / rect.h);
+  pu.uCoverScale.value.set(cv.sx, cv.sy);
+  pu.uCoverOffset.value.set(cv.ox, cv.oy);
+  pu.uZoom.value = zoom;
+  pu.uRipC.value.set(((CONTACT[0] - cv.ox) / cv.sx - .5) * zoom + .5, ((1 - CONTACT[1] - cv.oy) / cv.sy - .5) * zoom + .5);
+  [0, 1, 2].forEach(k => {
+    const q = prog(t, 10.2 + k * .75, 12.2 + k * .75);
+    pu.uRipR.value.setComponent(k, lerp(.01, 1.15, expoOut(q)));
+    pu.uRipA.value.setComponent(k, q > 0 && q < 1 ? 1 - q : 0);
+  });
+  show($('#label3'), prog(t, 9, 9.6) * (1 - prog(t, 13, 13.4)), `translateY(${14 * (1 - expoOut(prog(t, 9, 9.8)))}px)`);
+
+  // ── 4 · cards float in space, fly into the grid, the grid merges into one tile ──
+  cards.forEach((m, k) => {
+    const [c, r] = SLOTS[k + 1];
+    const s = 13.6 + k * .16, p = expoOut(prog(t, s, s + 1.7));
+    const slot = slotRect(c, r, gap);
+    const [sx, sy, sz, rx, ry, rz] = SCATTER[k];
+    const [tx, ty] = toWorld(slot.x + slot.w / 2, slot.y + slot.h / 2);
+    m.position.set(lerp(sx, tx, p), lerp(sy, ty, p) - PIVOT_Y, lerp(sz, 0, p));
+    m.rotation.set(lerp(rx, 0, p), lerp(ry, 0, p), lerp(rz, 0, p));
+    m.material.uniforms.uSize.value.set(slot.w / 100, slot.h / 100);
+    m.material.uniforms.uRadii.value.set(...radii(c, r, 24, inner));
+    m.material.uniforms.uOpacity.value = prog(t, s - .1, s + .4);
+    m.visible = t >= s - .1;
+  });
+  show($('#label4'), prog(t, 13.4, 14) * (1 - prog(t, 19, 19.5)), `translateY(${14 * (1 - expoOut(prog(t, 13.4, 14.2)))}px)`);
+  const v = 17 * expoOut(prog(t, 14.2, 16.6));
+  setDrum($('#drum-ones'), v);
+  setDrum($('#drum-tens'), clamp(v - 9));
+  show($('#counter'), prog(t, 13.9, 14.5) * (1 - prog(t, 19, 19.5)), `translateY(${20 * (1 - expoOut(prog(t, 13.9, 14.7)))}px)`);
+
+  // ── 4 → 5 · the merged tile falls back into depth; paper rises ──
+  const fall = p2io(prog(t, 19, 20.3));
+  grid.rotation.x = -1.3 * fall;
+  grid.visible = t < 20.6;
+  pu.uOpacity.value *= 1 - prog(t, 19.8, 20.4);
+  cards.forEach(m => { m.material.uniforms.uOpacity.value *= 1 - prog(t, 19.8, 20.4); });
+  const paper = p2io(prog(t, 19.45, 20.5));
+  $('#paper').style.opacity = paper > 0 ? '1' : '0';
+  $('#paper').style.clipPath = `circle(${(paper * 130).toFixed(2)}% at 37% 64%)`;
+  $('#paper').style.visibility = paper > 0 && t < 26.7 ? 'visible' : 'hidden';
+
+  // ── 5 · facts flip in like split-flap rows, then flip out ──
+  const facts = $('#facts');
+  facts.style.visibility = t >= 19.9 && t < 23.4 ? 'visible' : 'hidden';
+  show(facts.querySelector('.label'), prog(t, 20, 20.5) * (1 - prog(t, 22.6, 23)));
+  facts.querySelectorAll('.row').forEach((row, i) => {
+    const s = 20.2 + i * .35, pin = expoOut(prog(t, s, s + .9)), pout = p2io(prog(t, 22.5 + i * .1, 23 + i * .1));
+    row.querySelector('.flap').style.transform = `rotateX(${(-90 * (1 - pin) + 90 * pout).toFixed(2)}deg)`;
+    row.querySelector('.flap').style.opacity = (pin > 0 ? 1 - pout : 0).toFixed(3);
+    const bar = row.querySelector('.bar');
+    bar.style.transform = `scaleX(${expoOut(prog(t, s - .05, s + .7)).toFixed(4)})`;
+    bar.style.opacity = (1 - prog(t, s + .9, s + 1.5)).toFixed(3);
+  });
+
+  // ── 6 · certificate turns into place in 3D, logos swing in ──
+  const certScene = $('#cert-scene');
+  certScene.style.visibility = t >= 23 && t < 26.7 ? 'visible' : 'hidden';
+  show($('#cert-label'), prog(t, 23, 23.5));
+  wordsIn($('#t-zert'), t, 23.1);
+  const land = spring(prog(t, 23.15, 25));
+  $('#cert').style.transform = `translateY(${lerp(-160, 0, land)}px) translateZ(${lerp(-260, 0, land)}px) rotateY(${lerp(-68, 0, land)}deg) rotateX(${lerp(14, 0, land)}deg) rotateZ(${lerp(-4, 0, land)}deg)`;
+  $('#cert').style.opacity = prog(t, 23.15, 23.5).toFixed(3);
+  $$('.logo-dot').forEach((dot, k) => {
+    const p = expoOut(prog(t, 23.7 + k * .12, 24.8 + k * .12));
+    dot.style.transform = `translateX(${(1 - p) * 320}px) translateZ(${(1 - p) * -600}px) rotateY(${(1 - p) * 70}deg)`;
+    dot.style.opacity = p.toFixed(3);
+  });
+
+  // ── 6 → 7 · navy swings shut like a door; behind it the finale ──
+  const door = p2io(prog(t, 25.8, 26.6));
+  const doorEl = $('#door');
+  doorEl.style.transform = `perspective(1800px) rotateY(${(100 * (1 - door)).toFixed(2)}deg)`;
+  doorEl.style.visibility = t >= 25.8 && t < 26.75 ? 'visible' : 'hidden';
+
+  // ── 7 · all courses: a carousel spins in, unrolls into a row, then the cards turn away like pages ──
+  const coursesEl = $('#courses');
+  coursesEl.style.visibility = t >= 26.6 && t < 30.7 ? 'visible' : 'hidden';
+  show(coursesEl.querySelector('.label'), prog(t, 26.7, 27.2) * (1 - prog(t, 29.8, 30.2)));
+  const tk = $('#t-kurse');
+  wordsIn(tk, t, 26.8);
+  tk.style.opacity = (1 - prog(t, 29.8, 30.2)).toFixed(3);
+  const spin = 200 * (1 - expoOut(prog(t, 26.6, 28.2)));            // degrees still to turn
+  const unroll = p2io(prog(t, 27.3, 28.5));
+  const RING = 720, ROW = [-603, -201, 201, 603], BASE = [-135, -45, 45, 135];
+  $$('.course').forEach((card, i) => {
+    const a = (BASE[i] + spin) * Math.PI / 180;
+    const ringX = Math.sin(a) * RING, ringZ = (Math.cos(a) - 1) * RING, ringY = BASE[i] + spin;
+    const x = lerp(ringX, ROW[i], unroll), z = lerp(ringZ, 0, unroll), ry = lerp(ringY, 0, unroll);
+    const wob = unroll * Math.sin((t - 28.5) * 1.6 + i) * 2.2 * (1 - prog(t, 29.6, 29.9));
+    const out = p2io(prog(t, 29.85 + i * .08, 30.35 + i * .08));
+    card.style.transform = `translateX(${(960 - 385 / 2 + x).toFixed(1)}px) translateZ(${z.toFixed(1)}px) rotateY(${(ry - 92 * out).toFixed(2)}deg) rotateX(${wob.toFixed(2)}deg)`;
+    card.style.opacity = (prog(t, 26.6, 27.1) * (1 - prog(t, 30.1 + i * .08, 30.35 + i * .08))).toFixed(3);
+  });
+
+  // ── 8 · threads settle into one line; headline, offer, logo; last 0.8 s hold ──
+  ending.forEach(m => {
+    const u = m.material.uniforms;
+    u.uTime.value = Math.min(t, 32.8);
+    u.uEnd.value = prog(t, 30.8, 32.5);
+    u.uPhase.value = pulsePhase(Math.min(t, 32.8)) * .6;
+    u.uPulse.value = 1 - prog(t, 32, 32.8);
+    u.uIntensity.value = (u.uHalo.value ? .9 : 1) * lerp(.35 * prog(t, 26.7, 27.6), 1, prog(t, 30, 30.8));
+    m.visible = t >= 26.6;
+  });
+  $('#endcard').style.visibility = t >= 30.2 ? 'visible' : 'hidden';
+  wordsIn($('#t-end'), t, 30.4, 1.1);
+  const pill = expoOut(prog(t, 31.1, 31.9));
+  show($('#pill'), pill, `translateY(${30 * (1 - pill)}px)`);
+  show($('#endlogo'), expoOut(prog(t, 31.4, 32.2)));
+
+  renderer.render(scene, camera);
+}
+
+// ── Editor / player ──
+const stage = $('#stage'), viewport = $('#viewport');
+const renderMode = new URLSearchParams(location.search).has('render');
+if (renderMode) document.body.classList.add('render');
+function fit() { if (!renderMode) stage.style.transform = `scale(${viewport.clientWidth / 1920})`; }
+addEventListener('resize', fit); fit();
+
+let t = 0, playing = false, last = 0;
+const scrub = $('#scrub'), timeEl = $('#time'), playBtn = $('#play'), sceneBox = $('#scenes');
+const fmt = s => `${String(Math.floor(s / 60)).padStart(2, '0')}:${(s % 60).toFixed(2).padStart(5, '0')}`;
+SCENES.forEach(([at, name]) => {
+  const b = document.createElement('button');
+  b.type = 'button'; b.textContent = name;
+  b.addEventListener('click', () => { toggle(false); seek(at); });
+  sceneBox.appendChild(b);
+});
+function seek(v) {
+  t = clamp(v, 0, DUR);
+  render(t);
+  scrub.value = t;
+  timeEl.textContent = `${fmt(t)} / ${fmt(DUR)}`;
+  [...sceneBox.children].forEach((b, i) => b.classList.toggle('on', t >= SCENES[i][0] && (i === SCENES.length - 1 || t < SCENES[i + 1][0])));
+}
+function tick(now) {
+  if (!playing) return;
+  let n = t + (now - last) / 1000; last = now;
+  if (n >= DUR) { if ($('#loop').checked) n %= DUR; else { n = DUR; toggle(false); } }
+  seek(n);
+  requestAnimationFrame(tick);
+}
+function toggle(on = !playing) {
+  playing = on; playBtn.textContent = on ? '❚❚ Pause' : '▶ Play';
+  if (on) { if (t >= DUR) t = 0; last = performance.now(); requestAnimationFrame(tick); }
+}
+playBtn.addEventListener('click', () => toggle());
+$('#prev').addEventListener('click', () => { toggle(false); seek(Math.round(t * FPS - 1) / FPS); });
+$('#next').addEventListener('click', () => { toggle(false); seek(Math.round(t * FPS + 1) / FPS); });
+scrub.addEventListener('input', () => { toggle(false); seek(+scrub.value); });
+addEventListener('keydown', e => {
+  if (e.target.tagName === 'INPUT' && e.target.type !== 'range') return;
+  if (e.code === 'Space') { e.preventDefault(); toggle(); }
+  if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+    e.preventDefault(); toggle(false);
+    const dir = e.key === 'ArrowRight' ? 1 : -1;
+    seek(e.shiftKey ? t + dir : Math.round(t * FPS + dir) / FPS);
+  }
+});
+
+// Export hook: fonts, images, photo texture and card textures ready → render(t) is frame-exact.
+window.__ready = Promise.all([document.fonts.ready, photoTex, cardsReady, ...$$('img').map(i => i.decode().catch(() => {}))])
+  .then(() => { renderer.compile(scene, camera); seek(0); return true; });
+window.__render = s => { render(s); return true; };
+seek(0);
+</script>
+</body>
+</html>

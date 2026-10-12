@@ -89,6 +89,30 @@
     });
   }
 
+  // ── Course film: muted, plays while in view, always pausable ──
+  var film = document.querySelector('[data-film]');
+  if (film) {
+    var video = film.querySelector('video');
+    var filmToggle = film.querySelector('.film__toggle');
+    var wantPlay = !reduced;   // reduced motion: start paused, the visitor decides
+    var inView = false;
+    var syncFilm = function () {
+      if (wantPlay && inView) video.play().catch(function () {});
+      else video.pause();
+    };
+    var label = function () { filmToggle.textContent = video.paused ? 'Abspielen' : 'Pause'; };
+    video.removeAttribute('controls');
+    filmToggle.hidden = false;
+    filmToggle.addEventListener('click', function () { wantPlay = video.paused; syncFilm(); });
+    video.addEventListener('play', label);
+    video.addEventListener('pause', label);
+    new IntersectionObserver(function (entries) {
+      inView = entries[0].isIntersecting;
+      syncFilm();
+    }, { threshold: 0.35 }).observe(video);
+    label();
+  }
+
   // ── Gutschein form → /api/gutschein ─────────────────────
   var form = document.getElementById('gutschein-form');
   if (form) initVoucherForm(form);

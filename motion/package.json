@@ -1,0 +1,13 @@
+{
+  "name": "fech-puls-motion",
+  "private": true,
+  "description": "Render tooling for the course film (motion/kurs-video.html → assets/kurs-video.mp4). Not deployed.",
+  "type": "module",
+  "scripts": {
+    "render": "node render.mjs"
+  },
+  "devDependencies": {
+    "playwright-core": "1.56.1",
+    "three": "0.170.0"
+  }
+}

@@ -16,3 +16,6 @@ Thumbs.db
 assets/**/*.psd
 .vercel
 .env*
+
+# Rendered film master (web versions live in assets/)
+motion/out/

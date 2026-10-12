@@ -49,6 +49,7 @@ Every page is a stack of rounded tiles on a cold-blue ground (`--tint`), separat
 | `site.js` | All behaviour: mobile menu, FAQ, hover rows, certificate lightbox, voucher form, motion. |
 | `*.html` | Static pages. Header and footer markup is identical on every page. |
 | `api/gutschein.js` | Vercel function that mails voucher requests via Resend. |
+| `motion/` | Source of the course film: `kurs-video.html` (timeline editor, `render(t)` per frame) and `render.mjs` (Chrome + ffmpeg → `assets/kurs-video*.mp4`, poster). Not deployed. |
 
 - Layout lives inside `.frame`, a 1600px **inline-size container**. `cqw` units and `@container frame (…)` queries resolve against it — breakpoints at 1180 (header rating), 1000 (desktop nav ↔ menu, hover images), 860 (voucher form), 760 (legal sidebar), 700 / 660 (hero ratio, stacked rows).
 - Grids are `repeat(auto-fit, minmax(min(100%, var(--min)), 1fr))` (`.grid` + `--min`), so they reflow without media queries.

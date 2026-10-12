@@ -89,6 +89,15 @@
       </div>
     </section>
 
+    <section class="card card--dark film" data-film aria-label="Kursfilm: Spannung lösen">
+      <video class="film__video" width="1600" height="900" muted loop playsinline controls preload="none" poster="assets/kurs-video-poster.webp" aria-describedby="film-desc">
+        <source src="assets/kurs-video-mobile.mp4" type="video/mp4" media="(max-width: 900px)">
+        <source src="assets/kurs-video.mp4" type="video/mp4">
+      </video>
+      <p class="sr-only" id="film-desc">Kurzfilm zur Online-Fachausbildung: Spannung im Gewebe verstehen, wo sie entsteht. 17 Module mit Theorie und Praxis-Videos, lebenslanger Zugang, keine Präsenzzeiten, über 20 ausgebildete Praktiker. Abschlusszertifikat, zertifiziert nach CPD, IPHM und IAOTH. Alle Kurse: Faszienpraktiker 600 €, Ganzheitlicher Körperpraktiker mit beiden Ausbildungen 850 € statt 1.090 €, Triggerpunkt-Praktiker 490 €, Trockenes Schröpfen 250 € (in Vorbereitung). Werde Faszien-Praktiker – ab 490 €.</p>
+      <button class="film__toggle" type="button" hidden>Pause</button>
+    </section>
+
     <section id="kurs-inhalte" class="grid" style="--min:340px">
       <div class="card pad-md learn">
         <p class="eyebrow">Flexibel lernen</p>

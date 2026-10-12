@@ -1,17 +1,14 @@
 <!DOCTYPE html>
 <html lang="de">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
-  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>Faszientherapie-Gutschein verschenken | Fech Puls Spaichingen</title>
-  <meta name="description" content="Faszientherapie als Gutschein verschenken: Tiefengewebsbehandlung in Spaichingen. Persönlich gestaltet, schnell ausgestellt, ohne Verfallsdatum.">
+  <meta name="description" content="Faszientherapie als Gutschein verschenken: Tiefengewebsbehandlung in Spaichingen. 30 Minuten für 80 €, 45 Minuten für 100 € – Abholung oder Versand per Post.">
   <link rel="canonical" href="https://faszienpraxis-fech.de/gutschein">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="Fech Puls">
   <meta property="og:title" content="Gutschein für Faszientherapie | Fech Puls Spaichingen">
   <meta property="og:description" content="Faszientherapie als Gutschein verschenken — Tiefengewebsbehandlung in Spaichingen.">
   <meta property="og:url" content="https://faszienpraxis-fech.de/gutschein">
@@ -20,459 +17,219 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Gutschein für Faszientherapie – Fech Puls Spaichingen">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://faszienpraxis-fech.de/assets/og-image.jpg">
-  <meta name="theme-color" content="#0a2540">
-  <link rel="preload" href="assets/fonts/dm-sans-400-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/cormorant-garamond-300-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="stylesheet" href="fonts.css">
+  <meta name="theme-color" content="#e3f2fd">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preload" href="assets/fonts/host-grotesk.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/cormorant-garamond.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="site.css">
-  <link rel="stylesheet" href="gutschein.css">
+  <script src="site.js" defer></script>
 </head>
+<body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+  <div class="frame">
+  <div class="page">
 
-<body data-page="gutschein">
-
-  <a class="skip-link" href="#main-content">Zum Hauptinhalt springen</a>
-
-  <!-- NAV (injected by components.js) -->
-  <div id="site-nav"></div>
-
-  <main id="main-content" tabindex="-1">
-
-  <!-- ══════ HERO ══════ -->
-  <section class="page-hero media-split media-split--reverse surface-paper gutschein-hero" aria-labelledby="gutschein-heading">
-    <div class="split-body flow">
-      <p class="eyebrow animate">Fech Puls · Spaichingen</p>
-      <h1 id="gutschein-heading" class="page-title animate delay-1">
-        Gutschein für<br>
-        <em>Tiefengewebs-</em><br>
-        behandlung
-      </h1>
-      <p class="page-hero-lead animate delay-2">
-        Hat jemand in Ihrem Umfeld anhaltenden Druck, Ziehen oder verhärtete Strukturen im Körper?
-        Verschenken Sie einen Gutschein für eine Tiefengewebebehandlung &amp; Triggerpunkte.
-        Präzise manuelle Behandlung im tiefen Muskel- und Fasziengewebe bei Druck, Ziehen, Stechen und verhärteten
-        Strukturen im Körper.
-      </p>
-      <div class="cluster actions animate delay-3">
-        <a href="#bestellen" class="btn-primary">Gutschein anfragen</a>
-      </div>
+  <header class="site-header">
+    <a class="site-header__logo" href="/"><img src="assets/fech-logo-v2-full-color-rgb.png" width="900" height="258" alt="Fech Puls – Praxis für Faszien &amp; Triggerpunkte, zur Startseite"></a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a href="/">Praxis</a>
+      <a href="/ueber-mich">Über mich</a>
+      <a href="/kurs">Online-Kurs <span class="nav__badge">Neu</span></a>
+      <a href="/gutschein" aria-current="page">Gutschein</a>
+    </nav>
+    <div class="site-header__actions">
+      <span class="rating"><span class="rating__star" aria-hidden="true">★</span> 4,7 · 196+ Google-Bewertungen</span>
+      <a class="btn btn--header" href="https://book.timify.com/?accountId=652fe85cbd51d3ad47200466&amp;hideCloseButton=true" target="_blank" rel="noopener">Termin buchen <span class="btn__icon"><svg width="14" height="14" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M5 13L13 5M6 5h7v7" stroke="currentColor" stroke-width="1.8"/></svg></span></a>
+      <details class="menu">
+        <summary class="menu__toggle" aria-label="Menü"><span class="is-closed">Menü</span><span class="is-open">Zu</span></summary>
+        <nav class="menu__panel" aria-label="Hauptnavigation mobil">
+          <a href="/">Praxis</a>
+          <a href="/ueber-mich">Über mich</a>
+          <a href="/kurs">Online-Kurs</a>
+          <a href="/gutschein" aria-current="page">Gutschein</a>
+          <a href="tel:+4974249606099">07424 960 609 9</a>
+        </nav>
+      </details>
     </div>
+  </header>
 
-    <div class="split-media page-hero-panel surface-dark">
-      <div class="gutschein-shots animate delay-2">
-        <figure class="gutschein-shot is-front">
-          <a data-lb href="assets/gutschein-vorderseite.webp"
-            aria-label="Vorderseite des Gutscheins vergrößert ansehen">
-            <img src="assets/gutschein-vorderseite.webp" width="1400" height="652"
-              fetchpriority="high" decoding="async"
-              alt="Vorderseite des Geschenkgutscheins der Faszienpraxis Fech mit den Feldern für Empfänger, Absender, Betrag und Datum">
-          </a>
-          <figcaption>Vorderseite</figcaption>
-        </figure>
-        <figure class="gutschein-shot is-back">
-          <a data-lb href="assets/gutschein-rueckseite.webp"
-            aria-label="Rückseite des Gutscheins vergrößert ansehen">
-            <img src="assets/gutschein-rueckseite.webp" width="1400" height="743"
-              loading="lazy" decoding="async"
-              alt="Rückseite des Geschenkgutscheins mit QR-Codes zu Instagram, Website und Google-Bewertungen">
-          </a>
-          <figcaption>Rückseite</figcaption>
-        </figure>
+  <main id="main" tabindex="-1">
+
+    <section class="grid" style="--min:420px">
+      <div class="card pad stack" style="--gap:24px">
+        <p class="eyebrow">Fech Puls · Spaichingen</p>
+        <h1 class="serif display">Gutschein für <em>Tiefengewebs&shy;behandlung</em></h1>
+        <p class="lead">Hat jemand in Ihrem Umfeld anhaltenden Druck, Ziehen oder verhärtete Strukturen im Körper? Verschenken Sie einen Gutschein für eine Tiefengewebebehandlung &amp; Triggerpunkte.</p>
+        <p class="body">Präzise manuelle Behandlung im tiefen Muskel- und Fasziengewebe bei Druck, Ziehen, Stechen und verhärteten Strukturen im Körper.</p>
+        <div class="actions push"><a class="btn btn--accent btn--icon" href="#bestellen">Gutschein anfragen <span class="btn__icon"><svg width="15" height="15" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M5 13L13 5M6 5h7v7" stroke="currentColor" stroke-width="1.8"/></svg></span></a></div>
       </div>
-    </div>
-  </section>
+      <div class="voucher-figs">
+        <figure class="figure figure--voucher"><img src="assets/gutschein-vorne.webp" width="1400" height="781" alt="Geschenkgutschein von Fech Puls, Vorderseite, auf einem dunkelblauen Umschlag" fetchpriority="high"><figcaption>Vorderseite</figcaption></figure>
+        <figure class="figure figure--voucher"><img src="assets/gutschein-hinten.webp" width="1400" height="781" alt="Rückseite des Geschenkgutscheins mit QR-Codes zu Instagram, Website und Google-Bewertungen" loading="lazy"><figcaption>Rückseite</figcaption></figure>
+      </div>
+    </section>
 
+    <section class="card perks">
+      <ul>
+        <li><span class="check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 6.2l2.3 2.3 4.7-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Persönliche Beratung</li>
+        <li><span class="check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 6.2l2.3 2.3 4.7-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Abholung oder Versand per Post</li>
+        <li><span class="check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 6.2l2.3 2.3 4.7-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>30 Min – 80 € · 45 Min – 100 €</li>
+        <li><span class="check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 6.2l2.3 2.3 4.7-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Nach Zahlungseingang versandfertig</li>
+        <li><span class="check" aria-hidden="true"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 6.2l2.3 2.3 4.7-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>Behandlungen ausschließlich mit Termin</li>
+      </ul>
+    </section>
 
-  <!-- ══════ TRUST STRIP ══════ -->
-  <div class="trust-strip">
-    <ul>
-      <li>Persönliche Beratung</li>
-      <li>Abholung oder Versand per Post</li>
-      <li>30 Min – 80 € · 45 Min – 100 €</li>
-      <li>Nach Zahlungseingang versandfertig</li>
-      <li>Behandlungen ausschließlich mit Termin</li>
-    </ul>
-  </div>
-
-
-  <!-- ══════ FORMULAR + SIDEBAR ══════ -->
-  <section class="section surface-tint" id="bestellen" aria-labelledby="bestellen-heading">
-    <div class="split gutschein-main">
-
-    <!-- FORM -->
-    <div class="gutschein-form-wrap">
-      <header class="section-head">
-        <p class="eyebrow">Gutschein bestellen</p>
-        <h2 id="bestellen-heading" class="section-title">Jetzt <em>verschenken</em></h2>
-        <p class="lead">
-          Füllen Sie das Formular aus — wir bereiten Ihren Gutschein nach Zahlungseingang persönlich vor und stellen ihn
-          zur Abholung bereit oder senden ihn per Post zu.
-        </p>
-      </header>
-
-      <form id="gutschein-form" action="/api/gutschein" method="POST" novalidate>
-        <!-- Honeypot for bots -->
-        <input class="hp-field" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
-
-        <div class="form-grid">
-
-          <div class="form-group">
-            <label class="form-label" for="name">Name</label>
-            <input class="form-input" type="text" id="name" name="name" placeholder="Ihr vollständiger Name" autocomplete="name" required>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label" for="email">E-Mail-Adresse</label>
-            <input class="form-input" type="email" id="email" name="email" placeholder="ihre@email.de" autocomplete="email" required>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label" for="mobil">Mobil</label>
-            <input class="form-input" type="tel" id="mobil" name="mobil" placeholder="+49 ..." autocomplete="tel">
-          </div>
-
-          <div class="form-group">
-            <label class="form-label" for="anschrift">Anschrift</label>
-            <input class="form-input" type="text" id="anschrift" name="anschrift" placeholder="Straße & Hausnummer" autocomplete="street-address">
-          </div>
-
-          <div class="form-group full">
-            <label class="form-label" for="city">Ort / PLZ</label>
-            <input class="form-input" type="text" id="city" name="city" placeholder="PLZ und Ort" autocomplete="address-level2">
-          </div>
-
-          <!-- Duration -->
-          <fieldset class="form-group full">
-            <legend class="form-label">Behandlungsdauer</legend>
-            <div class="choice-group">
-              <input type="radio" name="dauer" id="dauer-45" value="45min-100" class="choice-input" checked>
-              <label for="dauer-45" class="choice">
-                <span class="choice-price">100 €</span>
-                <span class="choice-meta">45 Minuten</span>
-              </label>
-              <input type="radio" name="dauer" id="dauer-30" value="30min-80" class="choice-input">
-              <label for="dauer-30" class="choice">
-                <span class="choice-price">80 €</span>
-                <span class="choice-meta">30 Minuten</span>
-              </label>
-            </div>
-          </fieldset>
-
-          <!-- Delivery -->
-          <fieldset class="form-group full">
-            <legend class="form-label">Versand oder Abholung</legend>
-            <div class="choice-group">
-              <input type="radio" name="versand" id="versand-abholung" value="Abholung" class="choice-input" checked>
-              <label for="versand-abholung" class="choice">
-                <span class="choice-text">Abholung vor Ort</span>
-              </label>
-              <input type="radio" name="versand" id="versand-post" value="Versand per Post" class="choice-input">
-              <label for="versand-post" class="choice">
-                <span class="choice-text">Versand per Post</span>
-              </label>
-            </div>
-          </fieldset>
-
-          <!-- Quantity -->
-          <div class="form-group full">
-            <label class="form-label" for="quantity">Gewünschte Anzahl</label>
-            <div class="quantity-wrapper">
-              <button type="button" class="qty-btn" id="qty-minus" aria-label="Anzahl verringern">−</button>
-              <input type="number" class="qty-input" id="quantity" name="anzahl" value="1" min="1" max="20" inputmode="numeric">
-              <button type="button" class="qty-btn" id="qty-plus" aria-label="Anzahl erhöhen">+</button>
-            </div>
-          </div>
-
-          <!-- Message -->
-          <div class="form-group full">
-            <label class="form-label" for="nachricht">Nachricht (optional)</label>
-            <textarea class="form-textarea" id="nachricht" name="nachricht"
-              placeholder="Persönliche Nachricht für den Gutschein oder besondere Wünsche …"></textarea>
-          </div>
-
-          <div class="form-submit-row">
-            <button type="submit" class="btn-primary">Gutschein anfragen</button>
-            <p class="form-note">Nach Absenden melden wir uns mit Zahlungsdetails. Der Gutschein wird nach
-              Zahlungseingang versandfertig gemacht.</p>
-          </div>
-
+    <section id="bestellen" class="order">
+      <div class="card pad order__main">
+        <div class="stack" style="--gap:18px">
+          <p class="eyebrow">Gutschein bestellen</p>
+          <h2 class="serif h-xl balance">Jetzt <em>verschenken.</em></h2>
+          <p class="body">Füllen Sie das Formular aus — wir bereiten Ihren Gutschein nach Zahlungseingang persönlich vor und stellen ihn zur Abholung bereit oder senden ihn per Post zu.</p>
         </div>
-      </form>
 
-      <div id="form-error" class="form-message is-error" role="alert" hidden>Es gab ein Problem beim Senden. Bitte später erneut versuchen oder telefonisch melden.</div>
+        <form class="form" id="gutschein-form" action="/api/gutschein" method="post">
+          <div class="hp" aria-hidden="true">
+            <label>Bitte leer lassen <input type="text" name="_honey" tabindex="-1" autocomplete="off"></label>
+          </div>
+          <div class="form__fields">
+            <label class="field">Name<input name="name" type="text" autocomplete="name" required></label>
+            <label class="field">E-Mail-Adresse<input name="email" type="email" autocomplete="email" required></label>
+            <label class="field">Mobil<input name="mobil" type="tel" autocomplete="tel"></label>
+            <label class="field">Anschrift<input name="anschrift" type="text" autocomplete="street-address"></label>
+            <label class="field">Ort / PLZ<input name="city" type="text" autocomplete="address-level2"></label>
+          </div>
 
-      <div class="form-success form-message" id="form-success" role="status" tabindex="-1">
-        <strong>Vielen Dank für Ihre Anfrage!</strong><br>
-        Wir melden uns in Kürze mit den Zahlungsdetails. Ihr Gutschein wird nach Zahlungseingang persönlich vorbereitet.
+          <fieldset class="fieldset">
+            <legend>Behandlungsdauer</legend>
+            <div class="choices">
+              <label class="choice">
+                <input type="radio" name="dauer" value="45min-100" data-price="100" checked>
+                <span class="choice__box"><span class="choice__price"><span class="choice__amount">100 €</span><span class="choice__dur">45 Minuten</span></span><span class="choice__radio" aria-hidden="true"></span></span>
+              </label>
+              <label class="choice">
+                <input type="radio" name="dauer" value="30min-80" data-price="80">
+                <span class="choice__box"><span class="choice__price"><span class="choice__amount">80 €</span><span class="choice__dur">30 Minuten</span></span><span class="choice__radio" aria-hidden="true"></span></span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="form__row">
+            <fieldset class="fieldset">
+              <legend>Versand oder Abholung</legend>
+              <div class="choices choices--pills">
+                <label class="choice"><input type="radio" name="versand" value="Abholung" checked><span class="choice__box">Abholung vor Ort</span></label>
+                <label class="choice"><input type="radio" name="versand" value="Versand per Post"><span class="choice__box">Versand per Post</span></label>
+              </div>
+            </fieldset>
+            <div class="fieldset">
+              <label class="field-label" for="anzahl">Gewünschte Anzahl</label>
+              <div class="stepper">
+                <button type="button" data-step="-1" aria-label="Weniger">−</button>
+                <input id="anzahl" name="anzahl" type="number" value="1" min="1" max="20" inputmode="numeric">
+                <button type="button" data-step="1" aria-label="Mehr">+</button>
+              </div>
+            </div>
+          </div>
+
+          <label class="field">Nachricht (optional)<textarea name="nachricht" rows="4"></textarea></label>
+
+          <p class="form-error" id="gutschein-error" role="alert" hidden>Die Anfrage konnte nicht gesendet werden. Bitte später erneut versuchen oder telefonisch melden: 07424 960 609 9.</p>
+
+          <div class="form__submit">
+            <p>Nach Absenden melden wir uns mit Zahlungsdetails. Der Gutschein wird nach Zahlungseingang versandfertig gemacht.</p>
+            <button class="btn btn--accent btn--icon" type="submit">Gutschein anfragen · <span data-total>100 €</span> <span class="btn__icon"><svg width="15" height="15" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M5 13L13 5M6 5h7v7" stroke="currentColor" stroke-width="1.8"/></svg></span></button>
+          </div>
+        </form>
+
+        <div class="thanks" id="gutschein-thanks" tabindex="-1" hidden>
+          <span class="thanks__icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 12 12" fill="none"><path d="M2.5 6.2l2.3 2.3 4.7-5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <h2 class="serif balance">Vielen Dank für Ihre Anfrage!</h2>
+          <p class="body">Wir melden uns in Kürze mit den Zahlungsdetails. Ihr Gutschein wird nach Zahlungseingang persönlich vorbereitet.</p>
+          <button type="button" class="link-btn" data-reset>Weitere Anfrage senden</button>
+        </div>
       </div>
+
+      <div class="order__side">
+        <div class="card card--dark pad aside-card">
+          <p class="eyebrow">Hinweis</p>
+          <h2 class="serif on-dark balance">Versand nach <em>Zahlungseingang</em></h2>
+          <p class="body">Die Gutscheine werden nach erfolgtem Zahlungseingang persönlich vorbereitet und können abgeholt oder per Post versendet werden.</p>
+        </div>
+        <div class="card pad aside-card">
+          <p class="eyebrow">Preise</p>
+          <h2 class="serif balance">Behandlungs&shy;optionen</h2>
+          <dl class="pricelist">
+            <div><dt>100 €</dt><dd>45 Min — Tiefengewebs &amp; Triggerpunktarbeit</dd></div>
+            <div><dt>80 €</dt><dd>30 Min — Gezielte Behandlung</dd></div>
+          </dl>
+        </div>
+        <div class="card pad aside-card" style="--gap:12px">
+          <p class="eyebrow">Kontakt &amp; Öffnungszeiten</p>
+          <h2 class="serif balance">Faszienpraxis Fech</h2>
+          <div class="contact">
+            <a href="https://maps.google.com/?q=Danzigerstr.+19,+78549+Spaichingen" target="_blank" rel="noopener"><span class="contact__label">Adresse</span><span class="contact__value">Danzigerstr. 19, 78549 Spaichingen</span><svg width="14" height="14" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M5 13L13 5M6 5h7v7" stroke="currentColor" stroke-width="1.8"/></svg></a>
+            <a href="tel:+4974249606099"><span class="contact__label">Tel.</span><span class="contact__value">07424 960 609 9</span><svg width="14" height="14" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M5 13L13 5M6 5h7v7" stroke="currentColor" stroke-width="1.8"/></svg></a>
+          </div>
+          <p class="meta">Mo &amp; Di 8–11 · 15–18 Uhr · Mi 9–13 Uhr · Do 15–19 Uhr · Fr 9–13 Uhr</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer__top">
+      <div class="footer__intro">
+        <p class="eyebrow">Bereit für echte Veränderung?</p>
+        <h2 class="serif footer__title">Ich arbeite dort, wo viele Ansätze nicht mehr weiterkommen.</h2>
+      </div>
+      <p class="footer__tagline">4,7 ★ aus 196+ Google-Bewertungen · Termine online in wenigen Klicks.</p>
     </div>
-
-    <!-- SIDEBAR -->
-    <aside class="gutschein-sidebar">
-
-      <div class="info-card surface-dark">
-        <p class="eyebrow">Hinweis</p>
-        <h3 class="info-card-title">Versand nach Zahlungseingang</h3>
-        <p>Die Gutscheine werden nach erfolgtem Zahlungseingang persönlich vorbereitet und können abgeholt oder per Post
-          versendet werden.</p>
-      </div>
-
-      <div class="info-card">
-        <p class="eyebrow">Preise</p>
-        <h3 class="info-card-title">Behandlungsoptionen</h3>
-        <dl class="info-rows">
-          <div><dt>45 Min</dt><dd>100 € — Tiefengewebs &amp; Triggerpunktarbeit</dd></div>
-          <div><dt>30 Min</dt><dd>80 € — Gezielte Behandlung</dd></div>
-        </dl>
-      </div>
-
-      <div class="info-card">
-        <p class="eyebrow">Kontakt &amp; Öffnungszeiten</p>
-        <h3 class="info-card-title">Faszienpraxis Fech</h3>
-        <dl class="info-rows">
-          <div><dt>Adresse</dt><dd>Danzigerstr. 19, 78549 Spaichingen</dd></div>
-          <div><dt>Tel.</dt><dd><a href="tel:+4974249606099">07424 960 609 9</a></dd></div>
+    <a class="footer__cta" href="https://book.timify.com/?accountId=652fe85cbd51d3ad47200466&amp;hideCloseButton=true" target="_blank" rel="noopener" data-magnetic>
+      <span class="footer__cta-text">Termin <em class="serif-em">buchen</em></span>
+      <span class="footer__cta-circle" data-magnetic-target><svg viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M5 13L13 5M6 5h7v7" stroke="currentColor" stroke-width="1.4"/></svg></span>
+    </a>
+    <div class="footer__cols">
+      <div>
+        <p class="eyebrow">Öffnungszeiten</p>
+        <dl class="footer__hours">
           <div><dt>Mo &amp; Di</dt><dd>8–11 · 15–18 Uhr</dd></div>
           <div><dt>Mi</dt><dd>9–13 Uhr</dd></div>
           <div><dt>Do</dt><dd>15–19 Uhr</dd></div>
           <div><dt>Fr</dt><dd>9–13 Uhr</dd></div>
         </dl>
       </div>
-
-    </aside>
-
+      <div>
+        <p class="eyebrow">Kontakt</p>
+        <div class="contact">
+          <a href="tel:+4974249606099"><span class="contact__label">Anrufen</span><span class="contact__value">07424 960 609 9</span><svg width="14" height="14" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M5 13L13 5M6 5h7v7" stroke="currentColor" stroke-width="1.6"/></svg></a>
+          <a href="mailto:mein-therapeut@web.de"><span class="contact__label">E-Mail</span><span class="contact__value">mein-therapeut@web.de</span><svg width="14" height="14" viewBox="0 0 18 18" fill="none" aria-hidden="true"><path d="M5 13L13 5M6 5h7v7" stroke="currentColor" stroke-width="1.6"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <p class="eyebrow">Praxis</p>
+        <div class="footer__praxis">
+          <p class="footer__address">Danzigerstr. 19<br>78549 Spaichingen</p>
+          <p class="footer__note">Bitte ein Handtuch mitbringen · Girocard oder bar</p>
+          <a class="btn btn--route" href="https://maps.google.com/?q=Danzigerstr.+19,+78549+Spaichingen" target="_blank" rel="noopener">Route planen</a>
+        </div>
+      </div>
     </div>
-  </section>
-  </main>
+    <div class="footer__bottom">
+      <nav class="footer__nav" aria-label="Weitere Seiten">
+        <a href="/fuer-wen">Für wen geeignet?</a>
+        <a href="/gutschein" aria-current="page">Gutschein</a>
+        <a href="/zertifikate">Zertifikate</a>
+        <a href="/impressum">Impressum</a>
+        <a href="/datenschutz">Datenschutz</a>
+      </nav>
+      <p class="footer__copy">© <span data-year>2026</span> Fech Puls · Wadim Fech</p>
+    </div>
+  </footer>
 
-
-  <!-- LIGHTBOX -->
-  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Gutschein in voller Auflösung">
-    <button class="lightbox-close" id="lb-close" aria-label="Schließen">&times;</button>
-    <button class="lightbox-nav lightbox-prev" id="lb-prev" aria-label="Vorheriges Bild">&#8249;</button>
-    <img id="lb-img" alt="">
-    <button class="lightbox-nav lightbox-next" id="lb-next" aria-label="Nächstes Bild">&#8250;</button>
-    <div class="lightbox-caption" id="lb-caption"></div>
-    <div class="lightbox-counter" id="lb-counter"></div>
   </div>
-
-  <!-- FOOTER (injected by components.js) -->
-  <div id="site-footer"></div>
-
-  <script src="components.js"></script>
-  <script src="lang.js"></script>
-  <script>
-    (function () {
-      'use strict';
-
-      // ── Quantity +/- buttons ─────────────────────────────
-      var qtyInput = document.getElementById('quantity');
-      var qtyMinus = document.getElementById('qty-minus');
-      var qtyPlus  = document.getElementById('qty-plus');
-
-      function clampQty(v) {
-        var n = parseInt(v, 10);
-        if (isNaN(n) || n < 1) n = 1;
-        if (n > 20) n = 20;
-        return n;
-      }
-      if (qtyMinus && qtyPlus && qtyInput) {
-        qtyMinus.addEventListener('click', function () {
-          qtyInput.value = clampQty(parseInt(qtyInput.value, 10) - 1);
-        });
-        qtyPlus.addEventListener('click', function () {
-          qtyInput.value = clampQty(parseInt(qtyInput.value, 10) + 1);
-        });
-        qtyInput.addEventListener('change', function () {
-          qtyInput.value = clampQty(qtyInput.value);
-        });
-      }
-
-      // ── Form submit → POST JSON to /api/gutschein (Resend) ─────────
-      var form    = document.getElementById('gutschein-form');
-      var success = document.getElementById('form-success');
-      if (!form) return;
-
-      var submitBtn = form.querySelector('button[type="submit"]');
-      var origLabel = submitBtn ? submitBtn.textContent : '';
-      var errorBox  = document.getElementById('form-error');
-      // Generischer Fallback-Text — die konkrete Meldung der API hat Vorrang.
-      var genericError = errorBox ? errorBox.textContent : '';
-
-      // ── Draft persistence — a reload never loses what was typed ──────
-      var DRAFT_KEY = 'fp-gutschein-draft';
-      function saveDraft() {
-        try {
-          var o = {};
-          new FormData(form).forEach(function (v, k) { if (k !== '_honey') o[k] = v; });
-          localStorage.setItem(DRAFT_KEY, JSON.stringify(o));
-        } catch (e) {}
-      }
-      function restoreDraft() {
-        try {
-          var raw = localStorage.getItem(DRAFT_KEY);
-          if (!raw) return;
-          var o = JSON.parse(raw);
-          Object.keys(o).forEach(function (k) {
-            var els = form.elements[k];
-            if (!els) return;
-            if (els.forEach || (els.length && typeof els !== 'string' && els[0] && els[0].type === 'radio')) {
-              Array.prototype.forEach.call(els, function (r) { if (r.value === o[k]) r.checked = true; });
-            } else if (els.type === 'radio' || els.type === 'checkbox') {
-              if (els.value === o[k]) els.checked = true;
-            } else {
-              els.value = o[k];
-            }
-          });
-        } catch (e) {}
-      }
-      function clearDraft() { try { localStorage.removeItem(DRAFT_KEY); } catch (e) {} }
-      restoreDraft();
-      form.addEventListener('input', saveDraft);
-      form.addEventListener('change', saveDraft);
-
-      function showError(msg) {
-        if (errorBox) {
-          errorBox.textContent = msg || genericError;
-          errorBox.hidden = false;
-          errorBox.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.textContent = origLabel;
-        }
-      }
-
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        // Basic required-field check (let the browser show its own UI)
-        var name  = form.querySelector('#name');
-        var email = form.querySelector('#email');
-        if (!name.value.trim() || !email.value.trim()) {
-          name.reportValidity();
-          email.reportValidity();
-          return;
-        }
-
-        if (submitBtn) {
-          submitBtn.disabled = true;
-          submitBtn.textContent = 'Wird gesendet…';
-        }
-
-        // Collect form data as a plain object
-        var fd = new FormData(form);
-        var payload = {};
-        fd.forEach(function (v, k) { payload[k] = v; });
-
-        fetch('/api/gutschein', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify(payload)
-        })
-          .then(function (r) {
-            return r.json().catch(function () { return {}; })
-              .then(function (j) { return { ok: r.ok, body: j }; });
-          })
-          .then(function (res) {
-            if (res.ok && res.body && res.body.success) {
-              clearDraft();
-              form.style.display = 'none';
-              if (errorBox) errorBox.hidden = true;
-              if (success) {
-                success.style.display = 'block';
-                success.focus();
-                success.scrollIntoView({ behavior: 'smooth', block: 'center' });
-              }
-              return;
-            }
-            showError(res.body && res.body.error);
-          })
-          .catch(function () {
-            showError('Keine Verbindung zum Server. Bitte Internetverbindung prüfen und erneut versuchen — oder telefonisch melden: 07424 960 609 9.');
-          });
-      });
-
-      // ── No-JS / server-redirect result (?sent=1 / ?error=1) ─────────
-      try {
-        var params = new URLSearchParams(window.location.search);
-        if (params.get('sent') === '1') {
-          clearDraft();
-          form.style.display = 'none';
-          if (success) {
-            success.style.display = 'block';
-            success.focus();
-            success.scrollIntoView({ behavior: 'smooth', block: 'center' });
-          }
-          history.replaceState(null, '', window.location.pathname);
-        } else if (params.get('error') === '1') {
-          if (errorBox) errorBox.hidden = false;
-          history.replaceState(null, '', window.location.pathname);
-        }
-      } catch (e) {}
-    })();
-  </script>
-  <script>
-    // Lightbox — gleiche Mechanik wie auf zertifikate.html:
-    // jedes <a data-lb> um ein <img> wird in DOM-Reihenfolge zu einem Slide.
-    (function () {
-      var triggers = Array.prototype.slice.call(document.querySelectorAll('[data-lb]'));
-      if (!triggers.length) return;
-      var slides = triggers.map(function (a) {
-        var img = a.querySelector('img');
-        return { src: img.getAttribute('src'), alt: img.getAttribute('alt') };
-      });
-
-      var lb = document.getElementById('lightbox');
-      var lbImg = document.getElementById('lb-img');
-      var lbCaption = document.getElementById('lb-caption');
-      var lbCounter = document.getElementById('lb-counter');
-      var lbClose = document.getElementById('lb-close');
-      if (!lb || !lbImg || !lbCaption || !lbCounter || !lbClose) return;
-
-      var current = 0;
-      var lastFocused = null;
-
-      function show(i) {
-        if (i < 0) i = slides.length - 1;
-        if (i >= slides.length) i = 0;
-        current = i;
-        lbImg.src = slides[i].src;
-        lbImg.alt = slides[i].alt;
-        lbCaption.textContent = slides[i].alt;
-        lbCounter.textContent = (i + 1) + ' / ' + slides.length;
-        lb.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      }
-
-      function close() {
-        lb.classList.remove('active');
-        document.body.style.overflow = '';
-        if (lastFocused) { lastFocused.focus(); lastFocused = null; }
-      }
-
-      triggers.forEach(function (a, i) {
-        a.addEventListener('click', function (e) {
-          e.preventDefault();
-          lastFocused = a;
-          show(i);
-          // Fokus erst setzen, wenn der Dialog wirklich sichtbar ist
-          setTimeout(function () { lbClose.focus(); }, 60);
-        });
-      });
-
-      lbClose.addEventListener('click', close);
-      document.getElementById('lb-prev').addEventListener('click', function () { show(current - 1); });
-      document.getElementById('lb-next').addEventListener('click', function () { show(current + 1); });
-      lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
-      document.addEventListener('keydown', function (e) {
-        if (!lb.classList.contains('active')) return;
-        if (e.key === 'Escape') close();
-        if (e.key === 'ArrowLeft') show(current - 1);
-        if (e.key === 'ArrowRight') show(current + 1);
-      });
-    })();
-  </script>
+  </div>
 </body>
-
 </html>

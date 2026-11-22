@@ -59,7 +59,7 @@
   syncFaq();
 
   // ── Certificate lightbox ────────────────────────────────
-  var dialog = document.querySelector('.lightbox');
+  var dialog = document.querySelector('.lightbox:not(.lightbox--protected)');
   var certs = $$('[data-cert]');
   if (dialog && typeof dialog.showModal === 'function' && certs.length) {
     var lbImg = dialog.querySelector('img');
@@ -86,6 +86,45 @@
     dialog.addEventListener('keydown', function (e) {
       if (e.key === 'ArrowRight') show(current + 1);
       if (e.key === 'ArrowLeft') show(current - 1);
+    });
+  }
+
+  // ── Zertifikat-Muster (Kursseite): Pop-up mit Wasserzeichen-Bildern ──
+  // Die Bilder tragen das Wasserzeichen fest im Pixelbild; Kontextmenü, Ziehen
+  // und Kopieren sind im Pop-up zusätzlich gesperrt.
+  var certDialog = document.querySelector('[data-cert-dialog]');
+  var certOpeners = $$('[data-cert-viewer]');
+  if (certDialog && typeof certDialog.showModal === 'function' && certOpeners.length) {
+    var list = certDialog.querySelector('[data-cert-list]');
+    var items = list ? Array.prototype.map.call(list.content.querySelectorAll('[data-src]'), function (el) {
+      return { src: el.getAttribute('data-src'), title: el.textContent.trim() };
+    }) : [];
+    var cImg = certDialog.querySelector('img');
+    var cTitle = certDialog.querySelector('.lightbox__title');
+    var cIdx = 0;
+    var showCert = function (i) {
+      if (!items.length) return;
+      cIdx = (i + items.length) % items.length;
+      cImg.src = items[cIdx].src;
+      cImg.alt = 'Muster des Zertifikats „' + items[cIdx].title + '“ mit Wasserzeichen';
+      cTitle.textContent = items[cIdx].title + ' · Muster';
+    };
+    certOpeners.forEach(function (btn) {
+      btn.addEventListener('click', function () { showCert(0); certDialog.showModal(); });
+    });
+    certDialog.querySelector('[data-prev]').addEventListener('click', function () { showCert(cIdx - 1); });
+    certDialog.querySelector('[data-next]').addEventListener('click', function () { showCert(cIdx + 1); });
+    certDialog.querySelector('[data-close]').addEventListener('click', function () { certDialog.close(); });
+    certDialog.addEventListener('click', function (e) { if (e.target === certDialog) certDialog.close(); });
+    certDialog.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') showCert(cIdx + 1);
+      if (e.key === 'ArrowLeft') showCert(cIdx - 1);
+    });
+    var block = function (e) { e.preventDefault(); };
+    [certDialog].concat(certOpeners).forEach(function (el) {
+      el.addEventListener('contextmenu', block);
+      el.addEventListener('dragstart', block);
+      el.addEventListener('copy', block);
     });
   }
 

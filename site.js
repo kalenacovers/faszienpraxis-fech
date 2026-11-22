@@ -110,7 +110,12 @@
       cTitle.textContent = items[cIdx].title + ' · Muster';
     };
     certOpeners.forEach(function (btn) {
-      btn.addEventListener('click', function () { showCert(0); certDialog.showModal(); });
+      btn.addEventListener('click', function (e) {
+        // Klick auf eines der drei Vorschaubilder öffnet genau dieses Muster.
+        var thumb = e.target.closest ? e.target.closest('[data-cert-index]') : null;
+        showCert(thumb ? parseInt(thumb.getAttribute('data-cert-index'), 10) || 0 : 0);
+        certDialog.showModal();
+      });
     });
     certDialog.querySelector('[data-prev]').addEventListener('click', function () { showCert(cIdx - 1); });
     certDialog.querySelector('[data-next]').addEventListener('click', function () { showCert(cIdx + 1); });

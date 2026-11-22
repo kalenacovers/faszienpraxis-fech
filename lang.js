@@ -48,7 +48,7 @@
     'Online-Kurs': { en: 'Online course', ru: 'Онлайн-курс', it: 'Corso online', es: 'Curso online', fr: 'Cours en ligne' },
     'Neu': { en: 'New', ru: 'Новое', it: 'Nuovo', es: 'Nuevo', fr: 'Nouveau' },
     'Gutschein': { en: 'Gift voucher', ru: 'Сертификат', it: 'Buono regalo', es: 'Vale regalo', fr: 'Bon cadeau' },
-    '4,7 · 196+ Google-Bewertungen': { en: '4.7 · 196+ Google reviews', ru: '4,7 · 196+ отзывов в Google', it: '4,7 · oltre 196 recensioni Google', es: '4,7 · más de 196 reseñas en Google', fr: '4,7 · plus de 196 avis Google' },
+    '4,7 · 199+ Google-Bewertungen': { en: '4.7 · 199+ Google reviews', ru: '4,7 · 199+ отзывов в Google', it: '4,7 · oltre 199 recensioni Google', es: '4,7 · más de 199 reseñas en Google', fr: '4,7 · plus de 199 avis Google' },
     'Termin buchen': { en: 'Book now', ru: 'Записаться', it: 'Prenota', es: 'Reservar', fr: 'Réserver' },
     'Menü': { en: 'Menu', ru: 'Меню', it: 'Menu', es: 'Menú', fr: 'Menu' },
     'Zu': { en: 'Close', ru: '✕', it: 'Chiudi', es: 'Cerrar', fr: 'Fermer' },
@@ -57,7 +57,7 @@
     // Footer
     'Bereit für echte Veränderung?': { en: 'Ready for real change?', ru: 'Готовы к настоящим переменам?', it: 'Pronto per un vero cambiamento?', es: '¿Listo para un cambio real?', fr: 'Prêt pour un vrai changement ?' },
     'Ich arbeite dort, wo viele Ansätze nicht mehr weiterkommen.': { en: 'I work where many approaches reach their limits.', ru: 'Я работаю там, где многие методы уже не помогают.', it: 'Lavoro là dove molti approcci non arrivano più.', es: 'Trabajo donde muchos enfoques ya no llegan.', fr: 'Je travaille là où de nombreuses approches atteignent leurs limites.' },
-    '4,7 ★ aus 196+ Google-Bewertungen · Termine online in wenigen Klicks.': { en: '4.7 ★ from 196+ Google reviews · Book online in just a few clicks.', ru: '4,7 ★ по 196+ отзывам в Google · Запись онлайн в пару кликов.', it: '4,7 ★ su oltre 196 recensioni Google · Prenota online in pochi clic.', es: '4,7 ★ en más de 196 reseñas de Google · Reserva online en pocos clics.', fr: '4,7 ★ sur plus de 196 avis Google · Réservation en ligne en quelques clics.' },
+    '4,7 ★ aus 199+ Google-Bewertungen · Termine online in wenigen Klicks.': { en: '4.7 ★ from 199+ Google reviews · Book online in just a few clicks.', ru: '4,7 ★ по 199+ отзывам в Google · Запись онлайн в пару кликов.', it: '4,7 ★ su oltre 199 recensioni Google · Prenota online in pochi clic.', es: '4,7 ★ en más de 199 reseñas de Google · Reserva online en pocos clics.', fr: '4,7 ★ sur plus de 199 avis Google · Réservation en ligne en quelques clics.' },
     'Termin <em class="serif-em">buchen</em>': { en: 'Book <em class="serif-em">now</em>', ru: 'Запись <em class="serif-em">онлайн</em>', it: 'Prenota <em class="serif-em">ora</em>', es: 'Reserva <em class="serif-em">ya</em>', fr: 'Réservez <em class="serif-em">ici</em>' },
     'Öffnungszeiten': { en: 'Opening hours', ru: 'Часы работы', it: 'Orari', es: 'Horario', fr: 'Horaires' },
     'Mo & Di': { en: 'Mon & Tue', ru: 'Пн и Вт', it: 'Lun e Mar', es: 'Lun y Mar', fr: 'Lun & Mar' },
@@ -80,7 +80,7 @@
     // Startseite — Hero & Intro
     'Google-Bewertung': { en: 'Google rating', ru: 'Оценка в Google', it: 'Valutazione Google', es: 'Valoración en Google', fr: 'Note Google' },
     '4,7': { en: '4.7' },
-    '196+<br>Stimmen': { en: '196+<br>reviews', ru: '196+<br>отзывов', it: '196+<br>recensioni', es: '196+<br>reseñas', fr: '196+<br>avis' },
+    '199+<br>Stimmen': { en: '199+<br>reviews', ru: '199+<br>отзывов', it: '199+<br>recensioni', es: '199+<br>reseñas', fr: '199+<br>avis' },
     'Faszien & Triggerpunktarbeit': { en: 'Fascia & trigger point work', ru: 'Работа с фасциями и триггерными точками', it: 'Lavoro su fasce e trigger point', es: 'Trabajo de fascia y puntos gatillo', fr: 'Travail des fascias et points gâchettes' },
     'Praxis für <em>Faszien</em>, Tiefengewebe &amp; Triggerpunkte in Spaichingen': {
       en: 'Practice for <em>fascia</em>, deep tissue &amp; trigger points in Spaichingen',
@@ -186,7 +186,7 @@
 
     // Bewertungen
     'Echte Stimmen': { en: 'Real voices', ru: 'Настоящие отзывы', it: 'Voci reali', es: 'Opiniones reales', fr: 'De vrais témoignages' },
-    'aus 196+ Bewertungen auf Google': { en: 'from 196+ reviews on Google', ru: 'по 196+ отзывам в Google', it: 'su oltre 196 recensioni Google', es: 'de más de 196 reseñas en Google', fr: 'sur plus de 196 avis Google' },
+    'aus 199+ Bewertungen auf Google': { en: 'from 199+ reviews on Google', ru: 'по 199+ отзывам в Google', it: 'su oltre 199 recensioni Google', es: 'de más de 199 reseñas en Google', fr: 'sur plus de 199 avis Google' },
     'Was Klienten erlebt haben.': { en: 'What clients have experienced.', ru: 'Что говорят клиенты.', it: 'Cosa hanno vissuto i clienti.', es: 'Lo que han vivido los clientes.', fr: 'Ce que les clients ont vécu.' },
     'Alle Bewertungen ansehen': { en: 'See all reviews', ru: 'Все отзывы', it: 'Vedi tutte le recensioni', es: 'Ver todas las reseñas', fr: 'Voir tous les avis' },
     'Bewertung schreiben': { en: 'Write a review', ru: 'Оставить отзыв', it: 'Scrivi una recensione', es: 'Escribir una reseña', fr: 'Écrire un avis' },

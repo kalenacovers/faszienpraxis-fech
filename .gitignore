@@ -19,3 +19,6 @@ assets/**/*.psd
 
 # Rendered film master (web versions live in assets/)
 motion/out/
+
+# Faszien-Erklärvideo (Blender/AE-Arbeitsdateien, temporär)
+motion/faszien-erklaervideo/

@@ -333,13 +333,20 @@ a:active,button:active{scale:.96;transition:scale .12s var(--ease)}
 .kurs-top .figure__badge{position:absolute;left:18px;top:18px;padding:9px 14px;border-radius:999px;background:var(--ink);color:var(--paper);font-size:13px}
 .kurs-side{display:grid;grid-template-rows:auto 1fr;gap:12px}
 .cert-card{padding:clamp(22px,3cqw,40px);display:flex;gap:16px;align-items:center;overflow:hidden}
-.cert-card img{width:clamp(90px,10cqw,130px);height:auto;border-radius:6px;transform:rotate(-4deg)}
+.cert-fan{--w:clamp(78px,8.5cqw,112px);position:relative;flex:none;width:calc(var(--w)*2.15);height:calc(var(--w)*1.62)}
+.cert-fan img{--x:0%;--y:0%;--r:0deg;position:absolute;top:50%;left:50%;width:var(--w);height:auto;border-radius:5px;box-shadow:0 12px 26px rgba(0,0,0,.38);transform:translate(-50%,-50%) translate(var(--x),var(--y)) rotate(var(--r));transition:transform .45s var(--ease)}
+.cert-fan img:nth-child(1){--x:-38%;--y:3%;--r:-11deg}
+.cert-fan img:nth-child(2){--x:38%;--y:3%;--r:9deg}
+.cert-fan img:nth-child(3){--r:-2deg}
+.cert-card:hover .cert-fan img:nth-child(1),.cert-card:focus-visible .cert-fan img:nth-child(1){--x:-47%;--r:-13deg}
+.cert-card:hover .cert-fan img:nth-child(2),.cert-card:focus-visible .cert-fan img:nth-child(2){--x:47%;--r:11deg}
+.cert-card:hover .cert-fan img:nth-child(3),.cert-card:focus-visible .cert-fan img:nth-child(3){--y:-3%;--r:0deg}
+.cert-fan img:hover{z-index:2}
+@media (max-width:520px){.cert-card{flex-direction:column;align-items:flex-start}.cert-fan{--w:96px;align-self:center;margin-block:4px 6px}}
 .cert-card__label{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-hi)}
 .cert-card__title{font-size:clamp(20px,2cqw,26px);letter-spacing:-.02em;line-height:1.15;color:var(--paper)}
 button.cert-card{appearance:none;border:0;font:inherit;color:inherit;text-align:left;width:100%;cursor:zoom-in}
 button.cert-card:active{scale:.99}
-.cert-card img{transition:transform .4s var(--ease)}
-.cert-card:hover img,.cert-card:focus-visible img{transform:rotate(-1deg) scale(1.04)}
 .cert-card__cta{display:inline-flex;align-items:center;gap:8px;margin-top:6px;font-size:14px;font-weight:500;color:var(--accent-hi)}
 .cert-card img,.lightbox--protected img{-webkit-user-drag:none;user-select:none;-webkit-user-select:none}
 .kurs-stats{padding:clamp(22px,3cqw,40px);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;align-content:end}
